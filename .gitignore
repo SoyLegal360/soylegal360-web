@@ -1,0 +1,18 @@
+# SO
+.DS_Store
+**/.DS_Store
+
+# Credenciales de despliegue (NUNCA subir)
+.soylegal360-deploy.env
+*.env
+.env*
+
+# Temporales / preview
+/tmp/
+
+# Editor
+.vscode/
+.idea/
+
+# Claude (config local del agente, no del proyecto web)
+.claude/scheduled_tasks.lock

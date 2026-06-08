@@ -1,0 +1,1219 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Web Legal Lista en 7 Días | SoyLegal360</title>
+  <meta name="description" content="Dos niveles para lanzar tu presencia online con cumplimiento legal integrado: Pack Presencia Legal y Pack Web Completa. Web profesional y legal lista en 7 días.">
+  <style>
+    :root {
+      --ink: #14213d;
+      --muted: #5d667a;
+      --line: #d8dde8;
+      --paper: #ffffff;
+      --soft: #f5f7fb;
+      --gold: #c9a96e;
+      --gold-soft: #e2c98f;
+      --green: #1f7a55;
+      --blue: #275fbc;
+      --dark: #101828;
+      --navy: #07152c;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.55;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      overflow: hidden;
+    }
+
+    .section {
+      padding: 76px 24px;
+    }
+
+    .section--soft {
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, .92), rgba(245, 247, 251, .96)),
+        repeating-linear-gradient(90deg, rgba(20, 33, 61, .045) 0 1px, transparent 1px 92px);
+    }
+
+    .section--dark {
+      color: #fff;
+      background:
+        linear-gradient(135deg, #101828 0%, #07152c 100%);
+    }
+
+    .wrap {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+    }
+
+    .hero {
+      position: relative;
+      isolation: isolate;
+      min-height: 690px;
+      display: grid;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      background-color: var(--navy);
+      background-image:
+        linear-gradient(180deg, rgba(6, 20, 46, .18), rgba(6, 20, 46, .78)),
+        linear-gradient(90deg, rgba(6, 20, 46, .92), rgba(6, 20, 46, .54), rgba(6, 20, 46, .92)),
+        url("https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1440,h=756,fit=crop,f=jpeg/MZS9d1BboyNoZQUA/roboto21-2aHVWcQR0jDp3Rw1.png");
+      background-position: center;
+      background-size: cover;
+      padding: 104px 24px 92px;
+    }
+
+    .hero::before {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      content: "";
+      background:
+        linear-gradient(90deg, rgba(201, 169, 110, .16) 0 1px, transparent 1px 100%),
+        linear-gradient(0deg, rgba(255, 255, 255, .08) 0 1px, transparent 1px 100%);
+      background-size: 86px 86px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, .72), transparent 88%);
+      opacity: .48;
+    }
+
+    .hero::after {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 7px;
+      content: "";
+      background: linear-gradient(90deg, transparent, var(--gold), var(--gold-soft), var(--gold), transparent);
+    }
+
+    .hero__content {
+      width: min(920px, 100%);
+      margin: 0 auto;
+    }
+
+    .hero__mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 24px;
+      padding: 10px 14px;
+      border: 1px solid rgba(255, 255, 255, .2);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .08);
+      color: rgba(255, 255, 255, .9);
+      font: 700 12px/1 Arial, sans-serif;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      backdrop-filter: blur(12px);
+    }
+
+    .hero__mark::before {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 0 5px rgba(201, 169, 110, .16);
+      content: "";
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      max-width: 860px;
+      margin: 0 auto;
+      font-size: clamp(42px, 7vw, 78px);
+      text-wrap: balance;
+    }
+
+    h2 {
+      max-width: 820px;
+      margin: 0 auto;
+      font-size: clamp(32px, 4.4vw, 52px);
+      text-wrap: balance;
+    }
+
+    h3 {
+      font-size: clamp(24px, 3vw, 32px);
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .lead {
+      max-width: 780px;
+      margin: 26px auto 0;
+      font-size: clamp(19px, 2.1vw, 25px);
+      color: rgba(255, 255, 255, .9);
+      text-wrap: pretty;
+    }
+
+    .copy {
+      max-width: 830px;
+      margin: 24px auto 0;
+      font-size: 19px;
+      color: var(--muted);
+      text-align: center;
+      text-wrap: pretty;
+    }
+
+    .copy p + p {
+      margin-top: 18px;
+    }
+
+    .section > .wrap > .eyebrow,
+    .section > .wrap > h2 {
+      text-align: center;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 14px 22px;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-decoration: none;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(16, 24, 40, .18);
+    }
+
+    .btn--primary {
+      color: var(--dark);
+      background: linear-gradient(180deg, var(--gold-soft), var(--gold));
+      box-shadow: 0 18px 34px rgba(201, 169, 110, .24);
+    }
+
+    .btn--secondary {
+      color: #fff;
+      border-color: rgba(255, 255, 255, .55);
+      background: rgba(255, 255, 255, .08);
+      backdrop-filter: blur(12px);
+    }
+
+    .btn--dark {
+      color: #fff;
+      background: var(--dark);
+    }
+
+    .hero__proof {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      width: min(760px, 100%);
+      margin: 44px auto 0;
+      border: 1px solid rgba(255, 255, 255, .18);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .12);
+      overflow: hidden;
+      backdrop-filter: blur(12px);
+    }
+
+    .hero__proof span {
+      display: grid;
+      gap: 4px;
+      padding: 16px 14px;
+      background: rgba(6, 20, 46, .54);
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      color: rgba(255, 255, 255, .76);
+    }
+
+    .hero__proof strong {
+      color: #fff;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 21px;
+      line-height: 1.1;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      margin-top: 42px;
+    }
+
+    .card {
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 30px;
+      text-align: left;
+      box-shadow: 0 20px 60px rgba(20, 33, 61, .08);
+      transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 26px 70px rgba(20, 33, 61, .14);
+    }
+
+    .card--green {
+      border-top: 5px solid var(--green);
+    }
+
+    .card--blue {
+      border-top: 5px solid var(--blue);
+    }
+
+    .tag {
+      display: inline-flex;
+      margin-bottom: 18px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      color: var(--dark);
+      background: #eef2f7;
+    }
+
+    .price {
+      margin-top: 16px;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .fit {
+      margin-top: 18px;
+      font-size: 17px;
+      color: var(--muted);
+    }
+
+    .list {
+      display: grid;
+      gap: 10px;
+      margin: 24px 0 0;
+      padding: 0;
+      list-style: none;
+      color: var(--muted);
+    }
+
+    .list li {
+      position: relative;
+      padding-left: 26px;
+    }
+
+    .list li::before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-weight: 700;
+      color: var(--green);
+      content: "✓";
+    }
+
+    .list--no li::before {
+      color: #9a3412;
+      content: "×";
+    }
+
+    .note {
+      margin-top: 24px;
+      padding: 18px;
+      border-left: 4px solid var(--gold);
+      background: #fffaf0;
+      color: #4b5565;
+    }
+
+    .table-wrap {
+      margin-top: 36px;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 18px 52px rgba(20, 33, 61, .07);
+    }
+
+    .compare-controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .toggle-btn {
+      min-height: 40px;
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--dark);
+      background: #fff;
+      cursor: pointer;
+      transition: background .2s ease, color .2s ease, border-color .2s ease;
+    }
+
+    .toggle-btn[aria-pressed="true"] {
+      color: #fff;
+      border-color: var(--dark);
+      background: var(--dark);
+    }
+
+    .table-wrap.is-differences tbody tr[data-same="true"] {
+      display: none;
+    }
+
+    table {
+      width: 100%;
+      min-width: 760px;
+      border-collapse: collapse;
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+    }
+
+    th,
+    td {
+      padding: 18px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      color: var(--dark);
+      background: #f8fafc;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 16px;
+      margin-top: 36px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 24px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .78);
+      box-shadow: 0 16px 44px rgba(20, 33, 61, .06);
+    }
+
+    .step strong {
+      color: var(--dark);
+    }
+
+    .faq {
+      display: grid;
+      gap: 18px;
+      margin-top: 36px;
+    }
+
+    .faq-item {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 24px;
+      transition: border-color .2s ease, box-shadow .2s ease;
+    }
+
+    .faq-item[open] {
+      border-color: rgba(201, 169, 110, .85);
+      box-shadow: 0 18px 46px rgba(20, 33, 61, .08);
+    }
+
+    .faq-item summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      color: var(--dark);
+      cursor: pointer;
+      list-style: none;
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item summary::after {
+      flex: 0 0 auto;
+      width: 28px;
+      height: 28px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-family: Arial, sans-serif;
+      font-size: 18px;
+      content: "+";
+    }
+
+    .faq-item[open] summary::after {
+      content: "−";
+    }
+
+    .faq-item p {
+      margin-top: 14px;
+      color: var(--muted);
+    }
+
+    .chooser {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 28px;
+      align-items: start;
+      margin-top: 38px;
+    }
+
+    .quiz,
+    .recommendation {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 28px;
+      box-shadow: 0 20px 60px rgba(20, 33, 61, .07);
+    }
+
+    .question + .question {
+      margin-top: 22px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+    }
+
+    .question p {
+      margin-bottom: 12px;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .choices {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .choice {
+      min-height: 42px;
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--dark);
+      background: #fff;
+      cursor: pointer;
+      transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
+    }
+
+    .choice:hover {
+      transform: translateY(-1px);
+      border-color: var(--gold);
+    }
+
+    .choice.is-selected {
+      color: #fff;
+      border-color: var(--dark);
+      background: var(--dark);
+    }
+
+    .recommendation__label {
+      margin-bottom: 12px;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .recommendation h3 {
+      margin-bottom: 14px;
+    }
+
+    .recommendation p {
+      color: var(--muted);
+    }
+
+    .recommendation .actions {
+      justify-content: flex-start;
+      margin-top: 24px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .sticky-cta {
+      position: fixed;
+      z-index: 20;
+      left: 18px;
+      right: 18px;
+      bottom: 18px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      align-items: center;
+      width: min(920px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 14px 16px;
+      border: 1px solid rgba(255, 255, 255, .18);
+      border-radius: 8px;
+      color: #fff;
+      background: rgba(16, 24, 40, .94);
+      box-shadow: 0 20px 60px rgba(16, 24, 40, .28);
+      transform: translateY(140%);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform .28s ease, opacity .28s ease;
+    }
+
+    .sticky-cta.is-visible {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .sticky-cta p {
+      font-size: 15px;
+    }
+
+    .sticky-cta strong {
+      color: var(--gold);
+    }
+
+    .final {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 28px;
+      align-items: center;
+      text-align: left;
+    }
+
+    .final .eyebrow,
+    .final h2,
+    .final .copy {
+      text-align: left;
+      margin-left: 0;
+    }
+
+    .final .copy {
+      color: rgba(255, 255, 255, .76);
+    }
+
+    @media (max-width: 820px) {
+      .section {
+        padding: 58px 20px;
+      }
+
+      .hero {
+        min-height: 610px;
+        padding-top: 76px;
+      }
+
+      .cards,
+      .final,
+      .chooser,
+      .sticky-cta {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 24px;
+      }
+
+      .step {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .hero__proof {
+        grid-template-columns: 1fr;
+      }
+
+      .final,
+      .final .eyebrow,
+      .final h2,
+      .final .copy {
+        text-align: center;
+      }
+
+      .final .copy {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .sticky-cta {
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        width: calc(100% - 24px);
+      }
+    }
+
+    @media (max-width: 520px) {
+      .hero {
+        min-height: auto;
+        padding: 72px 20px 54px;
+      }
+
+      .hero__mark {
+        max-width: 100%;
+        justify-content: center;
+        font-size: 11px;
+        letter-spacing: .06em;
+      }
+
+      h1 {
+        font-size: clamp(40px, 12vw, 52px);
+      }
+
+      .lead {
+        margin-top: 22px;
+        font-size: 18px;
+        line-height: 1.5;
+      }
+
+      .hero .actions {
+        margin-top: 28px;
+      }
+
+      .hero__proof {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .btn,
+      .card,
+      .choice,
+      .reveal,
+      .sticky-cta {
+        transition: none;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero__content">
+          <div class="hero__mark">Web + cumplimiento legal · lista en 7 días</div>
+          <h1>Tu web profesional y legal, lista en 7 días</h1>
+          <p class="lead">Sin contratar a una agencia de diseño por un lado y a un abogado por otro. Creamos tu presencia online con la parte legal integrada desde el primer día, en una sola entrega llave en mano.</p>
+          <div class="actions">
+            <a class="btn btn--primary" href="https://www.soylegal360.es/contacto" target="_top" rel="noopener">Solicitar información</a>
+            <a class="btn btn--secondary" href="#niveles">Comparar packs</a>
+          </div>
+          <div class="hero__proof" aria-label="Resumen del servicio">
+            <span><strong>7 días</strong>Entrega prevista</span>
+            <span><strong>100% online</strong>Proceso sin desplazamientos</span>
+            <span><strong>Legal integrado</strong>Web, textos y cumplimiento</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <p class="eyebrow">Derecho + tecnología</p>
+        <h2>La web y la parte legal no deberían ir por separado</h2>
+        <div class="copy">
+          <p>Muchas webs nacen con un problema de origen: primero se diseña la página y después alguien se acuerda del Aviso Legal, la Política de Privacidad, las cookies o las cláusulas de los formularios.</p>
+          <p>En SoyLegal360 cerramos esa brecha. Construimos la parte técnica y la parte legal en paralelo, con documentación redactada a medida por abogada colegiada y una implementación pensada para que el cumplimiento funcione en la práctica.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft">
+      <div class="wrap">
+        <p class="eyebrow">Elige sin dudas</p>
+        <h2>¿Qué pack encaja contigo?</h2>
+        <p class="copy">Responde tres preguntas rápidas. No sustituye a una revisión personalizada, pero te orienta antes de decidir.</p>
+
+        <div class="chooser" data-quiz>
+          <div class="quiz" aria-label="Selector de pack">
+            <div class="question" data-question="hasWeb">
+              <p>¿Ya tienes una web publicada?</p>
+              <div class="choices">
+                <button class="choice" type="button" data-value="yes">Sí, ya tengo web</button>
+                <button class="choice" type="button" data-value="no">No, empiezo desde cero</button>
+              </div>
+            </div>
+
+            <div class="question" data-question="form">
+              <p>¿Quieres recibir contactos desde formulario o suscripción?</p>
+              <div class="choices">
+                <button class="choice" type="button" data-value="yes">Sí, quiero captar contactos</button>
+                <button class="choice" type="button" data-value="no">No, WhatsApp/teléfono/email directo</button>
+              </div>
+            </div>
+
+            <div class="question" data-question="pages">
+              <p>¿Necesitas varias páginas para explicar servicios, equipo o proceso?</p>
+              <div class="choices">
+                <button class="choice" type="button" data-value="yes">Sí, necesito más estructura</button>
+                <button class="choice" type="button" data-value="no">No, una página me basta</button>
+              </div>
+            </div>
+          </div>
+
+          <aside class="recommendation" aria-live="polite">
+            <p class="recommendation__label">Recomendación</p>
+            <h3 data-result-title>Responde las preguntas</h3>
+            <p data-result-copy>Te mostraremos si encaja mejor el Pack Presencia Legal, el Pack Web Completa o una adaptación legal de tu web actual.</p>
+            <div class="actions">
+              <a class="btn btn--dark" data-result-cta href="https://www.soylegal360.es/contacto" target="_top" rel="noopener">Consultar mi caso</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="niveles" class="section section--soft">
+      <div class="wrap">
+        <p class="eyebrow">Dos niveles</p>
+        <h2>Elige según lo que necesita tu negocio hoy</h2>
+        <p class="copy">Si solo necesitas que te encuentren, no tienes por qué pagar por formularios, cookies o estructuras de captación que no vas a usar. Si quieres captar clientes desde la web, entonces la capa RGPD completa debe estar integrada desde el principio.</p>
+
+        <div class="cards">
+          <article class="card card--green">
+            <span class="tag">Pack Presencia Legal</span>
+            <h3>Quiero que me encuentren</h3>
+            <p class="price">590€ +IVA · Pago único</p>
+            <p class="fit">Para autónomos, comercios locales, hostelería, servicios de proximidad y profesionales que necesitan estar online con una presencia clara, profesional y legalmente ordenada.</p>
+
+            <ul class="list">
+              <li>Landing visual de 1 página en HTML, diseñada a medida para tu negocio.</li>
+              <li>Aviso Legal personalizado conforme a LSSI-CE.</li>
+              <li>Ficha de Google Business Profile configurada.</li>
+              <li>Dominio propio durante 1 año, registrado a tu nombre desde el primer día.</li>
+              <li>Email profesional durante 1 año.</li>
+              <li>Certificado SSL (HTTPS).</li>
+              <li>Diseño adaptado a tu marca y sector.</li>
+              <li>1 ronda de ajustes durante la entrega.</li>
+              <li>Publicación y entrega llave en mano.</li>
+            </ul>
+
+            <ul class="list list--no">
+              <li>No incluye formulario de contacto: el contacto se hace por WhatsApp, teléfono o email directo.</li>
+              <li>No incluye banner de cookies, analítica ni píxeles de seguimiento.</li>
+            </ul>
+
+            <p class="note">Este pack existe para reducir la complejidad legal al mínimo: una presencia profesional sin formularios ni cookies no necesarias, pensada para negocios que quieren estar visibles sin sobredimensionar su web.</p>
+            <div class="actions">
+              <a class="btn btn--dark" href="https://www.soylegal360.es/contacto" target="_top" rel="noopener">Quiero Presencia Legal</a>
+            </div>
+          </article>
+
+          <article class="card card--blue">
+            <span class="tag">Pack Web Completa</span>
+            <h3>Quiero captar clientes online</h3>
+            <p class="price">949€ +IVA · Pago único</p>
+            <p class="fit">Para profesionales, pymes y proyectos que necesitan una web más completa, con varias páginas, formulario de contacto, captación de leads o cualquier tratamiento de datos desde la web.</p>
+
+            <ul class="list">
+              <li>Web profesional de 3 a 5 páginas, diseñada a medida.</li>
+              <li>Adaptación Web completa integrada: Aviso Legal, Política de Privacidad, Política de Cookies y cláusulas informativas.</li>
+              <li>Documentación redactada a medida por abogada colegiada del ICAB.</li>
+              <li>Banner de cookies conforme a criterios AEPD.</li>
+              <li>Formulario de contacto o suscripción legalmente configurado.</li>
+              <li>Ficha de Google Business Profile configurada.</li>
+              <li>Dominio propio durante 1 año, registrado a tu nombre desde el primer día.</li>
+              <li>Email profesional durante 1 año.</li>
+              <li>Certificado SSL (HTTPS).</li>
+              <li>2 rondas de ajustes durante la entrega.</li>
+              <li>Guía de implementación legal.</li>
+              <li>Publicación y entrega llave en mano.</li>
+            </ul>
+
+            <p class="note">Este pack no es una web por un lado y documentos legales por otro. Es una web construida desde el inicio con la parte legal integrada para captar clientes sin dejar RGPD, cookies o formularios para después.</p>
+            <div class="actions">
+              <a class="btn btn--dark" href="https://www.soylegal360.es/contacto" target="_top" rel="noopener">Quiero Web Completa</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <p class="eyebrow">Comparativa</p>
+        <h2>Compáralos de un vistazo</h2>
+        <div class="compare-controls" aria-label="Controles de comparativa">
+          <button class="toggle-btn" type="button" data-compare="all" aria-pressed="true">Ver todo</button>
+          <button class="toggle-btn" type="button" data-compare="diff" aria-pressed="false">Solo diferencias</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Elemento</th>
+                <th>Pack Presencia Legal</th>
+                <th>Pack Web Completa</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Para quién</td>
+                <td>Profesionales y negocios que necesitan estar online</td>
+                <td>Profesionales y pymes que quieren captar clientes desde la web</td>
+              </tr>
+              <tr>
+                <td>Páginas</td>
+                <td>1 landing visual</td>
+                <td>3 a 5 páginas</td>
+              </tr>
+              <tr>
+                <td>Formulario de contacto</td>
+                <td>No incluido</td>
+                <td>Incluido</td>
+              </tr>
+              <tr>
+                <td>Banner de cookies</td>
+                <td>No incluido</td>
+                <td>Incluido</td>
+              </tr>
+              <tr>
+                <td>Documentación legal</td>
+                <td>Aviso Legal personalizado</td>
+                <td>Aviso Legal, Privacidad, Cookies y cláusulas de formularios</td>
+              </tr>
+              <tr data-same="true">
+                <td>Google Business Profile</td>
+                <td>Incluido</td>
+                <td>Incluido</td>
+              </tr>
+              <tr data-same="true">
+                <td>Dominio + email 1 año</td>
+                <td>Incluido, a tu nombre</td>
+                <td>Incluido, a tu nombre</td>
+              </tr>
+              <tr>
+                <td>Rondas de ajustes</td>
+                <td>1</td>
+                <td>2</td>
+              </tr>
+              <tr data-same="true">
+                <td>Plazo de entrega</td>
+                <td>7 días</td>
+                <td>7 días</td>
+              </tr>
+              <tr>
+                <td>Precio</td>
+                <td><strong>590€ +IVA</strong></td>
+                <td><strong>949€ +IVA</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft">
+      <div class="wrap">
+        <p class="eyebrow">Proceso</p>
+        <h2>Así trabajamos los 7 días</h2>
+
+        <div class="timeline">
+          <div class="step">
+            <strong>Día 1</strong>
+            <p>Conversación inicial para entender tu negocio, tus objetivos y si necesitas solo presencia online o una web preparada para captar contactos.</p>
+          </div>
+          <div class="step">
+            <strong>Día 2</strong>
+            <p>Onboarding: recopilamos datos para dominio, email, textos, imágenes y hoja de encargo. El dominio queda registrado a tu nombre desde el primer día.</p>
+          </div>
+          <div class="step">
+            <strong>Días 3 a 5</strong>
+            <p>Construcción legal y técnica en paralelo. El equipo legal redacta la documentación necesaria y el equipo técnico construye la web.</p>
+          </div>
+          <div class="step">
+            <strong>Día 6</strong>
+            <p>Revisión y ajustes. Te enseñamos el resultado y aplicamos las rondas incluidas según el pack contratado.</p>
+          </div>
+          <div class="step">
+            <strong>Día 7</strong>
+            <p>Publicación y entrega. Dejamos la web activa, con SSL, dominio, email y la información necesaria para saber qué se ha implementado.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <p class="eyebrow">Preguntas frecuentes</p>
+        <h2>Lo que conviene saber antes de elegir</h2>
+
+        <div class="faq">
+          <details class="faq-item">
+            <summary>¿Por qué el Pack Presencia Legal no incluye formulario?</summary>
+            <p>Porque un formulario implica tratamiento de datos personales y activa obligaciones adicionales: Política de Privacidad, cláusulas informativas, configuración del consentimiento y, en muchos casos, una estructura legal más completa. Si necesitas captar contactos, el nivel adecuado es Pack Web Completa.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>¿Por qué no incluye banner de cookies?</summary>
+            <p>Porque está pensado como una web de presencia sin analítica, píxeles ni cookies no necesarias. Así evitamos añadir complejidad legal que no aporta valor si tu objetivo es simplemente que te encuentren y contacten contigo por vías directas.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>¿Puedo pasar de Presencia Legal a Web Completa más adelante?</summary>
+            <p>Sí. Si tu negocio evoluciona y necesitas formulario, varias páginas o captación online, se plantea como un proyecto nuevo de Web Completa. En ese caso, se aplica un crédito del 50% de lo pagado en el Pack Presencia Legal.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>¿Quién es propietario del dominio y del email?</summary>
+            <p>Tú, desde el primer día. Los registramos a tu nombre. La renovación a partir del segundo año la gestionas directamente con el proveedor.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>¿Y si ya tengo una web?</summary>
+            <p>Entonces probablemente no necesitas este servicio. Lo adecuado es una Adaptación Web: revisar y redactar la documentación legal de tu web actual sin reconstruirla.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>¿Las modificaciones futuras están incluidas?</summary>
+            <p>Durante la entrega tienes las rondas de ajustes incluidas en cada pack. Los cambios posteriores se valoran a medida con presupuesto puntual, sin cuotas técnicas obligatorias ni paquetes cerrados de mantenimiento.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--dark">
+      <div class="wrap final">
+        <div>
+          <p class="eyebrow">Consulta de encaje gratuita</p>
+          <h2>¿No tienes claro cuál te conviene?</h2>
+          <p class="copy">Cuéntanos en qué punto está tu negocio y qué necesitas conseguir con la web. Te orientamos sobre el pack que encaja mejor, sin compromiso. Si hace falta, agendamos una reunión gratuita por videollamada.</p>
+        </div>
+        <a class="btn btn--primary" href="https://www.soylegal360.es/contacto" target="_top" rel="noopener">Solicitar consulta</a>
+      </div>
+    </section>
+
+    <aside class="sticky-cta" data-sticky-cta aria-label="Acceso rápido a consulta gratuita">
+      <p><strong>¿No sabes cuál elegir?</strong> Te orientamos antes de crear tu web.</p>
+      <a class="btn btn--primary" href="https://www.soylegal360.es/contacto" target="_top" rel="noopener">Consulta gratuita</a>
+    </aside>
+  </main>
+  <script>
+    const CONTACT_URL = "https://www.soylegal360.es/contacto";
+    const quiz = document.querySelector("[data-quiz]");
+    const answers = {};
+
+    const resultTitle = document.querySelector("[data-result-title]");
+    const resultCopy = document.querySelector("[data-result-copy]");
+    const resultCta = document.querySelector("[data-result-cta]");
+
+    const recommendations = {
+      existing: {
+        title: "Probablemente necesitas Adaptación Web",
+        copy: "Si ya tienes una web publicada, lo más eficiente suele ser revisar e integrar la documentación legal sobre tu web actual, sin reconstruirla desde cero.",
+        cta: "Consultar mi web actual"
+      },
+      presence: {
+        title: "Te encaja el Pack Presencia Legal",
+        copy: "Quieres estar online, aparecer en Google y facilitar contacto directo sin añadir formularios, cookies no necesarias ni una estructura legal sobredimensionada.",
+        cta: "Consultar Presencia Legal"
+      },
+      complete: {
+        title: "Te encaja el Pack Web Completa",
+        copy: "Necesitas una web con más estructura, formularios o captación online. En ese caso conviene integrar RGPD, cookies y cláusulas desde el primer día.",
+        cta: "Consultar Web Completa"
+      },
+      pending: {
+        title: "Responde las preguntas",
+        copy: "Te mostraremos si encaja mejor el Pack Presencia Legal, el Pack Web Completa o una adaptación legal de tu web actual.",
+        cta: "Consultar mi caso"
+      }
+    };
+
+    function setRecommendation(type) {
+      const recommendation = recommendations[type];
+      resultTitle.textContent = recommendation.title;
+      resultCopy.textContent = recommendation.copy;
+      resultCta.textContent = recommendation.cta;
+      resultCta.href = CONTACT_URL;
+    }
+
+    function updateQuiz() {
+      if (answers.hasWeb === "yes") {
+        setRecommendation("existing");
+        return;
+      }
+
+      if (!answers.hasWeb || !answers.form || !answers.pages) {
+        setRecommendation("pending");
+        return;
+      }
+
+      if (answers.form === "yes" || answers.pages === "yes") {
+        setRecommendation("complete");
+        return;
+      }
+
+      setRecommendation("presence");
+    }
+
+    if (quiz) {
+      quiz.addEventListener("click", (event) => {
+        const button = event.target.closest(".choice");
+
+        if (!button) {
+          return;
+        }
+
+        const question = button.closest("[data-question]");
+        const questionName = question.dataset.question;
+
+        question.querySelectorAll(".choice").forEach((choice) => {
+          choice.classList.remove("is-selected");
+        });
+
+        button.classList.add("is-selected");
+        answers[questionName] = button.dataset.value;
+        updateQuiz();
+      });
+    }
+
+    const tableWrap = document.querySelector(".table-wrap");
+    const compareButtons = document.querySelectorAll("[data-compare]");
+
+    compareButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const showDifferences = button.dataset.compare === "diff";
+        tableWrap.classList.toggle("is-differences", showDifferences);
+
+        compareButtons.forEach((item) => {
+          item.setAttribute("aria-pressed", String(item === button));
+        });
+      });
+    });
+
+    const faqItems = document.querySelectorAll(".faq-item");
+
+    faqItems.forEach((item) => {
+      item.addEventListener("toggle", () => {
+        if (!item.open) {
+          return;
+        }
+
+        faqItems.forEach((otherItem) => {
+          if (otherItem !== item) {
+            otherItem.removeAttribute("open");
+          }
+        });
+      });
+    });
+
+    const revealTargets = document.querySelectorAll(".card, .step, .faq-item, .chooser");
+
+    revealTargets.forEach((target) => {
+      target.classList.add("reveal");
+    });
+
+    if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      revealTargets.forEach((target) => revealObserver.observe(target));
+    } else {
+      revealTargets.forEach((target) => target.classList.add("is-visible"));
+    }
+
+    const stickyCta = document.querySelector("[data-sticky-cta]");
+
+    function updateStickyCta() {
+      const shouldShow = window.scrollY > 720 && window.innerHeight + window.scrollY < document.body.scrollHeight - 420;
+      stickyCta.classList.toggle("is-visible", shouldShow);
+    }
+
+    window.addEventListener("scroll", updateStickyCta, { passive: true });
+    updateStickyCta();
+  </script>
+</body>
+</html>

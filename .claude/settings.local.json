@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rsync -a --delete --exclude=.DS_Store --exclude=privacy-policy/ --exclude=solicita-auditoria-web-gratuita/ --exclude=casos-de-exito/ /Users/josemotos/Documents/Claude/SoyLegal360.es/site/ /tmp/sl360_dist/)",
+      "Bash(cp /Users/josemotos/Documents/Claude/SoyLegal360.es/site/index.html /tmp/test_nav.html)",
+      "Bash(perl -0777 -i '' -e 's|\\(<a href=\"/\">Inicio</a>\\)\\(<a href=\"/como-funciona/\">.*?Contacto</a>\\)\\\\n\\(\\\\s+\\)\\(<details class=\"services-menu\">.*?</details>\\)|$1\\\\n$3$4\\\\n$3$2|s' /tmp/test_nav.html)",
+      "Read(//tmp/**)",
+      "Bash(grep -n 'Inicio\\\\|</details>\\\\|como-funciona' /tmp/test_nav.html | head -6)",
+      "Bash(rsync -a --delete --exclude=.DS_Store --exclude=privacy-policy/ --exclude=solicita-auditoria-web-gratuita/ --exclude=casos-de-exito/ /Users/josemotos/Documents/Claude/SoyLegal360.es/site/ /Users/josemotos/Documents/Claude/SoyLegal360.es/dist/)",
+      "Bash(cp /Users/josemotos/Documents/Claude/SoyLegal360.es/site/assets/js/site.js /tmp/sl360_dist/assets/js/site.js && wc -l /tmp/sl360_dist/assets/js/site.js)",
+      "Bash(rsync -av --delete /Users/josemotos/Documents/Claude/SoyLegal360.es/site/ /Users/josemotos/Documents/Claude/SoyLegal360.es/dist/)",
+      "Bash(rsync -av --delete /Users/josemotos/Documents/Claude/SoyLegal360.es/site/ /tmp/sl360_dist/)",
+      "Bash(rsync -a --delete /Users/josemotos/Documents/Claude/SoyLegal360.es/site/ /Users/josemotos/Documents/Claude/SoyLegal360.es/dist/)",
+      "Bash(rsync -a --delete /Users/josemotos/Documents/Claude/SoyLegal360.es/site/ /tmp/sl360_dist/)",
+      "Bash(python3)",
+      "Bash(rsync -a --delete --exclude='.DS_Store' --exclude='privacy-policy/' --exclude='solicita-auditoria-web-gratuita/' --exclude='casos-de-exito/' site/ dist/)",
+      "Bash(rsync -a --delete --exclude='.DS_Store' site/ /tmp/sl360_dist/)"
+    ]
+  }
+}

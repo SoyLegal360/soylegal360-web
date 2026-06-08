@@ -1,0 +1,662 @@
+<!--
+Fuente: sl360-live-home.html
+Pagina publicada: home
+Elemento Hostinger: zo5SsX
+Tipo detectado: calculadora
+Titulo detectado: Calcula el nivel de riesgo legal de tu negocio
+Flags: script, css-inline
+Desktop: {"top":17,"left":0,"width":1224,"height":1122.171875}
+Mobile: {"top":16,"left":0,"width":328,"height":2033.421875}
+-->
+<section id="sl360-risk-calculator" class="sl360-risk">
+  <style>
+    .sl360-risk {
+      --navy: #17274a;
+      --ink: #0d1b2a;
+      --gold: #c9a96e;
+      --soft: #f7f5f0;
+      --line: #e6e1d7;
+      --muted: #56585e;
+      --green: #2c6b4f;
+      --amber: #a66a12;
+      --red: #a33a2f;
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 24px 14px;
+      background: #fff;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .sl360-risk * { box-sizing: border-box; }
+
+    .sl360-risk__brand {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 16px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--navy), #0d141a);
+      overflow: hidden;
+    }
+
+    .sl360-risk__logo {
+      display: block;
+      max-width: 132px;
+      width: 38vw;
+      height: auto;
+    }
+
+    .sl360-risk__brand-mark {
+      color: rgba(255, 255, 255, .78);
+      font: 700 12px/1.3 Arial, sans-serif;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      text-align: right;
+    }
+
+    .sl360-risk__intro {
+      margin-bottom: 18px;
+      padding-left: 14px;
+      border-left: 4px solid var(--gold);
+    }
+
+    .sl360-risk__eyebrow {
+      margin: 0 0 8px;
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .sl360-risk h2 {
+      margin: 0 0 8px;
+      color: var(--navy);
+      font-size: clamp(26px, 3.2vw, 38px);
+      line-height: 1.08;
+    }
+
+    .sl360-risk__lead {
+      margin: 0;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+    .sl360-risk__shell {
+      display: grid;
+      grid-template-columns: minmax(0, .98fr) minmax(330px, .82fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .sl360-risk__form,
+    .sl360-risk__result {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 16px 45px rgba(13, 27, 42, .08);
+    }
+
+    .sl360-risk__form { padding: 14px; }
+
+    .sl360-risk__section {
+      margin-bottom: 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .sl360-risk__section summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 14px;
+      background: #fbfaf7;
+      color: var(--navy);
+      cursor: pointer;
+      list-style: none;
+      font: 700 16px/1.25 Georgia, "Times New Roman", serif;
+    }
+
+    .sl360-risk__section summary::-webkit-details-marker { display: none; }
+    .sl360-risk__section summary::after { content: "+"; color: var(--gold); font: 700 22px/1 Arial, sans-serif; }
+    .sl360-risk__section[open] summary::after { content: "-"; }
+
+    .sl360-risk__group {
+      margin: 0;
+      padding: 14px;
+      border: 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .sl360-risk label {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .sl360-risk__field { margin: 0 0 12px; }
+
+    .sl360-risk select {
+      width: 100%;
+      min-height: 40px;
+      padding: 8px 10px;
+      border: 1px solid #d6d6d6;
+      border-radius: 6px;
+      background: #fff;
+      color: var(--ink);
+      font: 14px/1.35 Arial, sans-serif;
+    }
+
+    .sl360-risk__checks {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .sl360-risk__check {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      min-height: 54px;
+      padding: 8px 9px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .sl360-risk__check input {
+      margin-top: 2px;
+      accent-color: var(--gold);
+      flex: 0 0 auto;
+    }
+
+    .sl360-risk__check span {
+      font: 13px/1.28 Arial, sans-serif;
+      color: #1d1e20;
+    }
+
+    .sl360-risk__result {
+      position: sticky;
+      top: 18px;
+      overflow: hidden;
+    }
+
+    .sl360-risk__result.is-low { --risk: var(--green); }
+    .sl360-risk__result.is-medium { --risk: var(--gold); }
+    .sl360-risk__result.is-high { --risk: var(--amber); }
+    .sl360-risk__result.is-critical { --risk: var(--red); }
+
+    .sl360-risk__score {
+      padding: 18px;
+      background: linear-gradient(135deg, var(--navy), #0d141a);
+      color: #fff;
+    }
+
+    .sl360-risk__score-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .sl360-risk__level {
+      margin: 0 0 7px;
+      color: var(--risk);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .sl360-risk__summary {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.42;
+    }
+
+    .sl360-risk__top-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 12px;
+      padding: 11px 13px;
+      border-radius: 4px;
+      background: var(--gold);
+      color: #0d141a;
+      text-decoration: none;
+      text-transform: uppercase;
+      font: 700 13px/1 Arial, sans-serif;
+    }
+
+    .sl360-risk__meter {
+      display: grid;
+      place-items: center;
+      flex: 0 0 88px;
+      width: 88px;
+      height: 88px;
+      border: 2px solid var(--risk);
+      border-radius: 999px;
+    }
+
+    .sl360-risk__meter strong {
+      display: block;
+      color: var(--risk);
+      font-size: 30px;
+      line-height: 1;
+    }
+
+    .sl360-risk__meter span {
+      color: rgba(255, 255, 255, .72);
+      font: 12px/1 Arial, sans-serif;
+    }
+
+    .sl360-risk__body { padding: 16px 18px 18px; }
+    .sl360-risk__bar { margin-bottom: 10px; }
+
+    .sl360-risk__bar-head {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
+      font: 13px/1.35 Arial, sans-serif;
+    }
+
+    .sl360-risk__track {
+      height: 8px;
+      background: #eceff3;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .sl360-risk__fill {
+      display: block;
+      height: 100%;
+      width: 0;
+      background: var(--risk);
+      border-radius: inherit;
+      transition: width .25s ease;
+    }
+
+    .sl360-risk__findings {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+    }
+
+    .sl360-risk__findings h3,
+    .sl360-risk__exposure h3 {
+      margin: 0 0 8px;
+      color: var(--navy);
+      font-size: 16px;
+    }
+
+    .sl360-risk__findings ul,
+    .sl360-risk__exposure ul {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .sl360-risk__findings li,
+    .sl360-risk__exposure li {
+      font: 13px/1.35 Arial, sans-serif;
+    }
+
+    .sl360-risk__exposure {
+      margin-top: 14px;
+      padding: 12px;
+      border: 1px solid rgba(201, 169, 110, .55);
+      border-radius: 8px;
+      background: #fffaf0;
+    }
+
+    .sl360-risk__exposure-note {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font: 11px/1.45 Arial, sans-serif;
+    }
+
+    .sl360-risk__cta {
+      margin-top: 14px;
+      padding: 13px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--soft);
+    }
+
+    .sl360-risk__cta p {
+      margin: 0 0 12px;
+      font: 14px/1.45 Arial, sans-serif;
+    }
+
+    .sl360-risk__button {
+      display: inline-flex;
+      justify-content: center;
+      width: 100%;
+      padding: 13px 16px;
+      border-radius: 4px;
+      background: var(--gold);
+      color: #0d141a;
+      text-decoration: none;
+      text-transform: uppercase;
+      font: 700 14px/1 Arial, sans-serif;
+    }
+
+    .sl360-risk__sources {
+      margin-top: 14px;
+      color: var(--muted);
+      font: 11px/1.45 Arial, sans-serif;
+    }
+
+    @media (max-width: 860px) {
+      .sl360-risk__shell { grid-template-columns: 1fr; }
+      .sl360-risk__result { position: static; }
+    }
+
+    @media (max-width: 520px) {
+      .sl360-risk { padding: 24px 12px; }
+      .sl360-risk__brand,
+      .sl360-risk__score-top {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+      .sl360-risk__brand-mark { text-align: left; }
+      .sl360-risk__checks { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <div class="sl360-risk__brand">
+    <img class="sl360-risk__logo" src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=242,fit=crop/MZS9d1BboyNoZQUA/soylegal360_logo_blanco-y1PhXaZrbEu5XWTB.png" alt="SoyLegal360">
+    <span class="sl360-risk__brand-mark">Herramienta legal orientativa</span>
+  </div>
+
+  <div class="sl360-risk__intro">
+    <p class="sl360-risk__eyebrow">Calculadora orientativa RGPD · LOPDGDD · LSSI-CE</p>
+    <h2>Calcula el nivel de riesgo legal de tu negocio</h2>
+    <p class="sl360-risk__lead">Responde unas preguntas sobre los datos que tratas, tu web y tus prácticas internas. El resultado no sustituye una auditoría legal, pero te ayuda a identificar señales de riesgo.</p>
+  </div>
+
+  <div class="sl360-risk__shell">
+    <form class="sl360-risk__form" id="sl360RiskForm">
+      <details class="sl360-risk__section" open>
+        <summary>1. Actividad y datos tratados</summary>
+        <fieldset class="sl360-risk__group">
+          <div class="sl360-risk__field">
+            <label for="sl-sector">Tipo de negocio</label>
+            <select id="sl-sector" name="sector">
+              <option value="general">Servicios profesionales, comercio o negocio general</option>
+              <option value="ecommerce">E-commerce o venta online</option>
+              <option value="health">Salud, bienestar, terapia o datos sensibles</option>
+              <option value="education">Educación, infancia o formación</option>
+              <option value="hr">RR. HH., selección o empleados</option>
+              <option value="finance">Finanzas, seguros o solvencia</option>
+              <option value="tech">SaaS, app, plataforma, IA o producto digital</option>
+            </select>
+          </div>
+
+          <div class="sl360-risk__field">
+            <label for="sl-data">Dato más sensible que tratas</label>
+            <select id="sl-data" name="dataType">
+              <option value="basic">Datos identificativos y de contacto</option>
+              <option value="commercial">Datos comerciales, compras o historial de cliente</option>
+              <option value="financial">Datos financieros, solvencia o nóminas</option>
+              <option value="special">Categorías especiales: salud, ideología, religión, etc.</option>
+              <option value="criminal">Condenas o infracciones penales</option>
+              <option value="biometric">Datos biométricos</option>
+            </select>
+          </div>
+
+          <div class="sl360-risk__field">
+            <label for="sl-volume">Personas afectadas aproximadamente</label>
+            <select id="sl-volume" name="volume">
+              <option value="low">Menos de 100</option>
+              <option value="medium">100 - 1.000</option>
+              <option value="high">1.001 - 10.000</option>
+              <option value="veryHigh">Más de 10.000</option>
+            </select>
+          </div>
+        </fieldset>
+      </details>
+
+      <details class="sl360-risk__section">
+        <summary>2. Prácticas que elevan el riesgo</summary>
+        <fieldset class="sl360-risk__group">
+          <div class="sl360-risk__checks">
+            <label class="sl360-risk__check"><input type="checkbox" name="riskFlag" value="profiling"><span>Perfilado o segmentación avanzada.</span></label>
+            <label class="sl360-risk__check"><input type="checkbox" name="riskFlag" value="automated"><span>Decisiones automatizadas sobre personas.</span></label>
+            <label class="sl360-risk__check"><input type="checkbox" name="riskFlag" value="monitoring"><span>Geolocalización, videovigilancia o control de actividad.</span></label>
+            <label class="sl360-risk__check"><input type="checkbox" name="riskFlag" value="vulnerable"><span>Datos de menores, pacientes o personas vulnerables.</span></label>
+            <label class="sl360-risk__check"><input type="checkbox" name="riskFlag" value="ai"><span>Uso de IA, chatbots o automatizaciones.</span></label>
+            <label class="sl360-risk__check"><input type="checkbox" name="riskFlag" value="transfer"><span>Proveedores fuera del EEE o ubicación de datos poco clara.</span></label>
+          </div>
+        </fieldset>
+      </details>
+
+      <details class="sl360-risk__section">
+        <summary>3. Web y captación de datos</summary>
+        <fieldset class="sl360-risk__group">
+          <div class="sl360-risk__checks">
+            <label class="sl360-risk__check"><input type="checkbox" name="gap" value="noPrivacy"><span>No tenemos Política de Privacidad adaptada.</span></label>
+            <label class="sl360-risk__check"><input type="checkbox" name="gap" value="noCookies"><span>Banner de cookies incompleto o mal configurado.</span></label>
+            <label class="sl360-risk__check"><input type="checkbox" name="gap" value="forms"><span>Formularios sin cláusula informativa o checkbox válido.</span></label>
+            <label class="sl360-risk__check"><input type="checkbox" name="gap" value="noLegal"><span>Aviso Legal incompleto o ausente.</span></label>
+            <label class="sl360-risk__check"><input type="checkbox" name="gap" value="marketing"><span>Captación de leads o comunicaciones comerciales sin revisar.</span></label>
+            <label class="sl360-risk__check"><input type="checkbox" name="gap" value="analytics"><span>Analítica, píxeles, chats o plugins sin revisar.</span></label>
+          </div>
+        </fieldset>
+      </details>
+
+      <details class="sl360-risk__section">
+        <summary>4. Cumplimiento interno</summary>
+        <fieldset class="sl360-risk__group">
+          <div class="sl360-risk__checks">
+            <label class="sl360-risk__check"><input type="checkbox" name="gap" value="noRat"><span>No tenemos Registro de Actividades de Tratamiento.</span></label>
+            <label class="sl360-risk__check"><input type="checkbox" name="gap" value="providers"><span>Faltan contratos con encargados de tratamiento.</span></label>
+            <label class="sl360-risk__check"><input type="checkbox" name="gap" value="security"><span>Medidas de seguridad no documentadas.</span></label>
+            <label class="sl360-risk__check"><input type="checkbox" name="gap" value="breach"><span>No hay protocolo de brechas de seguridad.</span></label>
+            <label class="sl360-risk__check"><input type="checkbox" name="gap" value="rights"><span>No hay procedimiento para atender derechos RGPD.</span></label>
+          </div>
+        </fieldset>
+      </details>
+    </form>
+
+    <aside class="sl360-risk__result is-low" id="slRiskResult" aria-live="polite">
+      <div class="sl360-risk__score">
+        <div class="sl360-risk__score-top">
+          <div>
+            <p class="sl360-risk__level" id="slRiskLevel">Riesgo bajo</p>
+            <p class="sl360-risk__summary" id="slRiskSummary">El escenario parece sencillo, pero deben existir textos legales, base jurídica, información clara y medidas proporcionadas.</p>
+            <a class="sl360-risk__top-cta" href="https://www.soylegal360.es/adaptacion-empresa-rgpd" target="_top" rel="noopener">Adaptar mi negocio al RGPD</a>
+          </div>
+          <div class="sl360-risk__meter"><div><strong id="slRiskScore">15</strong><span>/100</span></div></div>
+        </div>
+      </div>
+
+      <div class="sl360-risk__body">
+        <div id="slRiskBars"></div>
+        <div class="sl360-risk__findings">
+          <h3>Señales detectadas</h3>
+          <ul id="slRiskFindings"></ul>
+        </div>
+
+        <div class="sl360-risk__exposure">
+          <h3>Posible exposición normativa</h3>
+          <ul id="slRiskExposure"></ul>
+          <p class="sl360-risk__exposure-note">Las cuantías son máximos o rangos legales orientativos. La sanción real, si existiera, depende de la autoridad competente, la gravedad, la intencionalidad, las medidas adoptadas y las circunstancias del caso.</p>
+        </div>
+
+        <div class="sl360-risk__cta">
+          <p>Si quieres confirmar el resultado con un análisis real, podemos revisar web, cookies, formularios, proveedores y obligaciones internas.</p>
+          <a class="sl360-risk__button" href="https://www.soylegal360.es/solicita-auditoria-web-gratuita" target="_top" rel="noopener">Auditar mi web gratis</a>
+        </div>
+        <p class="sl360-risk__sources">Resultado orientativo. No constituye asesoramiento jurídico individualizado ni predice sanciones.</p>
+      </div>
+    </aside>
+  </div>
+
+  <script>
+    (function () {
+      const root = document.getElementById("sl360-risk-calculator");
+      const form = root.querySelector("#sl360RiskForm");
+      const scoreEl = root.querySelector("#slRiskScore");
+      const levelEl = root.querySelector("#slRiskLevel");
+      const summaryEl = root.querySelector("#slRiskSummary");
+      const resultEl = root.querySelector("#slRiskResult");
+      const barsEl = root.querySelector("#slRiskBars");
+      const findingsEl = root.querySelector("#slRiskFindings");
+      const exposureEl = root.querySelector("#slRiskExposure");
+
+      const weights = {
+        sector: { general: 4, ecommerce: 10, health: 22, education: 18, hr: 16, finance: 20, tech: 18 },
+        dataType: { basic: 8, commercial: 12, financial: 18, special: 28, criminal: 30, biometric: 32 },
+        volume: { low: 3, medium: 8, high: 14, veryHigh: 20 },
+        riskFlag: { profiling: 12, automated: 16, monitoring: 14, vulnerable: 16, ai: 12, transfer: 10 },
+        gap: { noPrivacy: 13, noCookies: 12, forms: 11, noLegal: 10, marketing: 11, analytics: 10, noRat: 12, providers: 10, security: 14, breach: 12, rights: 9 }
+      };
+
+      const messages = {
+        ecommerce: "La venta online añade condiciones de contratación, pagos y tratamiento recurrente de clientes.",
+        health: "Los datos de salud o bienestar pueden implicar categorías especiales de datos.",
+        education: "Educación, infancia o formación pueden exigir protección reforzada.",
+        hr: "Los tratamientos laborales exigen documentación interna y control de accesos.",
+        finance: "Los datos financieros elevan el impacto potencial sobre las personas.",
+        tech: "Apps, SaaS, IA y plataformas suelen combinar datos, automatización y proveedores.",
+        special: "Tratas categorías especiales del art. 9 RGPD.",
+        criminal: "Los datos penales tienen un régimen especialmente restrictivo.",
+        biometric: "Los datos biométricos requieren cautela reforzada.",
+        high: "El volumen de afectados aumenta el alcance del riesgo.",
+        veryHigh: "Un tratamiento a gran escala puede activar análisis reforzado.",
+        profiling: "El perfilado es un criterio relevante de riesgo.",
+        automated: "Las decisiones automatizadas requieren especial atención.",
+        monitoring: "La monitorización sistemática incrementa el nivel de riesgo.",
+        vulnerable: "Menores, pacientes o personas vulnerables exigen cautela reforzada.",
+        ai: "El uso de IA puede elevar el riesgo por automatización u opacidad.",
+        transfer: "Los proveedores fuera del EEE requieren garantías específicas.",
+        noPrivacy: "Falta o debilidad en la Política de Privacidad.",
+        noCookies: "Banner de cookies incompleto o mal configurado.",
+        forms: "Formularios sin cláusula informativa o consentimiento válido.",
+        noLegal: "Aviso Legal incompleto o ausente.",
+        marketing: "Captación comercial sin revisar base jurídica o consentimiento.",
+        analytics: "Analítica, píxeles o plugins sin revisar cookies y proveedores.",
+        noRat: "Falta Registro de Actividades de Tratamiento.",
+        providers: "Faltan contratos con encargados de tratamiento.",
+        security: "Medidas de seguridad no documentadas.",
+        breach: "Falta protocolo de brechas de seguridad.",
+        rights: "Falta procedimiento para atender derechos RGPD."
+      };
+
+      function selectedValue(name) {
+        const field = form.elements[name];
+        return field ? field.value : "";
+      }
+
+      function checkedValues(name) {
+        return Array.from(form.querySelectorAll('input[name="' + name + '"]:checked')).map(input => input.value);
+      }
+
+      function addScore(group, key) {
+        return weights[group] && weights[group][key] ? weights[group][key] : 0;
+      }
+
+      function calculate() {
+        const values = {
+          sector: selectedValue("sector"),
+          dataType: selectedValue("dataType"),
+          volume: selectedValue("volume"),
+          riskFlag: checkedValues("riskFlag"),
+          gap: checkedValues("gap")
+        };
+
+        const categories = {
+          "Actividad y datos": addScore("sector", values.sector) + addScore("dataType", values.dataType) + addScore("volume", values.volume),
+          "Prácticas de riesgo": values.riskFlag.reduce((total, key) => total + addScore("riskFlag", key), 0),
+          "Brechas de cumplimiento": values.gap.reduce((total, key) => total + addScore("gap", key), 0)
+        };
+
+        const raw = Object.values(categories).reduce((total, value) => total + value, 0);
+        const score = Math.max(8, Math.min(100, raw));
+
+        const findings = [];
+        [values.sector, values.dataType, values.volume].forEach(key => {
+          if (messages[key]) findings.push(messages[key]);
+        });
+        values.riskFlag.concat(values.gap).forEach(key => {
+          if (messages[key]) findings.push(messages[key]);
+        });
+
+        render(score, categories, findings);
+      }
+
+      function getLevel(score) {
+        if (score < 30) return ["is-low", "Riesgo bajo", "Escenario sencillo. Conviene mantener textos legales, transparencia y medidas proporcionadas."];
+        if (score < 55) return ["is-medium", "Riesgo medio", "Hay señales que conviene revisar antes de que se conviertan en exposición real."];
+        if (score < 75) return ["is-high", "Riesgo alto", "Existen varios factores que aconsejan una adaptación RGPD completa."];
+        return ["is-critical", "Riesgo muy alto", "El conjunto de factores apunta a una revisión prioritaria de cumplimiento."];
+      }
+
+      function getExposure(score) {
+        if (score < 30) {
+          return [
+            "RGPD: pueden existir requerimientos o medidas correctivas si faltan elementos básicos de información, seguridad o base jurídica.",
+            "LSSI-CE: determinados incumplimientos leves pueden sancionarse hasta 30.000 euros."
+          ];
+        }
+
+        if (score < 55) {
+          return [
+            "RGPD: algunas infracciones pueden alcanzar hasta 10.000.000 euros o el 2% del volumen de negocio anual global, la cuantía que resulte mayor.",
+            "LSSI-CE: las infracciones leves pueden sancionarse hasta 30.000 euros y las graves de 30.001 a 150.000 euros."
+          ];
+        }
+
+        if (score < 75) {
+          return [
+            "RGPD: los incumplimientos sobre principios, derechos, legitimación, transferencias o desatención de requerimientos pueden alcanzar hasta 20.000.000 euros o el 4% del volumen de negocio anual global, la cuantía que resulte mayor.",
+            "LSSI-CE: las infracciones graves pueden sancionarse de 30.001 a 150.000 euros; las muy graves, de 150.001 a 600.000 euros."
+          ];
+        }
+
+        return [
+          "RGPD: escenario de máxima atención. El régimen sancionador prevé multas de hasta 20.000.000 euros o el 4% del volumen de negocio anual global, la cuantía que resulte mayor.",
+          "LSSI-CE: si además hay incumplimientos relevantes en web, comunicaciones comerciales o servicios online, las infracciones muy graves pueden llegar de 150.001 a 600.000 euros.",
+          "Además de multas, pueden imponerse medidas correctivas: cesar tratamientos, adaptar procesos, atender derechos, modificar cookies, contratos o formularios."
+        ];
+      }
+
+      function render(score, categories, findings) {
+        const [levelClass, level, summary] = getLevel(score);
+        resultEl.className = "sl360-risk__result " + levelClass;
+        scoreEl.textContent = score;
+        levelEl.textContent = level;
+        summaryEl.textContent = summary;
+
+        barsEl.innerHTML = Object.entries(categories).map(([label, value]) => {
+          const percent = Math.min(100, Math.round((value / 55) * 100));
+          return '<div class="sl360-risk__bar"><div class="sl360-risk__bar-head"><span>' + label + '</span><strong>' + value + '</strong></div><div class="sl360-risk__track"><span class="sl360-risk__fill" style="width:' + percent + '%"></span></div></div>';
+        }).join("");
+
+        findingsEl.innerHTML = (findings.length ? findings : ["No se han marcado factores críticos, aunque la documentación básica sigue siendo necesaria."])
+          .slice(0, 8)
+          .map(text => "<li>" + text + "</li>")
+          .join("");
+
+        exposureEl.innerHTML = getExposure(score)
+          .map(text => "<li>" + text + "</li>")
+          .join("");
+      }
+
+      form.addEventListener("input", calculate);
+      form.addEventListener("change", calculate);
+      calculate();
+    })();
+  </script>
+</section>

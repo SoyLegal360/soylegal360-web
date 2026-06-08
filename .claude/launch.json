@@ -1,0 +1,19 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "soylegal360",
+      "runtimeExecutable": "/usr/bin/python3",
+      "runtimeArgs": ["/tmp/sl360_serve.py"],
+      "port": 8765,
+      "autoPort": true
+    },
+    {
+      "name": "auditoria-rgpd",
+      "runtimeExecutable": "/bin/bash",
+      "runtimeArgs": ["/tmp/auditoria_rgpd_dev.sh"],
+      "port": 3000,
+      "autoPort": true
+    }
+  ]
+}
