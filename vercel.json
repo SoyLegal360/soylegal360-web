@@ -3,9 +3,9 @@
   "trailingSlash": true,
   "redirects": [
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "has": [{ "type": "host", "value": "soylegal360.es" }],
-      "destination": "https://www.soylegal360.es/:path*",
+      "destination": "https://www.soylegal360.es/$1",
       "permanent": true
     },
     { "source": "/privacy-policy", "destination": "/politica-de-privacidad/", "permanent": true },
