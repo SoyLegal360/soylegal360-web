@@ -7,6 +7,9 @@
 *.env
 .env*
 
+# Tokens de MCP (NUNCA subir — contiene API_TOKEN de Hostinger u otros)
+.mcp.json
+
 # Temporales / preview
 /tmp/
 
