@@ -2,6 +2,12 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "trailingSlash": true,
   "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "soylegal360.es" }],
+      "destination": "https://www.soylegal360.es/:path*",
+      "permanent": true
+    },
     { "source": "/privacy-policy", "destination": "/politica-de-privacidad/", "permanent": true },
     { "source": "/privacy-policy/", "destination": "/politica-de-privacidad/", "permanent": true },
     { "source": "/solicita-auditoria-web-gratuita", "destination": "/auditoria-web-gratuita/", "permanent": true },
