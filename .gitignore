@@ -2,20 +2,24 @@
 .DS_Store
 **/.DS_Store
 
-# Credenciales de despliegue (NUNCA subir)
+# Credenciales y tokens (NUNCA subir)
 .soylegal360-deploy.env
 *.env
 .env*
-
-# Tokens de MCP (NUNCA subir — contiene API_TOKEN de Hostinger u otros)
 .mcp.json
 
-# Temporales / preview
-/tmp/
+# Carpetas de trabajo local (no parte de la web)
+/dist/
+/docs/
+/assets/
+/tools/
+/published-embeds/
+/files-mentioned-by-the-user-brief/
+/https-www-soylegal360-es-analiza-en/
+serve.py
+deploy.sh
+.claude/
 
 # Editor
 .vscode/
 .idea/
-
-# Claude (config local del agente, no del proyecto web)
-.claude/scheduled_tasks.lock
