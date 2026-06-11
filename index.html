@@ -414,8 +414,8 @@
   <main id="contenido">
     <!-- VÍDEO DE FONDO HERO — para revertir: eliminar este bloque y quitar la clase hero-has-video de la section -->
     <section class="hero hero-home published-hero hero-has-video">
-    <video class="hero-video-bg" autoplay muted playsinline preload="auto">
-      <source src="/assets/video/hero-bg.mp4" type="video/mp4">
+    <video class="hero-video-bg" autoplay muted playsinline preload="metadata" poster="/assets/video/hero-bg-poster.webp">
+      <source data-src="/assets/video/hero-bg.mp4" type="video/mp4">
     </video>
     <div class="hero-video-overlay"></div>
     <div class="hero-copy hero-copy-centered">
@@ -435,7 +435,19 @@
     <script>
     (function(){
       var v = document.querySelector('.hero-video-bg');
-      if(v) v.addEventListener('ended', function(){ this.currentTime = 0; });
+      if(!v) return;
+      v.addEventListener('ended', function(){ this.currentTime = 0; });
+      /* El mp4 (2,6 MB) solo se descarga en pantallas anchas y sin reduced-motion;
+         en móvil queda el póster (44 KB). */
+      if (window.matchMedia('(min-width: 768px)').matches &&
+          !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        var s = v.querySelector('source[data-src]');
+        if (s) {
+          s.src = s.getAttribute('data-src');
+          v.addEventListener('canplay', function(){ v.play().catch(function(){}); }, { once: true });
+          v.load();
+        }
+      }
     })();
     </script>
     <!-- FIN VÍDEO DE FONDO HERO -->

@@ -641,8 +641,8 @@
     <!-- ===== Hero ===== -->
     <section class="sl-edd-hero">
       <!-- VÍDEO HERO EDD — para revertir: eliminar <video> + <div veil> y borrar reglas .sl-edd-hero__video/__veil -->
-      <video class="sl-edd-hero__video" autoplay muted playsinline preload="auto" aria-hidden="true">
-        <source src="/assets/video/edd-hero.mp4" type="video/mp4">
+      <video class="sl-edd-hero__video" autoplay muted playsinline preload="metadata" poster="/assets/video/edd-hero-poster.webp" aria-hidden="true">
+        <source data-src="/assets/video/edd-hero.mp4" type="video/mp4">
       </video>
       <div class="sl-edd-hero__veil" aria-hidden="true"></div>
       <div class="sl-edd-hero__inner">
@@ -1000,7 +1000,8 @@
   </footer>
   <script src="/assets/js/site.js" defer></script>
   <script>
-  /* Vídeo hero: reproducir una vez y congelar en el ÚLTIMO fotograma */
+  /* Vídeo hero: reproducir una vez y congelar en el ÚLTIMO fotograma.
+     El mp4 solo se descarga en pantallas anchas y sin reduced-motion (en móvil, póster). */
   (function(){
     var v = document.querySelector('.sl-edd-hero__video');
     if(!v) return;
@@ -1011,6 +1012,15 @@
         this.currentTime = Math.max(0, this.duration - 0.05);
       }
     });
+    if (window.matchMedia('(min-width: 768px)').matches &&
+        !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      var s = v.querySelector('source[data-src]');
+      if (s) {
+        s.src = s.getAttribute('data-src');
+        v.addEventListener('canplay', function(){ v.play().catch(function(){}); }, { once: true });
+        v.load();
+      }
+    }
   })();
 
   /* C · decode/scramble sobre una palabra del H1 (Matrix-style, ligero) */
