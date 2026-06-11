@@ -904,9 +904,46 @@
       <div class="sl-edd-final__inner">
         <h2>Cuéntanos tu caso. La valoración es gratuita.</h2>
         <p>Revisamos tu situación sin compromiso y te decimos qué podemos hacer y cuánto cuesta, en lenguaje claro.</p>
-        <!-- TODO: sustituir destino por formulario Tally dedicado de admisión de caso: __TALLY_EJERCICIO_ID__ -->
-        <a href="/contacto/" class="sl-edd-final__cta" data-edd-final-cta>Solicitar valoración de mi caso →</a>
-        <p class="sl-edd-final__note">Te responderemos en menos de 48 horas hábiles.</p>
+        <div class="sl-form-card">
+          <form class="sl-form" data-sl-form="ejercicio-derechos" data-sl-success="Hemos recibido tu caso. Lo valoramos sin coste y te contactaremos en menos de 48 horas hábiles. Te hemos enviado un email de confirmación." novalidate>
+            <label class="sl-form__field">¿Cuál es tu situación? *
+              <select name="caso" required>
+                <option value="marketing">Recibo publicidad o llamadas que no quiero</option>
+                <option value="morosidad">Estoy en un fichero de morosidad (ASNEF u otros)</option>
+                <option value="olvido">Quiero borrar información sobre mí de internet</option>
+              </select>
+            </label>
+            <div class="sl-form__row">
+              <label class="sl-form__field">Nombre
+                <input type="text" name="name" autocomplete="name" maxlength="200">
+              </label>
+              <label class="sl-form__field">Teléfono (opcional)
+                <input type="tel" name="phone" autocomplete="tel" maxlength="40">
+              </label>
+            </div>
+            <label class="sl-form__field">Email *
+              <input type="email" name="email" required autocomplete="email">
+            </label>
+            <label class="sl-form__field">Cuéntanos tu caso *
+              <textarea name="message" required maxlength="4000" placeholder="Qué ocurre, desde cuándo, y qué te gustaría conseguir."></textarea>
+            </label>
+            <label class="sl-form__hp" aria-hidden="true">No rellenes este campo
+              <input type="text" name="website" tabindex="-1" autocomplete="off">
+            </label>
+            <label class="sl-form__check">
+              <input type="checkbox" name="consent" required>
+              <span>He leído y acepto la <a href="/politica-de-privacidad/">política de privacidad</a>. *</span>
+            </label>
+            <label class="sl-form__check">
+              <input type="checkbox" name="marketing">
+              <span>Quiero recibir comunicaciones de SoyLegal360 sobre mis derechos (opcional).</span>
+            </label>
+            <p class="sl-form__status" aria-live="polite"></p>
+            <button type="submit" class="button gold">Solicitar valoración gratuita de mi caso →</button>
+          </form>
+        </div>
+        <script src="/assets/js/forms.js" defer></script>
+        <p class="sl-edd-final__note">Te responderemos en menos de 48 horas hábiles. La valoración no te compromete a nada.</p>
       </div>
     </section>
   </main>

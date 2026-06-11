@@ -284,7 +284,7 @@
     </div>
   </section>
 
-  <!-- Formulario Tally -->
+  <!-- Formulario de solicitud (propio) -->
   <section class="sl-awg-form" id="formulario-auditoria">
     <div class="sl-awg-form__wrap">
       <div class="sl-awg-form__intro">
@@ -292,15 +292,44 @@
         <h2 class="sl-awg-h2" style="text-align:center;margin-bottom:8px">Completa el formulario y te enviamos el informe</h2>
         <p>Solo necesitamos la URL de tu web. En 48 horas hábiles tienes el análisis en tu email.</p>
       </div>
-      <div class="tally-embed">
-        <iframe src="https://tally.so/embed/ODdgMY?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0" title="Formulario Tally de auditoría web gratuita" loading="lazy"></iframe>
-      </div>
-      <script src="https://tally.so/widgets/embed.js" async></script>
+      <form class="sl-form" data-sl-form="auditoria-gratuita" data-sl-success="Tu solicitud está en marcha: nuestro equipo legal revisará tu web y recibirás el informe en 48 horas laborables. Te hemos enviado un email de confirmación." novalidate>
+        <label class="sl-form__field">URL de tu web *
+          <input type="text" name="url" required inputmode="url" placeholder="tudominio.com" maxlength="300">
+        </label>
+        <div class="sl-form__row">
+          <label class="sl-form__field">Nombre
+            <input type="text" name="name" autocomplete="name" maxlength="200">
+          </label>
+          <label class="sl-form__field">Teléfono (opcional)
+            <input type="tel" name="phone" autocomplete="tel" maxlength="40">
+          </label>
+        </div>
+        <label class="sl-form__field">Email donde recibirás el informe *
+          <input type="email" name="email" required autocomplete="email">
+        </label>
+        <label class="sl-form__field">¿Algo que debamos saber? (opcional)
+          <textarea name="message" maxlength="4000"></textarea>
+        </label>
+        <label class="sl-form__hp" aria-hidden="true">No rellenes este campo
+          <input type="text" name="website" tabindex="-1" autocomplete="off">
+        </label>
+        <label class="sl-form__check">
+          <input type="checkbox" name="consent" required>
+          <span>He leído y acepto la <a href="/politica-de-privacidad/">política de privacidad</a>. *</span>
+        </label>
+        <label class="sl-form__check">
+          <input type="checkbox" name="marketing">
+          <span>Quiero recibir comunicaciones comerciales de SoyLegal360 (opcional).</span>
+        </label>
+        <p class="sl-form__status" aria-live="polite"></p>
+        <button type="submit" class="button gold">Solicitar mi auditoría gratuita</button>
+      </form>
+      <script src="/assets/js/forms.js" defer></script>
       <aside class="legal-note form-legal-note audit-legal-note" aria-label="Información básica sobre protección de datos">
         <p><strong>Información básica sobre protección de datos</strong> <strong>Responsable del tratamiento:</strong> SOY LEGAL 360 SERVICIOS JURÍDICOS S.L.U.</p>
         <p><strong>Finalidad:</strong> 1) Gestionar tu solicitud de Auditoría Web Gratuita y enviarte el informe correspondiente. 2) Mantener el contacto comercial derivado para presentarte nuestros servicios.</p>
         <p><strong>Legitimación:</strong> Consentimiento del interesado.</p>
-        <p><strong>Cesiones y transferencias:</strong> No se cederán datos a terceros salvo obligación legal. Los datos se almacenan en infraestructura de Google Workspace (Google Ireland Limited, UE) y son procesados por Tally B.V. (Países Bajos, UE) como encargado del tratamiento.</p>
+        <p><strong>Cesiones y transferencias:</strong> No se cederán datos a terceros salvo obligación legal. Los datos se procesan en infraestructura de nuestros encargados del tratamiento (Vercel, Notion y Resend), detallados en la Política de Privacidad; las transferencias internacionales se amparan en el EU-US Data Privacy Framework.</p>
         <p><strong>Derechos:</strong> Acceso, rectificación, supresión, oposición, limitación, portabilidad y revocación del consentimiento escribiendo a <a href="mailto:privacidad@soylegal360.es">privacidad@soylegal360.es</a>. Si consideras que el tratamiento no se ajusta a la normativa, puedes reclamar ante la Autoridad de Control (<a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a>).</p>
         <p><strong>Información adicional:</strong> Consulta nuestra <a href="/politica-de-privacidad/">Política de Privacidad</a>.</p>
       </aside>

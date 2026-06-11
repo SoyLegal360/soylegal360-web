@@ -276,10 +276,36 @@
           <h2>Formulario de contacto</h2>
           <p>Escríbenos mediante el formulario y te respondemos lo antes posible.</p>
         </div>
-        <div class="tally-embed">
-          <iframe src="https://tally.so/embed/Zj1O5B?hideTitle=1&dynamicHeight=1&formEventsForwarding=1" width="100%" height="821" frameborder="0" marginheight="0" marginwidth="0" title="Formulario Tally de contacto" loading="lazy"></iframe>
-        </div>
-        <script src="https://tally.so/widgets/embed.js" async></script>
+        <form class="sl-form" data-sl-form="contacto" novalidate>
+          <div class="sl-form__row">
+            <label class="sl-form__field">Nombre
+              <input type="text" name="name" autocomplete="name" maxlength="200">
+            </label>
+            <label class="sl-form__field">Teléfono (opcional)
+              <input type="tel" name="phone" autocomplete="tel" maxlength="40">
+            </label>
+          </div>
+          <label class="sl-form__field">Email *
+            <input type="email" name="email" required autocomplete="email">
+          </label>
+          <label class="sl-form__field">¿En qué podemos ayudarte? *
+            <textarea name="message" required maxlength="4000"></textarea>
+          </label>
+          <label class="sl-form__hp" aria-hidden="true">No rellenes este campo
+            <input type="text" name="website" tabindex="-1" autocomplete="off">
+          </label>
+          <label class="sl-form__check">
+            <input type="checkbox" name="consent" required>
+            <span>He leído y acepto la <a href="/politica-de-privacidad/">política de privacidad</a>. *</span>
+          </label>
+          <label class="sl-form__check">
+            <input type="checkbox" name="marketing">
+            <span>Quiero recibir comunicaciones comerciales de SoyLegal360 (opcional).</span>
+          </label>
+          <p class="sl-form__status" aria-live="polite"></p>
+          <button type="submit" class="button gold">Enviar mensaje</button>
+        </form>
+        <script src="/assets/js/forms.js" defer></script>
       </div>
     </section>
 
@@ -289,7 +315,7 @@
         <p><strong>Responsable del tratamiento:</strong> SOY LEGAL 360 SERVICIOS JURÍDICOS S.L.U.</p>
         <p><strong>Finalidad:</strong> Responder a tu consulta y mantener el contacto derivado.</p>
         <p><strong>Legitimación:</strong> Consentimiento del interesado.</p>
-        <p><strong>Cesiones y transferencias:</strong> No se cederán datos a terceros salvo obligación legal. Los datos se almacenan en infraestructura de Google Workspace (Google Ireland Limited, UE) y son procesados por Tally B.V. (Países Bajos, UE) como encargado del tratamiento.</p>
+        <p><strong>Cesiones y transferencias:</strong> No se cederán datos a terceros salvo obligación legal. Los datos se procesan en infraestructura de nuestros encargados del tratamiento (Vercel, Notion y Resend), detallados en la Política de Privacidad; las transferencias internacionales se amparan en el EU-US Data Privacy Framework.</p>
         <p><strong>Derechos:</strong> Acceso, rectificación, supresión, oposición, limitación, portabilidad y revocación del consentimiento escribiendo a <a href="mailto:privacidad@soylegal360.es">privacidad@soylegal360.es</a>. Si consideras que el tratamiento no se ajusta a la normativa, puedes reclamar ante la Autoridad de Control (<a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a>).</p>
         <p><strong>Información adicional:</strong> Consulta nuestra <a href="/politica-de-privacidad/">Política de Privacidad</a>.</p>
       </aside>

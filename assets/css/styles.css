@@ -1026,3 +1026,35 @@ h3 { font-size: 22px; }
   );
   border-radius: 16px;
 }
+
+/* ── Formularios propios (sustituyen a Tally) ── */
+.sl-form { display: grid; gap: 14px; max-width: 640px; margin: 0 auto; text-align: left; }
+.sl-form__row { display: grid; gap: 14px; }
+@media (min-width: 640px) { .sl-form__row { grid-template-columns: 1fr 1fr; } }
+.sl-form label.sl-form__field { display: grid; gap: 6px; font: 700 13px/1.3 Arial, Helvetica, sans-serif; color: var(--ink); }
+.sl-form input[type="text"],
+.sl-form input[type="email"],
+.sl-form input[type="tel"],
+.sl-form input[type="url"],
+.sl-form select,
+.sl-form textarea {
+  width: 100%; padding: 12px 14px; border: 1px solid var(--line); border-radius: 8px;
+  font: 400 15px/1.4 Arial, Helvetica, sans-serif; color: var(--ink); background: #fff;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.sl-form textarea { min-height: 120px; resize: vertical; }
+.sl-form input:focus, .sl-form select:focus, .sl-form textarea:focus {
+  outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,169,110,.25);
+}
+.sl-form__check { display: flex; gap: 9px; align-items: flex-start; font: 400 13px/1.5 Arial, Helvetica, sans-serif; color: var(--muted); }
+.sl-form__check input { margin-top: 2px; accent-color: var(--gold); flex: none; }
+.sl-form__check a { color: var(--navy); text-decoration: underline; }
+.sl-form__status { font: 700 14px/1.4 Arial, Helvetica, sans-serif; min-height: 1em; margin: 0; }
+.sl-form__status--error { color: #b42318; }
+.sl-form__success {
+  max-width: 640px; margin: 0 auto; padding: 22px 24px; border-left: 4px solid #12805c;
+  background: #eef9f4; border-radius: 8px; font: 400 15px/1.6 Arial, Helvetica, sans-serif; color: var(--ink);
+}
+.sl-form__hp { position: absolute !important; left: -9999px !important; width: 1px; height: 1px; overflow: hidden; }
+/* Tarjeta clara para usar el formulario sobre bandas navy (p. ej. ejercicio-de-derechos) */
+.sl-form-card { background: #fff; border-radius: 14px; padding: 26px 24px; box-shadow: 0 18px 44px -22px rgba(4,12,26,.55); }
