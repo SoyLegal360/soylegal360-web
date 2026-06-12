@@ -46,6 +46,25 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32x32.png">
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
   <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="085be98f-70af-4e14-8e4a-aa2d511df57a" data-blockingmode="auto" type="text/javascript"></script>
+  <!-- Google Consent Mode v2 + GA4 — gestionado por Cookiebot. data-cookieconsent="ignore": el auto-blocking no lo bloquea; el consentimiento lo controla Consent Mode (analytics_storage denegado hasta que el usuario acepta "Estadísticas"). -->
+  <script data-cookieconsent="ignore">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("consent", "default", {
+      ad_storage: "denied",
+      ad_user_data: "denied",
+      ad_personalization: "denied",
+      analytics_storage: "denied",
+      wait_for_update: 500
+    });
+    gtag("set", "ads_data_redaction", true);
+    gtag("set", "url_passthrough", true);
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5WPZXV6ZKC" data-cookieconsent="ignore"></script>
+  <script data-cookieconsent="ignore">
+    gtag("js", new Date());
+    gtag("config", "G-5WPZXV6ZKC");
+  </script>
   <link rel="stylesheet" href="/assets/css/styles.css?v=12">
 </head>
 <body>
@@ -111,7 +130,11 @@
       <div>
         <script id="CookieDeclaration" src="https://consent.cookiebot.com/085be98f-70af-4e14-8e4a-aa2d511df57a/cd.js" type="text/javascript" async></script>
       </div>
-      <p><strong>Servicio de analítica web.</strong> El Sitio Web utiliza Vercel Web Analytics, una solución de medición de audiencia <strong>sin cookies</strong> que recopila estadísticas agregadas y anónimas (páginas vistas, país, tipo de dispositivo) y <strong>no rastrea ni identifica a usuarios individuales</strong>. Al no emplear cookies ni identificadores persistentes, no requiere consentimiento previo. El Sitio Web no utiliza servicios de analítica basados en cookies (como Google Analytics).</p>
+      <p><strong>Servicios de analítica web.</strong> El Sitio Web utiliza dos herramientas de medición de audiencia:</p>
+      <ul>
+        <li><strong>Vercel Web Analytics</strong>, una solución <strong>sin cookies</strong> que recopila estadísticas agregadas y anónimas (páginas vistas, país, tipo de dispositivo) y <strong>no rastrea ni identifica a usuarios individuales</strong>. Al no emplear cookies ni identificadores persistentes, no requiere consentimiento previo.</li>
+        <li><strong>Google Analytics 4</strong> (Google Ireland Ltd.), un servicio de análisis estadístico que <strong>sí emplea cookies</strong>. Por ello, solo se activa <strong>si el Usuario presta su consentimiento</strong> a la categoría de cookies de análisis o estadística en el panel de configuración. Mientras no se otorgue dicho consentimiento, Google Analytics opera en modo restringido (Google Consent Mode v2) <strong>sin instalar cookies ni almacenar identificadores</strong>. Google Analytics aplica la anonimización de las direcciones IP de forma predeterminada. El listado concreto de cookies, su titular, finalidad y duración figura en la declaración automática anterior.</li>
+      </ul>
       <p><strong>Servicios de publicidad y redes sociales.</strong> El Sitio Web no utiliza cookies de publicidad comportamental ni cookies de redes sociales de terceros. En caso de que en el futuro se incorporen, esta Política de Cookies se actualizará para reflejarlo y se recabará el consentimiento previo del Usuario a través del panel de configuración de cookies.</p>
       <p><strong>Transferencias internacionales de datos.</strong> Cuando alguna de las cookies anteriores sea instalada por proveedores ubicados fuera del Espacio Económico Europeo (lo que se detalla en la declaración automática anterior), dichas transferencias se realizan al amparo de las garantías adecuadas previstas en los artículos 44 y siguientes del RGPD, en particular el Marco UE-EE.UU. de Privacidad de Datos (EU-U.S. Data Privacy Framework) cuando el proveedor esté adherido al mismo y, en su defecto, las Cláusulas Contractuales Tipo aprobadas por la Comisión Europea.</p>
 
