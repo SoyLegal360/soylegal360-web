@@ -277,6 +277,34 @@
           <p>Escríbenos mediante el formulario y te respondemos lo antes posible.</p>
         </div>
         <form class="sl-form" data-sl-form="contacto" novalidate>
+          <label class="sl-form__field">Servicio de interés (opcional)
+            <select name="servicio">
+              <option value="">No estoy seguro / consulta general</option>
+              <optgroup label="Diagnóstico y auditoría">
+                <option>Auditoría web gratuita</option>
+                <option>Auditoría RGPD</option>
+                <option>Auditoría IA</option>
+              </optgroup>
+              <optgroup label="Adaptación y cumplimiento">
+                <option>Adaptación Web RGPD</option>
+                <option>Adaptación Empresa RGPD</option>
+                <option>Adaptación IA</option>
+              </optgroup>
+              <optgroup label="Continuidad y figuras obligatorias">
+                <option>Protección Legal Continua</option>
+                <option>Delegado de Protección de Datos</option>
+                <option>Responsable de IA</option>
+                <option>Delegado de IA (sector público)</option>
+              </optgroup>
+              <optgroup label="Web y legal digital">
+                <option>Web Legal en 7 días</option>
+                <option>Consultoría Protección de Datos</option>
+                <option>Consultoría Legal</option>
+                <option>Revisión de contratos</option>
+              </optgroup>
+              <option>Otro</option>
+            </select>
+          </label>
           <div class="sl-form__row">
             <label class="sl-form__field">Nombre
               <input type="text" name="name" autocomplete="name" maxlength="200">
@@ -317,7 +345,7 @@
             <p><strong>Información adicional:</strong> Consulta nuestra <a href="/politica-de-privacidad/">Política de Privacidad</a>.</p>
           </details>
         </div>
-        <script src="/assets/js/forms.js?v=1" defer></script>
+        <script src="/assets/js/forms.js?v=2" defer></script>
       </div>
     </section>
 

@@ -36,6 +36,7 @@
         message: (form.elements.message && form.elements.message.value) || "",
         url: (form.elements.url && form.elements.url.value) || "",
         caso: (form.elements.caso && form.elements.caso.value) || "",
+        servicio: (form.elements.servicio && form.elements.servicio.value) || "",
         consent: !!(form.elements.consent && form.elements.consent.checked),
         marketing: !!(form.elements.marketing && form.elements.marketing.checked),
         website: (form.elements.website && form.elements.website.value) || ""
