@@ -1028,33 +1028,58 @@ h3 { font-size: 22px; }
 }
 
 /* ── Formularios propios (sustituyen a Tally) ── */
-.sl-form { display: grid; gap: 14px; max-width: 640px; margin: 0 auto; text-align: left; }
-.sl-form__row { display: grid; gap: 14px; }
+.sl-form { display: grid; gap: 18px; max-width: 640px; margin: 0 auto; text-align: left; }
+.sl-form__row { display: grid; gap: 18px; }
 @media (min-width: 640px) { .sl-form__row { grid-template-columns: 1fr 1fr; } }
-.sl-form label.sl-form__field { display: grid; gap: 6px; font: 700 13px/1.3 Arial, Helvetica, sans-serif; color: var(--ink); }
+.sl-form label.sl-form__field { display: grid; gap: 7px; font: 700 13px/1.3 Arial, Helvetica, sans-serif; letter-spacing: .01em; color: var(--ink); }
 .sl-form input[type="text"],
 .sl-form input[type="email"],
 .sl-form input[type="tel"],
 .sl-form input[type="url"],
 .sl-form select,
 .sl-form textarea {
-  width: 100%; padding: 12px 14px; border: 1px solid var(--line); border-radius: 8px;
-  font: 400 15px/1.4 Arial, Helvetica, sans-serif; color: var(--ink); background: #fff;
-  transition: border-color .15s ease, box-shadow .15s ease;
+  width: 100%; padding: 13px 15px; border: 1px solid var(--line); border-radius: 10px;
+  font: 400 15px/1.4 Arial, Helvetica, sans-serif; color: var(--ink); background: var(--soft, #f5f7fb);
+  transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
 }
-.sl-form textarea { min-height: 120px; resize: vertical; }
+.sl-form input::placeholder, .sl-form textarea::placeholder { color: #9aa6b8; }
+.sl-form textarea { min-height: 130px; resize: vertical; }
 .sl-form input:focus, .sl-form select:focus, .sl-form textarea:focus {
-  outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,169,110,.25);
+  outline: none; border-color: var(--gold); background: #fff; box-shadow: 0 0 0 3px rgba(201,169,110,.25);
 }
-.sl-form__check { display: flex; gap: 9px; align-items: flex-start; font: 400 13px/1.5 Arial, Helvetica, sans-serif; color: var(--muted); }
-.sl-form__check input { margin-top: 2px; accent-color: var(--gold); flex: none; }
+.sl-form__check { display: flex; gap: 10px; align-items: flex-start; font: 400 13px/1.5 Arial, Helvetica, sans-serif; color: var(--muted); }
+.sl-form__check input { margin-top: 2px; width: 17px; height: 17px; accent-color: var(--gold); flex: none; }
 .sl-form__check a { color: var(--navy); text-decoration: underline; }
 .sl-form__status { font: 700 14px/1.4 Arial, Helvetica, sans-serif; min-height: 1em; margin: 0; }
 .sl-form__status--error { color: #b42318; }
+
+/* CTA del formulario: ancho completo, prominente, con elevación al hover */
+.sl-form button[type="submit"] {
+  width: 100%; min-height: 54px; margin-top: 4px;
+  border: 0; border-radius: 10px; cursor: pointer;
+  font: 800 14px/1 Arial, Helvetica, sans-serif; letter-spacing: .05em; text-transform: uppercase;
+  color: #06152c; background: linear-gradient(180deg, #ddc287, #c9a96e);
+  box-shadow: 0 10px 24px -12px rgba(201,169,110,.7);
+  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+.sl-form button[type="submit"]:hover { transform: translateY(-2px); box-shadow: 0 14px 30px -10px rgba(201,169,110,.85); filter: brightness(1.03); }
+.sl-form button[type="submit"]:active { transform: translateY(0); }
+.sl-form button[type="submit"]:disabled { opacity: .65; cursor: default; transform: none; box-shadow: none; }
+
 .sl-form__success {
   max-width: 640px; margin: 0 auto; padding: 22px 24px; border-left: 4px solid #12805c;
   background: #eef9f4; border-radius: 8px; font: 400 15px/1.6 Arial, Helvetica, sans-serif; color: var(--ink);
 }
 .sl-form__hp { position: absolute !important; left: -9999px !important; width: 1px; height: 1px; overflow: hidden; }
+
+/* Información de protección de datos en primera capa (letra pequeña + detalle plegable) */
+.sl-form__legal { max-width: 640px; margin: 14px auto 0; font: 400 12px/1.55 Arial, Helvetica, sans-serif; color: var(--muted); }
+.sl-form__legal a { color: var(--navy); text-decoration: underline; }
+.sl-form__legal details { margin-top: 6px; }
+.sl-form__legal summary { cursor: pointer; color: var(--navy); font-weight: 700; }
+.sl-form__legal details[open] summary { margin-bottom: 6px; }
+.sl-form__legal details p { margin: 0 0 6px; }
+
 /* Tarjeta clara para usar el formulario sobre bandas navy (p. ej. ejercicio-de-derechos) */
-.sl-form-card { background: #fff; border-radius: 14px; padding: 26px 24px; box-shadow: 0 18px 44px -22px rgba(4,12,26,.55); }
+.sl-form-card { background: #fff; border-radius: 14px; padding: 28px 26px; max-width: 680px; margin: 0 auto; box-shadow: 0 18px 44px -22px rgba(4,12,26,.55); }
+.sl-form-card .sl-form, .sl-form-card .sl-form__legal { color: var(--ink); }
