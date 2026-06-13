@@ -1043,8 +1043,9 @@
         this.currentTime = Math.max(0, this.duration - 0.05);
       }
     });
-    if (window.matchMedia('(min-width: 768px)').matches &&
-        !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var conn = navigator.connection || navigator.webkitConnection || {};
+    var slowNet = conn.saveData === true || /^(slow-2g|2g|3g)$/.test(conn.effectiveType || '');
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && !slowNet) {
       var s = v.querySelector('source[data-src]');
       if (s) {
         s.src = s.getAttribute('data-src');

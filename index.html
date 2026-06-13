@@ -456,10 +456,11 @@
       var v = document.querySelector('.hero-video-bg');
       if(!v) return;
       v.addEventListener('ended', function(){ this.currentTime = 0; });
-      /* El mp4 (2,6 MB) solo se descarga en pantallas anchas y sin reduced-motion;
-         en móvil queda el póster (44 KB). */
-      if (window.matchMedia('(min-width: 768px)').matches &&
-          !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      /* Carga el mp4 también en móvil, salvo conexión lenta / ahorro de datos / reduced-motion;
+         en esos casos queda el póster (44 KB). */
+      var conn = navigator.connection || navigator.webkitConnection || {};
+      var slowNet = conn.saveData === true || /^(slow-2g|2g|3g)$/.test(conn.effectiveType || '');
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && !slowNet) {
         var s = v.querySelector('source[data-src]');
         if (s) {
           s.src = s.getAttribute('data-src');
