@@ -817,6 +817,36 @@ h3 { font-size: 22px; }
 .footer-brand-col { text-align: center; }
 .footer-brand-col .footer-logo { display: block; margin: 0 auto 14px; }
 .footer-tagline-gold { color: var(--gold) !important; font-weight: 700; margin-top: 4px; }
+
+/* Botón flotante de WhatsApp (enlace simple, sin widgets de terceros) */
+.wa-float {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(6, 20, 46, .28);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.wa-float:hover,
+.wa-float:focus-visible {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 10px 26px rgba(6, 20, 46, .35);
+}
+.wa-float:focus-visible { outline: 3px solid rgba(37, 211, 102, .45); outline-offset: 3px; }
+.wa-float svg { width: 32px; height: 32px; display: block; }
+@media (max-width: 600px) {
+  .wa-float { width: 52px; height: 52px; right: 14px; bottom: 14px; }
+  .wa-float svg { width: 30px; height: 30px; }
+}
+@media (prefers-reduced-motion: reduce) { .wa-float { transition: none; } }
 .footer-services-cat { margin: 18px 0 5px !important; color: var(--gold) !important; font-family: Arial, Helvetica, sans-serif; font-size: 10px !important; font-weight: 900 !important; letter-spacing: .14em; text-transform: uppercase; }
 .footer-services-cat:first-of-type { margin-top: 2px !important; }
 .footer-sg { border-bottom: 1px solid rgba(255,255,255,.07); }
