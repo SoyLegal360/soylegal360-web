@@ -810,7 +810,7 @@ h3 { font-size: 22px; }
 .footer-logo {
   width: 235px;
   max-width: 100%;
-  filter: brightness(1.3) contrast(1.5) drop-shadow(0 0 3px rgba(255,255,255,.95)) drop-shadow(0 0 18px rgba(255,255,255,.3));
+  filter: drop-shadow(0 2px 5px rgba(0,0,0,.4));
 }
 .site-footer h2 { margin-bottom: 14px; font-size: 18px; }
 .site-footer a, .site-footer p { display: block; margin: 8px 0; color: #dbe6f4; text-decoration: none; }
