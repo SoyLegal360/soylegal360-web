@@ -31,9 +31,20 @@
     els.body.scrollTop = els.body.scrollHeight;
   }
 
+  // El chat renderiza en texto plano (textContent, sin HTML = sin XSS). Pero el modelo
+  // a veces emite markdown; lo quitamos aquí para que no se vean símbolos sueltos.
+  function stripMarkdown(t) {
+    return String(t || "")
+      .replace(/\*\*(.*?)\*\*/g, "$1") // negrita **texto**
+      .replace(/__(.*?)__/g, "$1") // negrita __texto__
+      .replace(/`([^`]*)`/g, "$1") // código `texto`
+      .replace(/(^|\n)\s*#{1,6}\s+/g, "$1") // encabezados ###
+      .replace(/(^|\n)\s*[-*]\s+/g, "$1• "); // viñetas - / * -> •
+  }
+
   function addBubble(role, text) {
     var b = el("div", "sl-chat__msg sl-chat__msg--" + role);
-    b.textContent = text;
+    b.textContent = role === "bot" ? stripMarkdown(text) : text;
     els.body.appendChild(b);
     scrollDown();
     return b;
