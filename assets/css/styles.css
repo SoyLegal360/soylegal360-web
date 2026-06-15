@@ -936,6 +936,8 @@ h3 { font-size: 22px; }
 }
 .sl-chat__msg--bot { align-self: flex-start; background: #fff; border: 1px solid #e3e8f0; color: var(--ink, #17213a); border-bottom-left-radius: 4px; }
 .sl-chat__msg--user { align-self: flex-end; background: var(--navy, #06142e); color: #fff; border-bottom-right-radius: 4px; }
+.sl-chat__link { color: #1c4e80; text-decoration: underline; word-break: break-word; }
+.sl-chat__link:hover { color: var(--navy, #06142e); }
 
 .sl-chat__typing { display: flex; gap: 4px; align-items: center; }
 .sl-chat__typing span {

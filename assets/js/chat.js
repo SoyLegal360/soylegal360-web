@@ -42,9 +42,39 @@
       .replace(/(^|\n)\s*[-*]\s+/g, "$1• "); // viñetas - / * -> •
   }
 
+  // Convierte URLs y rutas del sitio en enlaces clicables SIN innerHTML (a prueba de XSS):
+  // tokeniza el texto y crea nodos <a>/texto. Solo acepta http(s), wa.me y rutas /.../.
+  function linkify(text) {
+    var frag = document.createDocumentFragment();
+    var re = /(https?:\/\/[^\s)]+)|(\bwa\.me\/\d+)|(\/(?:[a-z0-9-]+\/)+)/g;
+    var last = 0, m;
+    while ((m = re.exec(text))) {
+      if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+      var raw = m[0];
+      var href, external;
+      if (m[1]) { href = raw; external = !/(^https?:\/\/)([^/]*\.)?soylegal360\.es\//.test(raw) || /wa\.me/.test(raw); }
+      else if (m[2]) { href = "https://" + raw; external = true; }
+      else { href = raw; external = false; } // ruta del sitio
+      if (/^https?:\/\//.test(href) || href.charAt(0) === "/") {
+        var a = document.createElement("a");
+        a.href = href;
+        a.textContent = raw;
+        a.className = "sl-chat__link";
+        if (external) { a.target = "_blank"; a.rel = "noopener"; }
+        frag.appendChild(a);
+      } else {
+        frag.appendChild(document.createTextNode(raw));
+      }
+      last = re.lastIndex;
+    }
+    if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+    return frag;
+  }
+
   function addBubble(role, text) {
     var b = el("div", "sl-chat__msg sl-chat__msg--" + role);
-    b.textContent = role === "bot" ? stripMarkdown(text) : text;
+    if (role === "bot") b.appendChild(linkify(stripMarkdown(text)));
+    else b.textContent = text;
     els.body.appendChild(b);
     scrollDown();
     return b;
