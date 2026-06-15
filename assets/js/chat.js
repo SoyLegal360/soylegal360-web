@@ -10,7 +10,7 @@
     "https://wa.me/34645668235?text=Hola%2C%20me%20gustar%C3%ADa%20informarme%20sobre%20vuestros%20servicios.";
 
   var GREETING =
-    "Hola 👋 Soy el asistente de SoyLegal360. Puedo orientarte sobre nuestros servicios de protección de datos y cumplimiento de IA, o ayudarte a contactar con el equipo. ¿En qué te ayudo?";
+    "Hola, soy ClaudIA, el asistente virtual con IA de SoyLegal360. Puedo orientarte sobre nuestros servicios de protección de datos y cumplimiento de IA, o ayudarte a contactar con el equipo. ¿En qué te ayudo?";
   var ERROR_MSG =
     "Ahora mismo no puedo responder. Escríbenos por WhatsApp o desde /contacto/ y te respondemos en menos de 48 horas hábiles.";
 
@@ -42,6 +42,33 @@
       .replace(/(^|\n)\s*[-*]\s+/g, "$1• "); // viñetas - / * -> •
   }
 
+  // Etiquetas legibles para los enlaces (en vez de mostrar la ruta cruda).
+  var LINK_LABELS = {
+    "/contacto/": "formulario de contacto",
+    "/servicios-proteccion-de-datos/": "todos los servicios",
+    "/como-funciona/": "cómo funciona",
+    "/faqs/": "preguntas frecuentes",
+    "/sobre-nosotros/": "sobre nosotros",
+    "/ejercicio-de-derechos/": "ejercicio de derechos",
+    "/aviso-legal/": "aviso legal",
+    "/politica-de-privacidad/": "política de privacidad",
+    "/politica-de-cookies/": "política de cookies",
+    "/auditoria-web-gratuita/": "auditoría web gratuita",
+    "/auditoria-rgpd/": "auditoría RGPD",
+    "/auditoria-ia/": "auditoría de IA",
+    "/adaptacion-web-rgpd/": "adaptación web RGPD",
+    "/adaptacion-empresa-rgpd/": "adaptación empresa RGPD",
+    "/adaptacion-ia/": "adaptación a la IA",
+    "/proteccion-legal-continua/": "protección legal continua",
+    "/web-legal-lista-en-7-dias/": "web legal en 7 días",
+    "/consultoria-proteccion-de-datos/": "consultoría de protección de datos",
+    "/consultoria-legal/": "consultoría legal",
+    "/revision-de-contratos/": "revisión de contratos",
+    "/delegado-de-proteccion-de-datos-externalizado/": "DPO externalizado",
+    "/responsable-ia-externalizado/": "responsable de IA externalizado",
+    "/delegado-de-ia-publico/": "delegado de IA público"
+  };
+
   // Convierte URLs y rutas del sitio en enlaces clicables SIN innerHTML (a prueba de XSS):
   // tokeniza el texto y crea nodos <a>/texto. Solo acepta http(s), wa.me y rutas /.../.
   function linkify(text) {
@@ -51,14 +78,20 @@
     while ((m = re.exec(text))) {
       if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
       var raw = m[0];
-      var href, external;
-      if (m[1]) { href = raw; external = !/(^https?:\/\/)([^/]*\.)?soylegal360\.es\//.test(raw) || /wa\.me/.test(raw); }
-      else if (m[2]) { href = "https://" + raw; external = true; }
-      else { href = raw; external = false; } // ruta del sitio
+      var href, external, label;
+      if (m[1]) {
+        href = raw;
+        external = !/(^https?:\/\/)([^/]*\.)?soylegal360\.es\//.test(raw) || /wa\.me/.test(raw);
+        label = /wa\.me/.test(raw) ? "WhatsApp" : raw;
+      } else if (m[2]) {
+        href = "https://" + raw; external = true; label = "WhatsApp";
+      } else {
+        href = raw; external = false; label = LINK_LABELS[raw] || raw; // ruta del sitio
+      }
       if (/^https?:\/\//.test(href) || href.charAt(0) === "/") {
         var a = document.createElement("a");
         a.href = href;
-        a.textContent = raw;
+        a.textContent = label;
         a.className = "sl-chat__link";
         if (external) { a.target = "_blank"; a.rel = "noopener"; }
         frag.appendChild(a);
@@ -259,11 +292,12 @@
     // Lanzador
     var launcher = el("button", "sl-chat-launcher", {
       type: "button",
-      "aria-label": "Abrir el asistente virtual",
+      "aria-label": "Abrir el asistente virtual ClaudIA",
       "aria-expanded": "false"
     });
     launcher.innerHTML =
-      '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 3C6.9 3 3 6.6 3 11.1c0 2.3 1 4.3 2.7 5.8L5 21l3.9-1.6c1 .3 2 .5 3.1.5 5.1 0 9-3.6 9-8.1S17.1 3 12 3Z"/></svg>';
+      '<span class="sl-chat-launcher__icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 3C6.9 3 3 6.6 3 11.1c0 2.3 1 4.3 2.7 5.8L5 21l3.9-1.6c1 .3 2 .5 3.1.5 5.1 0 9-3.6 9-8.1S17.1 3 12 3Z"/></svg></span>' +
+      '<span class="sl-chat-launcher__label"><b>ClaudIA</b><small>Asistente IA</small></span>';
 
     // Panel
     var panel = el("div", "sl-chat", { role: "dialog", "aria-label": "Asistente virtual de SoyLegal360", hidden: "" });
@@ -271,8 +305,8 @@
     var header = el("div", "sl-chat__header");
     header.innerHTML =
       '<div class="sl-chat__head-main">' +
-      '<strong>Asistente SoyLegal360</strong>' +
-      '<span class="sl-chat__note">Orientación, no asesoramiento jurídico. No conservamos los mensajes. ' +
+      '<span class="sl-chat__head-name"><strong>ClaudIA</strong><span class="sl-chat__ia-badge">IA</span></span>' +
+      '<span class="sl-chat__note">Asistente virtual con IA · orientación, no asesoramiento jurídico. No conservamos los mensajes. ' +
       '<a href="/politica-de-privacidad/" target="_blank" rel="noopener">Privacidad</a>.</span>' +
       "</div>";
     var closeBtn = el("button", "sl-chat__close", { type: "button", "aria-label": "Cerrar el asistente" });

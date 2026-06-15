@@ -854,14 +854,12 @@ h3 { font-size: 22px; }
   right: 20px;
   bottom: 88px; /* encima del botón de WhatsApp (56px + 12px) */
   z-index: 901;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 56px;
-  height: 56px;
-  padding: 0;
-  border: 1px solid rgba(255, 255, 255, .42);
-  border-radius: 50%;
+  gap: 10px;
+  padding: 7px 18px 7px 7px;
+  border: 1px solid rgba(255, 255, 255, .5);
+  border-radius: 999px;
   background: linear-gradient(180deg, var(--gold-soft, #e2c684), var(--gold, #c9a96e));
   color: var(--navy, #06142e);
   cursor: pointer;
@@ -870,11 +868,24 @@ h3 { font-size: 22px; }
 }
 .sl-chat-launcher:hover,
 .sl-chat-launcher:focus-visible {
-  transform: translateY(-2px) scale(1.05);
+  transform: translateY(-2px) scale(1.03);
   box-shadow: 0 10px 26px rgba(6, 20, 46, .35);
 }
 .sl-chat-launcher:focus-visible { outline: 3px solid rgba(201, 169, 110, .55); outline-offset: 3px; }
-.sl-chat-launcher svg { width: 30px; height: 30px; display: block; }
+.sl-chat-launcher__icon {
+  flex: none;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: var(--navy, #06142e);
+  color: var(--gold-soft, #e2c684);
+  display: flex; align-items: center; justify-content: center;
+}
+.sl-chat-launcher__icon svg { width: 24px; height: 24px; display: block; }
+.sl-chat-launcher__label { display: flex; flex-direction: column; line-height: 1.1; text-align: left; }
+.sl-chat-launcher__label b { font-family: Georgia, 'Times New Roman', serif; font-size: 15px; color: var(--navy, #06142e); }
+.sl-chat-launcher__label small { font-size: 11px; color: #3d2f15; }
+/* Ocultar el lanzador cuando el panel está abierto */
+.sl-chat-open .sl-chat-launcher { display: none; }
 
 .sl-chat {
   position: fixed;
@@ -903,7 +914,9 @@ h3 { font-size: 22px; }
   color: #fff;
 }
 .sl-chat__head-main { display: flex; flex-direction: column; gap: 3px; flex: 1; min-width: 0; }
+.sl-chat__head-name { display: flex; align-items: center; gap: 7px; }
 .sl-chat__head-main strong { font: 700 15px/1.2 Georgia, serif; color: var(--gold-soft, #e2c684); }
+.sl-chat__ia-badge { font: 700 10px/1 Arial, Helvetica, sans-serif; letter-spacing: .05em; color: var(--navy, #06142e); background: var(--gold-soft, #e2c684); border-radius: 999px; padding: 2px 7px; }
 .sl-chat__note { font-size: 10.5px; line-height: 1.4; color: rgba(255, 255, 255, .72); }
 .sl-chat__note a { color: rgba(255, 255, 255, .92); text-decoration: underline; }
 .sl-chat__close {
@@ -1024,7 +1037,11 @@ h3 { font-size: 22px; }
 .sl-chat__lead-status { font-size: 12px; color: var(--muted, #5d6980); min-height: 14px; }
 
 @media (max-width: 600px) {
-  .sl-chat-launcher { right: 14px; bottom: 76px; width: 52px; height: 52px; }
+  /* En móvil la pastilla se colapsa a círculo (solo icono) para no estorbar */
+  .sl-chat-launcher { right: 14px; bottom: 76px; padding: 0; gap: 0; }
+  .sl-chat-launcher__label { display: none; }
+  .sl-chat-launcher__icon { width: 52px; height: 52px; background: transparent; color: var(--navy, #06142e); }
+  .sl-chat-launcher__icon svg { width: 28px; height: 28px; }
   .sl-chat {
     right: 0; left: 0; bottom: 0;
     width: 100%;
