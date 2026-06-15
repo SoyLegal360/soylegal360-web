@@ -256,6 +256,35 @@
     setSending(true);
     var typing = showTyping();
 
+    // Estado del turno en streaming (NDJSON: líneas {type:"delta"|"done"}).
+    var bubble = null, acc = "", done = null, finished = false;
+
+    function ensureBubble() {
+      if (typing) { typing.remove(); typing = null; }
+      if (!bubble) { bubble = el("div", "sl-chat__msg sl-chat__msg--bot"); els.body.appendChild(bubble); }
+    }
+    function handleEvent(ev) {
+      if (!ev) return;
+      if (ev.type === "delta") { ensureBubble(); acc += ev.text || ""; bubble.textContent = acc; scrollDown(); }
+      else if (ev.type === "done") { done = ev; }
+    }
+    function parseLine(l) { l = (l || "").trim(); if (l) { try { handleEvent(JSON.parse(l)); } catch (e) {} } }
+    function finalize() {
+      if (finished) return;
+      finished = true;
+      if (typing) { typing.remove(); typing = null; }
+      var finalText = acc.trim() ? acc : ((done && done.reply) || ERROR_MSG);
+      if (!bubble) { bubble = el("div", "sl-chat__msg sl-chat__msg--bot"); els.body.appendChild(bubble); }
+      bubble.textContent = "";
+      bubble.appendChild(linkify(stripMarkdown(finalText)));
+      scrollDown();
+      history.push({ role: "assistant", content: finalText });
+      saveHistory();
+      setSending(false);
+      if (done && done.cta === "lead_form") renderLeadForm(done.prefill);
+      else els.input.focus();
+    }
+
     fetch(ENDPOINT, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -265,24 +294,27 @@
         website: els.honey.value || ""
       })
     })
-      .then(function (r) {
-        return r.json().catch(function () {
-          return {};
-        });
-      })
-      .then(function (data) {
-        typing.remove();
-        var reply = (data && data.reply) || ERROR_MSG;
-        addBubble("bot", reply);
-        if (data && data.reply) { history.push({ role: "assistant", content: data.reply }); saveHistory(); }
-        setSending(false);
-        if (data && data.cta === "lead_form") renderLeadForm(data.prefill);
-        else els.input.focus();
+      .then(function (resp) {
+        if (!resp.body || !resp.body.getReader) {
+          // Navegador sin streaming → leer todo y procesar las líneas NDJSON.
+          return resp.text().then(function (txt) { (txt || "").split("\n").forEach(parseLine); finalize(); });
+        }
+        var reader = resp.body.getReader(), dec = new TextDecoder(), buf = "";
+        function pump() {
+          return reader.read().then(function (r) {
+            if (r.done) { buf += dec.decode(); buf.split("\n").forEach(parseLine); finalize(); return; }
+            buf += dec.decode(r.value, { stream: true });
+            var lines = buf.split("\n");
+            buf = lines.pop();
+            lines.forEach(parseLine);
+            return pump();
+          });
+        }
+        return pump();
       })
       .catch(function () {
-        typing.remove();
-        addBubble("bot", ERROR_MSG);
-        setSending(false);
+        if (typing) { typing.remove(); typing = null; }
+        if (!finished) { addBubble("bot", ERROR_MSG); setSending(false); }
       });
   }
 
