@@ -872,6 +872,22 @@ h3 { font-size: 22px; }
   box-shadow: 0 10px 26px rgba(6, 20, 46, .35);
 }
 .sl-chat-launcher:focus-visible { outline: 3px solid rgba(201, 169, 110, .55); outline-offset: 3px; }
+/* Anillo metálico giratorio (brillo dorado que recorre el borde) */
+@property --sl-ring-angle { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
+.sl-chat-launcher::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  z-index: -1;
+  border-radius: inherit;
+  background: conic-gradient(from var(--sl-ring-angle),
+    #c9a96e 0%, #c9a96e 56%, #f3e3b0 71%, #fffaf0 79%, #f3e3b0 87%, #c9a96e 100%);
+  animation: sl-ring-spin 3s linear infinite;
+}
+@keyframes sl-ring-spin { to { --sl-ring-angle: 360deg; } }
+@media (prefers-reduced-motion: reduce) {
+  .sl-chat-launcher::before { animation: none; }
+}
 .sl-chat-launcher__icon {
   flex: none;
   width: 42px; height: 42px;
