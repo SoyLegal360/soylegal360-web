@@ -872,18 +872,24 @@ h3 { font-size: 22px; }
   box-shadow: 0 10px 26px rgba(6, 20, 46, .35);
 }
 .sl-chat-launcher:focus-visible { outline: 3px solid rgba(201, 169, 110, .55); outline-offset: 3px; }
-/* Borde metalizado tipo Apple: todo el perímetro brilla, con reflejos que giran lento */
+/* Filo metalizado tipo Apple: SOLO el perímetro, línea fina con reflejos que giran lento */
 @property --sl-ring-angle { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
 .sl-chat-launcher::before {
   content: "";
   position: absolute;
-  inset: -2.5px;
-  z-index: -1;
+  inset: 0;
+  z-index: 1;
   border-radius: inherit;
+  padding: 1.5px;
+  pointer-events: none;
   background: conic-gradient(from var(--sl-ring-angle),
     #8a6d28, #e7cd8e, #fffdf6, #e7cd8e, #a8842f,
     #fffdf6, #c9a96e, #8a6d28, #f3e3b0, #fffdf6,
     #e7cd8e, #a8842f, #fffdf6, #e7cd8e, #8a6d28);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
   animation: sl-ring-spin 6s linear infinite;
 }
 @keyframes sl-ring-spin { to { --sl-ring-angle: 360deg; } }
