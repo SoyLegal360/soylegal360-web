@@ -977,6 +977,19 @@ h3 { font-size: 22px; }
 }
 .sl-chat__action:hover { background: #e7ecf4; }
 
+/* Chips de sugerencia al abrir */
+.sl-chat__chips { display: flex; flex-wrap: wrap; gap: 7px; padding: 2px 0 4px; }
+.sl-chat__chip {
+  font: 500 12.5px/1.2 Arial, Helvetica, sans-serif;
+  color: var(--navy, #06142e);
+  background: #fff;
+  border: 1px solid #d9c39a;
+  border-radius: 999px;
+  padding: 7px 13px;
+  cursor: pointer;
+}
+.sl-chat__chip:hover { background: #fbf6ec; border-color: var(--gold, #c9a96e); }
+
 .sl-chat__form { display: flex; align-items: center; gap: 8px; padding: 10px 12px; background: #fff; border-top: 1px solid #eef1f6; }
 .sl-chat__input {
   flex: 1; min-width: 0;

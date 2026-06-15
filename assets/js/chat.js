@@ -20,6 +20,18 @@
   var leadFormOpen = false; // evita mostrar dos formularios a la vez
   var els = {};
 
+  var STORE_KEY = "sl-chat-history"; // continuidad dentro de la sesión (solo navegador)
+  var CHIPS = ["¿Qué servicios tenéis?", "¿Necesito un DPO?", "Precios", "Hablar con un abogado"];
+
+  // Evento GA4 (sin datos personales; respeta el Consent Mode ya configurado).
+  function track(name) {
+    if (window.gtag) { try { window.gtag("event", name); } catch (e) {} }
+  }
+  // Guarda el historial SOLO en el navegador (sessionStorage), se borra al cerrar pestaña.
+  function saveHistory() {
+    try { sessionStorage.setItem(STORE_KEY, JSON.stringify(history.slice(-24))); } catch (e) {}
+  }
+
   function el(tag, cls, attrs) {
     var node = document.createElement(tag);
     if (cls) node.className = cls;
@@ -202,6 +214,7 @@
           email: mail,
           phone: (tel.value || "").trim(),
           message: motivo.value || "",
+          servicio: (prefill && prefill.servicio) || "",
           consent: true,
           marketing: false,
           website: honey.value || ""
@@ -215,7 +228,11 @@
         .then(function (data) {
           if (data && data.ok) {
             form.remove();
-            addBubble("bot", "¡Listo! He pasado tus datos al equipo. Te escribirán en menos de 48 horas hábiles. ¿Algo más en lo que te ayude?");
+            track("chat_lead");
+            var ok = "¡Listo! He pasado tus datos al equipo. Te escribirán en menos de 48 horas hábiles. ¿Algo más en lo que te ayude?";
+            addBubble("bot", ok);
+            history.push({ role: "assistant", content: ok });
+            saveHistory();
             leadFormOpen = false;
           } else {
             submit.disabled = false;
@@ -234,6 +251,7 @@
     if (!text || sending) return;
     addBubble("user", text);
     history.push({ role: "user", content: text });
+    saveHistory();
     els.input.value = "";
     setSending(true);
     var typing = showTyping();
@@ -256,7 +274,7 @@
         typing.remove();
         var reply = (data && data.reply) || ERROR_MSG;
         addBubble("bot", reply);
-        if (data && data.reply) history.push({ role: "assistant", content: data.reply });
+        if (data && data.reply) { history.push({ role: "assistant", content: data.reply }); saveHistory(); }
         setSending(false);
         if (data && data.cta === "lead_form") renderLeadForm(data.prefill);
         else els.input.focus();
@@ -268,12 +286,31 @@
       });
   }
 
+  function renderChips() {
+    var row = el("div", "sl-chat__chips");
+    CHIPS.forEach(function (q) {
+      var c = el("button", "sl-chat__chip", { type: "button" });
+      c.textContent = q;
+      c.addEventListener("click", function () { row.remove(); send(q); });
+      row.appendChild(c);
+    });
+    els.body.appendChild(row);
+    scrollDown();
+  }
+
   function open() {
     els.panel.hidden = false;
     els.launcher.setAttribute("aria-expanded", "true");
     document.body.classList.add("sl-chat-open");
+    track("chat_abierto");
     if (!els.body.dataset.seeded) {
-      addBubble("bot", GREETING);
+      if (history.length) {
+        // Continuidad: reproducir la conversación previa de esta sesión.
+        history.forEach(function (m) { addBubble(m.role, m.content); });
+      } else {
+        addBubble("bot", GREETING);
+        renderChips();
+      }
       els.body.dataset.seeded = "1";
     }
     setTimeout(function () {
@@ -289,6 +326,12 @@
   }
 
   function build() {
+    // Continuidad: recuperar la conversación de esta sesión (solo del navegador).
+    try {
+      var saved = JSON.parse(sessionStorage.getItem(STORE_KEY) || "[]");
+      if (saved && saved.length) history = saved;
+    } catch (e) {}
+
     // Lanzador
     var launcher = el("button", "sl-chat-launcher", {
       type: "button",
@@ -313,7 +356,7 @@
     closeBtn.innerHTML = "&times;";
     header.appendChild(closeBtn);
 
-    var bodyEl = el("div", "sl-chat__body");
+    var bodyEl = el("div", "sl-chat__body", { "aria-live": "polite", "aria-atomic": "false" });
 
     var actions = el("div", "sl-chat__actions");
     var waLink = el("a", "sl-chat__action", { href: WHATSAPP, target: "_blank", rel: "noopener" });
