@@ -161,8 +161,26 @@
     var nombre = field("name", "text", "Nombre", prefill.nombre || "");
     var email = field("email", "email", "Email", prefill.email || "");
     var tel = field("phone", "tel", "Teléfono (opcional)", "");
-    var motivo = el("input", "sl-chat__honey", { type: "hidden", name: "message" });
-    motivo.value = prefill.motivo || "Solicitud desde el asistente virtual.";
+
+    // Desplegable para calificar el lead. Mantener idéntico a TIPOS_CONSULTA del backend
+    // (chat-kb.ts) y a las opciones del campo "Tipo de consulta" de Notion.
+    var TIPOS_CONSULTA = [
+      "Brecha o robo de datos", "Auditoría (web/RGPD/IA)", "Adaptación al RGPD",
+      "Cumplimiento de IA (AI Act)", "DPO / Responsable de IA", "Revisión de contratos",
+      "Ejercicio de derechos", "Otro"
+    ];
+    var tipo = el("select", "sl-chat__lead-input sl-chat__lead-select", { name: "tipoConsulta", "aria-label": "Tipo de consulta" });
+    var tipoPh = el("option", null, { value: "" });
+    tipoPh.textContent = "¿Sobre qué necesitas ayuda?";
+    tipo.appendChild(tipoPh);
+    TIPOS_CONSULTA.forEach(function (t) {
+      var o = el("option", null, { value: t });
+      o.textContent = t;
+      tipo.appendChild(o);
+    });
+
+    var motivo = el("textarea", "sl-chat__lead-input sl-chat__lead-textarea", { name: "message", rows: "2", placeholder: "Cuéntanos brevemente tu caso (opcional)" });
+    if (prefill.motivo) motivo.value = prefill.motivo;
     var honey = el("input", "sl-chat__honey", { type: "text", name: "website", tabindex: "-1", autocomplete: "off", "aria-hidden": "true" });
 
     var consentRow = el("label", "sl-chat__lead-consent");
@@ -180,6 +198,7 @@
     form.appendChild(nombre);
     form.appendChild(email);
     form.appendChild(tel);
+    form.appendChild(tipo);
     form.appendChild(motivo);
     form.appendChild(honey);
     form.appendChild(consentRow);
@@ -196,6 +215,10 @@
       var mail = (email.value || "").trim();
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)) {
         status.textContent = "Introduce un email válido.";
+        return;
+      }
+      if (!tipo.value) {
+        status.textContent = "Selecciona el tipo de consulta.";
         return;
       }
       if (!consent.checked) {
@@ -215,6 +238,7 @@
           phone: (tel.value || "").trim(),
           message: motivo.value || "",
           servicio: (prefill && prefill.servicio) || "",
+          tipoConsulta: tipo.value || "",
           consent: true,
           marketing: false,
           website: honey.value || ""

@@ -1053,6 +1053,12 @@ h3 { font-size: 22px; }
   outline: none;
 }
 .sl-chat__lead-input:focus { border-color: var(--gold, #c9a96e); box-shadow: 0 0 0 3px rgba(201, 169, 110, .18); }
+.sl-chat__lead-select {
+  appearance: none; -webkit-appearance: none; cursor: pointer;
+  background: #fff url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><path d='M2 4l4 4 4-4' fill='none' stroke='%235d6980' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/></svg>") no-repeat right 11px center;
+  padding-right: 30px;
+}
+.sl-chat__lead-textarea { resize: vertical; min-height: 38px; font-family: inherit; }
 .sl-chat__lead-consent {
   display: flex; align-items: flex-start; gap: 8px;
   font-size: 12px; line-height: 1.4; color: var(--muted, #5d6980);
