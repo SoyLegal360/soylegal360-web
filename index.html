@@ -377,22 +377,22 @@
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-  <!-- ===== Banner: Nueva Ley IA España ===== -->
+  <!-- ===== Banner: normativa IA (RIA UE en vigor + proyecto de ley ES) ===== -->
   <div id="sl-banner" role="region" aria-label="Aviso sobre nueva normativa de inteligencia artificial">
     <div class="sl-banner__inner">
       <!-- Estado expandido (desktop inicial) -->
       <div class="sl-banner__exp">
         <div class="sl-banner__main">
-          <span class="sl-banner__label">NUEVO · Mayo 2026</span>
-          <p class="sl-banner__headline">Nueva Ley de IA en España: tu negocio ya tiene obligaciones legales.</p>
-          <p class="sl-banner__sub">Comprueba en minutos en qué nivel de riesgo estás.</p>
+          <span class="sl-banner__label">Actualidad · Junio 2026</span>
+          <p class="sl-banner__headline">IA en tu negocio: el Reglamento europeo ya aplica; España prepara su ley.</p>
+          <p class="sl-banner__sub">Comprueba en minutos tu exposición legal.</p>
         </div>
         <a class="sl-banner__cta" href="/auditoria-ia/">Comprueba tu nivel de riesgo</a>
       </div>
       <!-- Estado colapsado (barra fina, o móvil) -->
       <div class="sl-banner__bar" aria-hidden="true">
-        <span class="sl-banner__bar-label">NUEVO · Mayo 2026</span>
-        <span class="sl-banner__bar-text">Nueva Ley de IA en España · obligaciones legales para tu negocio</span>
+        <span class="sl-banner__bar-label">Actualidad · Junio 2026</span>
+        <span class="sl-banner__bar-text">IA en tu negocio: el Reglamento europeo ya aplica; España prepara su ley</span>
         <a class="sl-banner__bar-link" href="/auditoria-ia/" tabindex="-1">Comprueba tu riesgo &rarr;</a>
       </div>
       <button class="sl-banner__close" id="sl-banner-close" aria-label="Cerrar aviso">
@@ -416,12 +416,12 @@
           <summary><a href="/servicios-proteccion-de-datos/">Servicios</a><span class="services-chevron" aria-hidden="true">&#9660;</span></summary>
           <div class="mega-menu"><section>
         <h3>Diagnóstico y auditoría</h3>
-        <a href="https://app.soylegal360.es">Auditoría web gratuita</a><a href="/auditoria-rgpd/">Auditoría RGPD</a><a href="/auditoria-ia/">Auditoría IA</a>
+        <a href="https://app.soylegal360.es">Auditoría Web Express</a><a href="/auditoria-web-gratuita/">Auditoría Web Gratuita</a><a href="/auditoria-rgpd/">Auditoría RGPD</a><a href="/auditoria-ia/">Auditoría IA</a>
       </section><section>
         <h3>Adaptación y cumplimiento</h3>
         <a href="/adaptacion-web-rgpd/">Adaptación Web RGPD</a><a href="/adaptacion-empresa-rgpd/">Adaptación Empresa RGPD</a><a href="/adaptacion-ia/">Adaptación IA</a>
       </section><section>
-        <h3>Continuidad y figuras obligatorias</h3>
+        <h3>Continuidad y figuras especializadas</h3>
         <a href="/proteccion-legal-continua/">Protección Legal Continua</a><a href="/delegado-de-proteccion-de-datos-externalizado/">Delegado de Protección de Datos</a><a href="/responsable-ia-externalizado/">Responsable de IA</a><a href="/delegado-de-ia-publico/">Delegado de IA (sector público)</a>
       </section><section>
         <h3>Web y legal digital</h3>
@@ -451,7 +451,7 @@
       </div>
       <p class="lead">En <span class="sl-brand">SoyLegal<span>360</span></span> queremos ponértelo fácil, y te ofrecemos una auditoría gratuita de tu web para que sepas si tu página cumple con la protección de datos.</p>
       <div class="actions center-actions">
-        <a class="button gold" href="https://app.soylegal360.es">Auditoría web gratuita</a>
+        <a class="button gold" href="https://app.soylegal360.es">Auditoría Web Express · gratis</a>
       </div>
     </div>
     <script>
@@ -1258,7 +1258,7 @@
     </div>
     <div class="sl-svc-cat__cta">
       <a href="/servicios-proteccion-de-datos/" class="sl-svc-cat__btn">Ver todos los servicios →</a>
-      <p class="sl-svc-cat__sub">14 servicios · Precios visibles · Compara opciones</p>
+      <p class="sl-svc-cat__sub">14 servicios · Con precio o presupuesto a medida · Compara opciones</p>
     </div>
   </div>
   </section>
@@ -1444,13 +1444,15 @@
   <script src="/assets/js/site.js" defer></script>
   <script>
   // ─── Banner IA - Constantes editables (no tocar la lógica) ───────────────────
-  // MANTENIMIENTO: cuando la ley pase el Congreso o entre en vigor,
-  // actualizar LABEL ("APROBADA · [mes año]") y HEADLINE.
+  // MANTENIMIENTO (rigor jurídico): las obligaciones que YA aplican vienen del
+  // Reglamento UE 2024/1689 (RIA). La norma española es a 06/2026 un PROYECTO de
+  // Ley Orgánica (exp. 121/000096), NO ley en vigor: no llamarla "ley" hasta su
+  // publicación en el BOE. Cuando se apruebe, actualizar LABEL y HEADLINE.
   // El comportamiento del banner no cambia.
   const BANNER = {
-    LABEL:            "NUEVO · Mayo 2026",
-    HEADLINE:         "Nueva Ley de IA en España: tu negocio ya tiene obligaciones legales.",
-    SUBCOPY:          "Comprueba en minutos en qué nivel de riesgo estás.",
+    LABEL:            "Actualidad · Junio 2026",
+    HEADLINE:         "IA en tu negocio: el Reglamento europeo ya aplica; España prepara su ley.",
+    SUBCOPY:          "Comprueba en minutos tu exposición legal.",
     CTA_TEXT:         "Comprueba tu nivel de riesgo",
     CTA_URL:          "/auditoria-ia/",
     DISMISS_DAYS:     7,
