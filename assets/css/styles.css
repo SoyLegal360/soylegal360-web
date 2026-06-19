@@ -975,6 +975,19 @@ h3 { font-size: 22px; }
 .sl-chat__msg--user { align-self: flex-end; background: var(--navy, #06142e); color: #fff; border-bottom-right-radius: 4px; }
 .sl-chat__link { color: #1c4e80; text-decoration: underline; word-break: break-word; }
 .sl-chat__link:hover { color: var(--navy, #06142e); }
+/* CTA dorado de ClaudIA (p. ej. auditoría gratis al momento): botón en vez de enlace */
+.sl-chat__cta {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin: 8px 0 2px;
+  padding: 10px 16px;
+  font: 800 12.5px/1.1 Arial, Helvetica, sans-serif; letter-spacing: .02em;
+  color: var(--navy, #06142e); text-decoration: none;
+  background: linear-gradient(180deg, var(--gold-soft, #e2c684), var(--gold, #c9a96e));
+  border: 1px solid rgba(255, 255, 255, .5); border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(6, 20, 46, .22);
+  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+}
+.sl-chat__cta:hover { transform: translateY(-1px); filter: brightness(1.05); box-shadow: 0 6px 16px rgba(6, 20, 46, .3); }
 
 .sl-chat__typing { display: flex; gap: 4px; align-items: center; }
 .sl-chat__typing span {

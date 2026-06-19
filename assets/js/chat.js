@@ -90,11 +90,12 @@
     while ((m = re.exec(text))) {
       if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
       var raw = m[0];
-      var href, external, label;
+      var href, external, label, isCta = false;
       if (m[1]) {
         href = raw;
         external = !/(^https?:\/\/)([^/]*\.)?soylegal360\.es\//.test(raw) || /wa\.me/.test(raw);
-        label = /wa\.me/.test(raw) ? "WhatsApp" : raw;
+        if (/^https?:\/\/app\.soylegal360\.es/i.test(raw)) { isCta = true; label = "Analizar mi web gratis"; }
+        else label = /wa\.me/.test(raw) ? "WhatsApp" : raw;
       } else if (m[2]) {
         href = "https://" + raw; external = true; label = "WhatsApp";
       } else {
@@ -103,8 +104,8 @@
       if (/^https?:\/\//.test(href) || href.charAt(0) === "/") {
         var a = document.createElement("a");
         a.href = href;
-        a.textContent = label;
-        a.className = "sl-chat__link";
+        a.textContent = isCta ? label + " →" : label;
+        a.className = isCta ? "sl-chat__cta" : "sl-chat__link";
         if (external) { a.target = "_blank"; a.rel = "noopener"; }
         frag.appendChild(a);
       } else {
