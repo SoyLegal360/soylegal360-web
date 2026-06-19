@@ -277,6 +277,7 @@
     addBubble("user", text);
     history.push({ role: "user", content: text });
     saveHistory();
+    track("chat_mensaje"); // GA4: 1 evento por mensaje (uso por usuario/sesión, sin PII; respeta consentimiento)
     els.input.value = "";
     setSending(true);
     var typing = showTyping();
