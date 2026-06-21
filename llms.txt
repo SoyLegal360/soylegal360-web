@@ -1,0 +1,24 @@
+# SoyLegal360
+
+> SOYLEGAL360 SERVICIOS JURÍDICOS, S.L. es una consultoría jurídica española especializada en protección de datos (RGPD, LOPDGDD, LSSICE) y en el cumplimiento del Reglamento Europeo de Inteligencia Artificial (AI Act). Ayuda a empresas, autónomos y particulares a cumplir la normativa de privacidad e IA. Sede en Sabadell (Barcelona); presta servicio en toda España.
+
+## Servicios principales
+- [Adaptación al RGPD para empresas y autónomos](https://www.soylegal360.es/adaptacion-empresa-rgpd/): documentación, Registro de Actividades de Tratamiento, proveedores, brechas y formación.
+- [Auditoría de IA personalizada (AI Act)](https://www.soylegal360.es/auditoria-ia/): inventario de usos de IA, clasificación de riesgo según el AI Act, RGPD y prioridades.
+- [DPO externalizado — Delegado de Protección de Datos externo](https://www.soylegal360.es/delegado-de-proteccion-de-datos-externalizado/): designación ante la AEPD, supervisión y cumplimiento continuo del RGPD.
+- [Auditoría web RGPD gratuita](https://www.soylegal360.es/auditoria-web-gratuita/): diagnóstico de cumplimiento de una web.
+- [Ejercicio de derechos para particulares](https://www.soylegal360.es/ejercicio-de-derechos/): acceso, rectificación, supresión, etc.
+- [Catálogo completo de servicios](https://www.soylegal360.es/servicios-proteccion-de-datos/)
+
+## Recursos útiles
+- [Diagnóstico interactivo: encuentra tu servicio en 60 segundos](https://www.soylegal360.es/como-funciona/)
+- Asistente virtual (ClaudIA) integrado en la web para dudas iniciales sobre RGPD y AI Act.
+
+## Contacto
+- Web: https://www.soylegal360.es/
+- Email: info@soylegal360.es
+- Teléfono: +34 645 668 235
+- Sede: Av. Francesc Macià, 60, planta 19, 08208 Sabadell (Barcelona), España
+
+## Aviso
+La información pública del sitio es orientativa y no sustituye un dictamen jurídico personalizado.
