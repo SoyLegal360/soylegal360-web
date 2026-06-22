@@ -1104,6 +1104,15 @@ h3 { font-size: 22px; }
     height: 80vh;
     border-radius: 14px 14px 0 0;
   }
+  /* iOS hace zoom al enfocar inputs con font-size < 16px: ese zoom descoloca el
+     panel y esconde el botón de enviar. Con 16px no hay zoom y se ve lo que escribes. */
+  .sl-chat__input,
+  .sl-chat__lead-input { font-size: 16px; }
+  /* Caja de escritura y botón de envío más cómodos al tacto (mín. 44px) y respeto
+     del área segura (barra inferior del iPhone). */
+  .sl-chat__form { gap: 10px; padding-bottom: calc(10px + env(safe-area-inset-bottom)); }
+  .sl-chat__input { padding: 12px 14px; }
+  .sl-chat__send { width: 46px; height: 46px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .sl-chat-launcher { transition: none; }

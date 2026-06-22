@@ -356,10 +356,44 @@
     scrollDown();
   }
 
+  // ---- Móvil: mantener el panel (y el botón de envío) visible sobre el teclado.
+  // El teclado virtual encoge el "visual viewport" pero NO mueve los position:fixed,
+  // así que el formulario quedaba oculto detrás del teclado. Lo recolocamos a mano.
+  function isMobile() {
+    return !!(window.matchMedia && window.matchMedia("(max-width: 600px)").matches);
+  }
+  function fitViewport() {
+    var vv = window.visualViewport;
+    if (!vv || !els.panel || els.panel.hidden) return;
+    if (!isMobile()) { els.panel.style.height = ""; els.panel.style.transform = ""; return; }
+    var kb = Math.max(0, window.innerHeight - vv.height - vv.offsetTop);
+    if (kb > 80) { // teclado abierto → ajustamos el panel a la zona visible
+      els.panel.style.height = vv.height + "px";
+      els.panel.style.transform = "translateY(-" + kb + "px)";
+    } else { // teclado cerrado → volvemos al diseño normal (CSS)
+      els.panel.style.height = "";
+      els.panel.style.transform = "";
+    }
+    scrollDown();
+  }
+  function bindViewport(on) {
+    var vv = window.visualViewport;
+    if (!vv) return;
+    if (on) {
+      vv.addEventListener("resize", fitViewport);
+      vv.addEventListener("scroll", fitViewport);
+    } else {
+      vv.removeEventListener("resize", fitViewport);
+      vv.removeEventListener("scroll", fitViewport);
+      if (els.panel) { els.panel.style.height = ""; els.panel.style.transform = ""; }
+    }
+  }
+
   function open() {
     els.panel.hidden = false;
     els.launcher.setAttribute("aria-expanded", "true");
     document.body.classList.add("sl-chat-open");
+    bindViewport(true);
     track("chat_abierto");
     if (!els.body.dataset.seeded) {
       if (history.length) {
@@ -373,6 +407,7 @@
     }
     setTimeout(function () {
       els.input.focus();
+      fitViewport();
     }, 60);
   }
 
@@ -380,6 +415,7 @@
     els.panel.hidden = true;
     els.launcher.setAttribute("aria-expanded", "false");
     document.body.classList.remove("sl-chat-open");
+    bindViewport(false);
     els.launcher.focus();
   }
 
