@@ -1160,6 +1160,11 @@ h3 { font-size: 22px; }
     padding: 18px 22px 24px;
     border-bottom: 1px solid var(--line);
     background: #fff;
+    /* El menú scrollea por dentro; contain evita que el scroll se vaya a la página */
+    max-height: calc(100vh - 82px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
   }
   .site-nav.is-open { display: flex; }
   .mega-menu { position: static; grid-template-columns: 1fr; width: 100%; margin-top: 12px; box-shadow: none; transform: none !important; }
