@@ -188,12 +188,21 @@ a { color: inherit; }
   letter-spacing: .08em;
   text-transform: uppercase;
 }
-/* Links del mega-menu: hover dorado + indent suave */
+/* Links del mega-menu: nombre + descriptor, hover dorado + indent suave */
 .mega-menu a {
-  display: block; margin: 8px 0; font-weight: 600;
-  transition: color .15s ease, padding-left .15s ease;
+  display: block; margin: 10px 0;
+  transition: padding-left .15s ease;
 }
-.mega-menu a:hover { color: var(--copper); padding-left: 4px; }
+.mega-menu a:hover { padding-left: 4px; }
+.mega-menu a:hover .mega-name { color: var(--copper); }
+.mega-menu .mega-name {
+  display: block; font-weight: 600; color: var(--navy);
+  transition: color .15s ease;
+}
+.mega-menu .mega-desc {
+  display: block; font-weight: 400; font-size: 12px; line-height: 1.3;
+  color: var(--muted); margin-top: 1px;
+}
 .nav-toggle { display: none; border: 0; background: transparent; }
 .nav-toggle span:not(.sr-only) { display: block; width: 24px; height: 2px; margin: 5px 0; background: var(--navy); }
 .hero, .page-hero {
