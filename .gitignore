@@ -19,6 +19,10 @@ serve.py
 deploy.sh
 .claude/
 
+# Astro / Node (build del blog)
+node_modules/
+.astro/
+
 # Editor
 .vscode/
 .idea/

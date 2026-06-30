@@ -1,0 +1,104 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import HeadCommon from '../components/HeadCommon.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const { titulo, meta, fecha, faq } = post.data;
+
+const canonical = `https://www.soylegal360.es/blog/${post.id}/`;
+const fechaISO = fecha.toISOString().slice(0, 10);
+const fechaLegible = fecha.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' });
+const ogImage = 'https://www.soylegal360.es/assets/img/soylegal360_logo_color_horizontal.png';
+const titleTag = `${titulo} | SoyLegal360`;
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: titulo,
+  description: meta,
+  datePublished: fechaISO,
+  dateModified: fechaISO,
+  inLanguage: 'es-ES',
+  author: { '@type': 'Organization', name: 'SoyLegal360', url: 'https://www.soylegal360.es/' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'SoyLegal360',
+    logo: { '@type': 'ImageObject', url: ogImage },
+  },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
+};
+
+const faqSchema = faq.length
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faq.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    }
+  : null;
+---
+<!doctype html>
+<html lang="es">
+<head>
+  <HeadCommon />
+  <title>{titleTag}</title>
+  <meta name="description" content={meta} />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href={canonical} />
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:site_name" content="SoyLegal360" />
+  <meta property="og:title" content={titleTag} />
+  <meta property="og:description" content={meta} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={ogImage} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={titleTag} />
+  <meta name="twitter:description" content={meta} />
+  <meta name="twitter:image" content={ogImage} />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  {faqSchema && <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
+  <style>
+    .blog-hero{background:linear-gradient(135deg,#06142e,#102c53);color:#fff;padding:72px 22px 56px;border-bottom:7px solid #c9a96e}
+    .blog-hero__wrap{width:min(800px,100%);margin:0 auto}
+    .blog-hero__eyebrow{color:#c9a96e;font:800 12px/1.35 Arial,Helvetica,sans-serif;letter-spacing:.2em;text-transform:uppercase;margin:0}
+    .blog-hero h1{margin:14px 0 0;font-size:clamp(31px,4.6vw,50px);line-height:1.08;color:#fff;text-wrap:balance}
+    .blog-hero__meta{margin-top:18px;color:#cdd9ec;font:700 13px/1.4 Arial,Helvetica,sans-serif}
+    .blog-article{width:min(720px,100%);margin:0 auto;padding:54px 22px 72px;color:#17213a;font-family:Georgia,"Times New Roman",serif;font-size:19px;line-height:1.65}
+    .blog-article h2{color:#06142e;font-size:clamp(24px,3vw,33px);line-height:1.15;margin:44px 0 0;text-wrap:balance}
+    .blog-article h3{color:#06142e;font-size:22px;margin:32px 0 0}
+    .blog-article p{margin:16px 0 0}
+    .blog-article ul{margin:16px 0 0;padding-left:24px}
+    .blog-article li{margin:8px 0 0}
+    .blog-article a{color:#102c53;text-decoration:underline;text-underline-offset:3px;text-decoration-color:#c9a96e}
+    .blog-article a:hover{color:#06142e}
+    .blog-article strong{color:#06142e}
+    @media(max-width:720px){.blog-article{font-size:18px;padding:40px 16px 56px}.blog-hero{padding:58px 16px 44px}}
+  </style>
+</head>
+<body>
+  <SiteHeader />
+  <main id="contenido">
+    <div class="blog-hero">
+      <div class="blog-hero__wrap">
+        <p class="blog-hero__eyebrow">Blog · SoyLegal360</p>
+        <h1>{titulo}</h1>
+        <p class="blog-hero__meta">Publicado el {fechaLegible}</p>
+      </div>
+    </div>
+    <article class="blog-article">
+      <slot />
+    </article>
+  </main>
+  <SiteFooter />
+</body>
+</html>
