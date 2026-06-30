@@ -14,7 +14,8 @@ const { titulo, meta, fecha, faq } = post.data;
 const canonical = `https://www.soylegal360.es/blog/${post.id}/`;
 const fechaISO = fecha.toISOString().slice(0, 10);
 const fechaLegible = fecha.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' });
-const ogImage = 'https://www.soylegal360.es/assets/img/soylegal360_logo_color_horizontal.png';
+const ogImage = `${canonical}og.png`; // tarjeta de marca por articulo (scripts/gen-og.mjs)
+const brandLogo = 'https://www.soylegal360.es/assets/img/soylegal360_logo_color_horizontal.png';
 const titleTag = `${titulo} | SoyLegal360`;
 
 const articleSchema = {
@@ -22,6 +23,7 @@ const articleSchema = {
   '@type': 'Article',
   headline: titulo,
   description: meta,
+  image: ogImage,
   datePublished: fechaISO,
   dateModified: fechaISO,
   inLanguage: 'es-ES',
@@ -29,7 +31,7 @@ const articleSchema = {
   publisher: {
     '@type': 'Organization',
     name: 'SoyLegal360',
-    logo: { '@type': 'ImageObject', url: ogImage },
+    logo: { '@type': 'ImageObject', url: brandLogo },
   },
   mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
 };
@@ -61,6 +63,8 @@ const faqSchema = faq.length
   <meta property="og:description" content={meta} />
   <meta property="og:url" content={canonical} />
   <meta property="og:image" content={ogImage} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={titleTag} />
   <meta name="twitter:description" content={meta} />

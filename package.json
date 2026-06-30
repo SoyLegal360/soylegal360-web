@@ -4,10 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && node scripts/copy-static.mjs && node scripts/inject-blog-sitemap.mjs",
+    "build": "astro build && node scripts/copy-static.mjs && node scripts/inject-blog-sitemap.mjs && node scripts/gen-og.mjs",
     "preview": "astro preview"
   },
   "dependencies": {
-    "astro": "^5.0.0"
+    "@resvg/resvg-js": "^2.6.2",
+    "astro": "^5.0.0",
+    "satori": "^0.26.0"
   }
 }
