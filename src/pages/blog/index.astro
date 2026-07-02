@@ -1,0 +1,113 @@
+---
+import { getCollection } from 'astro:content';
+import HeadCommon from '../../components/HeadCommon.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.fecha.getTime() - a.data.fecha.getTime()
+);
+const canonical = 'https://www.soylegal360.es/blog/';
+
+const minutosDe = (body?: string) =>
+  Math.max(1, Math.round((body ?? '').split(/\s+/).filter(Boolean).length / 200));
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://www.soylegal360.es/' },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: canonical },
+  ],
+};
+---
+<!doctype html>
+<html lang="es">
+<head>
+  <HeadCommon />
+  <title>Blog de protección de datos e IA | SoyLegal360</title>
+  <meta name="description" content="Guías prácticas sobre RGPD, Reglamento de IA (AI Act) y cumplimiento legal para empresas y autónomos, revisadas por el equipo jurídico de SoyLegal360." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href={canonical} />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:site_name" content="SoyLegal360" />
+  <meta property="og:title" content="Blog de protección de datos e IA | SoyLegal360" />
+  <meta property="og:description" content="Guías prácticas sobre RGPD, Reglamento de IA (AI Act) y cumplimiento legal para empresas y autónomos." />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content="https://www.soylegal360.es/blog/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Blog de protección de datos e IA | SoyLegal360" />
+  <meta name="twitter:description" content="Guías prácticas sobre RGPD, Reglamento de IA (AI Act) y cumplimiento legal para empresas y autónomos." />
+  <meta name="twitter:image" content="https://www.soylegal360.es/blog/og.png" />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <style>
+    :root{--navy:#06142e;--navy-2:#102c53;--ink:#17213a;--muted:#5d6980;--soft:#f5f7fb;--gold:#c9a96e;--gold-soft:#e2c684;--line:rgba(23,54,97,.18)}
+    .blog-hero{position:relative;background:linear-gradient(135deg,rgba(6,20,46,.99),rgba(16,44,83,.97)),repeating-linear-gradient(90deg,rgba(201,169,110,.11) 0 1px,transparent 1px 86px);color:#fff;padding:70px 22px 62px}
+    .blog-hero::after{position:absolute;right:0;bottom:0;left:0;height:6px;content:"";background:linear-gradient(90deg,transparent,var(--gold),var(--gold-soft),var(--gold),transparent)}
+    .blog-hero__wrap{width:min(1020px,100%);margin:0 auto}
+    .blog-crumbs{display:flex;gap:8px;align-items:center;margin:0 0 20px;font:700 12px/1.4 Arial,Helvetica,sans-serif;letter-spacing:.06em;text-transform:uppercase}
+    .blog-crumbs a{color:#c3d2e8;text-decoration:none}
+    .blog-crumbs a:hover{color:#fff}
+    .blog-crumbs span{color:var(--gold)}
+    .blog-hero__eyebrow{margin:0;color:var(--gold);font:800 12px/1.35 Arial,Helvetica,sans-serif;letter-spacing:.2em;text-transform:uppercase}
+    .blog-hero h1{margin:14px 0 0;font-size:clamp(32px,4.6vw,54px);line-height:1.06;color:#fff;font-family:Georgia,"Times New Roman",serif;text-wrap:balance}
+    .blog-hero h1 em{font-style:normal;color:var(--gold-soft)}
+    .blog-hero p.lead{margin:18px 0 0;color:#cdd9ec;font:400 18px/1.55 Arial,Helvetica,sans-serif;max-width:640px}
+    .blog-hero__note{display:inline-flex;align-items:center;gap:7px;margin-top:22px;border:1px solid rgba(201,169,110,.45);border-radius:999px;padding:7px 14px;color:var(--gold-soft);background:rgba(201,169,110,.12);font:800 12px/1.2 Arial,Helvetica,sans-serif;letter-spacing:.04em}
+    .blog-hero__note::before{content:"\2713";font-weight:900}
+    .blog-list{width:min(1020px,100%);margin:0 auto;padding:52px 22px 76px;display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:24px}
+    .blog-card{display:flex;flex-direction:column;overflow:hidden;border:1px solid var(--line);border-radius:12px;background:#fff;box-shadow:0 16px 50px rgba(6,20,46,.07);text-decoration:none;color:var(--ink);transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
+    .blog-card:hover{transform:translateY(-4px);border-color:rgba(201,169,110,.7);box-shadow:0 26px 68px rgba(6,20,46,.13)}
+    .blog-card img{display:block;width:100%;height:auto;aspect-ratio:1200/630;object-fit:cover;border-bottom:3px solid var(--gold)}
+    .blog-card__body{display:flex;flex-direction:column;flex:1;padding:22px 24px 24px}
+    .blog-card__meta-row{display:flex;flex-wrap:wrap;gap:6px 14px;margin:0;color:var(--muted);font:700 12px/1.4 Arial,Helvetica,sans-serif;letter-spacing:.05em;text-transform:uppercase}
+    .blog-card h2{margin:10px 0 0;color:var(--navy);font-size:22px;line-height:1.24;font-family:Georgia,"Times New Roman",serif}
+    .blog-card__desc{margin:10px 0 0;color:var(--muted);font:400 15px/1.55 Arial,Helvetica,sans-serif}
+    .blog-card__link{display:inline-block;margin-top:auto;padding-top:16px;color:var(--navy-2);font:900 12px/1 Arial,Helvetica,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+    .blog-card:hover .blog-card__link{color:var(--navy)}
+    .blog-empty{width:min(1020px,100%);margin:0 auto;padding:48px 22px;color:var(--muted);font-family:Georgia,serif}
+    @media(max-width:720px){.blog-hero{padding:56px 16px 48px}.blog-list{padding:38px 16px 56px;grid-template-columns:1fr}}
+    @media(prefers-reduced-motion:reduce){.blog-card{transition:none}}
+  </style>
+</head>
+<body>
+  <SiteHeader />
+  <main id="contenido">
+    <div class="blog-hero">
+      <div class="blog-hero__wrap">
+        <nav class="blog-crumbs" aria-label="Migas de pan">
+          <a href="/">Inicio</a><span aria-hidden="true">·</span>Blog
+        </nav>
+        <p class="blog-hero__eyebrow">Blog</p>
+        <h1>Protección de datos e IA, <em>en claro</em></h1>
+        <p class="lead">Guías prácticas sobre RGPD, Reglamento de IA y cumplimiento legal para empresas y autónomos. Sin jerga innecesaria.</p>
+        <span class="blog-hero__note">Contenido revisado por el equipo jurídico</span>
+      </div>
+    </div>
+    {posts.length === 0 ? (
+      <p class="blog-empty">Aún no hay artículos publicados.</p>
+    ) : (
+      <section class="blog-list" aria-label="Artículos del blog">
+        {posts.map((post) => (
+          <a class="blog-card" href={`/blog/${post.id}/`}>
+            <img src={`/blog/${post.id}/og.png`} alt="" loading="lazy" width="1200" height="630" />
+            <div class="blog-card__body">
+              <p class="blog-card__meta-row">
+                <span>{post.data.fecha.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                <span>{minutosDe(post.body)} min</span>
+              </p>
+              <h2>{post.data.titulo}</h2>
+              <p class="blog-card__desc">{post.data.meta}</p>
+              <span class="blog-card__link">Leer artículo &rarr;</span>
+            </div>
+          </a>
+        ))}
+      </section>
+    )}
+  </main>
+  <SiteFooter />
+</body>
+</html>
