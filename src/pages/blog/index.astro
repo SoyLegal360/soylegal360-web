@@ -45,7 +45,7 @@ const breadcrumbSchema = {
   <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <style>
     :root{--navy:#06142e;--navy-2:#102c53;--ink:#17213a;--muted:#5d6980;--soft:#f5f7fb;--gold:#c9a96e;--gold-soft:#e2c684;--line:rgba(23,54,97,.18)}
-    .blog-hero{position:relative;background:linear-gradient(135deg,rgba(6,20,46,.99),rgba(16,44,83,.97)),repeating-linear-gradient(90deg,rgba(201,169,110,.11) 0 1px,transparent 1px 86px);color:#fff;padding:70px 22px 62px}
+    .blog-hero{position:relative;background-color:var(--navy);background-image:linear-gradient(90deg,rgba(6,20,46,.96) 0%,rgba(6,20,46,.78) 46%,rgba(6,20,46,.22) 100%),url("/assets/img/blog-hero-torre.webp");background-size:cover;background-position:center;color:#fff;padding:86px 22px 78px}
     .blog-hero::after{position:absolute;right:0;bottom:0;left:0;height:6px;content:"";background:linear-gradient(90deg,transparent,var(--gold),var(--gold-soft),var(--gold),transparent)}
     .blog-hero__wrap{width:min(1020px,100%);margin:0 auto}
     .blog-crumbs{display:flex;gap:8px;align-items:center;margin:0 0 20px;font:700 12px/1.4 Arial,Helvetica,sans-serif;letter-spacing:.06em;text-transform:uppercase}
