@@ -1,7 +1,8 @@
 // Genera la tarjeta de marca (imagen OG/social, 1200x630) de cada articulo del
-// blog: fondo navy + barra dorada + titulo + wordmark "SoyLegal360". On-brand,
-// sin IA, determinista. PNG -> dist/blog/<slug>/og.png.
-// Se ejecuta en el build, despues de que Astro haya creado dist/blog/<slug>/.
+// blog: fondo navy + logo blanco real + chip BLOG + titulo + barra dorada.
+// Tamanos pensados para que la tarjeta se lea tambien como MINIATURA en el
+// indice del blog (~450px): nada de textos por debajo de ~30px.
+// PNG -> dist/blog/<slug>/og.png. Se ejecuta en el build, tras astro build.
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
 import { readFileSync, writeFileSync, readdirSync, mkdirSync, existsSync } from 'node:fs';
@@ -15,9 +16,19 @@ const fontReg = readFileSync(join(root, 'src/og/fonts/PTSerif-400.woff'));
 const NAVY = '#06142e';
 const NAVY2 = '#102c53';
 const GOLD = '#c9a96e';
+const GOLD_SOFT = '#e2c684';
+
+// Logo real de marca (blanco, para fondo navy): el SVG del footer rasterizado
+// a PNG con resvg y embebido como data URI (satori no rasteriza SVG externos).
+const LOGO_H = 150; // px en la tarjeta (legible tambien en miniatura)
+const logoSvg = readFileSync(join(root, 'assets/img/soylegal360_logo_blanco_footer.svg'), 'utf8');
+const logoPng = new Resvg(logoSvg, { fitTo: { mode: 'height', value: LOGO_H * 2 } }).render();
+const logoUri = `data:image/png;base64,${logoPng.asPng().toString('base64')}`;
+const LOGO_W = Math.round((logoPng.width / logoPng.height) * LOGO_H);
 
 // mini-hiperscript para satori (sin JSX)
 const h = (type, style, children) => ({ type, props: { style, children } });
+const img = (src, width, height) => ({ type: 'img', props: { src, width, height } });
 
 function titleOf(md) {
   const m = md.match(/^titulo:\s*(.*)$/m);
@@ -26,7 +37,7 @@ function titleOf(md) {
 }
 
 function card(title) {
-  const size = title.length > 55 ? 50 : 62;
+  const size = title.length > 60 ? 56 : 66;
   return h(
     'div',
     {
@@ -41,17 +52,27 @@ function card(title) {
     [
       h(
         'div',
-        { display: 'flex', flexDirection: 'column', justifyContent: 'space-between', flex: 1, padding: '70px 80px' },
+        { display: 'flex', flexDirection: 'column', justifyContent: 'space-between', flex: 1, padding: '56px 72px 48px' },
         [
-          h('div', { display: 'flex', color: GOLD, fontSize: 24, fontWeight: 400, letterSpacing: 4 }, 'BLOG  ·  SOYLEGAL360'),
-          h('div', { display: 'flex', color: '#ffffff', fontSize: size, fontWeight: 700, lineHeight: 1.12, maxWidth: 1000 }, title),
-          h('div', { display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }, [
-            h('div', { display: 'flex', fontSize: 32, fontWeight: 700 }, [
-              h('div', { display: 'flex', color: '#ffffff' }, 'SoyLegal'),
-              h('div', { display: 'flex', color: GOLD }, '360'),
-            ]),
-            h('div', { display: 'flex', color: '#cdd9ec', fontSize: 26, fontWeight: 400 }, 'soylegal360.es'),
+          h('div', { display: 'flex', justifyContent: 'space-between', alignItems: 'center' }, [
+            img(logoUri, LOGO_W, LOGO_H),
+            h(
+              'div',
+              {
+                display: 'flex',
+                border: `2px solid ${GOLD}`,
+                borderRadius: 999,
+                padding: '12px 28px',
+                color: GOLD_SOFT,
+                fontSize: 30,
+                fontWeight: 700,
+                letterSpacing: 6,
+              },
+              'BLOG',
+            ),
           ]),
+          h('div', { display: 'flex', color: '#ffffff', fontSize: size, fontWeight: 700, lineHeight: 1.12, maxWidth: 1050 }, title),
+          h('div', { display: 'flex', color: '#e9eff8', fontSize: 34, fontWeight: 700 }, 'soylegal360.es'),
         ],
       ),
       h('div', { display: 'flex', height: 14, backgroundColor: GOLD }, ''),
