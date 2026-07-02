@@ -105,6 +105,6 @@ for (const f of files) {
 }
 
 // Tarjeta de la portada del blog (/blog/), para compartir el indice en redes
-writeFileSync(join(root, 'dist/blog/og.png'), await render('Protección de datos e IA, en claro'));
+writeFileSync(join(root, 'dist/blog/og.png'), await render('Protección de datos e inteligencia artificial'));
 
 console.log(`gen-og: ${n} tarjeta(s) de articulo + portada generadas en dist/blog/`);
