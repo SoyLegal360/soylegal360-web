@@ -103,4 +103,8 @@ for (const f of files) {
   writeFileSync(join(outDir, 'og.png'), png);
   n++;
 }
-console.log(`gen-og: ${n} tarjeta(s) OG generada(s) en dist/blog/<slug>/og.png`);
+
+// Tarjeta de la portada del blog (/blog/), para compartir el indice en redes
+writeFileSync(join(root, 'dist/blog/og.png'), await render('Protección de datos e IA, en claro'));
+
+console.log(`gen-og: ${n} tarjeta(s) de articulo + portada generadas en dist/blog/`);
