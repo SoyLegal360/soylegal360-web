@@ -1,0 +1,271 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import type { MarkdownHeading } from 'astro';
+import HeadCommon from '../components/HeadCommon.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+  headings?: MarkdownHeading[];
+}
+
+const { post, headings = [] } = Astro.props;
+const { titulo, meta, fecha, faq, fuentes, cta, estado_revision } = post.data;
+
+const canonical = `https://www.soylegal360.es/blog/${post.id}/`;
+const fechaISO = fecha.toISOString().slice(0, 10);
+const fechaLegible = fecha.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' });
+const ogImage = `${canonical}og.png`; // tarjeta de marca por articulo (scripts/gen-og.mjs)
+const brandLogo = 'https://www.soylegal360.es/assets/img/soylegal360_logo_color_horizontal.png';
+const titleTag = `${titulo} | SoyLegal360`;
+
+// Tiempo de lectura (~200 palabras/min sobre el cuerpo Markdown)
+const palabras = (post.body ?? '').split(/\s+/).filter(Boolean).length;
+const minutos = Math.max(1, Math.round(palabras / 200));
+
+// Indice "En esta guia" con los H2 del articulo (Astro les pone id automatico)
+const toc = headings.filter((h) => h.depth === 2);
+
+// Fuentes: en el frontmatter van como "Nombre — URL"; se parte por la URL para
+// mostrarlas como enlace (sin que el separador aparezca en el copy).
+const fuentesParsed = (fuentes ?? []).map((f) => {
+  const i = f.indexOf('http');
+  const url = i >= 0 ? f.slice(i).trim() : '';
+  const nombre = (i >= 0 ? f.slice(0, i) : f).replace(/[—–\-\s]+$/g, '').trim();
+  return { nombre, url };
+});
+
+// CTA final segun frontmatter `cta:`
+const ctas: Record<string, { href: string; titulo: string; texto: string; label: string }> = {
+  'auditoria-gratuita': {
+    href: '/auditoria-web-gratuita/',
+    titulo: '¿Quieres saber tu punto de partida?',
+    texto: 'Nuestro equipo revisa tu web y te dice qué cumple, qué no y por dónde empezar. Sin coste y sin compromiso.',
+    label: 'Solicitar auditoría gratuita',
+  },
+  'auditoria-ia': {
+    href: '/auditoria-ia/',
+    titulo: '¿Usáis IA y no sabéis qué os obliga?',
+    texto: 'Inventariamos vuestros usos de IA, clasificamos el riesgo y os damos prioridades claras.',
+    label: 'Solicitar Auditoría IA',
+  },
+};
+const ctaBox = ctas[cta ?? ''] ?? {
+  href: '/contacto/',
+  titulo: '¿Lo vemos con tu caso?',
+  texto: 'Cuéntanos tu situación y te decimos por dónde empezar.',
+  label: 'Hablar con nuestro equipo',
+};
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: titulo,
+  description: meta,
+  image: ogImage,
+  datePublished: fechaISO,
+  dateModified: fechaISO,
+  inLanguage: 'es-ES',
+  author: { '@type': 'Organization', name: 'SoyLegal360', url: 'https://www.soylegal360.es/' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'SoyLegal360',
+    logo: { '@type': 'ImageObject', url: brandLogo },
+  },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://www.soylegal360.es/' },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://www.soylegal360.es/blog/' },
+    { '@type': 'ListItem', position: 3, name: titulo, item: canonical },
+  ],
+};
+
+const faqSchema = faq.length
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faq.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    }
+  : null;
+---
+<!doctype html>
+<html lang="es">
+<head>
+  <HeadCommon />
+  <title>{titleTag}</title>
+  <meta name="description" content={meta} />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href={canonical} />
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:site_name" content="SoyLegal360" />
+  <meta property="og:title" content={titleTag} />
+  <meta property="og:description" content={meta} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={titleTag} />
+  <meta name="twitter:description" content={meta} />
+  <meta name="twitter:image" content={ogImage} />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  {faqSchema && <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
+  <style>
+    :root{--navy:#06142e;--navy-2:#102c53;--ink:#17213a;--muted:#5d6980;--soft:#f5f7fb;--cream:#f4f1ec;--gold:#c9a96e;--gold-soft:#e2c684;--line:rgba(23,54,97,.18);--shadow:0 24px 72px rgba(6,20,46,.13)}
+    /* ── Hero ── */
+    .blog-hero{position:relative;background:linear-gradient(135deg,rgba(6,20,46,.99),rgba(16,44,83,.97)),repeating-linear-gradient(90deg,rgba(201,169,110,.11) 0 1px,transparent 1px 86px);color:#fff;padding:64px 22px 58px}
+    .blog-hero::after{position:absolute;right:0;bottom:0;left:0;height:6px;content:"";background:linear-gradient(90deg,transparent,var(--gold),var(--gold-soft),var(--gold),transparent)}
+    .blog-hero__wrap{width:min(820px,100%);margin:0 auto}
+    .blog-crumbs{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 22px;font:700 12px/1.4 Arial,Helvetica,sans-serif;letter-spacing:.06em;text-transform:uppercase}
+    .blog-crumbs a{color:#c3d2e8;text-decoration:none}
+    .blog-crumbs a:hover{color:#fff}
+    .blog-crumbs span{color:var(--gold)}
+    .blog-hero__eyebrow{margin:0;color:var(--gold);font:800 12px/1.35 Arial,Helvetica,sans-serif;letter-spacing:.2em;text-transform:uppercase}
+    .blog-hero h1{margin:14px 0 0;font-size:clamp(30px,4.4vw,48px);line-height:1.1;color:#fff;text-wrap:balance;font-family:Georgia,"Times New Roman",serif}
+    .blog-hero__meta{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;margin-top:22px;color:#cdd9ec;font:700 13px/1.4 Arial,Helvetica,sans-serif}
+    .blog-hero__badge{display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(201,169,110,.45);border-radius:999px;padding:6px 12px;color:var(--gold-soft);background:rgba(201,169,110,.12);font:800 12px/1.2 Arial,Helvetica,sans-serif;letter-spacing:.04em}
+    .blog-hero__badge::before{content:"\2713";font-weight:900}
+    /* ── Indice "En esta guia" ── */
+    .blog-toc{position:relative;z-index:2;width:min(820px,calc(100% - 36px));margin:-26px auto 0;border:1px solid var(--line);border-radius:10px;padding:18px 22px;background:rgba(255,255,255,.97);box-shadow:0 24px 64px rgba(6,20,46,.13)}
+    .blog-toc b{display:block;color:var(--navy);font:900 11px/1.3 Arial,Helvetica,sans-serif;letter-spacing:.14em;text-transform:uppercase}
+    .blog-toc ol{display:flex;flex-wrap:wrap;gap:8px 18px;margin:12px 0 0;padding:0;list-style:none}
+    .blog-toc a{color:var(--ink);font:700 14px/1.4 Arial,Helvetica,sans-serif;text-decoration:none;border-bottom:2px solid rgba(201,169,110,.5);padding-bottom:1px}
+    .blog-toc a:hover{color:var(--navy);border-bottom-color:var(--gold)}
+    /* ── Cuerpo ── */
+    .blog-article{width:min(760px,100%);margin:0 auto;padding:52px 22px 10px;color:var(--ink);font-family:Georgia,"Times New Roman",serif;font-size:19px;line-height:1.68}
+    .blog-article :global(> p:first-child){font-size:22px;line-height:1.55;color:var(--navy)}
+    .blog-article :global(h2){color:var(--navy);font-size:clamp(24px,3vw,32px);line-height:1.16;margin:46px 0 0;text-wrap:balance;scroll-margin-top:90px}
+    .blog-article :global(h2)::after{display:block;width:52px;height:3px;margin-top:12px;content:"";background:var(--gold)}
+    .blog-article :global(h3){color:var(--navy);font-size:22px;margin:32px 0 0}
+    .blog-article :global(p){margin:16px 0 0}
+    .blog-article :global(ul){margin:16px 0 0;padding-left:24px}
+    .blog-article :global(li){margin:9px 0 0}
+    .blog-article :global(li::marker){color:var(--gold)}
+    .blog-article :global(a){color:var(--navy-2);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--gold);text-decoration-thickness:2px}
+    .blog-article :global(a:hover){color:var(--navy)}
+    .blog-article :global(strong){color:var(--navy)}
+    /* ── FAQ visible ── */
+    .blog-faq{width:min(760px,100%);margin:0 auto;padding:44px 22px 0}
+    .blog-faq h2{margin:0;color:var(--navy);font-size:clamp(24px,3vw,32px);line-height:1.16;font-family:Georgia,"Times New Roman",serif}
+    .blog-faq h2::after{display:block;width:52px;height:3px;margin-top:12px;content:"";background:var(--gold)}
+    .blog-faq__list{display:grid;gap:12px;margin-top:24px}
+    .blog-faq details{border:1px solid var(--line);border-radius:10px;background:#fff;box-shadow:0 14px 44px rgba(6,20,46,.07);transition:border-color .2s ease,box-shadow .2s ease}
+    .blog-faq details[open]{border-color:rgba(201,169,110,.78);box-shadow:0 20px 56px rgba(6,20,46,.11)}
+    .blog-faq summary{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 20px;color:var(--navy);cursor:pointer;list-style:none;font-family:Georgia,"Times New Roman",serif;font-size:19px;font-weight:700;line-height:1.25}
+    .blog-faq summary::-webkit-details-marker{display:none}
+    .blog-faq summary::after{display:grid;place-items:center;flex:0 0 auto;width:26px;height:26px;border:1px solid var(--line);border-radius:50%;color:var(--gold);font:900 16px/1 Arial,Helvetica,sans-serif;content:"+"}
+    .blog-faq details[open] summary::after{content:"-"}
+    .blog-faq details p{margin:-2px 20px 18px;color:var(--muted);font-size:17px;line-height:1.6;font-family:Georgia,"Times New Roman",serif}
+    /* ── Fuentes ── */
+    .blog-fuentes{width:min(760px,100%);margin:0 auto;padding:40px 22px 0}
+    .blog-fuentes__box{border-left:4px solid var(--gold);border-radius:0 10px 10px 0;background:var(--soft);padding:20px 24px}
+    .blog-fuentes b{display:block;color:var(--navy);font:900 11px/1.3 Arial,Helvetica,sans-serif;letter-spacing:.14em;text-transform:uppercase}
+    .blog-fuentes ul{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:8px}
+    .blog-fuentes li{font:700 14px/1.5 Arial,Helvetica,sans-serif;color:var(--muted)}
+    .blog-fuentes a{color:var(--navy-2);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--gold)}
+    .blog-fuentes a:hover{color:var(--navy)}
+    /* ── CTA final ── */
+    .blog-cta{width:min(760px,100%);margin:0 auto;padding:44px 22px 26px}
+    .blog-cta__box{position:relative;overflow:hidden;border-radius:12px;color:#fff;background:linear-gradient(135deg,rgba(6,20,46,.99),rgba(16,44,83,.96)),repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 1px,transparent 1px 82px);padding:34px 36px;box-shadow:var(--shadow)}
+    .blog-cta__box::after{position:absolute;right:-60px;bottom:-70px;width:190px;height:190px;border:1px solid rgba(201,169,110,.25);border-radius:50%;content:""}
+    .blog-cta__box h2{margin:0;color:#fff;font-size:clamp(23px,2.8vw,30px);line-height:1.15;font-family:Georgia,"Times New Roman",serif}
+    .blog-cta__box p{position:relative;z-index:1;margin:12px 0 0;color:#d8e4f3;font:400 16px/1.6 Arial,Helvetica,sans-serif;max-width:520px}
+    .blog-cta__btn{position:relative;z-index:1;display:inline-flex;align-items:center;justify-content:center;min-height:48px;margin-top:22px;border-radius:8px;padding:14px 22px;color:var(--navy);background:linear-gradient(180deg,var(--gold-soft),var(--gold));font:900 13px/1.2 Arial,Helvetica,sans-serif;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;box-shadow:0 18px 38px rgba(201,169,110,.25);transition:transform .2s ease,box-shadow .2s ease}
+    .blog-cta__btn:hover{transform:translateY(-2px);box-shadow:0 22px 44px rgba(201,169,110,.35)}
+    /* ── Volver ── */
+    .blog-volver{width:min(760px,100%);margin:0 auto;padding:0 22px 64px}
+    .blog-volver a{color:var(--navy-2);font:800 13px/1.3 Arial,Helvetica,sans-serif;letter-spacing:.06em;text-transform:uppercase;text-decoration:none}
+    .blog-volver a:hover{color:var(--navy)}
+    @media(max-width:720px){
+      .blog-hero{padding:52px 16px 48px}
+      .blog-article{font-size:18px;padding:40px 16px 6px}
+      .blog-article :global(> p:first-child){font-size:20px}
+      .blog-toc{width:calc(100% - 24px);padding:16px 18px}
+      .blog-faq,.blog-fuentes,.blog-cta{padding-left:16px;padding-right:16px}
+      .blog-cta__box{padding:26px 22px}
+      .blog-volver{padding:0 16px 52px}
+    }
+    @media(prefers-reduced-motion:reduce){.blog-cta__btn{transition:none}}
+  </style>
+</head>
+<body>
+  <SiteHeader />
+  <main id="contenido">
+    <div class="blog-hero">
+      <div class="blog-hero__wrap">
+        <nav class="blog-crumbs" aria-label="Migas de pan">
+          <a href="/">Inicio</a><span aria-hidden="true">·</span><a href="/blog/">Blog</a>
+        </nav>
+        <p class="blog-hero__eyebrow">Blog · SoyLegal360</p>
+        <h1>{titulo}</h1>
+        <div class="blog-hero__meta">
+          <span>{fechaLegible}</span>
+          <span>{minutos} min de lectura</span>
+          {estado_revision === 'verificado' && (
+            <span class="blog-hero__badge">Revisado por el equipo jurídico</span>
+          )}
+        </div>
+      </div>
+    </div>
+    {toc.length > 1 && (
+      <nav class="blog-toc" aria-label="En esta guía">
+        <b>En esta guía</b>
+        <ol>
+          {toc.map((h) => (
+            <li><a href={`#${h.slug}`}>{h.text}</a></li>
+          ))}
+        </ol>
+      </nav>
+    )}
+    <article class="blog-article">
+      <slot />
+    </article>
+    {faq.length > 0 && (
+      <section class="blog-faq" aria-label="Preguntas frecuentes">
+        <h2>Preguntas frecuentes</h2>
+        <div class="blog-faq__list">
+          {faq.map((f) => (
+            <details>
+              <summary>{f.q}</summary>
+              <p>{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+    )}
+    {fuentesParsed.length > 0 && (
+      <section class="blog-fuentes" aria-label="Fuentes oficiales">
+        <div class="blog-fuentes__box">
+          <b>Fuentes oficiales</b>
+          <ul>
+            {fuentesParsed.map((f) => (
+              <li>{f.url ? <a href={f.url} target="_blank" rel="noopener">{f.nombre}</a> : f.nombre}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    )}
+    <div class="blog-cta">
+      <div class="blog-cta__box">
+        <h2>{ctaBox.titulo}</h2>
+        <p>{ctaBox.texto}</p>
+        <a class="blog-cta__btn" href={ctaBox.href}>{ctaBox.label}</a>
+      </div>
+    </div>
+    <p class="blog-volver"><a href="/blog/">&larr; Volver al blog</a></p>
+  </main>
+  <SiteFooter />
+</body>
+</html>
