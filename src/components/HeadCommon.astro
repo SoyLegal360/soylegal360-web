@@ -1,32 +1,11 @@
 ---
-// Cabeza común a todas las páginas del blog: favicons, consentimiento (Cookiebot),
-// analítica (Consent Mode v2 + GA4) y la hoja de estilos del sitio.
-// Los <script> heredados van con is:inline para que Astro no los procese.
+// Cabeza común a todas las páginas del blog: favicons, consentimiento (gestor propio
+// sl360-cookies.js, que solo carga GA4 si el usuario acepta la categoría de estadística)
+// y la hoja de estilos del sitio. is:inline para que Astro no lo procese.
 ---
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32x32.png" />
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" />
-<script is:inline id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="085be98f-70af-4e14-8e4a-aa2d511df57a" data-blockingmode="auto" type="text/javascript"></script>
-<script is:inline data-cookieconsent="ignore">
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag("consent", "default", {
-    ad_storage: "denied",
-    ad_user_data: "denied",
-    ad_personalization: "denied",
-    analytics_storage: "denied",
-    functionality_storage: "denied",
-    personalization_storage: "denied",
-    security_storage: "granted",
-    wait_for_update: 500
-  });
-  gtag("set", "ads_data_redaction", true);
-  gtag("set", "url_passthrough", true);
-</script>
-<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-5WPZXV6ZKC" data-cookieconsent="ignore"></script>
-<script is:inline data-cookieconsent="ignore">
-  gtag("js", new Date());
-  gtag("config", "G-5WPZXV6ZKC");
-</script>
+<script is:inline defer src="/assets/js/sl360-cookies.js?v=1"></script>
 <link rel="stylesheet" href="/assets/css/styles.css?v=26" />

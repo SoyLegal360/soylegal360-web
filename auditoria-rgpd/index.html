@@ -87,29 +87,8 @@
   </script>
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32x32.png">
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="085be98f-70af-4e14-8e4a-aa2d511df57a" data-blockingmode="auto" type="text/javascript"></script>
-  <!-- Google Consent Mode v2 + GA4 — gestionado por Cookiebot. data-cookieconsent="ignore": el auto-blocking no lo bloquea; el consentimiento lo controla Consent Mode (analytics_storage denegado hasta que el usuario acepta "Estadísticas"). -->
-  <script data-cookieconsent="ignore">
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag("consent", "default", {
-      ad_storage: "denied",
-      ad_user_data: "denied",
-      ad_personalization: "denied",
-      analytics_storage: "denied",
-      functionality_storage: "denied",
-      personalization_storage: "denied",
-      security_storage: "granted",
-      wait_for_update: 500
-    });
-    gtag("set", "ads_data_redaction", true);
-    gtag("set", "url_passthrough", true);
-  </script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5WPZXV6ZKC" data-cookieconsent="ignore"></script>
-  <script data-cookieconsent="ignore">
-    gtag("js", new Date());
-    gtag("config", "G-5WPZXV6ZKC");
-  </script>
+  <!-- Consentimiento de cookies propio (sl360-cookies.js) + GA4. GA4 solo se carga si el usuario acepta la categoria de estadistica (Consent Mode v2, modo basico). Al editar el JS, subir el ?v= (cache immutable de /assets). -->
+  <script defer src="/assets/js/sl360-cookies.js?v=1"></script>
   <link rel="stylesheet" href="/assets/css/styles.css?v=26">
   <script type="application/ld+json">
 {
@@ -1771,6 +1750,7 @@
         <a href="/aviso-legal/">Aviso Legal</a>
         <a href="/politica-de-privacidad/">Política de Privacidad</a>
         <a href="/politica-de-cookies/">Política de Cookies</a>
+        <a href="/politica-de-cookies/" data-sl360-cookies-open>Configurar cookies</a>
         <a href="/faqs/">Preguntas frecuentes</a><a href="/blog/">Blog</a>
       </section>
       <section>

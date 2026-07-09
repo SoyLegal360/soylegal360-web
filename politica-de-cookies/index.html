@@ -45,29 +45,8 @@
   </script>
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32x32.png">
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="085be98f-70af-4e14-8e4a-aa2d511df57a" data-blockingmode="auto" type="text/javascript"></script>
-  <!-- Google Consent Mode v2 + GA4 — gestionado por Cookiebot. data-cookieconsent="ignore": el auto-blocking no lo bloquea; el consentimiento lo controla Consent Mode (analytics_storage denegado hasta que el usuario acepta "Estadísticas"). -->
-  <script data-cookieconsent="ignore">
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag("consent", "default", {
-      ad_storage: "denied",
-      ad_user_data: "denied",
-      ad_personalization: "denied",
-      analytics_storage: "denied",
-      functionality_storage: "denied",
-      personalization_storage: "denied",
-      security_storage: "granted",
-      wait_for_update: 500
-    });
-    gtag("set", "ads_data_redaction", true);
-    gtag("set", "url_passthrough", true);
-  </script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5WPZXV6ZKC" data-cookieconsent="ignore"></script>
-  <script data-cookieconsent="ignore">
-    gtag("js", new Date());
-    gtag("config", "G-5WPZXV6ZKC");
-  </script>
+  <!-- Consentimiento de cookies propio (sl360-cookies.js) + GA4. GA4 solo se carga si el usuario acepta la categoria de estadistica (Consent Mode v2, modo basico). Al editar el JS, subir el ?v= (cache immutable de /assets). -->
+  <script defer src="/assets/js/sl360-cookies.js?v=1"></script>
   <link rel="stylesheet" href="/assets/css/styles.css?v=26">
 </head>
 <body>
@@ -123,7 +102,7 @@
   <section class="section">
     <article class="legal-content">
       <p><strong>Sitio web:</strong> <a href="https://www.soylegal360.es">https://www.soylegal360.es</a></p>
-      <p><strong>Última actualización:</strong> Junio de 2026</p>
+      <p><strong>Última actualización:</strong> Julio de 2026</p>
       <p>Esta Política de Cookies explica qué son las cookies, qué tipos de cookies utiliza el sitio web <a href="https://www.soylegal360.es">https://www.soylegal360.es</a> (en adelante, el "Sitio Web") y cómo puede el Usuario configurarlas o deshabilitarlas.</p>
       <p><strong>Titular del Sitio Web:</strong> SOY LEGAL 360 SERVICIOS JURIDICOS, S.L. (en adelante, "SOY LEGAL 360"), con domicilio social en Avenida Francesc Macià, nº 60, planta 19, 08208 Sabadell (Barcelona), N.I.F. B-88653225 y correo electrónico <a href="mailto:privacidad@soylegal360.es">privacidad@soylegal360.es</a>.</p>
 
@@ -140,17 +119,25 @@
       <p><strong>Cookies de publicidad comportamental:</strong> almacenan información del comportamiento del Usuario para mostrar publicidad personalizada.</p>
 
       <h2>3. Cookies utilizadas</h2>
-      <p>A continuación se muestra el listado de cookies del Sitio Web, mantenido y actualizado automáticamente por nuestro gestor de consentimiento (Cookiebot), que escanea el Sitio Web periódicamente e indica, por cada cookie, su titular, finalidad y duración:</p>
-      <div>
-        <script id="CookieDeclaration" src="https://consent.cookiebot.com/085be98f-70af-4e14-8e4a-aa2d511df57a/cd.js" data-culture="ES" type="text/javascript" async></script>
-      </div>
+      <p>A continuación se muestra el listado completo de cookies y tecnologías de almacenamiento del Sitio Web. El consentimiento se gestiona mediante un panel propio de SOY LEGAL 360, sin intervención de gestores externos, y este listado se revisa cada vez que se incorpora o retira un servicio. Última revisión: 9 de julio de 2026.</p>
+      <table>
+        <thead>
+          <tr><th>Nombre</th><th>Titular</th><th>Tipo</th><th>Finalidad</th><th>Duración</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>sl360_consent</code></td><td>SOY LEGAL 360 (propia)</td><td>Técnica</td><td>Guarda la elección de consentimiento de cookies del Usuario (categorías aceptadas, fecha y versión del panel).</td><td>12 meses</td></tr>
+          <tr><td><code>_ga</code></td><td>Google Ireland Ltd. (tercero)</td><td>Análisis</td><td>Distingue usuarios de forma pseudonimizada para la estadística de Google Analytics 4. Solo se instala con consentimiento.</td><td>2 años</td></tr>
+          <tr><td><code>_ga_5WPZXV6ZKC</code></td><td>Google Ireland Ltd. (tercero)</td><td>Análisis</td><td>Mantiene el estado de sesión de Google Analytics 4. Solo se instala con consentimiento.</td><td>2 años</td></tr>
+          <tr><td><code>sl-chat-history</code></td><td>SOY LEGAL 360 (propia)</td><td>Técnica (sessionStorage)</td><td>Conserva la conversación del asistente virtual mientras la pestaña permanece abierta, únicamente en el navegador del Usuario.</td><td>Se elimina al cerrar la pestaña</td></tr>
+        </tbody>
+      </table>
       <p><strong>Servicios de analítica web.</strong> El Sitio Web utiliza dos herramientas de medición de audiencia:</p>
       <ul>
         <li><strong>Vercel Web Analytics</strong>, una solución sin cookies que recopila estadísticas agregadas y anónimas (páginas vistas, país, tipo de dispositivo) y no rastrea ni identifica a usuarios individuales. Al no emplear cookies ni identificadores persistentes, no requiere consentimiento previo.</li>
-        <li><strong>Google Analytics 4</strong> (Google Ireland Ltd.), un servicio de análisis estadístico que sí emplea cookies. Por ello, solo se activa si el Usuario presta su consentimiento a la categoría de cookies de análisis o estadística en el panel de configuración. Mientras no se otorgue dicho consentimiento, Google Analytics opera en modo restringido (Google Consent Mode v2) sin instalar cookies ni almacenar identificadores. Google Analytics aplica la anonimización de las direcciones IP de forma predeterminada. El listado concreto de cookies, su titular, finalidad y duración figura en la declaración automática anterior.</li>
+        <li><strong>Google Analytics 4</strong> (Google Ireland Ltd.), un servicio de análisis estadístico que sí emplea cookies. Por ello, solo se activa si el Usuario presta su consentimiento a la categoría de cookies de análisis o estadística en el panel de configuración. Mientras no se otorgue dicho consentimiento, el script de Google Analytics no se carga y no se instala ninguna cookie ni identificador (Google Consent Mode v2 en modo básico). Google Analytics aplica la anonimización de las direcciones IP de forma predeterminada. El listado concreto de cookies, su titular, finalidad y duración figura en la tabla anterior.</li>
       </ul>
       <p><strong>Servicios de publicidad y redes sociales.</strong> El Sitio Web no utiliza cookies de publicidad comportamental ni cookies de redes sociales de terceros. En caso de que en el futuro se incorporen, esta Política de Cookies se actualizará para reflejarlo y se recabará el consentimiento previo del Usuario a través del panel de configuración de cookies.</p>
-      <p><strong>Transferencias internacionales de datos.</strong> Cuando alguna de las cookies anteriores sea instalada por proveedores ubicados fuera del Espacio Económico Europeo (lo que se detalla en la declaración automática anterior), dichas transferencias se realizan al amparo de las garantías adecuadas previstas en los artículos 44 y siguientes del RGPD, en particular el Marco UE-EE.UU. de Privacidad de Datos (EU-U.S. Data Privacy Framework) cuando el proveedor esté adherido al mismo y, en su defecto, las Cláusulas Contractuales Tipo aprobadas por la Comisión Europea.</p>
+      <p><strong>Transferencias internacionales de datos.</strong> Cuando alguna de las cookies anteriores sea instalada por proveedores ubicados fuera del Espacio Económico Europeo, dichas transferencias se realizan al amparo de las garantías adecuadas previstas en los artículos 44 y siguientes del RGPD, en particular el Marco UE-EE.UU. de Privacidad de Datos (EU-U.S. Data Privacy Framework) cuando el proveedor esté adherido al mismo y, en su defecto, las Cláusulas Contractuales Tipo aprobadas por la Comisión Europea.</p>
 
       <h2>4. Base legal</h2>
       <p>La base legal para el uso de cookies técnicas estrictamente necesarias es el interés legítimo de SOY LEGAL 360 en prestar el servicio solicitado por el Usuario, estando exceptuadas del consentimiento conforme al artículo 22.2 de la Ley de Servicios de la Sociedad de la Información. Para las cookies de preferencias, análisis y publicidad, la base legal es el consentimiento del Usuario, solicitado mediante el panel de configuración de cookies que aparece al acceder al Sitio Web.</p>
@@ -219,6 +206,7 @@
         <a href="/aviso-legal/">Aviso Legal</a>
         <a href="/politica-de-privacidad/">Política de Privacidad</a>
         <a href="/politica-de-cookies/">Política de Cookies</a>
+        <a href="/politica-de-cookies/" data-sl360-cookies-open>Configurar cookies</a>
         <a href="/faqs/">Preguntas frecuentes</a><a href="/blog/">Blog</a>
       </section>
       <section>
