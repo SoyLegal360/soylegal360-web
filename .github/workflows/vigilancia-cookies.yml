@@ -1,0 +1,53 @@
+# Vigilancia mensual de cookies (sustituye al escaner de Cookiebot):
+# navega la web publicada con Chromium, prueba los tres escenarios del banner
+# (sin elegir / rechazar / aceptar) y compara las cookies reales con las
+# declaradas en la politica. Si hay deriva, abre un issue en el repo.
+# Tambien se puede lanzar a mano desde la pestana Actions (workflow_dispatch).
+name: Vigilancia de cookies
+
+on:
+  schedule:
+    - cron: "0 7 3 * *" # dia 3 de cada mes, 07:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  chequeo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # Playwright no es dependencia del repo (mantiene limpio el build de Vercel);
+      # se instala solo aqui, en el runner.
+      - name: Instalar Playwright
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+
+      - name: Comparar cookies reales vs. declaradas
+        run: node scripts/check-cookies.mjs 2>&1 | tee informe-cookies.txt
+
+      - name: Abrir issue si hay deriva
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo "La revision mensual ha detectado que las cookies reales de la web no cuadran con la politica de cookies publicada."
+            echo
+            echo '```'
+            cat informe-cookies.txt
+            echo '```'
+            echo
+            echo "Proceso al integrar o retirar un servicio: banner (assets/js/sl360-cookies.js) + tabla de /politica-de-cookies/ + CSP (vercel.json), en el mismo PR."
+          } > cuerpo-issue.md
+          gh issue create \
+            --title "Vigilancia de cookies: la web no cuadra con la politica ($(date +%Y-%m))" \
+            --body-file cuerpo-issue.md
