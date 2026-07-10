@@ -72,24 +72,40 @@
     });
   }
 
-  /* ---------------------------------- UI ---------------------------------- */
+  /* ---------------------------------- UI ----------------------------------
+     Tarjeta compacta abajo a la izquierda (movil: hoja inferior), con la
+     identidad del sitio: navy + filo dorado + Georgia. Aceptar y Rechazar
+     IDENTICOS (guia AEPD: misma prominencia); Configurar en secundario. */
 
+  var EASE = "cubic-bezier(.22,1,.36,1)";
   var CSS = "" +
-    ".sl360c{position:fixed;left:0;right:0;bottom:0;z-index:100000;padding:14px;font-family:Arial,Helvetica,sans-serif}" +
-    ".sl360c-card{width:min(1060px,100%);margin:0 auto;border:1px solid rgba(23,54,97,.22);border-radius:8px;padding:20px 22px;background:#fff;color:#16213D;box-shadow:0 24px 60px rgba(6,20,46,.28)}" +
-    ".sl360c-title{margin:0 0 6px;color:#06142E;font-family:Georgia,'Times New Roman',serif;font-size:19px;font-weight:700}" +
-    ".sl360c-text{margin:0;color:#46546b;font-size:14px;line-height:1.55}" +
-    ".sl360c a{color:#2E568D;text-decoration:underline;text-underline-offset:3px}" +
-    ".sl360c-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}" +
-    ".sl360c-btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;border-radius:8px;padding:11px 18px;cursor:pointer;font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;transition:transform .15s ease,box-shadow .15s ease}" +
-    ".sl360c-btn:hover{transform:translateY(-1px)}" +
-    ".sl360c-btn:focus-visible{outline:3px solid #C9AA6F;outline-offset:2px}" +
-    ".sl360c-btn-solid{border:1px solid transparent;color:#fff;background:linear-gradient(180deg,#12345D,#06142E)}" +
-    ".sl360c-btn-ghost{border:1px solid rgba(23,54,97,.35);color:#06142E;background:#fff}" +
-    ".sl360c-overlay{position:fixed;inset:0;z-index:100001;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(6,20,46,.55)}" +
-    ".sl360c-panel{width:min(560px,100%);max-height:90vh;overflow:auto;border-radius:8px;padding:26px 24px;background:#fff;color:#16213D;font-family:Arial,Helvetica,sans-serif;box-shadow:0 34px 80px rgba(6,20,46,.4)}" +
+    ".sl360c{position:fixed;left:18px;bottom:18px;z-index:100000;width:min(440px,calc(100vw - 36px));font-family:Arial,Helvetica,sans-serif;opacity:0;transform:translateY(26px);transition:opacity .55s " + EASE + ",transform .55s " + EASE + "}" +
+    ".sl360c.is-in{opacity:1;transform:none}" +
+    ".sl360c.is-out{opacity:0;transform:translateY(26px)}" +
+    ".sl360c-card{position:relative;overflow:hidden;border:1px solid rgba(201,170,111,.4);border-radius:10px;padding:22px 22px 18px;color:#fff;background:linear-gradient(150deg,rgba(6,20,46,.99),rgba(13,33,64,.97) 55%,rgba(6,20,46,.99));box-shadow:0 30px 70px rgba(6,20,46,.45)}" +
+    ".sl360c-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,#C9AA6F 30%,#D8BE83 50%,#C9AA6F 70%,transparent)}" +
+    ".sl360c-head{display:flex;align-items:center;gap:10px;margin:0 0 8px}" +
+    ".sl360c-head svg{flex:0 0 auto}" +
+    ".sl360c-title{margin:0;color:#fff;font-family:Georgia,'Times New Roman',serif;font-size:20px;font-weight:700;letter-spacing:0}" +
+    ".sl360c-title span{color:#D8BE83}" +
+    ".sl360c-text{margin:0;color:#cbd5e7;font-size:13.5px;line-height:1.6}" +
+    ".sl360c-text a{color:#D8BE83;text-decoration:underline;text-underline-offset:3px}" +
+    ".sl360c-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:15px}" +
+    ".sl360c-btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;border-radius:8px;padding:11px 10px;cursor:pointer;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;transition:transform .18s ease,box-shadow .18s ease,background .18s ease}" +
+    ".sl360c-btn:hover{transform:translateY(-2px)}" +
+    ".sl360c-btn:focus-visible{outline:3px solid #D8BE83;outline-offset:2px}" +
+    ".sl360c-btn-gold{border:1px solid transparent;color:#06142E;background:linear-gradient(180deg,#D8BE83,#C9AA6F);box-shadow:0 14px 26px -14px rgba(201,170,111,.9)}" +
+    ".sl360c-btn-gold:hover{box-shadow:0 20px 32px -14px rgba(201,170,111,1)}" +
+    ".sl360c-btn-ghost{grid-column:1 / -1;min-height:38px;border:1px solid rgba(255,255,255,.26);color:#fff;background:rgba(255,255,255,.06)}" +
+    ".sl360c-btn-ghost:hover{border-color:rgba(255,255,255,.48);background:rgba(255,255,255,.1)}" +
+    ".sl360c-overlay{position:fixed;inset:0;z-index:100001;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(6,20,46,.55);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);opacity:0;transition:opacity .3s ease}" +
+    ".sl360c-overlay.is-in{opacity:1}" +
+    ".sl360c-panel{width:min(560px,100%);max-height:90vh;overflow:auto;position:relative;border-radius:10px;padding:26px 24px;background:#fff;color:#16213D;font-family:Arial,Helvetica,sans-serif;box-shadow:0 34px 80px rgba(6,20,46,.4);transform:translateY(14px) scale(.98);transition:transform .35s " + EASE + "}" +
+    ".sl360c-overlay.is-in .sl360c-panel{transform:none}" +
+    ".sl360c-panel::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,#C9AA6F 30%,#D8BE83 50%,#C9AA6F 70%,transparent)}" +
     ".sl360c-panel h2{margin:0 0 8px;color:#06142E;font-family:Georgia,'Times New Roman',serif;font-size:24px;line-height:1.15}" +
     ".sl360c-panel>p{margin:0 0 16px;color:#46546b;font-size:14px;line-height:1.55}" +
+    ".sl360c-panel a{color:#2E568D;text-decoration:underline;text-underline-offset:3px}" +
     ".sl360c-cat{border:1px solid rgba(23,54,97,.18);border-radius:8px;padding:14px 16px;background:#F8FAFD}" +
     ".sl360c-cat+.sl360c-cat{margin-top:10px}" +
     ".sl360c-cat-head{display:flex;align-items:center;justify-content:space-between;gap:12px}" +
@@ -102,7 +118,17 @@
     ".sl360c-switch input::after{content:'';position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:#fff;transition:left .15s ease}" +
     ".sl360c-switch input:checked{background:linear-gradient(180deg,#D8BE83,#C9AA6F)}" +
     ".sl360c-switch input:checked::after{left:21px}" +
-    "@media(max-width:640px){.sl360c{padding:10px}.sl360c-card{padding:16px}.sl360c-actions{flex-direction:column}.sl360c-btn{width:100%}}";
+    ".sl360c-pactions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}" +
+    ".sl360c-pactions .sl360c-btn{flex:1 1 auto}" +
+    ".sl360c-pactions .sl360c-btn-navy{border:1px solid transparent;color:#fff;background:linear-gradient(180deg,#12345D,#06142E)}" +
+    "@media(max-width:640px){.sl360c{left:10px;right:10px;bottom:10px;width:auto}.sl360c-card{padding:18px 16px 14px}.sl360c-btn{font-size:11px;letter-spacing:.03em}.sl360c-pactions{flex-direction:column}}" +
+    "@media(prefers-reduced-motion:reduce){.sl360c,.sl360c-overlay,.sl360c-panel,.sl360c-btn{transition:none}.sl360c{opacity:1;transform:none}}";
+
+  var SHIELD =
+    '<svg width="21" height="21" viewBox="0 0 24 24" fill="none" aria-hidden="true">' +
+      '<path d="M12 3l7 3v5c0 4.6-3 8.1-7 10-4-1.9-7-5.4-7-10V6l7-3z" stroke="#C9AA6F" stroke-width="1.6" fill="rgba(201,170,111,.14)"/>' +
+      '<path d="M9 12l2 2 4-4.5" stroke="#D8BE83" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>' +
+    '</svg>';
 
   var banner = null;
   var overlay = null;
@@ -123,11 +149,21 @@
   }
 
   function hideBanner() {
-    if (banner) { banner.remove(); banner = null; }
+    if (!banner) { return; }
+    var b = banner;
+    banner = null;
+    b.classList.remove("is-in");
+    b.classList.add("is-out");
+    setTimeout(function () { b.remove(); }, 600);
   }
 
   function closePanel() {
-    if (overlay) { overlay.remove(); overlay = null; }
+    if (overlay) {
+      var o = overlay;
+      overlay = null;
+      o.classList.remove("is-in");
+      setTimeout(function () { o.remove(); }, 320);
+    }
     if (lastFocus && lastFocus.focus) { try { lastFocus.focus(); } catch (e) {} }
     lastFocus = null;
   }
@@ -157,12 +193,14 @@
     banner = el(
       '<div class="sl360c" role="region" aria-label="Aviso de cookies">' +
         '<div class="sl360c-card">' +
-          '<p class="sl360c-title">Cookies en esta web</p>' +
-          '<p class="sl360c-text">Usamos cookies técnicas imprescindibles y, solo si las aceptas, cookies de estadística (Google Analytics 4) para medir el uso de la web y mejorar el contenido. Puedes cambiar tu decisión en cualquier momento desde el enlace Configurar cookies del pie de página. <a href="' + POLICY + '">Política de Cookies</a>.</p>' +
+          '<div class="sl360c-head">' + SHIELD +
+            '<p class="sl360c-title">Cookies, <span>tú decides</span></p>' +
+          '</div>' +
+          '<p class="sl360c-text">Usamos cookies técnicas imprescindibles y, solo si las aceptas, cookies de estadística (Google Analytics 4) para mejorar el contenido. Cambia tu decisión cuando quieras desde Configurar cookies, en el pie de página. <a href="' + POLICY + '">Política de Cookies</a>.</p>' +
           '<div class="sl360c-actions">' +
+            '<button type="button" class="sl360c-btn sl360c-btn-gold" data-a="reject">Rechazar todas</button>' +
+            '<button type="button" class="sl360c-btn sl360c-btn-gold" data-a="accept">Aceptar todas</button>' +
             '<button type="button" class="sl360c-btn sl360c-btn-ghost" data-a="config">Configurar</button>' +
-            '<button type="button" class="sl360c-btn sl360c-btn-solid" data-a="reject">Rechazar todas</button>' +
-            '<button type="button" class="sl360c-btn sl360c-btn-solid" data-a="accept">Aceptar todas</button>' +
           '</div>' +
         '</div>' +
       '</div>'
@@ -176,6 +214,8 @@
       if (a === "config") { openPanel(); }
     });
     document.body.appendChild(banner);
+    /* Entrada suave tras el primer render (sin JS de mas: solo una clase). */
+    setTimeout(function () { if (banner) { banner.classList.add("is-in"); } }, 350);
   }
 
   function openPanel() {
@@ -198,10 +238,10 @@
             '</div>' +
             '<p>Google Analytics 4 (Google Ireland Ltd.). Miden de forma agregada qué páginas se visitan y cómo se usa la web para mejorar el contenido. Solo se instalan si las activas.</p>' +
           '</div>' +
-          '<div class="sl360c-actions">' +
-            '<button type="button" class="sl360c-btn sl360c-btn-ghost" data-a="save">Guardar selección</button>' +
-            '<button type="button" class="sl360c-btn sl360c-btn-solid" data-a="reject">Rechazar todas</button>' +
-            '<button type="button" class="sl360c-btn sl360c-btn-solid" data-a="accept">Aceptar todas</button>' +
+          '<div class="sl360c-pactions">' +
+            '<button type="button" class="sl360c-btn sl360c-btn-navy" data-a="save">Guardar selección</button>' +
+            '<button type="button" class="sl360c-btn sl360c-btn-navy" data-a="reject">Rechazar todas</button>' +
+            '<button type="button" class="sl360c-btn sl360c-btn-navy" data-a="accept">Aceptar todas</button>' +
           '</div>' +
         '</div>' +
       '</div>'
@@ -219,6 +259,7 @@
       if (e.key === "Escape") { dismissPanel(); }
     });
     document.body.appendChild(overlay);
+    requestAnimationFrame(function () { if (overlay) { overlay.classList.add("is-in"); } });
     overlay.querySelector("#sl360c-analytics").focus();
   }
 
