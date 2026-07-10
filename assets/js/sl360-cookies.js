@@ -82,22 +82,22 @@
     ".sl360c{position:fixed;left:18px;bottom:18px;z-index:100000;width:min(440px,calc(100vw - 36px));font-family:Arial,Helvetica,sans-serif;opacity:0;transform:translateY(26px);transition:opacity .55s " + EASE + ",transform .55s " + EASE + "}" +
     ".sl360c.is-in{opacity:1;transform:none}" +
     ".sl360c.is-out{opacity:0;transform:translateY(26px)}" +
-    ".sl360c-card{position:relative;overflow:hidden;border:1px solid rgba(201,170,111,.4);border-radius:10px;padding:22px 22px 18px;color:#fff;background:linear-gradient(150deg,rgba(6,20,46,.99),rgba(13,33,64,.97) 55%,rgba(6,20,46,.99));box-shadow:0 30px 70px rgba(6,20,46,.45)}" +
+    ".sl360c-card{position:relative;overflow:hidden;border:1px solid rgba(23,54,97,.16);border-radius:10px;padding:22px 22px 18px;color:#16213D;background:#fff;box-shadow:0 30px 70px rgba(6,20,46,.3)}" +
     ".sl360c-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,#C9AA6F 30%,#D8BE83 50%,#C9AA6F 70%,transparent)}" +
     ".sl360c-head{display:flex;align-items:center;gap:10px;margin:0 0 8px}" +
     ".sl360c-head svg{flex:0 0 auto}" +
-    ".sl360c-title{margin:0;color:#fff;font-family:Georgia,'Times New Roman',serif;font-size:20px;font-weight:700;letter-spacing:0}" +
-    ".sl360c-title span{color:#D8BE83}" +
-    ".sl360c-text{margin:0;color:#cbd5e7;font-size:13.5px;line-height:1.6}" +
-    ".sl360c-text a{color:#D8BE83;text-decoration:underline;text-underline-offset:3px}" +
+    ".sl360c-title{margin:0;color:#06142E;font-family:Georgia,'Times New Roman',serif;font-size:20px;font-weight:700;letter-spacing:0}" +
+    ".sl360c-title span{color:#C9AA6F}" +
+    ".sl360c-text{margin:0;color:#46546b;font-size:13.5px;line-height:1.6}" +
+    ".sl360c-text a{color:#2E568D;text-decoration:underline;text-underline-offset:3px}" +
     ".sl360c-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:15px}" +
     ".sl360c-btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;border-radius:8px;padding:11px 10px;cursor:pointer;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;transition:transform .18s ease,box-shadow .18s ease,background .18s ease}" +
     ".sl360c-btn:hover{transform:translateY(-2px)}" +
     ".sl360c-btn:focus-visible{outline:3px solid #D8BE83;outline-offset:2px}" +
-    ".sl360c-btn-gold{border:1px solid rgba(201,170,111,.6);color:#D8BE83;background:rgba(201,170,111,.09)}" +
-    ".sl360c-btn-gold:hover{border-color:transparent;color:#06142E;background:linear-gradient(180deg,#D8BE83,#C9AA6F);box-shadow:0 16px 28px -14px rgba(201,170,111,.9)}" +
-    ".sl360c-btn-ghost{grid-column:1 / -1;min-height:38px;border:1px solid rgba(255,255,255,.16);color:#cbd5e7;background:transparent}" +
-    ".sl360c-btn-ghost:hover{border-color:rgba(255,255,255,.4);color:#fff;background:rgba(255,255,255,.06)}" +
+    ".sl360c-btn-gold{border:1px solid rgba(201,170,111,.75);color:#06142E;background:rgba(201,170,111,.1)}" +
+    ".sl360c-btn-gold:hover{border-color:transparent;background:linear-gradient(180deg,#D8BE83,#C9AA6F);box-shadow:0 16px 28px -14px rgba(201,170,111,.9)}" +
+    ".sl360c-btn-ghost{grid-column:1 / -1;min-height:38px;border:1px solid rgba(23,54,97,.22);color:#46546b;background:transparent}" +
+    ".sl360c-btn-ghost:hover{border-color:rgba(23,54,97,.45);color:#06142E;background:rgba(23,54,97,.04)}" +
     ".sl360c-overlay{position:fixed;inset:0;z-index:100001;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(6,20,46,.55);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);opacity:0;transition:opacity .3s ease}" +
     ".sl360c-overlay.is-in{opacity:1}" +
     ".sl360c-panel{width:min(560px,100%);max-height:90vh;overflow:auto;position:relative;border-radius:10px;padding:26px 24px;background:#fff;color:#16213D;font-family:Arial,Helvetica,sans-serif;box-shadow:0 34px 80px rgba(6,20,46,.4);transform:translateY(14px) scale(.98);transition:transform .35s " + EASE + "}" +

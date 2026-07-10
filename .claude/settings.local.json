@@ -30,7 +30,21 @@
       "mcp__e6120202-cc1a-4a91-a695-36d43cd3c162__notion-fetch",
       "Bash(curl -s \"https://www.soylegal360.es/contacto/\")",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" https://www.soylegal360.es/robots.txt)",
-      "Bash(curl -s https://www.soylegal360.es/sitemap.xml)"
+      "Bash(curl -s https://www.soylegal360.es/sitemap.xml)",
+      "Bash(curl -s \"https://www.soylegal360.es/politica-de-cookies/\")",
+      "Bash(curl -s \"https://www.soylegal360.es/\")",
+      "Bash(curl -s \"https://www.soylegal360.es/sitemap.xml\")",
+      "Bash(node -e \"console.log\\('@vercel/analytics', require\\('./node_modules/@vercel/analytics/package.json'\\).version\\)\")",
+      "Bash(python3 -)",
+      "Bash(dig +short MX soylegal360.es)",
+      "Bash(dig +short TXT soylegal360.es)",
+      "Bash(python3 -c ' *)",
+      "Bash(cp /tmp/zyro/despacho.bin assets/img/hero-despacho-torre.webp)",
+      "Bash(ffmpeg -y -loglevel error -i /tmp/zyro/roboto21.bin -c:v libwebp -quality 82 assets/img/hero-ia-robot.webp)",
+      "Bash(sips -s format webp /tmp/zyro/roboto21.bin --out assets/img/hero-ia-robot.webp)",
+      "Bash(ls -la assets/img/hero-ia-robot.webp)",
+      "Bash(rm -f assets/img/hero-ia-robot.webp)",
+      "Bash(cp /tmp/zyro/roboto21.bin assets/img/hero-ia-robot.jpg)"
     ]
   }
 }

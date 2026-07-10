@@ -63,6 +63,8 @@
           });
         })
         .then(function () {
+          // GA4: conversión al enviar el formulario con éxito (faltaba; por eso generate_lead salía 0).
+          try { if (window.gtag) window.gtag("event", "generate_lead", { form_type: data.formType }); } catch (e) {}
           var ok = document.createElement("div");
           ok.className = "sl-form__success";
           ok.setAttribute("role", "status");
