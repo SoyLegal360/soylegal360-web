@@ -65,7 +65,7 @@ a { color: inherit; }
   height: auto;
   background: transparent;
 }
-.site-nav { display: flex; align-items: center; gap: 13px; font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: 700; }
+.site-nav { display: flex; align-items: center; gap: 13px; font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: 400; }
 .site-nav a, .site-nav summary { text-decoration: none; cursor: pointer; }
 
 /* ── Links normales del nav: hover dorado + micro-lift + subrayado animado ── */
@@ -74,7 +74,7 @@ a { color: inherit; }
   color: var(--navy);
   transition: color .2s ease, transform .2s ease;
 }
-.site-nav > a:not(.nav-cta):hover { color: var(--copper); transform: translateY(-1px); }
+.site-nav > a:not(.nav-cta):hover { color: var(--copper); transform: translateY(-1px); font-weight: 700; }
 .site-nav > a:not(.nav-cta)::after {
   content: '';
   position: absolute;
@@ -96,7 +96,7 @@ a { color: inherit; }
   align-self: center;
   background: linear-gradient(180deg, transparent, var(--line) 22%, var(--line) 78%, transparent);
 }
-.nav-login { display: inline-flex; align-items: center; gap: 7px; }
+.nav-login { display: inline-flex; align-items: center; gap: 7px; font-weight: 700; }
 .nav-login::before {
   content: '';
   flex: 0 0 auto;
@@ -150,7 +150,7 @@ a { color: inherit; }
 }
 .services-menu > summary::-webkit-details-marker { display: none; }
 .services-menu:hover > summary,
-.services-menu[open] > summary { color: var(--copper); transform: translateY(-1px); }
+.services-menu[open] > summary { color: var(--copper); transform: translateY(-1px); font-weight: 700; }
 
 .services-menu > summary > a {
   position: relative;
