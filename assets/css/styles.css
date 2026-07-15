@@ -129,6 +129,10 @@ a { color: inherit; }
   text-decoration: none;
   text-transform: uppercase;
 }
+/* El CTA de cabecera es más pequeño que el resto de botones .button del sitio;
+   nowrap para que no se parta en 2 líneas cuando el header va apretado */
+.nav-cta { min-height: 40px; padding: 10px 16px; font-size: 12px; white-space: nowrap; flex-shrink: 0; }
+
 .nav-cta, .button.primary { color: #fff; background: var(--navy); }
 .button.secondary { color: var(--navy); border-color: var(--line); background: #fff; }
 .button.gold {
