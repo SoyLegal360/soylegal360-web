@@ -87,6 +87,29 @@ a { color: inherit; }
 }
 .site-nav > a:not(.nav-cta):hover::after { left: 0; right: 0; }
 
+/* ── Zona de acceso: separador hairline + enlace privado con candado ── */
+.nav-sep {
+  flex: 0 0 auto;
+  width: 1px;
+  height: 20px;
+  margin: 0 6px;
+  align-self: center;
+  background: linear-gradient(180deg, transparent, var(--line) 22%, var(--line) 78%, transparent);
+}
+.nav-login { display: inline-flex; align-items: center; gap: 7px; }
+.nav-login::before {
+  content: '';
+  flex: 0 0 auto;
+  width: 12px;
+  height: 12px;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2h-1V6a5 5 0 0 0-5-5zm3 8H9V6a3 3 0 0 1 6 0v3z'/%3E%3C/svg%3E") center/contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2h-1V6a5 5 0 0 0-5-5zm3 8H9V6a3 3 0 0 1 6 0v3z'/%3E%3C/svg%3E") center/contain no-repeat;
+  opacity: .72;
+  transition: opacity .2s ease, transform .2s ease;
+}
+.nav-login:hover::before { opacity: 1; transform: translateY(-1px); }
+
 /* ── CTA button: dorado al hover ── */
 .nav-cta { transition: background .2s ease, color .2s ease, transform .2s ease, box-shadow .2s ease; }
 .nav-cta:hover { background: linear-gradient(180deg, #ddc287, #c9a96e) !important; color: #06152c !important; transform: translateY(-2px); box-shadow: 0 8px 22px -8px rgba(201,169,110,.55); }
@@ -1167,6 +1190,8 @@ h3 { font-size: 22px; }
     overscroll-behavior: contain;
   }
   .site-nav.is-open { display: flex; }
+  /* En columna el hairline pasa a separador horizontal a todo el ancho */
+  .nav-sep { width: 100%; height: 1px; margin: 8px 0; background: linear-gradient(90deg, transparent, var(--line) 15%, var(--line) 85%, transparent); }
   .mega-menu { position: static; grid-template-columns: 1fr; width: 100%; margin-top: 12px; box-shadow: none; transform: none !important; }
   .services-menu:hover .mega-menu,
   .services-menu[open] .mega-menu { transform: none; }
