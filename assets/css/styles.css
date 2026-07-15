@@ -65,7 +65,7 @@ a { color: inherit; }
   height: auto;
   background: transparent;
 }
-.site-nav { display: flex; align-items: center; gap: 18px; font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: 700; }
+.site-nav { display: flex; align-items: center; gap: 13px; font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: 700; }
 .site-nav a, .site-nav summary { text-decoration: none; cursor: pointer; }
 
 /* ── Links normales del nav: hover dorado + micro-lift + subrayado animado ── */
