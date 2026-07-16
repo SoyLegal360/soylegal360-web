@@ -54,9 +54,10 @@ document.querySelectorAll("[data-carousel]").forEach((root) => {
     const idx = activeIndex();
     dots.forEach((d, i) => d.classList.toggle("is-active", i === idx));
   }
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   function goTo(i) {
     const clamped = Math.max(0, Math.min(slides.length - 1, i));
-    track.scrollTo({ left: track.clientWidth * clamped, behavior: "smooth" });
+    track.scrollTo({ left: track.clientWidth * clamped, behavior: reduceMotion ? "auto" : "smooth" });
   }
 
   prevBtn?.addEventListener("click", () => goTo(activeIndex() - 1));
@@ -67,7 +68,6 @@ document.querySelectorAll("[data-carousel]").forEach((root) => {
   });
   paintDots();
 
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (!reduceMotion) {
     let timer;
     const tick = () => goTo((activeIndex() + 1) % slides.length);
@@ -78,6 +78,11 @@ document.querySelectorAll("[data-carousel]").forEach((root) => {
     root.addEventListener("mouseleave", start);
     root.addEventListener("focusin", stop);
     root.addEventListener("focusout", start);
+    // En táctil no hay mouseenter: la primera interacción del usuario
+    // (deslizar o tocar) apaga el autoplay definitivamente.
+    const kill = () => { stop(); root.removeEventListener("mouseleave", start); root.removeEventListener("focusout", start); };
+    root.addEventListener("touchstart", kill, { passive: true, once: true });
+    root.addEventListener("pointerdown", (e) => { if (e.pointerType !== "mouse") kill(); }, { once: true });
   }
 
   root.setAttribute("tabindex", "0");
