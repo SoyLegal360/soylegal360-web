@@ -68,11 +68,25 @@ document.querySelectorAll("[data-carousel]").forEach((root) => {
   });
   paintDots();
 
+  // Vídeo de la demo: reproducir solo cuando está en pantalla (y por si el autoplay
+  // del navegador no arranca solo, p. ej. con ahorro de datos).
+  const vid = root.querySelector("video");
+  if (vid && "IntersectionObserver" in window) {
+    new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) vid.play().catch(() => {});
+        else vid.pause();
+      });
+    }, { threshold: 0.3 }).observe(vid);
+  }
+
   if (!reduceMotion) {
     let timer;
-    const tick = () => goTo((activeIndex() + 1) % slides.length);
-    const start = () => { timer = setInterval(tick, 5500); };
-    const stop = () => clearInterval(timer);
+    // La diapositiva con vídeo (demo) se queda más tiempo en pantalla que las capturas.
+    const delayFor = () => (slides[activeIndex()]?.querySelector("video") ? 16000 : 5500);
+    const tick = () => { goTo((activeIndex() + 1) % slides.length); start(); };
+    const start = () => { clearTimeout(timer); timer = setTimeout(tick, delayFor()); };
+    const stop = () => clearTimeout(timer);
     start();
     root.addEventListener("mouseenter", stop);
     root.addEventListener("mouseleave", start);
