@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;800&display=swap');
+/* Sin fuentes externas: usamos la pila del sistema (Georgia/Arial) por
+   privacidad (no compartir IP con Google), rendimiento y para no depender de
+   un recurso externo. El wordmark .sl-brand cae a Arial, como ya se veia en
+   produccion (la CSP bloqueaba Google Fonts). */
 
 :root {
   --navy: #06152c;
@@ -256,7 +259,7 @@ a { color: inherit; }
   text-align: center;
   background:
     linear-gradient(90deg, rgba(14, 18, 24, .83), rgba(14, 18, 24, .78)),
-    url("https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1920,fit=crop/MZS9d1BboyNoZQUA/despacho-torre-OMiiUJyLsyVSwit8.png") center / cover no-repeat;
+    url("/assets/img/hero-despacho-torre.webp") center / cover no-repeat;
 }
 .published-hero .hero-copy {
   position: relative;

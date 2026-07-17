@@ -1,4 +1,44 @@
+# SoyLegal360 — politica de rastreo
+# Decision consciente (jul-2026): permitimos el rastreo por buscadores y por
+# crawlers de IA/motores generativos. La estrategia es de visibilidad (GEO):
+# queremos ser encontrados y citados. Ver tambien /llms.txt.
+
+# Buscadores y crawlers generales
 User-agent: *
 Disallow:
+
+# Crawlers de IA / motores generativos: permitidos explicitamente
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
 
 Sitemap: https://www.soylegal360.es/sitemap.xml
