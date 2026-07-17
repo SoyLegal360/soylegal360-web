@@ -244,6 +244,30 @@
   }
   .sl-about-team-col p { font-size: 14.5px; color: var(--muted); line-height: 1.68; margin: 0; }
 
+  /* Personas del equipo */
+  .sl-about-people { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 44px; }
+  .sl-person {
+    background: var(--soft);
+    border-radius: 16px;
+    border-top: 3px solid var(--gold);
+    padding: 30px 24px;
+    text-align: center;
+  }
+  .sl-person-avatar {
+    width: 88px; height: 88px; border-radius: 50%; margin: 0 auto 16px;
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, #1d3055, #2b4a7d);
+    color: #d8be83; font-family: Georgia, serif; font-size: 29px; font-weight: 700; letter-spacing: .02em;
+    border: 3px solid #fff; box-shadow: 0 3px 15px rgba(23,33,58,.18);
+  }
+  .sl-person h3 { font-size: 19px; color: var(--ink); margin: 0 0 3px; font-weight: 700; }
+  .sl-person-role {
+    font-family: Arial, Helvetica, sans-serif; font-size: 10.5px; font-weight: 700; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--copper); margin: 0 0 14px;
+  }
+  .sl-person .sl-about-badges { justify-content: center; }
+  .sl-person p { font-size: 13.5px; color: var(--muted); line-height: 1.62; margin: 0; }
+
   /* CTA intermedio */
   .sl-about-cta-mid {
     background: linear-gradient(135deg, #06152c 0%, #0d2447 100%);
@@ -381,6 +405,7 @@
     .sl-about-process::before { display: none; }
     .sl-about-why { grid-template-columns: 1fr; gap: 36px; }
     .sl-about-team { grid-template-columns: 1fr; }
+    .sl-about-people { grid-template-columns: 1fr; }
   }
   @media (max-width: 760px) {
     .sl-about-split { grid-template-columns: 1fr; gap: 32px; }
@@ -443,35 +468,38 @@
   <section class="sl-about-section">
     <div class="sl-about-wrap">
       <p class="eyebrow sl-about-reveal">Nuestro equipo</p>
-      <h2 class="sl-about-reveal">Expertos en <span class="sl-about-gold">derecho y tecnología</span></h2>
-      <p class="sl-about-reveal" style="max-width:640px">Dos disciplinas, un único servicio. Profesionales con formación jurídica y técnica trabajando en paralelo para que el cumplimiento de tu empresa sea real, no solo documental.</p>
-      <div class="sl-about-team">
-        <div class="sl-about-team-col sl-about-reveal">
-          <div class="sl-about-team-header">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 2L3 7v5c0 5.25 3.75 10.14 9 11.25C17.25 22.14 21 17.25 21 12V7L12 2z"/></svg>
-            <h3>Equipo Legal</h3>
-          </div>
+      <h2 class="sl-about-reveal">Las personas detrás de <span class="sl-about-gold">SoyLegal360</span></h2>
+      <p class="sl-about-reveal" style="max-width:640px">Por encima de la tecnología, siempre hay personas. Rigor jurídico, visión de negocio y trato cercano, con nombre y cara.</p>
+      <div class="sl-about-people">
+        <div class="sl-person sl-about-reveal">
+          <div class="sl-person-avatar" aria-hidden="true">PM</div>
+          <h3>P. Martín</h3>
+          <p class="sl-person-role">Abogada · Dirección Legal</p>
           <div class="sl-about-badges">
-            <span class="sl-about-badge">Abogados</span>
-            <span class="sl-about-badge">DPD Certificado</span>
-            <span class="sl-about-badge">RGPD · LOPDGDD · LSSICE</span>
-            <span class="sl-about-badge">Exp. Multinacionales</span>
+            <span class="sl-about-badge">RGPD · IA</span>
+            <span class="sl-about-badge">Colegiada ICAB</span>
           </div>
-          <p>Nuestro equipo legal cuenta con una sólida trayectoria asesorando a grandes empresas y multinacionales en sectores con datos especialmente protegidos: salud, banca, aseguradoras y tecnología con IA de alto riesgo. Ese mismo nivel de exigencia y rigor lo ponemos ahora al servicio de pymes, autónomos y empresas de cualquier tamaño.</p>
+          <p>Responsable del criterio jurídico. Firma y responde por cada documento que sale del despacho.</p>
         </div>
-        <div class="sl-about-team-col sl-about-reveal">
-          <div class="sl-about-team-header">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-            <h3>Equipo Tecnológico</h3>
-          </div>
+        <div class="sl-person sl-about-reveal">
+          <div class="sl-person-avatar" aria-hidden="true">JM</div>
+          <h3>J. Martín</h3>
+          <p class="sl-person-role">Dirección · Estrategia e IA</p>
           <div class="sl-about-badges">
-            <span class="sl-about-badge">Desarrollo Web</span>
-            <span class="sl-about-badge">Auditoría Técnica</span>
-            <span class="sl-about-badge">Consent Management</span>
-            <span class="sl-about-badge">IA Responsable</span>
+            <span class="sl-about-badge">Business Intelligence</span>
+            <span class="sl-about-badge">IA · Big Data</span>
           </div>
-          <p>El cumplimiento real va más allá de los documentos. Nuestro equipo técnico implementa las soluciones directamente: configuración de plataformas de consentimiento, auditoría del código y cookies, integración de sistemas y validación técnica de IA. Cumplimiento que se puede verificar, no solo leer.</p>
-          <p>Conocemos la inteligencia artificial por dentro. Por eso sabemos dónde están sus riesgos y cómo proteger a tu negocio, en un momento en que casi todo el mundo usa IA en su trabajo sin saber qué datos puede o no tratar con ella.</p>
+          <p>Estrategia, datos e inteligencia artificial. Que el cumplimiento sea un servicio ágil y digital.</p>
+        </div>
+        <div class="sl-person sl-about-reveal">
+          <div class="sl-person-avatar" aria-hidden="true">SN</div>
+          <h3>S. Nacher</h3>
+          <p class="sl-person-role">Marketing y Comunicación</p>
+          <div class="sl-about-badges">
+            <span class="sl-about-badge">Comunicación</span>
+            <span class="sl-about-badge">Eventos</span>
+          </div>
+          <p>La voz de la marca y el trato cercano. Comunicación, contenidos y eventos.</p>
         </div>
       </div>
     </div>
