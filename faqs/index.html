@@ -61,9 +61,9 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32x32.png?v=3">
   <link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicon-96x96.png?v=3">
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png?v=3">
-  <!-- Consentimiento de cookies propio (sl360-cookies.js) + GA4. GA4 solo se carga si el usuario acepta la categoria de estadistica (Consent Mode v2, modo basico). Al editar el JS, subir el ?v= (cache immutable de /assets). -->
-  <script defer src="/assets/js/sl360-cookies.js?v=3"></script>
-  <link rel="stylesheet" href="/assets/css/styles.css?v=27">
+  <!-- Consentimiento de cookies propio (sl360-cookies.js) + GA4 + Vercel Analytics. La analitica solo se carga si el usuario acepta la categoria de estadistica (Consent Mode v2, modo basico). Al editar el JS, subir el ?v= (cache immutable de /assets). -->
+  <script defer src="/assets/js/sl360-cookies.js?v=4"></script>
+  <link rel="stylesheet" href="/assets/css/styles.css?v=28">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -132,6 +132,70 @@
         "@type": "Answer",
         "text": "Sí. Trabajamos online con clientes de toda España, con sede en Sabadell."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto puede costar una multa de la AEPD?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El RGPD prevé dos tramos de sanción (artículo 83): hasta 10 millones de euros o el 2 % de la facturación anual global para infracciones menos graves, y hasta 20 millones de euros o el 4 % para las más graves, la cifra que resulte mayor. En la práctica, la cuantía depende de la gravedad, la intencionalidad y las medidas adoptadas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué es el AI Act y afecta a mi negocio?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El AI Act es el Reglamento (UE) 2024/1689, el primer marco europeo que regula la inteligencia artificial clasificándola por niveles de riesgo. Afecta a tu negocio si usas o despliegas sistemas de IA, con obligaciones distintas según el riesgo y tu papel (proveedor o desplegador)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuál es la diferencia entre un DPD interno y uno externo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El Delegado de Protección de Datos interno es un empleado de la organización; el externo es un profesional o empresa independiente contratada para ejercer esa función. El externo aporta independencia, especialización y disponibilidad sin sumar un puesto en plantilla, algo especialmente útil para pymes y autónomos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Aplica el RGPD si solo vendo por Instagram o redes sociales?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. El RGPD aplica desde el momento en que tratas datos personales, aunque no tengas web propia: nombres, teléfonos, direcciones de envío, mensajes o pedidos recibidos por redes sociales son datos personales que debes tratar conforme a la normativa."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Tengo que pedir consentimiento para las cookies de mi web?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí para las cookies no imprescindibles (analítica, publicidad, personalización): deben cargarse solo tras un consentimiento previo, informado y granular. Las cookies estrictamente técnicas necesarias para que la web funcione están exentas conforme al artículo 22.2 de la LSSI-CE."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué derechos tienen mis clientes sobre sus datos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El RGPD reconoce los derechos de acceso, rectificación, supresión (derecho al olvido), oposición, limitación del tratamiento y portabilidad. Como responsable, debes facilitar su ejercicio y responder normalmente en el plazo de un mes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué debo hacer si sufro una brecha de seguridad de datos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Debes valorar el riesgo y, si procede, notificar la brecha a la AEPD sin dilación indebida y, cuando sea posible, en un plazo de 72 horas desde que tengas constancia. Si el riesgo para los afectados es alto, también hay que comunicárselo a ellos. Conviene documentar el incidente y las medidas adoptadas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿En qué se diferencian la adaptación web y la adaptación de empresa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La adaptación web se centra en la puerta digital: aviso legal, política de privacidad, cookies, formularios y LSSI-CE. La adaptación de empresa cubre todo el tratamiento de datos de la organización: registro de actividades, proveedores, empleados, brechas y obligaciones internas. Muchos negocios necesitan ambas."
+      }
     }
   ]
 }
@@ -189,7 +253,7 @@
   </section>
   <section class="section">
     <div class="faq-list">
-      <details><summary>¿Qué es el RGPD y me afecta como autónomo?</summary><p>El RGPD regula cómo se tratan los datos personales. Te afecta desde el momento en que tienes una web con formulario de contacto, una lista de clientes o usas herramientas de email marketing.</p></details><details><summary>¿Qué pasa si mi web no cumple?</summary><p>Hay riesgos de sanciones económicas, denuncias de usuarios y pérdida de confianza. Adecuar la web cuesta una fracción de lo que puede costar una sanción.</p></details><details><summary>¿Cuánto tarda la auditoría gratuita?</summary><p>El informe se envía en 48 horas hábiles desde que facilitas la URL.</p></details><details><summary>¿Por qué no usáis plantillas genéricas?</summary><p>Porque no recogen tu negocio real: herramientas, datos tratados y forma de compartirlos.</p></details><details><summary>¿Necesito un Delegado de Protección de Datos?</summary><p>Probablemente no, salvo supuestos concretos como tratamientos a gran escala, datos sensibles u observación sistemática.</p></details><details><summary>¿Qué incluye la Protección Legal Continua?</summary><p>Consultas por email, videollamadas anuales, actualización documental, novedades RGPD y seguimiento.</p></details><details><summary>¿Puedo contratar solo el pack legal sin la web?</summary><p>Sí. Los packs legales son independientes y la web en 7 días se reserva para quien también necesita crear la web.</p></details><details><summary>¿Dáis servicio fuera de Barcelona?</summary><p>Sí. Trabajamos online con clientes de toda España, con sede en Sabadell.</p></details>
+      <details><summary>¿Qué es el RGPD y me afecta como autónomo?</summary><p>El RGPD regula cómo se tratan los datos personales. Te afecta desde el momento en que tienes una web con formulario de contacto, una lista de clientes o usas herramientas de email marketing.</p></details><details><summary>¿Qué pasa si mi web no cumple?</summary><p>Hay riesgos de sanciones económicas, denuncias de usuarios y pérdida de confianza. Adecuar la web cuesta una fracción de lo que puede costar una sanción.</p></details><details><summary>¿Cuánto tarda la auditoría gratuita?</summary><p>El informe se envía en 48 horas hábiles desde que facilitas la URL.</p></details><details><summary>¿Por qué no usáis plantillas genéricas?</summary><p>Porque no recogen tu negocio real: herramientas, datos tratados y forma de compartirlos.</p></details><details><summary>¿Necesito un Delegado de Protección de Datos?</summary><p>Probablemente no, salvo supuestos concretos como tratamientos a gran escala, datos sensibles u observación sistemática.</p></details><details><summary>¿Qué incluye la Protección Legal Continua?</summary><p>Consultas por email, videollamadas anuales, actualización documental, novedades RGPD y seguimiento.</p></details><details><summary>¿Puedo contratar solo el pack legal sin la web?</summary><p>Sí. Los packs legales son independientes y la web en 7 días se reserva para quien también necesita crear la web.</p></details><details><summary>¿Dáis servicio fuera de Barcelona?</summary><p>Sí. Trabajamos online con clientes de toda España, con sede en Sabadell.</p></details><details><summary>¿Cuánto puede costar una multa de la AEPD?</summary><p>El RGPD prevé dos tramos de sanción (artículo 83): hasta 10 millones de euros o el 2 % de la facturación anual global para infracciones menos graves, y hasta 20 millones de euros o el 4 % para las más graves, la cifra que resulte mayor. En la práctica, la cuantía depende de la gravedad, la intencionalidad y las medidas adoptadas.</p></details><details><summary>¿Qué es el AI Act y afecta a mi negocio?</summary><p>El AI Act es el Reglamento (UE) 2024/1689, el primer marco europeo que regula la inteligencia artificial clasificándola por niveles de riesgo. Afecta a tu negocio si usas o despliegas sistemas de IA, con obligaciones distintas según el riesgo y tu papel (proveedor o desplegador).</p></details><details><summary>¿Cuál es la diferencia entre un DPD interno y uno externo?</summary><p>El Delegado de Protección de Datos interno es un empleado de la organización; el externo es un profesional o empresa independiente contratada para ejercer esa función. El externo aporta independencia, especialización y disponibilidad sin sumar un puesto en plantilla, algo especialmente útil para pymes y autónomos.</p></details><details><summary>¿Aplica el RGPD si solo vendo por Instagram o redes sociales?</summary><p>Sí. El RGPD aplica desde el momento en que tratas datos personales, aunque no tengas web propia: nombres, teléfonos, direcciones de envío, mensajes o pedidos recibidos por redes sociales son datos personales que debes tratar conforme a la normativa.</p></details><details><summary>¿Tengo que pedir consentimiento para las cookies de mi web?</summary><p>Sí para las cookies no imprescindibles (analítica, publicidad, personalización): deben cargarse solo tras un consentimiento previo, informado y granular. Las cookies estrictamente técnicas necesarias para que la web funcione están exentas conforme al artículo 22.2 de la LSSI-CE.</p></details><details><summary>¿Qué derechos tienen mis clientes sobre sus datos?</summary><p>El RGPD reconoce los derechos de acceso, rectificación, supresión (derecho al olvido), oposición, limitación del tratamiento y portabilidad. Como responsable, debes facilitar su ejercicio y responder normalmente en el plazo de un mes.</p></details><details><summary>¿Qué debo hacer si sufro una brecha de seguridad de datos?</summary><p>Debes valorar el riesgo y, si procede, notificar la brecha a la AEPD sin dilación indebida y, cuando sea posible, en un plazo de 72 horas desde que tengas constancia. Si el riesgo para los afectados es alto, también hay que comunicárselo a ellos. Conviene documentar el incidente y las medidas adoptadas.</p></details><details><summary>¿En qué se diferencian la adaptación web y la adaptación de empresa?</summary><p>La adaptación web se centra en la puerta digital: aviso legal, política de privacidad, cookies, formularios y LSSI-CE. La adaptación de empresa cubre todo el tratamiento de datos de la organización: registro de actividades, proveedores, empleados, brechas y obligaciones internas. Muchos negocios necesitan ambas.</p></details>
     </div>
   </section>
   <section class="contact-band">
@@ -257,7 +321,6 @@
     <div class="footer-bottom">© 2026 <span class="sl-brand">SoyLegal<span>360</span></span>. Todos los derechos reservados.</div>
   </footer>
   <script src="/assets/js/site.js?v=4" defer></script>
-  <script defer src="/_vercel/insights/script.js"></script>
   <a class="wa-float" href="https://wa.me/34645668235?text=Hola%2C%20tengo%20una%20consulta." target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
     <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path fill="currentColor" d="M16.04 3C9.4 3 4 8.4 4 15.04c0 2.13.56 4.2 1.62 6.03L4 29l8.13-1.58a12 12 0 0 0 3.9.65h.01c6.64 0 12.04-5.4 12.04-12.04C28.08 8.4 22.68 3 16.04 3Zm0 21.9h-.01a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-4.82.94.96-4.7-.24-.38a9.86 9.86 0 0 1-1.51-5.25c0-5.46 4.45-9.9 9.92-9.9 2.65 0 5.14 1.03 7.01 2.9a9.84 9.84 0 0 1 2.9 7.01c0 5.46-4.45 9.9-9.91 9.9Zm5.44-7.42c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35Z"/></svg>
   </a>
