@@ -9,6 +9,7 @@
   "use strict";
 
   var GA_ID = "G-5WPZXV6ZKC";
+  var GTM_ID = "GTM-TJZ3XD8B";
   var COOKIE = "sl360_consent";
   var VERSION = 2; /* v2 (jul-2026): la categoria estadistica pasa a incluir tambien Vercel Analytics */
   var MAX_AGE = 31536000; /* 12 meses (la AEPD recomienda no superar 24) */
@@ -53,9 +54,23 @@
     document.head.appendChild(s);
   }
 
+  /* Google Tag Manager: mismo trato que GA4/Vercel Analytics, solo se carga
+     tras consentimiento expreso de la categoria estadistica. */
+  var gtmLoaded = false;
+  function loadGTM() {
+    if (gtmLoaded) { return; }
+    gtmLoaded = true;
+    window.dataLayer.push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+    var s = document.createElement("script");
+    s.async = true;
+    s.src = "https://www.googletagmanager.com/gtm.js?id=" + GTM_ID;
+    document.head.appendChild(s);
+  }
+
   function loadAnalytics() {
     loadGA();
     loadVA();
+    loadGTM();
   }
 
   function readConsent() {
@@ -213,7 +228,7 @@
       gtag("consent", "update", { analytics_storage: "denied" });
       deleteGACookies();
       /* Retirada real: si la analitica ya corria en esta pagina, recargar para descargarla. */
-      if (gaLoaded || vaLoaded || (previous && previous.analytics)) { location.reload(); }
+      if (gaLoaded || vaLoaded || gtmLoaded || (previous && previous.analytics)) { location.reload(); }
     }
     try {
       document.dispatchEvent(new CustomEvent("sl360:consent", { detail: { analytics: analytics } }));
