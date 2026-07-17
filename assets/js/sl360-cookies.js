@@ -1,6 +1,6 @@
 /* SoyLegal360: gestor de consentimiento de cookies propio (primera parte, sin CMP externo).
-   Una sola categoria opcional: estadistica (Google Analytics 4).
-   Consent Mode v2 en modo BASICO: gtag.js NO se carga hasta que el usuario acepta.
+   Una sola categoria opcional: estadistica (Google Analytics 4 + Vercel Analytics).
+   Consent Mode v2 en modo BASICO: ni gtag.js ni Vercel Insights se cargan hasta que el usuario acepta.
    La eleccion se guarda 12 meses en la cookie sl360_consent (JSON con version y fecha);
    si cambian las categorias o finalidades, subir VERSION para volver a preguntar.
    OJO: /assets/* se sirve con cache immutable de 1 año; al editar este fichero hay que
@@ -10,7 +10,7 @@
 
   var GA_ID = "G-5WPZXV6ZKC";
   var COOKIE = "sl360_consent";
-  var VERSION = 1;
+  var VERSION = 2; /* v2 (jul-2026): la categoria estadistica pasa a incluir tambien Vercel Analytics */
   var MAX_AGE = 31536000; /* 12 meses (la AEPD recomienda no superar 24) */
   var POLICY = "/politica-de-cookies/";
 
@@ -41,6 +41,23 @@
     gtag("config", GA_ID);
   }
 
+  /* Vercel Analytics (medicion de visitas sin cookies): aun asi, dentro de la
+     categoria estadistica — solo se carga tras consentimiento expreso. */
+  var vaLoaded = false;
+  function loadVA() {
+    if (vaLoaded) { return; }
+    vaLoaded = true;
+    var s = document.createElement("script");
+    s.defer = true;
+    s.src = "/_vercel/insights/script.js";
+    document.head.appendChild(s);
+  }
+
+  function loadAnalytics() {
+    loadGA();
+    loadVA();
+  }
+
   function readConsent() {
     var m = document.cookie.match(new RegExp("(?:^|;\\s*)" + COOKIE + "=([^;]*)"));
     if (!m) { return null; }
@@ -62,6 +79,21 @@
      (host actual y dominio raiz, p. ej. .soylegal360.es). */
   function deleteGACookies() {
     var names = ["_ga", "_ga_" + GA_ID.replace(/^G-/, "")];
+    var domains = ["", location.hostname, "." + location.hostname];
+    var parts = location.hostname.split(".");
+    if (parts.length > 2) { domains.push("." + parts.slice(-2).join(".")); }
+    names.forEach(function (name) {
+      domains.forEach(function (domain) {
+        document.cookie = name + "=; Max-Age=0; Path=/" + (domain ? "; Domain=" + domain : "");
+      });
+    });
+  }
+
+  /* Limpieza de residuos del antiguo CMP (Cookiebot, usado antes de este script
+     propio). Se ejecuta una vez en cada carga para no dejar cookies huerfanas
+     en los navegadores de visitantes recurrentes. */
+  function deleteLegacyCookiebotCookies() {
+    var names = ["CookieConsent", "CookieConsentBulkTicket"];
     var domains = ["", location.hostname, "." + location.hostname];
     var parts = location.hostname.split(".");
     if (parts.length > 2) { domains.push("." + parts.slice(-2).join(".")); }
@@ -176,12 +208,12 @@
     hideBanner();
     closePanel();
     if (analytics) {
-      loadGA();
+      loadAnalytics();
     } else {
       gtag("consent", "update", { analytics_storage: "denied" });
       deleteGACookies();
-      /* Retirada real: si GA ya corria en esta pagina, recargar para descargarlo. */
-      if (gaLoaded || (previous && previous.analytics)) { location.reload(); }
+      /* Retirada real: si la analitica ya corria en esta pagina, recargar para descargarla. */
+      if (gaLoaded || vaLoaded || (previous && previous.analytics)) { location.reload(); }
     }
     try {
       document.dispatchEvent(new CustomEvent("sl360:consent", { detail: { analytics: analytics } }));
@@ -197,7 +229,7 @@
           '<div class="sl360c-head">' + SHIELD +
             '<p class="sl360c-title">Cookies, <span>tú decides</span></p>' +
           '</div>' +
-          '<p class="sl360c-text">Usamos cookies técnicas imprescindibles y, solo si las aceptas, cookies de estadística (Google Analytics 4) para mejorar el contenido. Cambia tu decisión cuando quieras desde Configurar cookies, en el pie de página. <a href="' + POLICY + '">Política de Cookies</a>.</p>' +
+          '<p class="sl360c-text">Usamos cookies técnicas imprescindibles y, solo si las aceptas, tecnologías de estadística (Google Analytics 4 y Vercel Analytics) para mejorar el contenido. Cambia tu decisión cuando quieras desde Configurar cookies, en el pie de página. <a href="' + POLICY + '">Política de Cookies</a>.</p>' +
           '<div class="sl360c-actions">' +
             '<button type="button" class="sl360c-btn sl360c-btn-gold" data-a="reject">Rechazar todas</button>' +
             '<button type="button" class="sl360c-btn sl360c-btn-gold" data-a="accept">Aceptar todas</button>' +
@@ -237,7 +269,7 @@
             '<div class="sl360c-cat-head"><b id="sl360c-al">Cookies de estadística</b>' +
               '<span class="sl360c-switch"><input type="checkbox" id="sl360c-analytics" aria-labelledby="sl360c-al"' + (current && current.analytics ? " checked" : "") + '></span>' +
             '</div>' +
-            '<p>Google Analytics 4 (Google Ireland Ltd.). Miden de forma agregada qué páginas se visitan y cómo se usa la web para mejorar el contenido. Solo se instalan si las activas.</p>' +
+            '<p>Google Analytics 4 (Google Ireland Ltd.) y Vercel Analytics (Vercel Inc., medición sin cookies). Miden de forma agregada qué páginas se visitan y cómo se usa la web para mejorar el contenido. Solo se activan si tú lo decides.</p>' +
           '</div>' +
           '<div class="sl360c-pactions">' +
             '<button type="button" class="sl360c-btn sl360c-btn-navy" data-a="save">Guardar selección</button>' +
@@ -273,9 +305,10 @@
   /* --------------------------------- init --------------------------------- */
 
   function init() {
+    deleteLegacyCookiebotCookies();
     var consent = readConsent();
     if (consent) {
-      if (consent.analytics) { loadGA(); }
+      if (consent.analytics) { loadAnalytics(); }
     } else {
       showBanner();
     }
