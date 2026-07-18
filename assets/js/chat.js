@@ -443,16 +443,19 @@
     teaserTimers.push(setTimeout(function () {
       if (!els.panel || !els.panel.hidden) return; // el chat ya está abierto
       teaser = el("div", "sl-chat-teaser", { role: "status" });
-      var txt = document.createElement("span");
-      txt.innerHTML = "👋 Hola, soy <b>ClaudIA</b>, la asistente con IA de SoyLegal360. " +
-        "Pregúntame por el RGPD, la IA en tu negocio o nuestros servicios.";
+      teaser.innerHTML =
+        '<div class="sl-chat-teaser__head">' +
+          '<span class="sl-chat-teaser__avatar" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M12 3C6.9 3 3 6.6 3 11.1c0 2.3 1 4.3 2.7 5.8L5 21l3.9-1.6c1 .3 2 .5 3.1.5 5.1 0 9-3.6 9-8.1S17.1 3 12 3Z"/></svg></span>' +
+          '<span class="sl-chat-teaser__who"><b>ClaudIA</b><small>Asistente IA</small></span>' +
+        '</div>' +
+        '<p class="sl-chat-teaser__msg">Hola 👋 Soy la asistente con IA de SoyLegal360. Pregúntame por el RGPD, la IA en tu negocio o nuestros servicios.</p>' +
+        '<span class="sl-chat-teaser__hint">Escríbeme aquí</span>';
       var closeBtn = el("button", "sl-chat-teaser__close", { type: "button", "aria-label": "Cerrar mensaje de ClaudIA" });
       closeBtn.textContent = "×";
       closeBtn.addEventListener("click", function (ev) {
         ev.stopPropagation();
         hideTeaser(true);
       });
-      teaser.appendChild(txt);
       teaser.appendChild(closeBtn);
       teaser.addEventListener("click", function () { track("chat_teaser_click"); open(); });
       document.body.appendChild(teaser);
@@ -549,6 +552,17 @@
     });
 
     scheduleTeaser();
+
+    // Handoff desde otras piezas de la web (p. ej. la calculadora de riesgo):
+    // abre el chat con el mensaje preparado; el usuario decide si lo envía.
+    window.addEventListener("sl360:chat", function (ev) {
+      open();
+      var prefill = ev && ev.detail && ev.detail.prefill;
+      if (prefill) {
+        els.input.value = prefill;
+        setTimeout(function () { els.input.focus(); }, 80);
+      }
+    });
   }
 
   if (document.readyState === "loading") {
