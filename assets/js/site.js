@@ -105,3 +105,66 @@ document.querySelectorAll("[data-carousel]").forEach((root) => {
     if (e.key === "ArrowRight") goTo(activeIndex() + 1);
   });
 });
+
+// ── UX jul-2026: reveal al hacer scroll + tilt 3D en cards protagonistas ──
+// Sin dependencias. Si no hay JS, html no lleva .sl-js y nada queda oculto.
+(function () {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.documentElement.classList.add("sl-js");
+
+  // Reveal: cards y bloques repetidos aparecen con fade+rise, escalonados por grupo.
+  const revealSel =
+    ".feature-card, .family-card, .entry-card, .content-card, .mini-card, " +
+    ".directory-group, .steps article, .home-guide-route";
+  const items = document.querySelectorAll(revealSel);
+  if (items.length && "IntersectionObserver" in window && !reduceMotion) {
+    const groups = new Map(); // padre → índice para escalonar la entrada
+    items.forEach((el) => {
+      const parent = el.parentElement;
+      const i = groups.get(parent) || 0;
+      groups.set(parent, i + 1);
+      el.style.setProperty("--sl-reveal-delay", Math.min(i * 70, 350) + "ms");
+      el.classList.add("sl-reveal");
+    });
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-in");
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
+    );
+    items.forEach((el) => io.observe(el));
+    // Red de seguridad: si el observer no dispara (navegador raro, iframe,
+    // renderizado throttled), a los 3 s se enseña todo y no se esconde nada.
+    setTimeout(() => {
+      if (!document.querySelector(".sl-reveal.is-in")) {
+        items.forEach((el) => el.classList.add("is-in"));
+        io.disconnect();
+      }
+    }, 3000);
+  }
+
+  // Tilt 3D: la card se inclina siguiendo el cursor (solo escritorio con ratón).
+  if (reduceMotion || !window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+  const MAX_DEG = 5;
+  document.querySelectorAll(".home-guide-route, .family-card, .entry-card").forEach((card) => {
+    card.classList.add("sl-tilt");
+    card.addEventListener("mousemove", (e) => {
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5;
+      const y = (e.clientY - r.top) / r.height - 0.5;
+      card.style.setProperty("--tx", (x * MAX_DEG * 2).toFixed(2) + "deg");
+      card.style.setProperty("--ty", (-y * MAX_DEG * 2).toFixed(2) + "deg");
+      card.classList.add("is-tilting");
+    });
+    card.addEventListener("mouseleave", () => {
+      card.classList.remove("is-tilting");
+      card.style.removeProperty("--tx");
+      card.style.removeProperty("--ty");
+    });
+  });
+})();

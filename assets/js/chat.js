@@ -21,6 +21,7 @@
   var els = {};
 
   var STORE_KEY = "sl-chat-history"; // continuidad dentro de la sesión (solo navegador)
+  var TEASER_KEY = "sl-chat-teaser"; // el bocadillo de presentación se enseña 1 vez por sesión
   var CHIPS = ["¿Qué servicios tenéis?", "¿Necesito un DPO?", "Precios", "Hablar con un abogado"];
 
   // Evento GA4 (sin datos personales; respeta el Consent Mode ya configurado).
@@ -390,6 +391,7 @@
   }
 
   function open() {
+    hideTeaser(true);
     els.panel.hidden = false;
     els.launcher.setAttribute("aria-expanded", "true");
     document.body.classList.add("sl-chat-open");
@@ -417,6 +419,47 @@
     document.body.classList.remove("sl-chat-open");
     bindViewport(false);
     els.launcher.focus();
+  }
+
+  // ── Bocadillo de presentación: aparece a los 6 s, se cierra con la ×, al abrir el
+  //    chat o solo a los 20 s. Una vez por sesión (sessionStorage, sin cookies). ──
+  var teaser = null;
+  var teaserTimers = [];
+
+  function hideTeaser(markSeen) {
+    teaserTimers.forEach(clearTimeout);
+    teaserTimers = [];
+    if (markSeen) { try { sessionStorage.setItem(TEASER_KEY, "1"); } catch (e) {} }
+    if (!teaser) return;
+    var node = teaser;
+    teaser = null;
+    node.classList.remove("is-visible");
+    setTimeout(function () { if (node.parentNode) node.parentNode.removeChild(node); }, 400);
+  }
+
+  function scheduleTeaser() {
+    try { if (sessionStorage.getItem(TEASER_KEY)) return; } catch (e) {}
+    if (history.length) return; // ya ha conversado: no molestar
+    teaserTimers.push(setTimeout(function () {
+      if (!els.panel || !els.panel.hidden) return; // el chat ya está abierto
+      teaser = el("div", "sl-chat-teaser", { role: "status" });
+      var txt = document.createElement("span");
+      txt.innerHTML = "👋 Hola, soy <b>ClaudIA</b>, la asistente con IA de SoyLegal360. " +
+        "Pregúntame por el RGPD, la IA en tu negocio o nuestros servicios.";
+      var closeBtn = el("button", "sl-chat-teaser__close", { type: "button", "aria-label": "Cerrar mensaje de ClaudIA" });
+      closeBtn.textContent = "×";
+      closeBtn.addEventListener("click", function (ev) {
+        ev.stopPropagation();
+        hideTeaser(true);
+      });
+      teaser.appendChild(txt);
+      teaser.appendChild(closeBtn);
+      teaser.addEventListener("click", function () { track("chat_teaser_click"); open(); });
+      document.body.appendChild(teaser);
+      requestAnimationFrame(function () { if (teaser) teaser.classList.add("is-visible"); });
+      track("chat_teaser_visto");
+      teaserTimers.push(setTimeout(function () { hideTeaser(true); }, 20000)); // se va solo
+    }, 6000));
   }
 
   function build() {
@@ -504,6 +547,8 @@
     document.addEventListener("keydown", function (ev) {
       if (ev.key === "Escape" && !panel.hidden) close();
     });
+
+    scheduleTeaser();
   }
 
   if (document.readyState === "loading") {
