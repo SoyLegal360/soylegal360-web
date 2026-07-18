@@ -1477,3 +1477,86 @@ h3 { font-size: 22px; }
 .sl-app-carousel__dots button.is-active{width:22px;border-radius:5px;background:#e2c88b}
 @media(max-width:820px){.sl-app-pillars{grid-template-columns:1fr;gap:22px}.sl-app-carousel__arrow{width:36px;height:36px;font-size:19px}.sl-app-carousel__slide figcaption{font-size:13.5px;padding:32px 16px 14px}}
 @media(prefers-reduced-motion:reduce){.sl-app-carousel__track{scroll-behavior:auto}}
+
+/* ══════════════ UX jul-2026: cards con vida + reveal + teaser ClaudIA ══════════════ */
+
+/* ── Cards: elevación + borde dorado al hover (toda la casa) ── */
+.feature-card, .family-card, .entry-card, .content-card, .mini-card,
+.directory-group, .steps article {
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+.feature-card:hover, .family-card:hover, .entry-card:hover, .content-card:hover,
+.mini-card:hover, .directory-group:hover, .steps article:hover {
+  transform: translateY(-4px);
+  border-color: rgba(201, 169, 110, .65);
+  box-shadow: 0 24px 52px rgba(6, 21, 44, .13);
+}
+
+/* ── Tilt 3D (cards protagonistas; el JS pone --tx/--ty al mover el cursor) ── */
+.sl-tilt {
+  transform-style: preserve-3d;
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+.sl-tilt.is-tilting {
+  transform: perspective(900px) rotateX(var(--ty, 0deg)) rotateY(var(--tx, 0deg)) translateY(-4px);
+  transition: border-color .25s ease, box-shadow .25s ease;
+}
+
+/* ── Reveal al entrar en viewport (el JS añade .is-in; sin JS no se oculta nada) ── */
+html.sl-js .sl-reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .6s ease, transform .6s ease;
+  transition-delay: var(--sl-reveal-delay, 0s);
+}
+html.sl-js .sl-reveal.is-in { opacity: 1; transform: none; }
+
+/* ── Bocadillo de presentación de ClaudIA ── */
+.sl-chat-teaser {
+  position: fixed;
+  right: 18px;
+  bottom: 148px;
+  z-index: 59;
+  max-width: 264px;
+  padding: 14px 34px 14px 16px;
+  border: 1px solid rgba(201, 169, 110, .55);
+  border-radius: 14px 14px 4px 14px;
+  background: linear-gradient(180deg, #fff, #faf6ee);
+  color: var(--ink, #16213d);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 1.45;
+  box-shadow: 0 18px 44px rgba(6, 20, 46, .22);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(8px) scale(.97);
+  transition: opacity .35s ease, transform .35s ease;
+}
+.sl-chat-teaser.is-visible { opacity: 1; transform: none; }
+.sl-chat-teaser b { color: var(--navy, #06142e); }
+.sl-chat-teaser__close {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--muted, #62708a);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+}
+.sl-chat-teaser__close:hover { background: rgba(6, 20, 46, .08); color: var(--navy, #06142e); }
+@media (max-width: 640px) {
+  .sl-chat-teaser { right: 12px; bottom: 138px; max-width: min(78vw, 250px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  html.sl-js .sl-reveal { opacity: 1; transform: none; transition: none; }
+  .sl-tilt.is-tilting { transform: none; }
+  .sl-chat-teaser { transition: opacity .2s ease; transform: none; }
+  .feature-card:hover, .family-card:hover, .entry-card:hover, .content-card:hover,
+  .mini-card:hover, .directory-group:hover, .steps article:hover { transform: none; }
+}

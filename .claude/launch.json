@@ -1,32 +1,6 @@
 {
   "version": "0.0.1",
   "configurations": [
-    {
-      "name": "soylegal360",
-      "runtimeExecutable": "/usr/bin/python3",
-      "runtimeArgs": ["/tmp/sl360_serve.py"],
-      "port": 8765,
-      "autoPort": true
-    },
-    {
-      "name": "auditoria-rgpd",
-      "runtimeExecutable": "/bin/bash",
-      "runtimeArgs": ["/tmp/auditoria_rgpd_dev.sh"],
-      "port": 3000,
-      "autoPort": true
-    },
-    {
-      "name": "blog-dist",
-      "runtimeExecutable": "/usr/bin/python3",
-      "runtimeArgs": ["-m", "http.server", "8791", "--directory", "/Users/josemotos/SoyLegal360/dev/soylegal360-web/dist"],
-      "port": 8791,
-      "autoPort": true
-    },
-    {
-      "name": "analitica-panel",
-      "runtimeExecutable": "/Users/josemotos/.gcloud-python/python/bin/python3",
-      "runtimeArgs": ["-m", "http.server", "8099", "--directory", "/Users/josemotos/Documents/SoyLegal360-Analitica"],
-      "port": 8099
-    }
+    { "name": "web-static", "runtimeExecutable": "python3", "runtimeArgs": ["-m", "http.server", "4321"], "port": 4321 }
   ]
 }
