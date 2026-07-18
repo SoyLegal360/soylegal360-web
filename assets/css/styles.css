@@ -1511,47 +1511,151 @@ html.sl-js .sl-reveal {
 }
 html.sl-js .sl-reveal.is-in { opacity: 1; transform: none; }
 
-/* ── Bocadillo de presentación de ClaudIA ── */
+/* ── Bocadillo de presentación de ClaudIA: tarjeta navy con filo dorado, a juego con el launcher ── */
 .sl-chat-teaser {
   position: fixed;
   right: 18px;
   bottom: 148px;
   z-index: 59;
-  max-width: 264px;
-  padding: 14px 34px 14px 16px;
-  border: 1px solid rgba(201, 169, 110, .55);
-  border-radius: 14px 14px 4px 14px;
-  background: linear-gradient(180deg, #fff, #faf6ee);
-  color: var(--ink, #16213d);
+  max-width: 280px;
+  padding: 0;
+  border: 0;
+  border-radius: 16px 16px 5px 16px;
+  background: linear-gradient(160deg, #0e2244, var(--navy, #06142e) 55%, #0a1a38);
+  color: #eef3fb;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
-  line-height: 1.45;
-  box-shadow: 0 18px 44px rgba(6, 20, 46, .22);
+  font-size: 13.5px;
+  line-height: 1.5;
+  box-shadow: 0 22px 52px rgba(6, 20, 46, .42);
   cursor: pointer;
   opacity: 0;
-  transform: translateY(8px) scale(.97);
-  transition: opacity .35s ease, transform .35s ease;
+  transform: translateY(10px) scale(.96);
+  transition: opacity .38s ease, transform .38s ease;
+}
+/* Filo metalizado: mismo lenguaje que el anillo del launcher */
+.sl-chat-teaser::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  pointer-events: none;
+  background: linear-gradient(135deg, #8a6d28, #e7cd8e 24%, #fffdf6 38%, #c9a96e 55%, #8a6d28 74%, #e7cd8e);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  opacity: .85;
+}
+/* Colita hacia el launcher */
+.sl-chat-teaser::after {
+  content: "";
+  position: absolute;
+  right: 22px;
+  bottom: -7px;
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  background: #0a1a38;
+  border-right: 1.5px solid rgba(201, 169, 110, .8);
+  border-bottom: 1.5px solid rgba(201, 169, 110, .8);
+  transform: rotate(45deg);
 }
 .sl-chat-teaser.is-visible { opacity: 1; transform: none; }
-.sl-chat-teaser b { color: var(--navy, #06142e); }
+.sl-chat-teaser__head {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 38px 0 14px;
+}
+.sl-chat-teaser__avatar {
+  display: grid;
+  place-items: center;
+  flex: 0 0 30px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, var(--gold-soft, #e2c684), var(--gold, #c9a96e));
+  color: var(--navy, #06142e);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, .3);
+}
+.sl-chat-teaser__avatar svg { width: 16px; height: 16px; }
+.sl-chat-teaser__who b {
+  display: block;
+  color: #f3e3b0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 15px;
+  line-height: 1.1;
+}
+.sl-chat-teaser__who small {
+  color: rgba(238, 243, 251, .62);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.sl-chat-teaser__msg {
+  margin: 8px 14px 8px;
+  padding: 10px 12px;
+  border-radius: 10px 10px 10px 3px;
+  background: rgba(255, 255, 255, .08);
+  border: 1px solid rgba(255, 255, 255, .1);
+}
+.sl-chat-teaser__hint {
+  display: block;
+  margin: 0 14px 11px;
+  color: var(--gold-soft, #e2c684);
+  font-size: 11.5px;
+  font-weight: 700;
+}
+.sl-chat-teaser__hint::after { content: " →"; }
 .sl-chat-teaser__close {
   position: absolute;
-  top: 6px;
-  right: 6px;
+  top: 7px;
+  right: 7px;
+  z-index: 1;
   width: 24px;
   height: 24px;
   padding: 0;
   border: 0;
   border-radius: 50%;
-  background: transparent;
-  color: var(--muted, #62708a);
-  font-size: 16px;
+  background: rgba(255, 255, 255, .1);
+  color: rgba(238, 243, 251, .75);
+  font-size: 15px;
   line-height: 1;
   cursor: pointer;
 }
-.sl-chat-teaser__close:hover { background: rgba(6, 20, 46, .08); color: var(--navy, #06142e); }
+.sl-chat-teaser__close:hover { background: rgba(255, 255, 255, .22); color: #fff; }
 @media (max-width: 640px) {
-  .sl-chat-teaser { right: 12px; bottom: 138px; max-width: min(78vw, 250px); }
+  .sl-chat-teaser { right: 12px; bottom: 138px; max-width: min(80vw, 264px); }
+}
+
+/* ── Formulario rápido "analiza tu web" (hero home + auditoría gratuita) ── */
+.sl-quick-analyze {
+  display: flex;
+  gap: 10px;
+  width: min(520px, 100%);
+  margin: 0 auto;
+}
+.sl-quick-analyze input {
+  flex: 1;
+  min-width: 0;
+  min-height: 52px;
+  padding: 12px 16px;
+  border: 1px solid rgba(255, 255, 255, .35);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, .94);
+  color: var(--ink, #16213d);
+  font: 15px/1.3 Arial, Helvetica, sans-serif;
+}
+.sl-quick-analyze input:focus {
+  outline: 2px solid rgba(201, 169, 110, .8);
+  outline-offset: 1px;
+}
+.sl-quick-analyze .button { flex: 0 0 auto; margin: 0; white-space: nowrap; }
+@media (max-width: 560px) {
+  .sl-quick-analyze { flex-direction: column; }
+  .sl-quick-analyze .button { width: 100%; }
 }
 @media (prefers-reduced-motion: reduce) {
   html.sl-js .sl-reveal { opacity: 1; transform: none; transition: none; }
