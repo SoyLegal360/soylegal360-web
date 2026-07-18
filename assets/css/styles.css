@@ -189,10 +189,12 @@ a { color: inherit; }
   gap: 16px;
   width: min(900px, calc(100vw - 32px));
   padding: 20px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: #fff;
-  box-shadow: var(--shadow);
+  border: 1px solid rgba(6, 21, 44, .1);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, .78);
+  -webkit-backdrop-filter: blur(20px) saturate(1.5);
+  backdrop-filter: blur(20px) saturate(1.5);
+  box-shadow: 0 30px 70px -18px rgba(6, 21, 44, .28);
   z-index: 10;
   /* estado inicial: invisible pero sin display:none para poder animar */
   opacity: 0;
@@ -1681,4 +1683,77 @@ html.sl-js .sl-reveal.is-in { opacity: 1; transform: none; }
   .sl-app-mini { padding: 56px 18px; }
   .sl-app-mini__wrap { grid-template-columns: 1fr; }
   .sl-app-mini__media { order: -1; }
+}
+
+
+/* ══════════════ Pulido jul-2026: glass, foco, micro-interacciones ══════════════ */
+
+/* Selección de texto de marca */
+::selection { background: rgba(201, 169, 110, .35); color: #06142e; }
+
+/* Anillo de foco coherente en toda la casa */
+:where(a, button, input, select, textarea, summary):focus-visible {
+  outline: 3px solid rgba(201, 169, 110, .6);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Los anclajes no se esconden bajo el header pegajoso */
+[id] { scroll-margin-top: 96px; }
+
+/* Botones: brillo interior sutil y tacto */
+.button, .nav-cta {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .28), 0 10px 24px -12px rgba(6, 20, 46, .35);
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
+}
+.button:hover { transform: translateY(-2px); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .28), 0 16px 34px -12px rgba(6, 20, 46, .4); }
+.button:active { transform: translateY(0) scale(.985); }
+
+/* Hero: los datos AEPD en tarjeta glass sobre el vídeo */
+.published-hero .hero-facts {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 18px 26px;
+  border: 1px solid rgba(255, 255, 255, .22);
+  border-radius: 16px;
+  background: rgba(6, 20, 46, .38);
+  -webkit-backdrop-filter: blur(14px) saturate(1.3);
+  backdrop-filter: blur(14px) saturate(1.3);
+  box-shadow: 0 24px 60px -20px rgba(0, 0, 0, .5);
+}
+
+/* Analiza tu web: input glass sobre el vídeo del hero */
+.hero-has-video .sl-quick-analyze input {
+  border-color: rgba(255, 255, 255, .3);
+  background: rgba(255, 255, 255, .14);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  color: #fff;
+}
+.hero-has-video .sl-quick-analyze input::placeholder { color: rgba(255, 255, 255, .65); }
+.hero-has-video .sl-quick-analyze input:focus { background: rgba(255, 255, 255, .2); }
+
+/* Bocadillo de ClaudIA: cristal sobre lo que tenga detrás */
+.sl-chat-teaser {
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+/* Radios de tarjeta unificados (más producto, menos formulario) */
+.feature-card, .family-card, .entry-card, .content-card, .mini-card,
+.directory-group, .steps article, .notice { border-radius: 12px; }
+
+/* Barra de scroll discreta de marca (WebKit) */
+::-webkit-scrollbar { width: 11px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(6, 20, 46, .32); border-radius: 999px; border: 3px solid transparent; background-clip: content-box; }
+::-webkit-scrollbar-thumb:hover { background: rgba(6, 20, 46, .5); border: 3px solid transparent; background-clip: content-box; }
+
+/* Header: sombra que aparece al hacer scroll (site.js añade .is-scrolled) */
+.site-header { transition: box-shadow .25s ease, background .25s ease; }
+.site-header.is-scrolled { box-shadow: 0 10px 30px -12px rgba(6, 21, 44, .18); background: rgba(255, 255, 255, .88); }
+
+@media (prefers-reduced-motion: reduce) {
+  .button:hover, .button:active { transform: none; }
 }
