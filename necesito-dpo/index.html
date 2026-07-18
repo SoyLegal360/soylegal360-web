@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>¿Necesito un DPO? Test orientativo en 1 minuto | SoyLegal360</title>
+  <meta name="description" content="Averigua en 4 preguntas si tu negocio está obligado a designar un Delegado de Protección de Datos según el art. 37 RGPD y el art. 34 LOPDGDD. Test gratuito y orientativo.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.soylegal360.es/necesito-dpo/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:site_name" content="SoyLegal360">
+  <meta property="og:title" content="¿Necesito un DPO? Test orientativo en 1 minuto | SoyLegal360">
+  <meta property="og:description" content="4 preguntas para saber si estás obligado a designar un Delegado de Protección de Datos (art. 37 RGPD y art. 34 LOPDGDD).">
+  <meta property="og:url" content="https://www.soylegal360.es/necesito-dpo/">
+  <meta property="og:image" content="https://www.soylegal360.es/og/necesito-dpo.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="¿Necesito un DPO? Test orientativo en 1 minuto | SoyLegal360">
+  <meta name="twitter:description" content="4 preguntas para saber si estás obligado a designar un Delegado de Protección de Datos.">
+  <meta name="twitter:image" content="https://www.soylegal360.es/og/necesito-dpo.png">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Test: ¿Necesito un Delegado de Protección de Datos?",
+  "url": "https://www.soylegal360.es/necesito-dpo/",
+  "description": "Herramienta orientativa para saber si un negocio está obligado a designar un Delegado de Protección de Datos conforme al artículo 37 del RGPD y al artículo 34 de la LOPDGDD.",
+  "provider": { "@type": "LegalService", "name": "SoyLegal360", "url": "https://www.soylegal360.es/" }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.soylegal360.es/" },
+    { "@type": "ListItem", "position": 2, "name": "¿Necesito un DPO?", "item": "https://www.soylegal360.es/necesito-dpo/" }
+  ]
+}
+  </script>
+  <link rel="icon" href="/favicon.ico?v=3" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32x32.png?v=3">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicon-96x96.png?v=3">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png?v=3">
+  <script defer src="/assets/js/sl360-cookies.js?v=5"></script>
+  <link rel="stylesheet" href="/assets/css/styles.css?v=33">
+  <style>
+    .sl-dpo { --navy:#06142e; --gold:#c9a96e; --gold-soft:#e2c684; --ink:#16213d; --muted:#5a6a84; --line:rgba(23,54,97,.14); font-family:Georgia,"Times New Roman",serif; color:var(--ink); }
+    .sl-dpo * { box-sizing:border-box; }
+    .sl-dpo-hero { padding:78px 22px 30px; text-align:center; background:linear-gradient(180deg,#fbfaf7,#fff); }
+    .sl-dpo-hero .eyebrow { color:var(--gold); font:800 12px/1.3 Arial,Helvetica,sans-serif; letter-spacing:.2em; text-transform:uppercase; margin:0 0 14px; }
+    .sl-dpo-hero h1 { margin:0 auto; max-width:760px; color:var(--navy); font-size:clamp(30px,4.6vw,52px); line-height:1.06; }
+    .sl-dpo-hero h1 span { color:var(--gold); }
+    .sl-dpo-hero .lead { max-width:600px; margin:18px auto 0; color:var(--muted); font:400 16.5px/1.65 Arial,Helvetica,sans-serif; }
+    .sl-dpo-tool { padding:34px 22px 90px; }
+    .sl-dpo-card { width:min(680px,100%); margin:0 auto; border:1px solid var(--line); border-radius:16px; background:#fff; box-shadow:0 30px 80px -24px rgba(6,20,46,.25); overflow:hidden; }
+    .sl-dpo-progress { height:6px; background:#eceff3; }
+    .sl-dpo-progress span { display:block; height:100%; width:25%; background:linear-gradient(90deg,var(--gold),#ddc287); transition:width .35s ease; }
+    .sl-dpo-body { padding:30px 30px 32px; }
+    .sl-dpo-step-label { margin:0 0 8px; color:var(--gold); font:800 11.5px/1.3 Arial,Helvetica,sans-serif; letter-spacing:.14em; text-transform:uppercase; }
+    .sl-dpo-q { margin:0 0 8px; color:var(--navy); font-size:clamp(20px,2.6vw,26px); line-height:1.25; }
+    .sl-dpo-help { margin:0 0 22px; color:var(--muted); font:14.5px/1.6 Arial,Helvetica,sans-serif; }
+    .sl-dpo-help b { color:var(--ink); }
+    .sl-dpo-opts { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    .sl-dpo-opts button { min-height:56px; border:1px solid var(--line); border-radius:12px; background:#fff; color:var(--navy); cursor:pointer; font:700 16px/1.2 Georgia,serif; transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease,background .18s ease; }
+    .sl-dpo-opts button:hover { transform:translateY(-2px); border-color:rgba(201,169,110,.75); box-shadow:0 14px 30px rgba(6,20,46,.12); }
+    .sl-dpo-back { margin-top:16px; border:0; background:none; color:var(--muted); cursor:pointer; font:600 13px/1 Arial,Helvetica,sans-serif; }
+    .sl-dpo-back:hover { color:var(--navy); }
+    .sl-dpo-result { display:none; }
+    .sl-dpo-result.is-visible { display:block; animation:slDpoIn .35s ease; }
+    @keyframes slDpoIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:none; } }
+    .sl-dpo-verdict { display:inline-block; margin:0 0 12px; padding:8px 16px; border-radius:999px; font:800 12px/1.3 Arial,Helvetica,sans-serif; letter-spacing:.1em; text-transform:uppercase; }
+    .sl-dpo-result[data-level="si"] .sl-dpo-verdict { background:rgba(163,58,47,.12); color:#a33a2f; }
+    .sl-dpo-result[data-level="probable"] .sl-dpo-verdict { background:rgba(166,106,18,.12); color:#a66a12; }
+    .sl-dpo-result[data-level="no"] .sl-dpo-verdict { background:rgba(44,107,79,.12); color:#2c6b4f; }
+    .sl-dpo-result h2 { margin:0 0 10px; color:var(--navy); font-size:clamp(22px,3vw,30px); line-height:1.18; }
+    .sl-dpo-result .why { margin:0 0 6px; color:var(--ink); font:15.5px/1.65 Arial,Helvetica,sans-serif; }
+    .sl-dpo-result .base { margin:14px 0 0; padding:12px 14px; border-left:3px solid var(--gold); background:#fbfaf7; border-radius:0 10px 10px 0; color:var(--muted); font:13.5px/1.6 Arial,Helvetica,sans-serif; }
+    .sl-dpo-ctas { display:grid; gap:10px; margin-top:22px; }
+    .sl-dpo-ctas .button { width:100%; text-align:center; }
+    .sl-dpo-claudia { border:1px solid rgba(201,169,110,.5); border-radius:8px; min-height:50px; background:linear-gradient(135deg,var(--navy),#0d141a); color:var(--gold-soft); cursor:pointer; font:800 13px/1 Arial,Helvetica,sans-serif; letter-spacing:.05em; text-transform:uppercase; }
+    .sl-dpo-note { margin:26px auto 0; width:min(680px,100%); color:var(--muted); font:12.5px/1.6 Arial,Helvetica,sans-serif; }
+    .sl-dpo-note a { color:var(--gold); }
+    @media (max-width:560px) { .sl-dpo-opts { grid-template-columns:1fr; } .sl-dpo-body { padding:24px 20px 26px; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="SoyLegal360 inicio">
+        <img src="/assets/img/soylegal360_logo_header.png" alt="SoyLegal360">
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span><span></span>
+        <span class="sr-only">Abrir menú</span>
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Navegación principal">
+        <a href="/">Inicio</a>
+        <details class="services-menu">
+          <summary><a href="/servicios-proteccion-de-datos/">Servicios</a><span class="services-chevron" aria-hidden="true">&#9660;</span></summary>
+          <div class="mega-menu"><section>
+        <h3>Diagnóstico y auditoría</h3>
+        <a href="https://app.soylegal360.es"><span class="mega-name">Auditoría Web Express</span><span class="mega-desc">Al instante, online · gratis</span></a>
+        <a href="/auditoria-web-gratuita/"><span class="mega-name">Auditoría Web Gratuita</span><span class="mega-desc">Informe revisado por el equipo · gratis</span></a>
+        <a href="/auditoria-rgpd/"><span class="mega-name">Auditoría RGPD</span><span class="mega-desc">Diagnóstico de cumplimiento · a medida</span></a>
+        <a href="/auditoria-ia/"><span class="mega-name">Auditoría IA</span><span class="mega-desc">Tu exposición al AI Act · a medida</span></a>
+      </section><section>
+        <h3>Adaptación y cumplimiento</h3>
+        <a href="/adaptacion-web-rgpd/"><span class="mega-name">Adaptación Web RGPD</span><span class="mega-desc">Tu web en regla · desde 390€</span></a>
+        <a href="/adaptacion-empresa-rgpd/"><span class="mega-name">Adaptación Empresa RGPD</span><span class="mega-desc">De extremo a extremo · desde 490€</span></a>
+        <a href="/adaptacion-ia/"><span class="mega-name">Adaptación IA</span><span class="mega-desc">Uso de IA conforme · a medida</span></a>
+      </section><section>
+        <h3>Continuidad y figuras especializadas</h3>
+        <a href="/proteccion-legal-continua/"><span class="mega-name">Protección Legal Continua</span><span class="mega-desc">Acompañamiento mensual · desde 49€/mes</span></a>
+        <a href="/delegado-de-proteccion-de-datos-externalizado/"><span class="mega-name">Delegado de Protección de Datos</span><span class="mega-desc">DPD externalizado · a medida</span></a>
+        <a href="/responsable-ia-externalizado/"><span class="mega-name">Responsable de IA</span><span class="mega-desc">Rol de IA externalizado · a medida</span></a>
+        <a href="/delegado-de-ia-publico/"><span class="mega-name">Delegado de IA (sector público)</span><span class="mega-desc">Para administraciones · a medida</span></a>
+      </section><section>
+        <h3>Web y legal digital</h3>
+        <a href="/web-legal-lista-en-7-dias/"><span class="mega-name">Web Legal Lista en 7 Días</span><span class="mega-desc">Web profesional y legal · desde 590€</span></a>
+        <a href="/consultoria-proteccion-de-datos/"><span class="mega-name">Consultoría Protección de Datos</span><span class="mega-desc">Tu duda RGPD resuelta · a medida</span></a>
+        <a href="/consultoria-legal/"><span class="mega-name">Consultoría Legal</span><span class="mega-desc">Asesoría puntual · desde 120€</span></a>
+        <a href="/revision-de-contratos/"><span class="mega-name">Revisión de contratos</span><span class="mega-desc">Antes de firmar · desde 150€</span></a>
+      </section></div>
+        </details>
+        <a href="/como-funciona/">Cómo funciona</a><a href="/sobre-nosotros/">Sobre nosotros</a><a href="/blog/">Blog</a><a href="/ejercicio-de-derechos/">Para particulares</a><a href="/contacto/">Contacto</a>
+        <span class="nav-sep" aria-hidden="true"></span><a class="nav-login" href="https://clientes.soylegal360.es">Acceso clientes</a><a class="nav-cta" href="https://app.soylegal360.es">Analiza tu web gratis</a>
+      </nav>
+    </div>
+  </header>
+  <main id="contenido" class="sl-dpo">
+  <nav class="sl-crumbs" aria-label="Ruta de navegación"><a href="/">Inicio</a><span class="sep">/</span><span aria-current="page">¿Necesito un DPO?</span></nav>
+
+    <section class="sl-dpo-hero">
+      <p class="eyebrow">Herramienta gratuita · 1 minuto</p>
+      <h1>¿Necesitas un <span>Delegado de Protección de Datos</span>?</h1>
+      <p class="lead">Cuatro preguntas y te orientamos según el artículo 37 del RGPD y el artículo 34 de la LOPDGDD. Sin registrarte: se calcula en tu navegador.</p>
+    </section>
+
+    <section class="sl-dpo-tool">
+      <div class="sl-dpo-card" id="slDpoTool">
+        <div class="sl-dpo-progress"><span id="slDpoProgress"></span></div>
+        <div class="sl-dpo-body">
+          <div id="slDpoQuiz">
+            <p class="sl-dpo-step-label" id="slDpoStepLabel">Pregunta 1 de 4</p>
+            <h2 class="sl-dpo-q" id="slDpoQ"></h2>
+            <p class="sl-dpo-help" id="slDpoHelp"></p>
+            <div class="sl-dpo-opts">
+              <button type="button" id="slDpoYes">Sí</button>
+              <button type="button" id="slDpoNo">No / No lo sé</button>
+            </div>
+            <button type="button" class="sl-dpo-back" id="slDpoBack" hidden>&#8592; Pregunta anterior</button>
+          </div>
+
+          <div class="sl-dpo-result" id="slDpoResult" aria-live="polite">
+            <span class="sl-dpo-verdict" id="slDpoVerdict"></span>
+            <h2 id="slDpoTitle"></h2>
+            <p class="why" id="slDpoWhy"></p>
+            <p class="base" id="slDpoBase"></p>
+            <div class="sl-dpo-ctas">
+              <a class="button gold" id="slDpoCta" href="/delegado-de-proteccion-de-datos-externalizado/">Ver DPD externalizado</a>
+              <button type="button" class="sl-dpo-claudia" id="slDpoChat">Comentar mi caso con ClaudIA</button>
+            </div>
+            <button type="button" class="sl-dpo-back" id="slDpoRestart">&#8592; Repetir el test</button>
+          </div>
+        </div>
+      </div>
+      <p class="sl-dpo-note">Resultado orientativo: no constituye asesoramiento jurídico individualizado. La obligación depende de tu caso concreto; puedes consultar el <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673" target="_blank" rel="noopener">texto completo del art. 34 LOPDGDD en el BOE</a> o preguntarnos sin compromiso.</p>
+    </section>
+  </main>
+
+  <script>
+  (function () {
+    var QS = [
+      { q: "¿Eres una autoridad u organismo público, o actúas para uno?",
+        h: "Ayuntamientos, organismos, entidades del sector público o empresas que tratan datos por cuenta de ellos.",
+        base: "Art. 37.1.a RGPD: las autoridades y organismos públicos designan DPD en todo caso." },
+      { q: "¿Tu actividad principal consiste en observar de forma habitual y sistemática a personas a gran escala?",
+        h: "<b>Ejemplos:</b> publicidad comportamental, seguimiento de ubicación de usuarios, scoring o monitorización de actividad.",
+        base: "Art. 37.1.b RGPD: observación habitual y sistemática de interesados a gran escala." },
+      { q: "¿Tratas a gran escala datos de salud, biometría, ideología u otras categorías especiales, o datos penales?",
+        h: "<b>Categorías especiales (art. 9 RGPD):</b> salud, datos biométricos, ideología, religión, afiliación sindical, vida sexual. <b>Gran escala</b>: volumen o alcance significativo, no un fichero puntual.",
+        base: "Art. 37.1.c RGPD: tratamiento a gran escala de categorías especiales (art. 9) o datos penales (art. 10)." },
+      { q: "¿Tu actividad está en la lista del art. 34 LOPDGDD?",
+        h: "<b>Entre otros:</b> colegios profesionales, centros docentes, centros sanitarios (salvo profesionales que ejercen a título individual), aseguradoras, empresas de servicios de inversión, distribuidores y comercializadores de energía, prestadores de servicios de la sociedad de la información que elaboren perfiles a gran escala, juego online o seguridad privada.",
+        base: "Art. 34.1 LOPDGDD: lista española de entidades obligadas a designar DPD en todo caso." }
+    ];
+    var answers = [];
+    var i = 0;
+    var quiz = document.getElementById("slDpoQuiz");
+    var result = document.getElementById("slDpoResult");
+    var progress = document.getElementById("slDpoProgress");
+
+    function paint() {
+      document.getElementById("slDpoStepLabel").textContent = "Pregunta " + (i + 1) + " de " + QS.length;
+      document.getElementById("slDpoQ").textContent = QS[i].q;
+      document.getElementById("slDpoHelp").innerHTML = QS[i].h;
+      document.getElementById("slDpoBack").hidden = i === 0;
+      progress.style.width = (i / QS.length * 100) + "%";
+    }
+
+    function finish() {
+      progress.style.width = "100%";
+      quiz.style.display = "none";
+      result.classList.add("is-visible");
+      var verdict = document.getElementById("slDpoVerdict");
+      var title = document.getElementById("slDpoTitle");
+      var why = document.getElementById("slDpoWhy");
+      var base = document.getElementById("slDpoBase");
+      var cta = document.getElementById("slDpoCta");
+      var yesIdx = [];
+      answers.forEach(function (a, idx) { if (a) yesIdx.push(idx); });
+      var level, msg;
+      if (yesIdx.length) {
+        var first = yesIdx[0];
+        if (first === 0 || first === 3) {
+          level = "si";
+          verdict.textContent = "Designación obligatoria";
+          title.textContent = "Todo apunta a que debes designar un DPD";
+          why.textContent = "Por lo que has marcado, tu actividad encaja en un supuesto de designación obligatoria. Además de nombrarlo, hay que comunicar la designación a la AEPD.";
+        } else {
+          level = "probable";
+          verdict.textContent = "Probablemente obligatorio";
+          title.textContent = "Es muy probable que necesites un DPD";
+          why.textContent = "Lo que has marcado encaja con los supuestos del RGPD que obligan a designar DPD. Conviene confirmarlo con una revisión profesional de tu caso, porque conceptos como «gran escala» exigen valoración.";
+        }
+        base.textContent = "Base: " + QS[first].base;
+        cta.textContent = "Resolverlo con un DPD externalizado";
+      } else {
+        level = "no";
+        verdict.textContent = "Probablemente no obligatorio";
+        title.textContent = "No parece obligatorio en tu caso";
+        why.textContent = "Con lo que has marcado, no encajas en los supuestos de designación obligatoria. Aun así, el resto del RGPD te sigue aplicando igual: documentación, deber de información, contratos con proveedores y atención de derechos.";
+        base.textContent = "Puedes designar un DPD voluntario (art. 37.4 RGPD) o cubrir el día a día con un servicio de acompañamiento.";
+        cta.textContent = "Ver Protección Legal Continua (desde 49€/mes)";
+        cta.href = "/proteccion-legal-continua/";
+      }
+      result.dataset.level = level;
+      try { if (window.gtag) window.gtag("event", "test_dpo_resultado", { resultado: level }); } catch (e) {}
+      document.getElementById("slDpoChat").onclick = function () {
+        try { if (window.gtag) window.gtag("event", "test_dpo_claudia"); } catch (e) {}
+        window.dispatchEvent(new CustomEvent("sl360:chat", { detail: { prefill:
+          "Hola, he hecho el test del DPO y me ha salido: " + verdict.textContent + ". " + why.textContent + " ¿Me lo podéis confirmar?" } }));
+      };
+    }
+
+    function answer(v) {
+      answers[i] = v;
+      if (i < QS.length - 1) { i++; paint(); } else { finish(); }
+    }
+    document.getElementById("slDpoYes").addEventListener("click", function () { answer(true); });
+    document.getElementById("slDpoNo").addEventListener("click", function () { answer(false); });
+    document.getElementById("slDpoBack").addEventListener("click", function () { if (i > 0) { i--; paint(); } });
+    document.getElementById("slDpoRestart").addEventListener("click", function () {
+      answers = []; i = 0;
+      result.classList.remove("is-visible");
+      quiz.style.display = "";
+      paint();
+    });
+    paint();
+  })();
+  </script>
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <section class="footer-brand-col">
+        <img class="footer-logo" src="/assets/img/soylegal360_logo_blanco_footer.svg" alt="SoyLegal360">
+        <p>Cumplimiento real para negocios reales.</p>
+        <p class="footer-tagline-gold">Digitalización Blindada&#8482;</p>
+      </section>
+      <section>
+        <h2>Servicios</h2>
+        <details class="footer-sg">
+          <summary>Auditoría</summary>
+          <a href="/auditoria-web-gratuita/">Auditoría Web Gratuita</a>
+          <a href="/auditoria-rgpd/">Auditoría RGPD</a>
+          <a href="/auditoria-ia/">Auditoría IA</a>
+        </details>
+        <details class="footer-sg">
+          <summary>Adaptación</summary>
+          <a href="/adaptacion-web-rgpd/">Adaptación Web RGPD</a>
+          <a href="/adaptacion-empresa-rgpd/">Adaptación Empresa RGPD</a>
+          <a href="/adaptacion-ia/">Adaptación IA</a>
+        </details>
+        <details class="footer-sg">
+          <summary>Protección continua</summary>
+          <a href="/proteccion-legal-continua/">Protección Legal Continua</a>
+          <a href="/delegado-de-proteccion-de-datos-externalizado/">Delegado de Protección de Datos</a>
+          <a href="/responsable-ia-externalizado/">Responsable de IA</a><a href="/delegado-de-ia-publico/">Delegado de IA (sector público)</a>
+          <a href="/consultoria-proteccion-de-datos/">Consultoría Protección de Datos</a>
+        </details>
+        <details class="footer-sg">
+          <summary>Legal digital</summary>
+          <a href="/web-legal-lista-en-7-dias/">Web Legal Lista en 7 Días</a>
+          <a href="/consultoria-legal/">Consultoría Legal</a>
+          <a href="/revision-de-contratos/">Revisión de Contratos</a>
+        </details>
+      </section>
+      <section>
+        <h2>Legal</h2>
+        <a href="/aviso-legal/">Aviso Legal</a>
+        <a href="/politica-de-privacidad/">Política de Privacidad</a>
+        <a href="/politica-de-cookies/">Política de Cookies</a>
+        <a href="/politica-de-cookies/" data-sl360-cookies-open>Configurar cookies</a>
+        <a href="/faqs/">Preguntas frecuentes</a><a href="/blog/">Blog</a><a href="https://clientes.soylegal360.es">Acceso clientes</a>
+      </section>
+      <section>
+        <h2>Nuestra oficina</h2>
+        <p>Torre Millenium</p>
+        <p>Av. Francesc Macià, 60 planta 19, 08208 Sabadell (Barcelona)</p>
+        <a href="mailto:info@soylegal360.es">info@soylegal360.es</a>
+        <a href="tel:+34645668235">+34 645 668 235</a>
+        <p>Horario: lunes a jueves 9:00-19:30, viernes 9:00-18:00</p>
+      </section>
+    </div>
+    <div class="footer-bottom">© 2026 <span class="sl-brand">SoyLegal<span>360</span></span>. Todos los derechos reservados.</div>
+  </footer>
+  <script src="/assets/js/site.js?v=6" defer></script>
+  <a class="wa-float" href="https://wa.me/34645668235?text=Hola%2C%20he%20hecho%20el%20test%20del%20DPO%20y%20quiero%20confirmar%20mi%20caso." target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path fill="currentColor" d="M16.04 3C9.4 3 4 8.4 4 15.04c0 2.13.56 4.2 1.62 6.03L4 29l8.13-1.58a12 12 0 0 0 3.9.65h.01c6.64 0 12.04-5.4 12.04-12.04C28.08 8.4 22.68 3 16.04 3Zm0 21.9h-.01a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-4.82.94.96-4.7-.24-.38a9.86 9.86 0 0 1-1.51-5.25c0-5.46 4.45-9.9 9.92-9.9 2.65 0 5.14 1.03 7.01 2.9a9.84 9.84 0 0 1 2.9 7.01c0 5.46-4.45 9.9-9.91 9.9Z"/></svg>
+  </a>
+  <script src="/assets/js/chat.js?v=13" defer></script>
+</body>
+</html>

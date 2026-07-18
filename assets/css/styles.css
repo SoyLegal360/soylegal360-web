@@ -1757,3 +1757,70 @@ html.sl-js .sl-reveal.is-in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   .button:hover, .button:active { transform: none; }
 }
+
+/* ── Barra CTA fija en móvil (la inyecta site.js fuera de la home) ── */
+@media (min-width: 721px) { .sl-mobile-cta { display: none !important; } }
+.sl-mobile-cta {
+  position: fixed;
+  left: 12px;
+  right: 76px;
+  bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+  z-index: 58;
+  display: flex;
+  gap: 10px;
+  align-items: stretch;
+}
+.sl-mobile-cta__main {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  min-height: 52px;
+  border: 1px solid rgba(255, 255, 255, .4);
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(226, 198, 132, .92), rgba(201, 169, 110, .92));
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  color: #06152c;
+  text-decoration: none;
+  font: 800 14px/1 Arial, Helvetica, sans-serif;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  box-shadow: 0 14px 34px -10px rgba(6, 20, 46, .5);
+}
+.sl-mobile-cta__wa {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, .35);
+  background: rgba(37, 211, 102, .92);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  color: #fff;
+  box-shadow: 0 14px 34px -10px rgba(6, 20, 46, .5);
+}
+.sl-mobile-cta__wa svg { width: 26px; height: 26px; }
+/* En móvil, los flotantes de WhatsApp/ClaudIA suben para no chocar con la barra */
+@media (max-width: 720px) {
+  body:not(.sl-chat-open) .wa-float { display: none; }
+  .sl-chat-launcher { bottom: calc(74px + env(safe-area-inset-bottom, 0px)); }
+  .sl-chat-teaser { bottom: calc(148px + env(safe-area-inset-bottom, 0px)); }
+}
+
+/* ── Miga de pan de páginas interiores ── */
+.sl-crumbs {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  padding: 14px 22px 0;
+  font: 600 12.5px/1.4 Arial, Helvetica, sans-serif;
+}
+.sl-crumbs a { color: var(--muted, #5a6a84); text-decoration: none; }
+.sl-crumbs a:hover { color: var(--copper, #c27b32); }
+.sl-crumbs span[aria-current] { color: var(--navy, #06142e); }
+.sl-crumbs .sep { margin: 0 7px; color: rgba(6, 20, 46, .35); }
+
+/* ── Entrada suave de página ── */
+@media (prefers-reduced-motion: no-preference) {
+  body { animation: slPageIn .35s ease; }
+  @keyframes slPageIn { from { opacity: 0; } to { opacity: 1; } }
+}
