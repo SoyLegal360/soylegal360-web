@@ -189,10 +189,12 @@ a { color: inherit; }
   gap: 16px;
   width: min(900px, calc(100vw - 32px));
   padding: 20px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: #fff;
-  box-shadow: var(--shadow);
+  border: 1px solid rgba(6, 21, 44, .1);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, .78);
+  -webkit-backdrop-filter: blur(20px) saturate(1.5);
+  backdrop-filter: blur(20px) saturate(1.5);
+  box-shadow: 0 30px 70px -18px rgba(6, 21, 44, .28);
   z-index: 10;
   /* estado inicial: invisible pero sin display:none para poder animar */
   opacity: 0;
@@ -1511,47 +1513,151 @@ html.sl-js .sl-reveal {
 }
 html.sl-js .sl-reveal.is-in { opacity: 1; transform: none; }
 
-/* ── Bocadillo de presentación de ClaudIA ── */
+/* ── Bocadillo de presentación de ClaudIA: tarjeta navy con filo dorado, a juego con el launcher ── */
 .sl-chat-teaser {
   position: fixed;
   right: 18px;
   bottom: 148px;
   z-index: 59;
-  max-width: 264px;
-  padding: 14px 34px 14px 16px;
-  border: 1px solid rgba(201, 169, 110, .55);
-  border-radius: 14px 14px 4px 14px;
-  background: linear-gradient(180deg, #fff, #faf6ee);
-  color: var(--ink, #16213d);
+  max-width: 280px;
+  padding: 0;
+  border: 0;
+  border-radius: 16px 16px 5px 16px;
+  background: linear-gradient(160deg, #0e2244, var(--navy, #06142e) 55%, #0a1a38);
+  color: #eef3fb;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
-  line-height: 1.45;
-  box-shadow: 0 18px 44px rgba(6, 20, 46, .22);
+  font-size: 13.5px;
+  line-height: 1.5;
+  box-shadow: 0 22px 52px rgba(6, 20, 46, .42);
   cursor: pointer;
   opacity: 0;
-  transform: translateY(8px) scale(.97);
-  transition: opacity .35s ease, transform .35s ease;
+  transform: translateY(10px) scale(.96);
+  transition: opacity .38s ease, transform .38s ease;
+}
+/* Filo metalizado: mismo lenguaje que el anillo del launcher */
+.sl-chat-teaser::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  pointer-events: none;
+  background: linear-gradient(135deg, #8a6d28, #e7cd8e 24%, #fffdf6 38%, #c9a96e 55%, #8a6d28 74%, #e7cd8e);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  opacity: .85;
+}
+/* Colita hacia el launcher */
+.sl-chat-teaser::after {
+  content: "";
+  position: absolute;
+  right: 22px;
+  bottom: -7px;
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  background: #0a1a38;
+  border-right: 1.5px solid rgba(201, 169, 110, .8);
+  border-bottom: 1.5px solid rgba(201, 169, 110, .8);
+  transform: rotate(45deg);
 }
 .sl-chat-teaser.is-visible { opacity: 1; transform: none; }
-.sl-chat-teaser b { color: var(--navy, #06142e); }
+.sl-chat-teaser__head {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 38px 0 14px;
+}
+.sl-chat-teaser__avatar {
+  display: grid;
+  place-items: center;
+  flex: 0 0 30px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, var(--gold-soft, #e2c684), var(--gold, #c9a96e));
+  color: var(--navy, #06142e);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, .3);
+}
+.sl-chat-teaser__avatar svg { width: 16px; height: 16px; }
+.sl-chat-teaser__who b {
+  display: block;
+  color: #f3e3b0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 15px;
+  line-height: 1.1;
+}
+.sl-chat-teaser__who small {
+  color: rgba(238, 243, 251, .62);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.sl-chat-teaser__msg {
+  margin: 8px 14px 8px;
+  padding: 10px 12px;
+  border-radius: 10px 10px 10px 3px;
+  background: rgba(255, 255, 255, .08);
+  border: 1px solid rgba(255, 255, 255, .1);
+}
+.sl-chat-teaser__hint {
+  display: block;
+  margin: 0 14px 11px;
+  color: var(--gold-soft, #e2c684);
+  font-size: 11.5px;
+  font-weight: 700;
+}
+.sl-chat-teaser__hint::after { content: " →"; }
 .sl-chat-teaser__close {
   position: absolute;
-  top: 6px;
-  right: 6px;
+  top: 7px;
+  right: 7px;
+  z-index: 1;
   width: 24px;
   height: 24px;
   padding: 0;
   border: 0;
   border-radius: 50%;
-  background: transparent;
-  color: var(--muted, #62708a);
-  font-size: 16px;
+  background: rgba(255, 255, 255, .1);
+  color: rgba(238, 243, 251, .75);
+  font-size: 15px;
   line-height: 1;
   cursor: pointer;
 }
-.sl-chat-teaser__close:hover { background: rgba(6, 20, 46, .08); color: var(--navy, #06142e); }
+.sl-chat-teaser__close:hover { background: rgba(255, 255, 255, .22); color: #fff; }
 @media (max-width: 640px) {
-  .sl-chat-teaser { right: 12px; bottom: 138px; max-width: min(78vw, 250px); }
+  .sl-chat-teaser { right: 12px; bottom: 138px; max-width: min(80vw, 264px); }
+}
+
+/* ── Formulario rápido "analiza tu web" (hero home + auditoría gratuita) ── */
+.sl-quick-analyze {
+  display: flex;
+  gap: 10px;
+  width: min(520px, 100%);
+  margin: 0 auto;
+}
+.sl-quick-analyze input {
+  flex: 1;
+  min-width: 0;
+  min-height: 52px;
+  padding: 12px 16px;
+  border: 1px solid rgba(255, 255, 255, .35);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, .94);
+  color: var(--ink, #16213d);
+  font: 15px/1.3 Arial, Helvetica, sans-serif;
+}
+.sl-quick-analyze input:focus {
+  outline: 2px solid rgba(201, 169, 110, .8);
+  outline-offset: 1px;
+}
+.sl-quick-analyze .button { flex: 0 0 auto; margin: 0; white-space: nowrap; }
+@media (max-width: 560px) {
+  .sl-quick-analyze { flex-direction: column; }
+  .sl-quick-analyze .button { width: 100%; }
 }
 @media (prefers-reduced-motion: reduce) {
   html.sl-js .sl-reveal { opacity: 1; transform: none; transition: none; }
@@ -1559,4 +1665,95 @@ html.sl-js .sl-reveal.is-in { opacity: 1; transform: none; }
   .sl-chat-teaser { transition: opacity .2s ease; transform: none; }
   .feature-card:hover, .family-card:hover, .entry-card:hover, .content-card:hover,
   .mini-card:hover, .directory-group:hover, .steps article:hover { transform: none; }
+}
+
+/* ── Tira "área de clientes" en páginas de servicio (B: después de la adaptación) ── */
+.sl-app-mini { padding: 74px 22px; background: linear-gradient(160deg, #0a1e3d, #06152c); color: #fff; }
+.sl-app-mini__wrap { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: clamp(28px, 4.5vw, 60px); align-items: center; width: min(1120px, 100%); margin: 0 auto; }
+.sl-app-mini__eyebrow { margin: 0 0 12px; color: #e2c88b; font: 800 11px/1.3 Arial, Helvetica, sans-serif; letter-spacing: .2em; text-transform: uppercase; }
+.sl-app-mini h2 { margin: 0 0 10px; color: #fff; font: 700 clamp(24px, 3vw, 34px)/1.12 Georgia, "Times New Roman", serif; }
+.sl-app-mini__sub { margin: 0 0 16px; color: rgba(255, 255, 255, .72); font: 15.5px/1.6 Arial, Helvetica, sans-serif; }
+.sl-app-mini ul { margin: 0 0 22px; padding: 0; list-style: none; display: grid; gap: 10px; }
+.sl-app-mini li { position: relative; padding-left: 24px; color: #e8eef8; font: 15px/1.55 Arial, Helvetica, sans-serif; }
+.sl-app-mini li::before { content: ""; position: absolute; left: 2px; top: 7px; width: 8px; height: 8px; border-radius: 2px; transform: rotate(45deg); background: linear-gradient(135deg, #e2c684, #c9a96e); }
+.sl-app-mini__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+.sl-app-mini__note { color: rgba(255, 255, 255, .62); font: 600 13px/1.4 Arial, Helvetica, sans-serif; }
+.sl-app-mini__media img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid rgba(255, 255, 255, .16); box-shadow: 0 40px 90px -30px rgba(0, 0, 0, .65); }
+@media (max-width: 900px) {
+  .sl-app-mini { padding: 56px 18px; }
+  .sl-app-mini__wrap { grid-template-columns: 1fr; }
+  .sl-app-mini__media { order: -1; }
+}
+
+
+/* ══════════════ Pulido jul-2026: glass, foco, micro-interacciones ══════════════ */
+
+/* Selección de texto de marca */
+::selection { background: rgba(201, 169, 110, .35); color: #06142e; }
+
+/* Anillo de foco coherente en toda la casa */
+:where(a, button, input, select, textarea, summary):focus-visible {
+  outline: 3px solid rgba(201, 169, 110, .6);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Los anclajes no se esconden bajo el header pegajoso */
+[id] { scroll-margin-top: 96px; }
+
+/* Botones: brillo interior sutil y tacto */
+.button, .nav-cta {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .28), 0 10px 24px -12px rgba(6, 20, 46, .35);
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
+}
+.button:hover { transform: translateY(-2px); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .28), 0 16px 34px -12px rgba(6, 20, 46, .4); }
+.button:active { transform: translateY(0) scale(.985); }
+
+/* Hero: los datos AEPD en tarjeta glass sobre el vídeo */
+.published-hero .hero-facts {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 18px 26px;
+  border: 1px solid rgba(255, 255, 255, .22);
+  border-radius: 16px;
+  background: rgba(6, 20, 46, .38);
+  -webkit-backdrop-filter: blur(14px) saturate(1.3);
+  backdrop-filter: blur(14px) saturate(1.3);
+  box-shadow: 0 24px 60px -20px rgba(0, 0, 0, .5);
+}
+
+/* Analiza tu web: input glass sobre el vídeo del hero */
+.hero-has-video .sl-quick-analyze input {
+  border-color: rgba(255, 255, 255, .3);
+  background: rgba(255, 255, 255, .14);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  color: #fff;
+}
+.hero-has-video .sl-quick-analyze input::placeholder { color: rgba(255, 255, 255, .65); }
+.hero-has-video .sl-quick-analyze input:focus { background: rgba(255, 255, 255, .2); }
+
+/* Bocadillo de ClaudIA: cristal sobre lo que tenga detrás */
+.sl-chat-teaser {
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+/* Radios de tarjeta unificados (más producto, menos formulario) */
+.feature-card, .family-card, .entry-card, .content-card, .mini-card,
+.directory-group, .steps article, .notice { border-radius: 12px; }
+
+/* Barra de scroll discreta de marca (WebKit) */
+::-webkit-scrollbar { width: 11px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(6, 20, 46, .32); border-radius: 999px; border: 3px solid transparent; background-clip: content-box; }
+::-webkit-scrollbar-thumb:hover { background: rgba(6, 20, 46, .5); border: 3px solid transparent; background-clip: content-box; }
+
+/* Header: sombra que aparece al hacer scroll (site.js añade .is-scrolled) */
+.site-header { transition: box-shadow .25s ease, background .25s ease; }
+.site-header.is-scrolled { box-shadow: 0 10px 30px -12px rgba(6, 21, 44, .18); background: rgba(255, 255, 255, .88); }
+
+@media (prefers-reduced-motion: reduce) {
+  .button:hover, .button:active { transform: none; }
 }
