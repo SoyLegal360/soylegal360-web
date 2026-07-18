@@ -36,7 +36,7 @@ function titleOf(md) {
   return m[1].trim().replace(/^["']|["']$/g, '');
 }
 
-function card(title) {
+function card(title, chip = 'BLOG') {
   const size = title.length > 60 ? 56 : 66;
   return h(
     'div',
@@ -68,7 +68,7 @@ function card(title) {
                 fontWeight: 700,
                 letterSpacing: 6,
               },
-              'BLOG',
+              chip,
             ),
           ]),
           h('div', { display: 'flex', color: '#ffffff', fontSize: size, fontWeight: 700, lineHeight: 1.12, maxWidth: 1050 }, title),
@@ -80,8 +80,8 @@ function card(title) {
   );
 }
 
-async function render(title) {
-  const svg = await satori(card(title), {
+async function render(title, chip) {
+  const svg = await satori(card(title, chip), {
     width: 1200,
     height: 630,
     fonts: [
@@ -107,4 +107,38 @@ for (const f of files) {
 // Tarjeta de la portada del blog (/blog/), para compartir el indice en redes
 writeFileSync(join(root, 'dist/blog/og.png'), await render('Protección de datos e inteligencia artificial'));
 
-console.log(`gen-og: ${n} tarjeta(s) de articulo + portada generadas en dist/blog/`);
+// ── Tarjetas OG de las páginas estáticas (dist/og/<slug>.png) ──
+const STATIC_PAGES = {
+  'home': ['Protección de datos e IA para pymes y autónomos', 'SOYLEGAL360'],
+  'servicios-proteccion-de-datos': ['Todos los servicios de cumplimiento', 'SERVICIOS'],
+  'auditoria-web-gratuita': ['Auditoría web gratuita: informe en 48 horas', 'GRATIS'],
+  'auditoria-rgpd': ['Auditoría RGPD a fondo para tu negocio', 'AUDITORÍA'],
+  'auditoria-ia': ['Auditoría de IA y AI Act', 'AUDITORÍA'],
+  'adaptacion-web-rgpd': ['Adaptación Web RGPD desde 390€', 'ADAPTACIÓN'],
+  'adaptacion-empresa-rgpd': ['Adaptación RGPD de empresa completa', 'ADAPTACIÓN'],
+  'adaptacion-ia': ['Adapta tu negocio al AI Act', 'ADAPTACIÓN'],
+  'proteccion-legal-continua': ['Protección Legal Continua desde 49€/mes', 'PACKS'],
+  'area-de-clientes': ['Tu departamento legal, siempre encendido', 'ÁREA CLIENTES'],
+  'delegado-de-proteccion-de-datos-externalizado': ['Delegado de Protección de Datos externalizado', 'DPD'],
+  'responsable-ia-externalizado': ['Responsable de IA externalizado', 'IA'],
+  'delegado-de-ia-publico': ['Delegado de IA para el sector público', 'IA'],
+  'web-legal-lista-en-7-dias': ['Web legal lista en 7 días', 'WEB LEGAL'],
+  'consultoria-proteccion-de-datos': ['Consultoría de protección de datos desde 90€', 'CONSULTORÍA'],
+  'consultoria-legal': ['Consultoría legal desde 120€/sesión', 'CONSULTORÍA'],
+  'revision-de-contratos': ['Revisión de contratos desde 150€', 'CONTRATOS'],
+  'ejercicio-de-derechos': ['Ejerce tus derechos RGPD: te representamos', 'PARTICULARES'],
+  'como-funciona': ['Cómo trabajamos contigo, paso a paso', 'MÉTODO'],
+  'sobre-nosotros': ['Quiénes somos y cómo trabajamos', 'NOSOTROS'],
+  'contacto': ['Habla con SoyLegal360', 'CONTACTO'],
+  'faqs': ['Preguntas frecuentes sobre RGPD e IA', 'FAQS'],
+  'necesito-dpo': ['¿Necesito un DPO? Test orientativo en 1 minuto', 'HERRAMIENTA'],
+};
+const ogDir = join(root, 'dist/og');
+if (!existsSync(ogDir)) mkdirSync(ogDir, { recursive: true });
+let m = 0;
+for (const [slug, [title, chip]] of Object.entries(STATIC_PAGES)) {
+  writeFileSync(join(ogDir, `${slug}.png`), await render(title, chip));
+  m++;
+}
+
+console.log(`gen-og: ${n} tarjeta(s) de articulo + portada + ${m} páginas estáticas`);
