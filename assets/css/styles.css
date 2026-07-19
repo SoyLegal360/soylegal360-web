@@ -1500,8 +1500,10 @@ h3 { font-size: 22px; }
   transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
 }
 .sl-tilt.is-tilting {
-  transform: perspective(900px) rotateX(var(--ty, 0deg)) rotateY(var(--tx, 0deg)) translateY(-4px);
-  transition: border-color .25s ease, box-shadow .25s ease;
+  /* !important: las secciones incrustadas definen sus propios :hover con más
+     especificidad y cargan después; sin esto el tilt nunca se vería allí. */
+  transform: perspective(900px) rotateX(var(--ty, 0deg)) rotateY(var(--tx, 0deg)) translateY(-4px) !important;
+  transition: border-color .25s ease, box-shadow .25s ease !important;
 }
 
 /* ── Reveal al entrar en viewport (el JS añade .is-in; sin JS no se oculta nada) ── */
@@ -1661,7 +1663,7 @@ html.sl-js .sl-reveal.is-in { opacity: 1; transform: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   html.sl-js .sl-reveal { opacity: 1; transform: none; transition: none; }
-  .sl-tilt.is-tilting { transform: none; }
+  .sl-tilt.is-tilting { transform: none !important; }
   .sl-chat-teaser { transition: opacity .2s ease; transform: none; }
   .feature-card:hover, .family-card:hover, .entry-card:hover, .content-card:hover,
   .mini-card:hover, .directory-group:hover, .steps article:hover { transform: none; }
