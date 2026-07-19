@@ -201,4 +201,31 @@ document.querySelectorAll("[data-carousel]").forEach((root) => {
     bar.style.display = document.body.classList.contains("sl-chat-open") ? "none" : "";
   });
   mo.observe(document.body, { attributes: true, attributeFilter: ["class"] });
+  // Educada: no aparece hasta que hay scroll de verdad, y se aparta mientras
+  // bajas leyendo; vuelve al subir o al llegar al final de la página.
+  var lastY = window.scrollY;
+  bar.classList.add("is-away");
+  function paint() {
+    var y = window.scrollY;
+    var nearEnd = y + innerHeight >= document.body.scrollHeight - 120;
+    var goingUp = y < lastY - 4;
+    var goingDown = y > lastY + 4;
+    if (y < 260) bar.classList.add("is-away");
+    else if (goingUp || nearEnd) bar.classList.remove("is-away");
+    else if (goingDown) bar.classList.add("is-away");
+    lastY = y;
+  }
+  window.addEventListener("scroll", paint, { passive: true });
+  paint();
 })();
+
+
+// ── "Analiza tu web": acepta tuweb.es, www.tuweb.es o https://…; normaliza al enviar ──
+document.querySelectorAll("[data-quick-analyze]").forEach((form) => {
+  form.addEventListener("submit", () => {
+    const input = form.elements.url;
+    let v = (input.value || "").trim();
+    if (v && !/^https?:\/\//i.test(v)) v = "https://" + v;
+    input.value = v;
+  });
+});

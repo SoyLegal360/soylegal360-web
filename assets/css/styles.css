@@ -1761,6 +1761,10 @@ html.sl-js .sl-reveal.is-in { opacity: 1; transform: none; }
 /* ── Barra CTA fija en móvil (la inyecta site.js fuera de la home) ── */
 @media (min-width: 721px) { .sl-mobile-cta { display: none !important; } }
 .sl-mobile-cta {
+  transition: transform .3s ease, opacity .3s ease;
+}
+.sl-mobile-cta.is-away { transform: translateY(140%); opacity: 0; pointer-events: none; }
+.sl-mobile-cta {
   position: fixed;
   left: 12px;
   right: 76px;
