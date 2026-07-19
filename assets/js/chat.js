@@ -442,6 +442,13 @@
     if (history.length) return; // ya ha conversado: no molestar
     teaserTimers.push(setTimeout(function () {
       if (!els.panel || !els.panel.hidden) return; // el chat ya está abierto
+      // Si el banner de cookies sigue abierto, no competimos con él: reintento en 8 s.
+      if (document.querySelector(".sl360c-card")) { teaserTimers.push(setTimeout(scheduleTeaserNow, 8000)); return; }
+      showTeaser();
+    }, 6000));
+  }
+
+  function showTeaser() {
       teaser = el("div", "sl-chat-teaser", { role: "status" });
       teaser.innerHTML =
         '<div class="sl-chat-teaser__head">' +
@@ -462,7 +469,15 @@
       requestAnimationFrame(function () { if (teaser) teaser.classList.add("is-visible"); });
       track("chat_teaser_visto");
       teaserTimers.push(setTimeout(function () { hideTeaser(true); }, 20000)); // se va solo
-    }, 6000));
+  }
+
+  // Reintento del bocadillo cuando el banner de cookies ya se ha cerrado.
+  function scheduleTeaserNow() {
+    try { if (sessionStorage.getItem(TEASER_KEY)) return; } catch (e) {}
+    if (history.length || teaser) return;
+    if (!els.panel || !els.panel.hidden) return;
+    if (document.querySelector(".sl360c-card")) { teaserTimers.push(setTimeout(scheduleTeaserNow, 8000)); return; }
+    showTeaser();
   }
 
   function build() {
