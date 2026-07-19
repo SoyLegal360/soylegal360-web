@@ -147,6 +147,16 @@ def decorate_consultas(im, t):
         text="Gracias, nos viene genial. Quedamos a la espera del modelo.",
         t0=6.0, t1=9.6, xy=(465, 1005), cover=(450, 990, 1600, 1080), bg=(255, 255, 255))
 
+def decorate_documentos(im, t):
+    # La fila bajo el puntero se resalta, como un hover real.
+    row = None
+    if 1.6 <= t < 3.4: row = (330, 348, 1680, 448)   # RAT
+    elif 3.4 <= t: row = (330, 458, 1680, 558)       # Política de privacidad
+    if row:
+        ov = Image.new("RGBA", im.size, (0, 0, 0, 0))
+        ImageDraw.Draw(ov).rounded_rectangle(row, radius=10, fill=(23, 54, 97, 16))
+        im.paste(Image.alpha_composite(im.convert("RGBA"), ov).convert("RGB"), (0, 0))
+
 def decorate_dashboard(im, t):
     # Hover del botón «Abrir el asistente» cuando el puntero llega (t>=4.9).
     if t < 4.9:
@@ -154,6 +164,17 @@ def decorate_dashboard(im, t):
     ov = Image.new("RGBA", im.size, (0, 0, 0, 0))
     ImageDraw.Draw(ov).rounded_rectangle([1450, 515, 1815, 610], radius=14, fill=(255, 255, 255, 26))
     im.paste(Image.alpha_composite(im.convert("RGBA"), ov).convert("RGB"), (0, 0))
+
+
+def cursor_pos(path, t):
+    """Posición del puntero según keyframes [(t, x, y), …] con easing por tramo."""
+    if t <= path[0][0]:
+        return path[0][1], path[0][2]
+    for (t0, x0, y0), (t1, x1, y1) in zip(path, path[1:]):
+        if t <= t1:
+            k = ease((t - t0) / (t1 - t0)) if t1 > t0 else 1.0
+            return lerp(x0, x1, k), lerp(y0, y1, k)
+    return path[-1][1], path[-1][2]
 
 
 def to_out(pt, rect):
@@ -170,21 +191,25 @@ FULL = (1000, 625, 1984)
 SCENES = [
     dict(img="sl-app-dashboard.jpg", c0=FULL, c1=(1000, 615, 1500), dur=7.2, decorate=decorate_dashboard,
          caps=[("Tu área privada, de un vistazo", 0.8, 6.4)],
-         cursor=dict(de=(1200, 1010), a=(1580, 562), t0=2.8, t1=5.1, click=5.4)),
+         cursor_path=[(0.0, 1170, 1050), (2.8, 1200, 1010), (5.1, 1580, 562), (7.2, 1588, 574)], clicks=[5.4]),
     dict(img="sl-app-typing.jpg", c0=(1000, 560, 1780), c1=(1000, 730, 1300), dur=4.6, cap_top=True, decorate=decorate_typing,
-         caps=[("Escribe tu duda tal y como la piensas", 0.7, 3.9)]),
+         caps=[("Escribe tu duda tal y como la piensas", 0.7, 3.9)],
+         cursor_path=[(0.0, 1560, 1140), (4.6, 1590, 1120)]),
     dict(img="sl-app-thinking.jpg", c0=(1000, 560, 1780), c1=(1000, 430, 1280), dur=4.4, decorate=decorate_thinking,
-         caps=[("Busca solo en la base jurídica verificada…", 0.7, 3.7)]),
+         caps=[("Busca solo en la base jurídica verificada…", 0.7, 3.7)],
+         cursor_path=[(0.0, 1590, 1120), (4.4, 1540, 1135)]),
     dict(img="sl-app-chat.jpg", c0=FULL, c1=(930, 700, 1170), dur=10.0, decorate=decorate_chat,
          caps=[("…y responde al momento, con tu contexto", 0.7, 4.4),
-               ("Con la norma citada, nunca «de memoria»", 4.9, 9.4)]),
+               ("Con la norma citada, nunca «de memoria»", 4.9, 9.4)],
+         cursor_path=[(0.0, 1540, 1135), (1.2, 400, 540), (2.8, 405, 860), (4.5, 420, 1000), (7.5, 1050, 700), (10.0, 1060, 720)]),
     dict(img="sl-app-consultas.jpg", c0=FULL, c1=(1000, 690, 1420), dur=10.5, decorate=decorate_consultas,
          caps=[("Cuando es serio, responde tu abogado en el mismo hilo", 0.8, 9.7)],
-         cursor=dict(de=(1520, 1060), a=(1000, 1045), t0=3.0, t1=5.0, click=5.3)),
-    dict(img="sl-app-documentos.jpg", c0=(1000, 470, 1500), c1=FULL, dur=5.6,
-         caps=[("Tu documentación, siempre al día", 0.7, 4.9)]),
+         cursor_path=[(0.0, 1060, 720), (1.5, 700, 640), (3.0, 1520, 1000), (5.0, 1000, 1045), (10.5, 1010, 1052)], clicks=[5.3]),
+    dict(img="sl-app-documentos.jpg", c0=(1000, 470, 1500), c1=FULL, dur=5.6, decorate=decorate_documentos,
+         caps=[("Tu documentación, siempre al día", 0.7, 4.9)],
+         cursor_path=[(0.0, 1600, 1050), (1.6, 950, 398), (2.9, 950, 402), (4.2, 950, 508), (5.6, 960, 512)]),
 ]
-XFADE = 0.7
+XFADE = 0.3
 END_DUR = 4.6
 
 
@@ -221,18 +246,19 @@ def scene_frame(sc, im2x, t):
         src = im2x.copy()
         sc["decorate"](src, t)
     fr = src.crop((int(x), int(y), int(x + w), int(y + h))).resize((W, H), Image.LANCZOS).convert("RGBA")
-    cur = sc.get("cursor")
-    if cur:
-        if t >= cur["t0"]:
-            k = ease(min(1.0, (t - cur["t0"]) / (cur["t1"] - cur["t0"])))
-            px = lerp(cur["de"][0], cur["a"][0], k)
-            py = lerp(cur["de"][1], cur["a"][1], k)
-            ox, oy = to_out((px, py), rect)
-            if 0 <= ox <= W and 0 <= oy <= H:
-                click_k = (t - cur["click"]) / 0.7
+    path = sc.get("cursor_path")
+    if path:
+        px, py = cursor_pos(path, t)
+        # deriva humana sutil: la mano nunca está perfectamente quieta
+        px += 3.0 * math.sin(t * 1.7 + 1.1)
+        py += 2.2 * math.sin(t * 2.3)
+        ox, oy = to_out((px, py), rect)
+        if -20 <= ox <= W + 20 and -20 <= oy <= H + 20:
+            for ct in sc.get("clicks", []):
+                click_k = (t - ct) / 0.7
                 draw_ripple(fr, ox, oy, click_k)
-                scale = 0.92 if 0 <= click_k <= 0.25 else 1.0
-                draw_cursor(fr, ox, oy, scale)
+            in_click = any(0 <= (t - ct) <= 0.25 for ct in sc.get("clicks", []))
+            draw_cursor(fr, ox, oy, 0.92 if in_click else 1.0)
     for txt, t0, t1 in sc["caps"]:
         draw_caption(fr, txt, cap_alpha(t, t0, t1), top=sc.get("cap_top", False))
     return fr
