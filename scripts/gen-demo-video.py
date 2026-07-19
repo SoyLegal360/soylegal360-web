@@ -105,6 +105,57 @@ def cap_alpha(t, t0, t1, fade=0.4):
     return min(1.0, (t - t0) / fade, (t1 - t) / fade)
 
 
+TYPE_FONT = ImageFont.truetype(ARIAL, 30)
+CARET_ON = lambda t: (t * 2.2) % 1 < 0.55  # parpadeo del cursor de texto
+
+def type_text(im, t, *, text, t0, t1, xy, cover, bg, color=(30, 40, 60)):
+    """Teclea `text` entre t0 y t1: tapa el texto horneado y dibuja el sustring."""
+    d = ImageDraw.Draw(im)
+    d.rectangle(cover, fill=bg)
+    k = 0 if t < t0 else 1 if t > t1 else (t - t0) / (t1 - t0)
+    shown = text[: int(len(text) * k)]
+    d.text(xy, shown, font=TYPE_FONT, fill=color)
+    if t >= t0 and CARET_ON(t):
+        cx = xy[0] + d.textlength(shown, font=TYPE_FONT) + 3
+        d.rectangle([cx, xy[1] - 2, cx + 3, xy[1] + 34], fill=color)
+
+def decorate_typing(im, t):
+    type_text(im, t,
+        text="La web de la panadería solo usa Google Analytics. ¿Necesito banner de cookies?",
+        t0=0.6, t1=3.9, xy=(310, 1036), cover=(300, 1026, 1780, 1084), bg=(252, 252, 253))
+
+def decorate_thinking(im, t):
+    # El punto dorado de «Buscando en la base jurídica verificada…» late.
+    pulse = 0.5 + 0.5 * math.sin(t * 2 * math.pi * 1.6)
+    r = 7 + 3 * pulse
+    ov = Image.new("RGBA", im.size, (0, 0, 0, 0))
+    d = ImageDraw.Draw(ov)
+    d.ellipse([466 - r, 505 - r, 466 + r, 505 + r], fill=(201, 169, 110, int(150 + 90 * pulse)))
+    im.paste(Image.alpha_composite(im.convert("RGBA"), ov).convert("RGB"), (0, 0))
+
+def decorate_chat(im, t):
+    # La respuesta aparece «en streaming»: se revela de arriba abajo.
+    d = ImageDraw.Draw(im)
+    top, bottom = 540, 1015  # el arranque de la tarjeta queda siempre visible
+    k = 0 if t < 0.2 else 1 if t > 2.8 else (t - 0.2) / 2.6
+    reveal = int(top + (bottom - top) * (k * k * (3 - 2 * k)))
+    if reveal < bottom:
+        d.rectangle([408, reveal, 1470, bottom], fill=(238, 242, 248))
+
+def decorate_consultas(im, t):
+    type_text(im, t,
+        text="Gracias, nos viene genial. Quedamos a la espera del modelo.",
+        t0=6.0, t1=9.6, xy=(465, 1005), cover=(450, 990, 1600, 1080), bg=(255, 255, 255))
+
+def decorate_dashboard(im, t):
+    # Hover del botón «Abrir el asistente» cuando el puntero llega (t>=4.9).
+    if t < 4.9:
+        return
+    ov = Image.new("RGBA", im.size, (0, 0, 0, 0))
+    ImageDraw.Draw(ov).rounded_rectangle([1450, 515, 1815, 610], radius=14, fill=(255, 255, 255, 26))
+    im.paste(Image.alpha_composite(im.convert("RGBA"), ov).convert("RGB"), (0, 0))
+
+
 def to_out(pt, rect):
     """Punto en coords 2x -> coords de salida según el encuadre actual."""
     x, y, w, h = rect
@@ -117,19 +168,19 @@ def to_out(pt, rect):
 # puntero {de, a, t0, t1, click_t} en coords 2x.
 FULL = (1000, 625, 1984)
 SCENES = [
-    dict(img="sl-app-dashboard.jpg", c0=FULL, c1=(1000, 615, 1500), dur=7.2,
+    dict(img="sl-app-dashboard.jpg", c0=FULL, c1=(1000, 615, 1500), dur=7.2, decorate=decorate_dashboard,
          caps=[("Tu área privada, de un vistazo", 0.8, 6.4)],
          cursor=dict(de=(1200, 1010), a=(1580, 562), t0=2.8, t1=5.1, click=5.4)),
-    dict(img="sl-app-typing.jpg", c0=(1000, 560, 1780), c1=(1000, 730, 1300), dur=4.6, cap_top=True,
+    dict(img="sl-app-typing.jpg", c0=(1000, 560, 1780), c1=(1000, 730, 1300), dur=4.6, cap_top=True, decorate=decorate_typing,
          caps=[("Escribe tu duda tal y como la piensas", 0.7, 3.9)]),
-    dict(img="sl-app-thinking.jpg", c0=(1000, 560, 1780), c1=(1000, 430, 1280), dur=4.4,
+    dict(img="sl-app-thinking.jpg", c0=(1000, 560, 1780), c1=(1000, 430, 1280), dur=4.4, decorate=decorate_thinking,
          caps=[("Busca solo en la base jurídica verificada…", 0.7, 3.7)]),
-    dict(img="sl-app-chat.jpg", c0=FULL, c1=(930, 700, 1170), dur=10.0,
+    dict(img="sl-app-chat.jpg", c0=FULL, c1=(930, 700, 1170), dur=10.0, decorate=decorate_chat,
          caps=[("…y responde al momento, con tu contexto", 0.7, 4.4),
                ("Con la norma citada, nunca «de memoria»", 4.9, 9.4)]),
-    dict(img="sl-app-consultas.jpg", c0=FULL, c1=(1000, 690, 1420), dur=8.5,
-         caps=[("Cuando es serio, responde tu abogado en el mismo hilo", 0.8, 7.7)],
-         cursor=dict(de=(1520, 1060), a=(1000, 1080), t0=4.4, t1=6.4, click=6.7)),
+    dict(img="sl-app-consultas.jpg", c0=FULL, c1=(1000, 690, 1420), dur=10.5, decorate=decorate_consultas,
+         caps=[("Cuando es serio, responde tu abogado en el mismo hilo", 0.8, 9.7)],
+         cursor=dict(de=(1520, 1060), a=(1000, 1045), t0=3.0, t1=5.0, click=5.3)),
     dict(img="sl-app-documentos.jpg", c0=(1000, 470, 1500), c1=FULL, dur=5.6,
          caps=[("Tu documentación, siempre al día", 0.7, 4.9)]),
 ]
@@ -165,7 +216,11 @@ def endcard_frame(t):
 def scene_frame(sc, im2x, t):
     rect = rect_at(sc["c0"], sc["c1"], t / sc["dur"])
     x, y, w, h = rect
-    fr = im2x.crop((int(x), int(y), int(x + w), int(y + h))).resize((W, H), Image.LANCZOS).convert("RGBA")
+    src = im2x
+    if sc.get("decorate"):
+        src = im2x.copy()
+        sc["decorate"](src, t)
+    fr = src.crop((int(x), int(y), int(x + w), int(y + h))).resize((W, H), Image.LANCZOS).convert("RGBA")
     cur = sc.get("cursor")
     if cur:
         if t >= cur["t0"]:
