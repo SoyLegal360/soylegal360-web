@@ -83,7 +83,12 @@ document.querySelectorAll("[data-carousel]").forEach((root) => {
   if (!reduceMotion) {
     let timer;
     // La diapositiva con vídeo (demo) se queda más tiempo en pantalla que las capturas.
-    const delayFor = () => (slides[activeIndex()]?.querySelector("video") ? 16000 : 5500);
+    const delayFor = () => {
+      const v = slides[activeIndex()]?.querySelector("video");
+      if (!v) return 5500;
+      // La demo se ve entera: el pase espera su duración real (+ margen).
+      return (isFinite(v.duration) && v.duration ? v.duration * 1000 : 40000) + 800;
+    };
     const tick = () => { goTo((activeIndex() + 1) % slides.length); start(); };
     const start = () => { clearTimeout(timer); timer = setTimeout(tick, delayFor()); };
     const stop = () => clearTimeout(timer);

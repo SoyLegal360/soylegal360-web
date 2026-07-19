@@ -11,6 +11,13 @@ interface Props {
 }
 
 const { post, headings = [] } = Astro.props;
+
+// Sigue leyendo: los otros articulos del blog (max. 2, mas recientes primero)
+const { getCollection } = await import('astro:content');
+const otros = (await getCollection('blog'))
+  .filter((p) => p.id !== post.id)
+  .sort((a, b) => b.data.fecha.getTime() - a.data.fecha.getTime())
+  .slice(0, 2);
 const { titulo, meta, fecha, faq, fuentes, cta, estado_revision } = post.data;
 
 const canonical = `https://www.soylegal360.es/blog/${post.id}/`;
@@ -198,6 +205,16 @@ const faqSchema = faq.length
       .blog-volver{padding:0 16px 52px}
     }
     @media(prefers-reduced-motion:reduce){.blog-cta__btn{transition:none}}
+    .blog-related { margin-top: 46px; }
+    .blog-related h2 { font: 700 24px/1.2 Georgia, "Times New Roman", serif; color: #06142e; margin: 0 0 16px; }
+    .blog-related__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .blog-related__card { display: flex; flex-direction: column; gap: 7px; padding: 20px; border: 1px solid rgba(23, 54, 97, .14); border-radius: 12px; background: #fff; box-shadow: 0 14px 36px rgba(6, 21, 44, .07); text-decoration: none; transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
+    .blog-related__card:hover { transform: translateY(-3px); border-color: rgba(201, 169, 110, .65); box-shadow: 0 20px 46px rgba(6, 21, 44, .12); }
+    .blog-related__meta { color: #c9a96e; font: 800 11px/1.3 Arial, Helvetica, sans-serif; letter-spacing: .1em; text-transform: uppercase; }
+    .blog-related__card b { color: #06142e; font: 700 17px/1.35 Georgia, "Times New Roman", serif; }
+    .blog-related__go { color: #5a6a84; font: 700 13px/1.3 Arial, Helvetica, sans-serif; }
+    .blog-related__card:hover .blog-related__go { color: #c27b32; }
+    @media (max-width: 640px) { .blog-related__grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -264,6 +281,20 @@ const faqSchema = faq.length
         <a class="blog-cta__btn" href={ctaBox.href}>{ctaBox.label}</a>
       </div>
     </div>
+    {otros.length > 0 && (
+      <section class="blog-related" aria-label="Sigue leyendo">
+        <h2>Sigue leyendo</h2>
+        <div class="blog-related__grid">
+          {otros.map((p) => (
+            <a class="blog-related__card" href={`/blog/${p.id}/`}>
+              <span class="blog-related__meta">{p.data.fecha.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+              <b>{p.data.titulo}</b>
+              <span class="blog-related__go">Leer el artículo &rarr;</span>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
     <p class="blog-volver"><a href="/blog/">&larr; Volver al blog</a></p>
   </main>
   <SiteFooter />
