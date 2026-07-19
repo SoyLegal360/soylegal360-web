@@ -156,7 +156,10 @@ document.querySelectorAll("[data-carousel]").forEach((root) => {
   // Tilt 3D: la card se inclina siguiendo el cursor (solo escritorio con ratón).
   if (reduceMotion || !window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
   const MAX_DEG = 5;
-  document.querySelectorAll(".home-guide-route, .family-card, .entry-card").forEach((card) => {
+  document.querySelectorAll(
+    ".home-guide-route, .family-card, .entry-card, .content-card, " +
+    ".service-card, .sl-help .card, .sl-roi-card, .sl-area-why article"
+  ).forEach((card) => {
     card.classList.add("sl-tilt");
     card.addEventListener("mousemove", (e) => {
       const r = card.getBoundingClientRect();
