@@ -80,13 +80,13 @@ def draw_ripple(frame, x, y, t):
 CAPTION_FONT = ImageFont.truetype(GEORGIA_B if os.path.exists(GEORGIA_B) else GEORGIA, 30)
 
 
-def draw_caption(frame, text, alpha):
+def draw_caption(frame, text, alpha, top=False):
     if alpha <= 0:
         return
     pad_x, pad_y = 26, 15
     tw = CAPTION_FONT.getbbox(text)[2]
     cw, ch = tw + pad_x * 2 + 26, 30 + pad_y * 2
-    x, y = 38, H - ch - 38
+    x, y = 38, (38 if top else H - ch - 38)
     ov = Image.new("RGBA", frame.size, (0, 0, 0, 0))
     d = ImageDraw.Draw(ov)
     a = int(235 * alpha)
@@ -120,9 +120,13 @@ SCENES = [
     dict(img="sl-app-dashboard.jpg", c0=FULL, c1=(1000, 615, 1500), dur=7.2,
          caps=[("Tu área privada, de un vistazo", 0.8, 6.4)],
          cursor=dict(de=(1200, 1010), a=(1580, 562), t0=2.8, t1=5.1, click=5.4)),
-    dict(img="sl-app-chat.jpg", c0=FULL, c1=(930, 700, 1170), dur=10.5,
-         caps=[("Pregúntale lo que necesites", 0.7, 4.6),
-               ("Solo cita normativa verificada por abogados", 5.1, 9.9)]),
+    dict(img="sl-app-typing.jpg", c0=(1000, 560, 1780), c1=(1000, 730, 1300), dur=4.6, cap_top=True,
+         caps=[("Escribe tu duda tal y como la piensas", 0.7, 3.9)]),
+    dict(img="sl-app-thinking.jpg", c0=(1000, 560, 1780), c1=(1000, 430, 1280), dur=4.4,
+         caps=[("Busca solo en la base jurídica verificada…", 0.7, 3.7)]),
+    dict(img="sl-app-chat.jpg", c0=FULL, c1=(930, 700, 1170), dur=10.0,
+         caps=[("…y responde al momento, con tu contexto", 0.7, 4.4),
+               ("Con la norma citada, nunca «de memoria»", 4.9, 9.4)]),
     dict(img="sl-app-consultas.jpg", c0=FULL, c1=(1000, 690, 1420), dur=8.5,
          caps=[("Cuando es serio, responde tu abogado en el mismo hilo", 0.8, 7.7)],
          cursor=dict(de=(1520, 1060), a=(1000, 1080), t0=4.4, t1=6.4, click=6.7)),
@@ -175,7 +179,7 @@ def scene_frame(sc, im2x, t):
                 scale = 0.92 if 0 <= click_k <= 0.25 else 1.0
                 draw_cursor(fr, ox, oy, scale)
     for txt, t0, t1 in sc["caps"]:
-        draw_caption(fr, txt, cap_alpha(t, t0, t1))
+        draw_caption(fr, txt, cap_alpha(t, t0, t1), top=sc.get("cap_top", False))
     return fr
 
 
