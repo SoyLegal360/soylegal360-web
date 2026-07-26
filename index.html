@@ -1613,6 +1613,100 @@
   </div>
   </section>
 
+  <!-- PRUEBA SOCIAL · reseña Google + caso de éxito -->
+  <section class="sl-proof" aria-labelledby="sl-proof-title">
+  <style>
+  .sl-proof,.sl-proof *{box-sizing:border-box;margin:0;padding:0}
+  .sl-proof{
+    --navy:#06142E; --blue:#2E568D; --gold:#C9AA6F; --gold-soft:#D8BE83;
+    --ink:#172847; --muted:#506079; --line:rgba(23,54,97,.16);
+    position:relative;overflow:hidden;padding:78px 18px 72px;color:var(--ink);
+    background:linear-gradient(180deg,#FBF8F2,#F7F3EA 58%,#F4EFE4);
+    font-family:Georgia,"Times New Roman",serif;-webkit-font-smoothing:antialiased;
+  }
+  .sl-proof::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.6;
+    background:linear-gradient(90deg,transparent,rgba(201,170,111,.14),transparent),
+      repeating-linear-gradient(90deg,rgba(23,54,97,.035) 0 1px,transparent 1px 104px)}
+  .sl-proof__wrap{position:relative;z-index:1;width:min(1120px,100%);margin:0 auto}
+  .sl-proof__head{max-width:800px;margin:0 auto 38px;text-align:center}
+  .sl-proof__eyebrow{margin-bottom:12px;color:var(--blue);font:800 12px/1.3 Arial,Helvetica,sans-serif;letter-spacing:.22em;text-transform:uppercase}
+  .sl-proof__head h2{color:var(--navy);font-size:clamp(30px,4.4vw,50px);line-height:1.07}
+  .sl-proof__head h2 span{color:var(--gold)}
+  .sl-proof__lead{max-width:660px;margin:18px auto 0;color:var(--muted);font:15px/1.6 Arial,Helvetica,sans-serif}
+  .sl-proof__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:stretch}
+  .sl-proof__card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:8px;padding:30px 28px 26px;background:rgba(255,255,255,.86);box-shadow:0 26px 60px rgba(12,39,78,.10);transition:transform .24s ease,border-color .24s ease,box-shadow .24s ease}
+  .sl-proof__card:hover{transform:translateY(-4px);border-color:rgba(201,170,111,.7);box-shadow:0 32px 72px rgba(12,39,78,.15)}
+  .sl-proof__tag{display:inline-flex;align-self:flex-start;align-items:center;min-height:27px;border:1px solid rgba(201,170,111,.42);border-radius:999px;padding:6px 11px;color:#6F5420;background:rgba(201,170,111,.18);font:800 11px/1 Arial,Helvetica,sans-serif;letter-spacing:.1em;text-transform:uppercase}
+  .sl-proof__stars{display:flex;align-items:center;gap:10px;margin-top:18px}
+  .sl-proof__stars svg{display:block;width:104px;height:20px;flex:0 0 auto}
+  .sl-proof__score{color:var(--navy);font:800 14px/1 Arial,Helvetica,sans-serif;letter-spacing:.04em}
+  .sl-proof__quote{margin-top:18px;color:var(--navy);font-size:clamp(19px,2.1vw,23px);line-height:1.45}
+  .sl-proof__by{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin-top:auto;padding-top:22px;color:var(--ink);font:15px/1.5 Arial,Helvetica,sans-serif}
+  .sl-proof__by b{color:var(--navy);font-weight:800}
+  .sl-proof__by span{color:var(--muted);font-size:14px}
+  .sl-proof__link{display:inline-flex;align-items:center;gap:6px;margin-top:14px;color:var(--blue);font:800 12px/1.3 Arial,Helvetica,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid rgba(46,86,141,.35);padding-bottom:3px;align-self:flex-start}
+  .sl-proof__link:hover{color:var(--navy);border-bottom-color:var(--gold)}
+  .sl-proof__card--case h3{margin-top:17px;color:var(--navy);font-size:clamp(26px,2.6vw,34px);line-height:1.1}
+  .sl-proof__meta{margin-top:8px;color:var(--blue);font:800 12px/1.3 Arial,Helvetica,sans-serif;letter-spacing:.12em;text-transform:uppercase}
+  .sl-proof__body{margin-top:16px;color:var(--muted);font:15px/1.62 Arial,Helvetica,sans-serif}
+  .sl-proof__list{display:grid;gap:10px;margin-top:18px;list-style:none;color:var(--ink);font-size:16px;line-height:1.4}
+  .sl-proof__list li{position:relative;padding-left:21px}
+  .sl-proof__list li::before{content:"";position:absolute;top:7px;left:0;width:9px;height:9px;border-radius:2px;background:linear-gradient(135deg,var(--gold-soft),var(--gold));transform:rotate(45deg)}
+  .sl-proof__reveal{opacity:0;transform:translateY(22px);transition:opacity .68s ease,transform .68s ease}
+  .sl-proof__reveal.is-visible{opacity:1;transform:none}
+  @media(max-width:900px){.sl-proof{padding:60px 16px}.sl-proof__grid{grid-template-columns:1fr}}
+  @media(max-width:680px){.sl-proof__card{padding:24px 20px}}
+  @media(prefers-reduced-motion:reduce){.sl-proof__card,.sl-proof__reveal{transition:none}.sl-proof__reveal{opacity:1;transform:none}}
+  </style>
+  <div class="sl-proof__wrap">
+    <header class="sl-proof__head sl-proof__reveal">
+      <p class="sl-proof__eyebrow">Confianza</p>
+      <h2 id="sl-proof-title">Quienes ya <span>cumplen</span></h2>
+      <p class="sl-proof__lead">Sin cifras infladas ni logos prestados: lo que dicen nuestros clientes y en qué hemos trabajado.</p>
+    </header>
+
+    <div class="sl-proof__grid">
+      <figure class="sl-proof__card sl-proof__card--review sl-proof__reveal">
+        <span class="sl-proof__tag">Reseña en Google</span>
+        <div class="sl-proof__stars">
+          <svg viewBox="0 0 104 20" role="img" aria-label="Valoración: 5 de 5 estrellas">
+            <g fill="#C9AA6F"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.9 4.8 17.6l1-5.8L1.6 7.7l5.8-.8z"/><path d="M31 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L31 14.9l-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z"/><path d="M52 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L52 14.9l-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z"/><path d="M73 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L73 14.9l-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z"/><path d="M94 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L94 14.9l-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z"/></g>
+          </svg>
+          <span class="sl-proof__score">5,0 de 5</span>
+        </div>
+        <blockquote class="sl-proof__quote">
+          <p>«Me han ayudado a implementar toda la protección de datos de mi consulta de una forma muy profesional y cercana. Han resuelto todas mis dudas y me han dado mucha tranquilidad al saber que todo está correctamente adaptado a la normativa.»</p>
+        </blockquote>
+        <figcaption class="sl-proof__by">
+          <b>Aroa M.</b> <span>Consulta sanitaria · Sabadell</span>
+        </figcaption>
+        <a class="sl-proof__link" href="https://www.google.com/maps/search/?api=1&amp;query=SoyLegal360%20Sabadell" target="_blank" rel="noopener">Ver la reseña en Google</a>
+      </figure>
+
+      <article class="sl-proof__card sl-proof__card--case sl-proof__reveal">
+        <span class="sl-proof__tag">Caso de éxito</span>
+        <h3>Nov25Studio</h3>
+        <p class="sl-proof__meta">Productora audiovisual · Barcelona</p>
+        <p class="sl-proof__body">Estudio de producción de vídeo y sonido con más de diez años de trayectoria, que produce para grandes cuentas nacionales e internacionales. Ese tipo de cliente pregunta por el cumplimiento antes de firmar, así que la protección de datos dejó de ser un trámite para convertirse en un requisito comercial.</p>
+        <ul class="sl-proof__list">
+          <li>Auditoría de protección de datos de la actividad y la web.</li>
+          <li>Protección Legal Continua: la documentación se mantiene al día.</li>
+        </ul>
+        <a class="sl-proof__link" href="https://nov25studio.com/es/" target="_blank" rel="noopener">Visitar nov25studio.com</a>
+      </article>
+    </div>
+  </div>
+  <script>
+  (function(){
+    var root=document.querySelector('.sl-proof'); if(!root){return;}
+    var items=root.querySelectorAll('.sl-proof__reveal');
+    if(!('IntersectionObserver' in window)){items.forEach(function(i){i.classList.add('is-visible');});return;}
+    var ob=new IntersectionObserver(function(en){en.forEach(function(e){if(!e.isIntersecting){return;}e.target.classList.add('is-visible');ob.unobserve(e.target);});},{threshold:.14});
+    items.forEach(function(i){ob.observe(i);});
+  })();
+  </script>
+  </section>
+
   <section id="cta-final" class="published-embed-section">
     <style>
   .sl-ct *{margin:0;padding:0;box-sizing:border-box}
