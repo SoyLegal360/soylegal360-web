@@ -1613,13 +1613,13 @@
   </div>
   </section>
 
-  <!-- PRUEBA SOCIAL · reseña Google + cliente -->
+  <!-- PRUEBA SOCIAL · reseñas Google + cliente -->
   <section class="sl-proof" aria-labelledby="sl-proof-title">
   <style>
   .sl-proof,.sl-proof *{box-sizing:border-box;margin:0;padding:0}
   .sl-proof{
     --navy:#06142E; --navy-2:#112F58; --blue:#2E568D; --gold:#C9AA6F; --gold-soft:#D8BE83;
-    --ink:#172847; --muted:#506079; --line:rgba(23,54,97,.16);
+    --star:#FBBC04; --ink:#172847; --muted:#506079; --line:rgba(23,54,97,.16);
     position:relative;overflow:hidden;padding:78px 18px 72px;color:var(--ink);
     background:linear-gradient(180deg,#FBF8F2,#F7F3EA 58%,#F4EFE4);
     font-family:Georgia,"Times New Roman",serif;-webkit-font-smoothing:antialiased;
@@ -1628,64 +1628,81 @@
     background:linear-gradient(90deg,transparent,rgba(201,170,111,.14),transparent),
       repeating-linear-gradient(90deg,rgba(23,54,97,.035) 0 1px,transparent 1px 104px)}
   .sl-proof__wrap{position:relative;z-index:1;width:min(1120px,100%);margin:0 auto}
-  .sl-proof__head{max-width:800px;margin:0 auto 34px;text-align:center}
+  .sl-proof__head{max-width:800px;margin:0 auto 30px;text-align:center}
   .sl-proof__eyebrow{margin-bottom:12px;color:var(--blue);font:800 12px/1.3 Arial,Helvetica,sans-serif;letter-spacing:.22em;text-transform:uppercase}
   .sl-proof__head h2{color:var(--navy);font-size:clamp(30px,4.4vw,50px);line-height:1.07}
 
-  .sl-proof__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:stretch}
-  .sl-proof__card{position:relative;display:flex;flex-direction:column;overflow:hidden;border-radius:10px;padding:32px 30px 28px;transition:transform .26s ease,box-shadow .26s ease}
-  .sl-proof__card:hover{transform:translateY(-4px)}
+  /* ---------- Carrusel de reseñas ---------- */
+  .sl-rev{position:relative}
+  .sl-rev__viewport{overflow:hidden;padding:6px 4px 10px;margin:0 -4px;transition:height .45s cubic-bezier(.4,.02,.2,1)}
+  .sl-rev__track{display:flex;align-items:flex-start;gap:20px;transition:transform .55s cubic-bezier(.4,.02,.2,1);will-change:transform}
+  .sl-rev__slide{flex:0 0 calc((100% - 20px)/2);min-width:0}
+  .sl-rev__card{
+    display:flex;flex-direction:column;height:100%;
+    border:1px solid rgba(23,54,97,.14);border-radius:10px;padding:26px 26px 24px;
+    background:#fff;box-shadow:0 20px 46px rgba(12,39,78,.10);
+    font-family:Arial,Helvetica,sans-serif}
+  .sl-rev__top{display:flex;align-items:center;gap:13px}
+  .sl-rev__avatar{display:grid;place-items:center;flex:0 0 auto;width:44px;height:44px;border-radius:50%;
+    color:#fff;background:linear-gradient(135deg,var(--navy-2),var(--navy));
+    font:700 19px/1 Georgia,"Times New Roman",serif;letter-spacing:.02em}
+  .sl-rev__who{min-width:0}
+  .sl-rev__name{color:var(--ink);font-size:16px;font-weight:700;line-height:1.25}
+  .sl-rev__src{display:flex;align-items:center;gap:5px;margin-top:3px;color:var(--muted);font-size:12.5px;line-height:1.3}
+  .sl-rev__src svg{display:block;width:13px;height:13px;flex:0 0 auto}
+  .sl-rev__meta{display:flex;align-items:center;gap:9px;margin-top:16px}
+  .sl-rev__stars{display:block;width:94px;height:17px;flex:0 0 auto}
+  .sl-rev__date{color:var(--muted);font-size:12.5px}
+  .sl-rev__text{margin-top:13px;color:var(--ink);font-family:Georgia,"Times New Roman",serif;font-size:17px;line-height:1.55}
+  .sl-rev__role{margin-top:auto;padding-top:18px;color:var(--muted);font-size:12px;font-weight:700;letter-spacing:.11em;text-transform:uppercase}
 
-  /* --- Tarjeta reseña: fondo navy, la cita manda --- */
-  .sl-proof__card--review{
-    color:#fff;border:1px solid rgba(255,255,255,.10);
-    background:linear-gradient(135deg,rgba(6,20,46,.99),rgba(17,47,88,.97)),
-      repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 1px,transparent 1px 84px);
-    box-shadow:0 30px 66px rgba(6,20,46,.28)}
-  .sl-proof__card--review:hover{box-shadow:0 38px 82px rgba(6,20,46,.36)}
-  .sl-proof__source{display:inline-flex;align-self:flex-start;align-items:center;gap:8px;min-height:30px;border-radius:999px;padding:6px 13px 6px 10px;color:var(--navy);background:#fff;font:800 11px/1 Arial,Helvetica,sans-serif;letter-spacing:.09em;text-transform:uppercase}
-  .sl-proof__source svg{display:block;width:14px;height:14px;flex:0 0 auto}
-  .sl-proof__stars{display:flex;align-items:center;gap:10px;margin-top:20px}
-  .sl-proof__stars svg{display:block;width:112px;height:21px;flex:0 0 auto}
-  .sl-proof__score{color:var(--gold-soft);font:800 13px/1 Arial,Helvetica,sans-serif;letter-spacing:.05em}
-  .sl-proof__quote{position:relative;margin-top:20px;color:#fff;font-size:clamp(20px,2.2vw,24px);line-height:1.46}
-  .sl-proof__by{display:flex;flex-wrap:wrap;align-items:baseline;gap:9px;margin-top:auto;padding-top:26px;font:15px/1.5 Arial,Helvetica,sans-serif}
-  .sl-proof__by b{color:var(--gold-soft);font-weight:800}
-  .sl-proof__by span{color:#b9c6da;font-size:14px}
+  .sl-rev__nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:20px}
+  .sl-rev__nav[hidden],.sl-rev__arrow[hidden],.sl-rev__dots[hidden]{display:none}
+  .sl-rev__arrow{display:grid;place-items:center;width:38px;height:38px;border:1px solid var(--line);border-radius:50%;
+    color:var(--navy);background:rgba(255,255,255,.9);cursor:pointer;font-size:17px;line-height:1;
+    transition:border-color .2s ease,background .2s ease,transform .2s ease}
+  .sl-rev__arrow:hover{border-color:var(--gold);background:#fff;transform:translateY(-1px)}
+  .sl-rev__arrow[disabled]{opacity:.35;cursor:default;transform:none}
+  .sl-rev__dots{display:flex;align-items:center;gap:8px}
+  .sl-rev__dot{width:8px;height:8px;padding:0;border:0;border-radius:50%;background:rgba(23,54,97,.24);cursor:pointer;transition:background .2s ease,transform .2s ease}
+  .sl-rev__dot[aria-current="true"]{background:var(--gold);transform:scale(1.35)}
+  .sl-rev__all{display:inline-flex;align-items:center;gap:7px;color:var(--blue);font:800 12px/1.3 Arial,Helvetica,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid rgba(46,86,141,.35);padding-bottom:3px}
+  .sl-rev__all:hover{color:var(--navy);border-bottom-color:var(--gold)}
+  .sl-rev__all::after{content:"\2192";font-size:14px}
 
-  /* --- Tarjeta cliente: clara, para que respire el logo --- */
-  .sl-proof__card--client{
-    border:1px solid var(--line);background:rgba(255,255,255,.9);
-    box-shadow:0 26px 60px rgba(12,39,78,.10)}
-  .sl-proof__card--client::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold-soft),var(--gold),rgba(201,170,111,.25))}
-  .sl-proof__card--client:hover{box-shadow:0 34px 76px rgba(12,39,78,.16)}
-  .sl-proof__tag{display:inline-flex;align-self:flex-start;align-items:center;min-height:30px;border:1px solid rgba(201,170,111,.42);border-radius:999px;padding:6px 13px;color:#6F5420;background:rgba(201,170,111,.18);font:800 11px/1 Arial,Helvetica,sans-serif;letter-spacing:.09em;text-transform:uppercase}
-  .sl-proof__logo{margin-top:22px}
-  .sl-proof__logo img{display:block;width:100%;max-width:200px;height:auto}
-  .sl-proof__meta{margin-top:12px;color:var(--blue);font:800 12px/1.4 Arial,Helvetica,sans-serif;letter-spacing:.12em;text-transform:uppercase}
-  .sl-proof__body{margin-top:15px;color:var(--muted);font:15px/1.62 Arial,Helvetica,sans-serif}
-  .sl-proof__brands{margin-top:22px;border-left:3px solid var(--gold);padding:2px 0 2px 15px}
-  .sl-proof__brands-label{color:var(--muted);font:800 10px/1.3 Arial,Helvetica,sans-serif;letter-spacing:.18em;text-transform:uppercase}
-  .sl-proof__brands-list{margin-top:7px;color:var(--navy);font-size:18px;line-height:1.35}
-  .sl-proof__brands-list i{color:var(--gold);font-style:normal;padding:0 5px}
-  .sl-proof__claim{margin-top:auto;padding-top:24px;color:var(--navy);font-size:19px;line-height:1.4}
-
-  .sl-proof__link{display:inline-flex;align-self:flex-start;align-items:center;gap:7px;margin-top:16px;padding-bottom:3px;font:800 12px/1.3 Arial,Helvetica,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid currentColor;transition:color .2s ease,border-color .2s ease}
-  .sl-proof__link::after{content:"\2192";font-size:14px}
-  .sl-proof__card--review .sl-proof__link{color:var(--gold-soft);border-bottom-color:rgba(216,190,131,.45)}
-  .sl-proof__card--review .sl-proof__link:hover{color:#fff;border-bottom-color:#fff}
-  .sl-proof__card--client .sl-proof__link{color:var(--blue);border-bottom-color:rgba(46,86,141,.35)}
-  .sl-proof__card--client .sl-proof__link:hover{color:var(--navy);border-bottom-color:var(--gold)}
+  /* ---------- Ficha de cliente ---------- */
+  .sl-client{position:relative;overflow:hidden;display:grid;grid-template-columns:minmax(0,250px) minmax(0,1fr);gap:34px;align-items:center;
+    margin-top:26px;border:1px solid var(--line);border-radius:10px;padding:30px 32px;
+    background:rgba(255,255,255,.9);box-shadow:0 26px 60px rgba(12,39,78,.10)}
+  .sl-client::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold-soft),var(--gold),rgba(201,170,111,.25))}
+  .sl-client__tag{display:inline-flex;align-items:center;min-height:28px;border:1px solid rgba(201,170,111,.42);border-radius:999px;padding:5px 12px;color:#6F5420;background:rgba(201,170,111,.18);font:800 11px/1 Arial,Helvetica,sans-serif;letter-spacing:.09em;text-transform:uppercase}
+  .sl-client__logo{margin-top:16px}
+  .sl-client__logo img{display:block;width:100%;max-width:210px;height:auto}
+  .sl-client__meta{margin-top:12px;color:var(--blue);font:800 11px/1.45 Arial,Helvetica,sans-serif;letter-spacing:.12em;text-transform:uppercase}
+  .sl-client__body{color:var(--muted);font:15px/1.62 Arial,Helvetica,sans-serif}
+  .sl-client__brands{margin-top:18px;border-left:3px solid var(--gold);padding:2px 0 2px 15px}
+  .sl-client__brands-label{color:var(--muted);font:800 10px/1.3 Arial,Helvetica,sans-serif;letter-spacing:.18em;text-transform:uppercase}
+  .sl-client__brands-list{margin-top:7px;color:var(--navy);font-size:18px;line-height:1.35}
+  .sl-client__brands-list i{color:var(--gold);font-style:normal;padding:0 5px}
+  .sl-client__claim{margin-top:18px;color:var(--navy);font-size:19px;line-height:1.4}
+  .sl-client__link{display:inline-flex;align-items:center;gap:7px;margin-top:14px;padding-bottom:3px;color:var(--blue);
+    font:800 12px/1.3 Arial,Helvetica,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid rgba(46,86,141,.35)}
+  .sl-client__link:hover{color:var(--navy);border-bottom-color:var(--gold)}
+  .sl-client__link::after{content:"\2192";font-size:14px}
 
   .sl-proof__reveal{opacity:0;transform:translateY(22px);transition:opacity .68s ease,transform .68s ease}
   .sl-proof__reveal.is-visible{opacity:1;transform:none}
   @media(max-width:900px){
     .sl-proof{padding:60px 16px}
-    .sl-proof__grid{grid-template-columns:1fr}
-    .sl-proof__claim,.sl-proof__by{margin-top:26px}
+    .sl-rev__slide{flex:0 0 100%}
+    .sl-client{grid-template-columns:1fr;gap:22px;padding:26px 22px}
   }
-  @media(max-width:680px){.sl-proof__card{padding:26px 22px}}
-  @media(prefers-reduced-motion:reduce){.sl-proof__card,.sl-proof__link,.sl-proof__reveal{transition:none}.sl-proof__reveal{opacity:1;transform:none}}
+  @media(max-width:680px){.sl-rev__card{padding:22px 20px}}
+  @media(prefers-reduced-motion:reduce){
+    .sl-rev__track,.sl-rev__viewport{transition:none}
+    .sl-rev__arrow,.sl-rev__dot,.sl-proof__reveal{transition:none}
+    .sl-proof__reveal{opacity:1;transform:none}
+  }
   </style>
   <div class="sl-proof__wrap">
     <header class="sl-proof__head sl-proof__reveal">
@@ -1693,53 +1710,166 @@
       <h2 id="sl-proof-title">Clientes</h2>
     </header>
 
-    <div class="sl-proof__grid">
-      <figure class="sl-proof__card sl-proof__card--review sl-proof__reveal">
-        <span class="sl-proof__source">
-          <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false">
-            <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
-            <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
-            <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
-            <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
-          </svg>
-          Reseña en Google
-        </span>
-        <div class="sl-proof__stars">
-          <svg viewBox="0 0 104 20" role="img" aria-label="Valoración: 5 de 5 estrellas">
-            <g fill="#D8BE83"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.9 4.8 17.6l1-5.8L1.6 7.7l5.8-.8z"/><path d="M31 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L31 14.9l-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z"/><path d="M52 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L52 14.9l-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z"/><path d="M73 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L73 14.9l-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z"/><path d="M94 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L94 14.9l-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z"/></g>
-          </svg>
-          <span class="sl-proof__score">5,0 de 5</span>
-        </div>
-        <blockquote class="sl-proof__quote">
-          <p>«Me han ayudado a implementar toda la protección de datos de mi consulta de una forma muy profesional y cercana. Han resuelto todas mis dudas y me han dado mucha tranquilidad al saber que todo está correctamente adaptado a la normativa.»</p>
-        </blockquote>
-        <figcaption class="sl-proof__by">
-          <b>Aroa M.</b> <span>Psicóloga · Sabadell</span>
-        </figcaption>
-        <a class="sl-proof__link" href="https://www.google.com/search?kgmid=/g/11njljq3kx&amp;q=SoyLegal360" target="_blank" rel="noopener">Ver la reseña en Google</a>
-      </figure>
+    <div class="sl-rev sl-proof__reveal" data-sl-rev aria-roledescription="carrusel" aria-label="Reseñas de clientes en Google">
+      <div class="sl-rev__viewport">
+        <div class="sl-rev__track" data-rev-track>
 
-      <article class="sl-proof__card sl-proof__card--client sl-proof__reveal">
-        <span class="sl-proof__tag">Cliente</span>
-        <p class="sl-proof__logo"><img src="/assets/img/nov25studio-logo.webp" alt="Nov25Studio" width="440" height="111" loading="lazy" decoding="async"></p>
-        <p class="sl-proof__meta">Productora audiovisual · Barcelona</p>
-        <p class="sl-proof__body">Estudio de producción de vídeo y sonido con más de diez años de trayectoria. Cuando tus clientes son de este tamaño, el cumplimiento deja de ser un trámite: te lo auditan a ti.</p>
-        <div class="sl-proof__brands">
-          <p class="sl-proof__brands-label">Producen para</p>
-          <p class="sl-proof__brands-list">CaixaBank<i>·</i>Coca-Cola<i>·</i>PlayStation</p>
+          <div class="sl-rev__slide" role="group" aria-label="Reseña 1 de 2">
+            <figure class="sl-rev__card">
+              <div class="sl-rev__top">
+                <span class="sl-rev__avatar" aria-hidden="true">A</span>
+                <span class="sl-rev__who">
+                  <span class="sl-rev__name">Aroa M.</span>
+                  <span class="sl-rev__src">Reseña de
+                    <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+                    Google</span>
+                </span>
+              </div>
+              <div class="sl-rev__meta">
+                <svg class="sl-rev__stars" viewBox="0 0 104 20" role="img" aria-label="5 de 5 estrellas"><g fill="#FBBC04"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.9 4.8 17.6l1-5.8L1.6 7.7l5.8-.8z"/><path d="M31 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L31 14.9l-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z"/><path d="M52 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L52 14.9l-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z"/><path d="M73 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L73 14.9l-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z"/><path d="M94 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L94 14.9l-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z"/></g></svg>
+                <span class="sl-rev__date">julio de 2026</span>
+              </div>
+              <blockquote class="sl-rev__text"><p>Me han ayudado a implementar toda la protección de datos de mi consulta de una forma muy profesional y cercana. Han resuelto todas mis dudas y me han dado mucha tranquilidad al saber que todo está correctamente adaptado a la normativa.</p></blockquote>
+              <figcaption class="sl-rev__role">Psicóloga · Sabadell</figcaption>
+            </figure>
+          </div>
+
+          <div class="sl-rev__slide" role="group" aria-label="Reseña 2 de 2">
+            <figure class="sl-rev__card">
+              <div class="sl-rev__top">
+                <span class="sl-rev__avatar" aria-hidden="true">J</span>
+                <span class="sl-rev__who">
+                  <span class="sl-rev__name">Jordi M.</span>
+                  <span class="sl-rev__src">Reseña de
+                    <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+                    Google</span>
+                </span>
+              </div>
+              <div class="sl-rev__meta">
+                <svg class="sl-rev__stars" viewBox="0 0 104 20" role="img" aria-label="5 de 5 estrellas"><g fill="#FBBC04"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.9 4.8 17.6l1-5.8L1.6 7.7l5.8-.8z"/><path d="M31 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L31 14.9l-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z"/><path d="M52 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L52 14.9l-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z"/><path d="M73 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L73 14.9l-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z"/><path d="M94 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L94 14.9l-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z"/></g></svg>
+                <span class="sl-rev__date">julio de 2026</span>
+              </div>
+              <blockquote class="sl-rev__text"><p>Me han ayudado con contratos de trabajo, muy eficiente y profesional. Volveré seguro.</p></blockquote>
+              <figcaption class="sl-rev__role">Contratos laborales</figcaption>
+            </figure>
+          </div>
+
         </div>
-        <p class="sl-proof__claim">Confían su protección de datos a SoyLegal360.</p>
-        <a class="sl-proof__link" href="https://nov25studio.com/es/" target="_blank" rel="noopener">Visitar nov25studio.com</a>
-      </article>
+      </div>
+      <div class="sl-rev__nav" data-rev-nav>
+        <button class="sl-rev__arrow" type="button" data-rev-prev aria-label="Reseña anterior">‹</button>
+        <div class="sl-rev__dots" role="tablist" aria-label="Ir a la reseña" data-rev-dots></div>
+        <button class="sl-rev__arrow" type="button" data-rev-next aria-label="Reseña siguiente">›</button>
+      </div>
+      <p style="margin-top:18px;text-align:center">
+        <a class="sl-rev__all" href="https://www.google.com/search?kgmid=/g/11njljq3kx&amp;q=SoyLegal360" target="_blank" rel="noopener">Ver las reseñas en Google</a>
+      </p>
     </div>
+
+    <article class="sl-client sl-proof__reveal">
+      <div>
+        <span class="sl-client__tag">Cliente</span>
+        <p class="sl-client__logo"><img src="/assets/img/nov25studio-logo.webp" alt="Nov25Studio" width="440" height="111" loading="lazy" decoding="async"></p>
+        <p class="sl-client__meta">Productora audiovisual<br>Barcelona</p>
+      </div>
+      <div>
+        <p class="sl-client__body">Estudio de producción de vídeo y sonido con más de diez años de trayectoria. Cuando tus clientes son de este tamaño, el cumplimiento deja de ser un trámite: te lo auditan a ti.</p>
+        <div class="sl-client__brands">
+          <p class="sl-client__brands-label">Producen para</p>
+          <p class="sl-client__brands-list">CaixaBank<i>·</i>Coca-Cola<i>·</i>PlayStation</p>
+        </div>
+        <p class="sl-client__claim">Confían su protección de datos a SoyLegal360.</p>
+        <a class="sl-client__link" href="https://nov25studio.com/es/" target="_blank" rel="noopener">Visitar nov25studio.com</a>
+      </div>
+    </article>
   </div>
   <script>
   (function(){
     var root=document.querySelector('.sl-proof'); if(!root){return;}
-    var items=root.querySelectorAll('.sl-proof__reveal');
-    if(!('IntersectionObserver' in window)){items.forEach(function(i){i.classList.add('is-visible');});return;}
-    var ob=new IntersectionObserver(function(en){en.forEach(function(e){if(!e.isIntersecting){return;}e.target.classList.add('is-visible');ob.unobserve(e.target);});},{threshold:.14});
-    items.forEach(function(i){ob.observe(i);});
+
+    var reveals=root.querySelectorAll('.sl-proof__reveal');
+    if('IntersectionObserver' in window){
+      var ob=new IntersectionObserver(function(en){en.forEach(function(e){if(!e.isIntersecting){return;}e.target.classList.add('is-visible');ob.unobserve(e.target);});},{threshold:.14});
+      reveals.forEach(function(i){ob.observe(i);});
+    }else{ reveals.forEach(function(i){i.classList.add('is-visible');}); }
+
+    var rev=root.querySelector('[data-sl-rev]'); if(!rev){return;}
+    var track=rev.querySelector('[data-rev-track]');
+    var viewport=rev.querySelector('.sl-rev__viewport');
+    var slides=Array.prototype.slice.call(rev.querySelectorAll('.sl-rev__slide'));
+    var dotsBox=rev.querySelector('[data-rev-dots]');
+    var prev=rev.querySelector('[data-rev-prev]');
+    var next=rev.querySelector('[data-rev-next]');
+    var nav=rev.querySelector('[data-rev-nav]');
+    var reduce=window.matchMedia('(prefers-reduced-motion: reduce)');
+    var i=0, timer=null, pages=1;
+
+    function perView(){ return window.matchMedia('(max-width:900px)').matches ? 1 : 2; }
+    function maxIndex(){ return Math.max(0, slides.length - perView()); }
+
+    function dots(){
+      pages = maxIndex()+1;
+      dotsBox.innerHTML='';
+      if(pages<2){ dotsBox.hidden=true; return; }
+      dotsBox.hidden=false;
+      for(var k=0;k<pages;k++){
+        var b=document.createElement('button');
+        b.type='button'; b.className='sl-rev__dot';
+        b.setAttribute('aria-label','Reseña '+(k+1));
+        b.setAttribute('aria-current', String(k===i));
+        b.addEventListener('click', (function(n){return function(){ go(n,true); };})(k));
+        dotsBox.appendChild(b);
+      }
+    }
+
+    function layout(){
+      var pv=perView(), cards=slides.map(function(s){return s.querySelector('.sl-rev__card');});
+      cards.forEach(function(c){ c.style.minHeight=''; });
+      var visible=cards.slice(i,i+pv);
+      var max=visible.reduce(function(m,c){ return Math.max(m,c.offsetHeight); },0);
+      if(pv>1){ visible.forEach(function(c){ c.style.minHeight=max+'px'; }); }
+      viewport.style.height=(max+16)+'px';
+    }
+
+    function render(){
+      var slide=slides[0];
+      var step=slide.getBoundingClientRect().width + 20;
+      track.style.transform='translateX(' + (-i*step) + 'px)';
+      var single = maxIndex()===0;
+      prev.disabled = single || i===0;
+      next.disabled = single || i===maxIndex();
+      prev.hidden = next.hidden = single;
+      nav.hidden = single && dotsBox.hidden;
+      Array.prototype.forEach.call(dotsBox.children,function(d,n){ d.setAttribute('aria-current',String(n===i)); });
+      layout();
+    }
+
+    function go(n,stop){ i=Math.max(0,Math.min(n,maxIndex())); render(); if(stop){ halt(); } }
+
+    function play(){
+      if(reduce.matches || maxIndex()===0){ return; }
+      halt();
+      timer=setInterval(function(){ i = i>=maxIndex() ? 0 : i+1; render(); }, 6000);
+    }
+    function halt(){ if(timer){ clearInterval(timer); timer=null; } }
+
+    prev.addEventListener('click',function(){ go(i-1,true); });
+    next.addEventListener('click',function(){ go(i+1,true); });
+    rev.addEventListener('mouseenter',halt);
+    rev.addEventListener('mouseleave',play);
+    rev.addEventListener('focusin',halt);
+    rev.addEventListener('keydown',function(e){
+      if(e.key==='ArrowRight'){ go(i+1,true); }
+      if(e.key==='ArrowLeft'){ go(i-1,true); }
+    });
+    document.addEventListener('visibilitychange',function(){ document.hidden ? halt() : play(); });
+
+    var t;
+    window.addEventListener('resize',function(){ clearTimeout(t); t=setTimeout(function(){ i=Math.min(i,maxIndex()); dots(); render(); },150); });
+
+    dots(); render(); play();
+    if(document.fonts && document.fonts.ready){ document.fonts.ready.then(render); }
+    window.addEventListener('load', render);
   })();
   </script>
   </section>
