@@ -683,9 +683,8 @@
   .sl-proof__logo img{display:block;width:100%;max-width:186px;height:auto}
   .sl-proof__meta{margin-top:8px;color:var(--blue);font:800 12px/1.3 Arial,Helvetica,sans-serif;letter-spacing:.12em;text-transform:uppercase}
   .sl-proof__body{margin-top:16px;color:var(--muted);font:15px/1.62 Arial,Helvetica,sans-serif}
-  .sl-proof__list{display:grid;gap:10px;margin-top:18px;list-style:none;color:var(--ink);font-size:16px;line-height:1.4}
-  .sl-proof__list li{position:relative;padding-left:21px}
-  .sl-proof__list li::before{content:"";position:absolute;top:7px;left:0;width:9px;height:9px;border-radius:2px;background:linear-gradient(135deg,var(--gold-soft),var(--gold));transform:rotate(45deg)}
+  .sl-proof__card--case .sl-proof__body:not(.sl-proof__body--claim){margin-bottom:18px}
+  .sl-proof__body--claim{margin-top:auto;padding-top:18px;border-top:1px solid rgba(201,170,111,.42);color:var(--navy);font-family:Georgia,"Times New Roman",serif;font-size:19px;line-height:1.4}
   .sl-proof__reveal{opacity:0;transform:translateY(22px);transition:opacity .68s ease,transform .68s ease}
   .sl-proof__reveal.is-visible{opacity:1;transform:none}
   @media(max-width:900px){.sl-proof{padding:60px 16px}.sl-proof__grid{grid-template-columns:1fr}}
@@ -695,8 +694,8 @@
   <div class="sl-proof__wrap">
     <header class="sl-proof__head sl-proof__reveal">
       <p class="sl-proof__eyebrow">Confianza</p>
-      <h2 id="sl-proof-title">Quienes ya <span>cumplen</span></h2>
-      <p class="sl-proof__lead">Sin cifras infladas ni logos prestados: lo que dicen nuestros clientes y en qué hemos trabajado.</p>
+      <h2 id="sl-proof-title">Quien ya nos ha puesto a <span>prueba</span></h2>
+      <p class="sl-proof__lead">Poco ruido y todo comprobable: la reseña está en Google y el cliente tiene nombre.</p>
     </header>
 
     <div class="sl-proof__grid">
@@ -718,14 +717,11 @@
       </figure>
 
       <article class="sl-proof__card sl-proof__card--case sl-proof__reveal">
-        <span class="sl-proof__tag">Caso de éxito</span>
+        <span class="sl-proof__tag">Cliente</span>
         <h3 class="sl-proof__logo"><img src="/assets/img/nov25studio-logo.webp" alt="Nov25Studio" width="440" height="111" loading="lazy" decoding="async"></h3>
         <p class="sl-proof__meta">Productora audiovisual · Barcelona</p>
-        <p class="sl-proof__body">Estudio de producción de vídeo y sonido con más de diez años de trayectoria. Han producido para marcas como CaixaBank, Coca-Cola o PlayStation, clientes que preguntan por el cumplimiento antes de firmar. Por eso ordenaron la protección de datos de puertas adentro, antes de que se la pidieran.</p>
-        <ul class="sl-proof__list">
-          <li>Auditoría de protección de datos de la actividad interna: tratamientos, proveedores y medidas.</li>
-          <li>Protección Legal Continua: consulta mensual con abogado y alertas cuando la norma les afecta.</li>
-        </ul>
+        <p class="sl-proof__body">Estudio de producción de vídeo y sonido con más de diez años de trayectoria. Producen para marcas como CaixaBank, Coca-Cola o PlayStation. Cuando trabajas para clientes así, el cumplimiento deja de ser un trámite: te lo auditan a ti.</p>
+        <p class="sl-proof__body sl-proof__body--claim">Confían su protección de datos a SoyLegal360.</p>
         <a class="sl-proof__link" href="https://nov25studio.com/es/" target="_blank" rel="noopener">Visitar nov25studio.com</a>
       </article>
     </div>
