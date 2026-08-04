@@ -10,6 +10,16 @@
 - [Ejercicio de derechos para particulares](https://www.soylegal360.es/ejercicio-de-derechos/): acceso, rectificación, supresión, etc.
 - [Catálogo completo de servicios](https://www.soylegal360.es/servicios-proteccion-de-datos/)
 
+## Especialidades
+Áreas y formatos que se contratan por separado, además de la línea principal de protección de datos e IA.
+- [Registro de marcas](https://www.soylegal360.es/servicios-proteccion-de-datos/#marcas): búsqueda de anterioridades, clases y tramitación ante la OEPM.
+- [Propiedad intelectual](https://www.soylegal360.es/servicios-proteccion-de-datos/#propiedad-intelectual): derechos de autor, contratos de cesión y licencias.
+- [Mercantil y societario](https://www.soylegal360.es/servicios-proteccion-de-datos/#mercantil): constitución de sociedades, pactos de socios, juntas y compraventa de participaciones.
+- [Derecho deportivo](https://www.soylegal360.es/servicios-proteccion-de-datos/#deportivo): clubes y entidades deportivas, contratos, derechos de imagen y datos de menores.
+- [Herencias](https://www.soylegal360.es/servicios-proteccion-de-datos/#herencias): testamento, sucesión y reparto de bienes.
+- [Formación](https://www.soylegal360.es/servicios-proteccion-de-datos/#formacion): sesiones para equipos en protección de datos y uso responsable de la IA.
+- [Bolsa de horas](https://www.soylegal360.es/servicios-proteccion-de-datos/#bolsa-de-horas): horas de abogado sin cuota mensual ni permanencia, desde 600 € + IVA.
+
 ## Recursos útiles
 - [Diagnóstico interactivo: encuentra tu servicio en 60 segundos](https://www.soylegal360.es/como-funciona/)
 - Asistente virtual (ClaudIA) integrado en la web para dudas iniciales sobre RGPD y AI Act.
