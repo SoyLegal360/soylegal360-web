@@ -66,7 +66,9 @@ function card(r) {
     '                <span class="sl-mq__src">Reseña de ' + GOOGLE_G + " Google</span>",
     "              </span>",
     "            </div>",
-    '            <div class="sl-mq__meta">' + stars(r.rating) + '<span class="sl-mq__date">' + esc(r.date) + "</span></div>",
+    '            <div class="sl-mq__meta">' + stars(r.rating) +
+      (r.date && String(r.date).trim() ? '<span class="sl-mq__date">' + esc(r.date) + "</span>" : "") +
+      "</div>",
     '            <blockquote class="sl-mq__text"><p>' + esc(r.text) + "</p></blockquote>",
   ];
   // El rol/sector ("Psicóloga · Sabadell") es contexto que NO viene de la API de Google:
