@@ -7,7 +7,7 @@ publico: pyme
 keyword: "requerimiento marca"
 cta: marcas
 enlaces_internos:
-  - /servicios-proteccion-de-datos/
+  - /marcas/
 faq:
   - q: "¿Me pueden demandar directamente por mi marca?"
     a: "Pueden, pero no es lo habitual como primer paso. La carta de cese y desistimiento es precisamente eso: un intento de resolver el conflicto sin juicio, porque demandar cuesta dinero y tiempo también a quien reclama. Si tu marca está en tramitación, la vía natural de la otra parte es la oposición ante la OEPM, un procedimiento administrativo, no judicial. Recibir la carta no significa que haya una demanda en marcha ni que vaya a haberla."
@@ -90,7 +90,7 @@ No todos los requerimientos exigen respuesta profesional inmediata, pero hay se�
 - **Tu solicitud está dentro del plazo de oposición.** Hay decisiones con reloj: limitar la lista, preparar la contestación, negociar con la presión bien repartida. El margen de maniobra se estrecha cada semana.
 - **Ya usas la marca en el mercado.** Si además del registro está en juego el uso (web, packaging, clientela), el coste de un mal desenlace se dispara.
 
-SoyLegal360 lleva conflictos de marca de principio a fin: análisis del requerimiento, estrategia de respuesta, limitaciones ante la OEPM, contestación a oposiciones y negociación con la parte contraria. Si te ha llegado una carta y no sabes por dónde empezar, [consulta nuestra especialidad de marcas](/servicios-proteccion-de-datos/#marcas) y cuéntanos el caso antes de firmar nada.
+SoyLegal360 lleva conflictos de marca de principio a fin: análisis del requerimiento, estrategia de respuesta, limitaciones ante la OEPM, contestación a oposiciones y negociación con la parte contraria. Si te ha llegado una carta y no sabes por dónde empezar, [consulta nuestra especialidad de marcas](/marcas/) y cuéntanos el caso antes de firmar nada.
 
 ## En resumen
 
