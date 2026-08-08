@@ -16,6 +16,7 @@ const blog = defineCollection({
     faq: z.array(z.object({ q: z.string(), a: z.string() })).default([]),
     fuentes: z.array(z.string()).default([]),
     estado_revision: z.enum(['pendiente', 'verificado']).default('pendiente'),
+    autor: z.string().default('Samara Nacher'),
   }),
 });
 
