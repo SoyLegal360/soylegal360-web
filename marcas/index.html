@@ -194,12 +194,40 @@
   .sl-mk-eyebrow{color:#c9a96e;font:900 11px/1.3 Arial,Helvetica,sans-serif;letter-spacing:.18em;text-transform:uppercase;margin:0 0 12px}
   .sl-mk-h2{font:700 clamp(26px,3.5vw,36px)/1.12 Georgia,serif;color:#fff;margin:0 0 42px;max-width:680px}
   .sl-mk-h2-dark{color:var(--navy,#06152c)}
-  .sl-mk-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-  .sl-mk-step{padding:26px 22px;background:rgba(255,255,255,.06);border:1px solid rgba(201,169,110,.2);border-top:3px solid #c9a96e;border-radius:8px}
-  .sl-mk-num{font:900 34px/1 Arial,Helvetica,sans-serif;color:rgba(201,169,110,.3);margin:0 0 12px}
-  .sl-mk-step h3{font:700 16px/1.3 Georgia,serif;color:#fff;margin:0 0 8px}
-  .sl-mk-step p{font:13.5px/1.55 Arial,Helvetica,sans-serif;color:rgba(255,255,255,.72);margin:0}
-  .sl-mk-note{margin-top:26px;padding:13px 16px;background:rgba(201,169,110,.12);border-left:3px solid #c9a96e;border-radius:0 6px 6px 0;font:13.5px/1.5 Arial,Helvetica,sans-serif;color:rgba(255,255,255,.88)}
+  .sl-mk-grid{display:grid;grid-template-columns:minmax(0,1fr) 460px;gap:56px;align-items:start}
+  .sl-mk-lead{font:15px/1.65 Arial,Helvetica,sans-serif;color:rgba(255,255,255,.78);margin:0 0 34px;max-width:520px}
+  .sl-mk-tl{list-style:none;margin:0;padding:0;position:relative}
+  .sl-mk-tl::before{content:'';position:absolute;left:15px;top:8px;bottom:8px;width:1px;background:linear-gradient(180deg,rgba(201,169,110,.6),rgba(201,169,110,.08))}
+  .sl-mk-tl li{position:relative;padding:0 0 26px 52px}
+  .sl-mk-tl li:last-child{padding-bottom:0}
+  .sl-mk-tl .n{position:absolute;left:0;top:0;width:31px;height:31px;border-radius:50%;background:#0d2040;border:1px solid #c9a96e;color:#c9a96e;font:900 12px/29px Arial,Helvetica,sans-serif;text-align:center}
+  .sl-mk-tl h3{font:700 16.5px/1.3 Georgia,serif;color:#fff;margin:4px 0 6px}
+  .sl-mk-tl p{font:13.5px/1.6 Arial,Helvetica,sans-serif;color:rgba(255,255,255,.68);margin:0;max-width:480px}
+  .sl-mk-note{margin-top:30px;padding:13px 16px;background:rgba(201,169,110,.12);border-left:3px solid #c9a96e;border-radius:0 6px 6px 0;font:13.5px/1.5 Arial,Helvetica,sans-serif;color:rgba(255,255,255,.88);max-width:520px}
+  /* La carta anotada */
+  .sl-mk-letter-zone{position:relative;padding-right:150px}
+  .sl-mk-letter{position:relative;background:#fbfaf7;border-radius:3px;padding:34px 30px 38px;transform:rotate(1.4deg);box-shadow:0 24px 60px rgba(0,0,0,.45),0 3px 10px rgba(0,0,0,.3);background-image:linear-gradient(180deg,rgba(6,21,44,.035) 0 1px,transparent 1px 100%)}
+  .sl-mk-letter::after{content:'';position:absolute;inset:0;border-radius:3px;box-shadow:inset 0 0 60px rgba(6,21,44,.05);pointer-events:none}
+  .sl-mk-letter__head{font:700 10.5px/1.5 Georgia,serif;letter-spacing:.14em;text-transform:uppercase;color:#25324a;border-bottom:1px solid rgba(6,21,44,.18);padding-bottom:10px;margin-bottom:16px}
+  .sl-mk-letter__head span{display:block;font:400 9px/1.4 Arial,Helvetica,sans-serif;letter-spacing:.06em;color:#8a93a5;text-transform:none;margin-top:3px}
+  .sl-mk-greek{height:7px;border-radius:2px;background:rgba(6,21,44,.10);margin:0 0 9px}
+  .sl-mk-greek.w80{width:80%}
+  .sl-mk-greek.w92{width:92%}
+  .sl-mk-greek.w60{width:60%}
+  .sl-mk-quote{position:relative;font:italic 13px/1.55 Georgia,serif;color:#1e2a40;margin:14px 0;padding:2px 4px}
+  .sl-mk-quote mark{background:linear-gradient(180deg,transparent 42%,rgba(201,169,110,.45) 42% 88%,transparent 88%);color:inherit;padding:0 2px}
+  .sl-mk-tag{position:absolute;left:calc(100% + 22px);top:50%;transform:translateY(-50%) rotate(-1.4deg);width:104px;font:900 10px/1.45 Arial,Helvetica,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#c9a96e}
+  .sl-mk-tag::before{content:'';position:absolute;left:-22px;top:50%;width:18px;height:1px;background:rgba(201,169,110,.65)}
+  .sl-mk-letter__foot{margin-top:18px;display:flex;justify-content:space-between;align-items:center}
+  .sl-mk-stamp{font:900 9px/1.3 Arial,Helvetica,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:rgba(179,60,60,.55);border:1.5px solid rgba(179,60,60,.45);border-radius:3px;padding:4px 8px;transform:rotate(-4deg)}
+  .sl-mk-letter__cap{margin:14px 0 0;font:11.5px/1.5 Arial,Helvetica,sans-serif;color:rgba(255,255,255,.5);text-align:center;transform:none}
+  @media(max-width:960px){
+    .sl-mk-grid{grid-template-columns:minmax(0,1fr)}
+    .sl-mk-letter-zone{padding-right:0;max-width:min(440px,100%);margin:8px auto 0}
+    .sl-mk-letter{transform:none}
+    .sl-mk-tag{position:static;transform:none;width:auto;display:block;margin:6px 0 0;padding-left:14px;border-left:2px solid rgba(201,169,110,.65)}
+    .sl-mk-tag::before{display:none}
+  }
   .sl-mk-fees{padding:72px 22px;background:var(--soft,#f5f7fb)}
   .sl-mk-fee-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:10px}
   .sl-mk-fee-card{padding:26px;background:#fff;border:1px solid #dfe4ee;border-top:3px solid #c9a96e;border-radius:8px}
@@ -237,33 +265,59 @@
     <section class="page-hero">
     <p class="eyebrow">Especialidades · Marcas y nombres comerciales</p>
     <h1>Tu marca, registrada y defendida</h1>
-    <p class="hero-subline" style="font-size:1.15em;font-weight:700;color:var(--navy,#06142c);margin:.5em 0 .75em">Que el nombre de tu negocio sea tuyo sobre el papel. Y que nadie te lo quite por carta.</p>
+    <p class="hero-subline" style="font-size:1.15em;font-weight:700;color:#fff;margin:.5em 0 .75em">Que el nombre de tu negocio sea tuyo sobre el papel. <span style="color:var(--gold,#c9a96e)">Y que nadie te lo quite por carta.</span></p>
     <p>Registramos tu marca o nombre comercial ante la OEPM con estudio previo, y te defendemos si recibes un requerimiento, una carta de cese y desistimiento o una oposición. Analizamos tu expediente real antes de recomendar nada.</p>
     <a class="button gold" href="/contacto/">Cuéntanos tu caso</a>
   </section>
 
   <section class="sl-mk-process">
     <div class="sl-mk-wrap">
-      <p class="sl-mk-eyebrow">¿Te reclaman tu marca?</p>
-      <h2 class="sl-mk-h2">Si te ha llegado una carta, esto es lo que hacemos</h2>
-      <div class="sl-mk-steps">
-        <div class="sl-mk-step">
-          <p class="sl-mk-num">01</p>
-          <h3>No firmes nada todavía</h3>
-          <p>Un requerimiento no es una demanda, y el plazo que fija la carta no es un plazo legal: es presión negociadora. Las renuncias que te piden suelen valer más que lo que la otra parte conseguiría en el procedimiento.</p>
+      <div class="sl-mk-grid">
+        <div>
+          <p class="sl-mk-eyebrow">¿Te reclaman tu marca?</p>
+          <h2 class="sl-mk-h2" style="margin-bottom:18px">La carta parece un ultimátum. Es una negociación.</h2>
+          <p class="sl-mk-lead">Sabemos lo que asusta recibirla, y sabemos leerla: qué es presión, qué es negociable y qué no debe firmarse jamás. Así la trabajamos:</p>
+          <ol class="sl-mk-tl">
+            <li>
+              <span class="n">1</span>
+              <h3>No firmes nada todavía</h3>
+              <p>Un requerimiento no es una demanda. Las renuncias que acompañan a estas cartas suelen valer más que lo que la otra parte conseguiría en el procedimiento.</p>
+            </li>
+            <li>
+              <span class="n">2</span>
+              <h3>Analizamos tu expediente real</h3>
+              <p>Consultamos tu solicitud en la OEPM, las marcas que invoca la contraria y los plazos que de verdad corren. Con eso se decide: negociar, limitar, contestar o no hacer nada.</p>
+            </li>
+            <li>
+              <span class="n">3</span>
+              <h3>Respondemos y actuamos</h3>
+              <p>Carta de respuesta sin reconocimientos que te aten, negociación de los términos y, si procede, presentación del escrito ante la OEPM en plazo, con su comprobante.</p>
+            </li>
+          </ol>
+          <p class="sl-mk-note">¿La carta te da pocos días? Escríbenos hoy mismo y te decimos qué plazo corre de verdad en tu expediente.</p>
         </div>
-        <div class="sl-mk-step">
-          <p class="sl-mk-num">02</p>
-          <h3>Analizamos tu expediente real</h3>
-          <p>Consultamos tu solicitud en la OEPM, las marcas que invoca la contraria y los plazos que de verdad corren. Con eso se decide la estrategia: negociar, limitar, contestar o no hacer nada.</p>
-        </div>
-        <div class="sl-mk-step">
-          <p class="sl-mk-num">03</p>
-          <h3>Respondemos y actuamos</h3>
-          <p>Carta de respuesta sin reconocimientos que te aten, negociación de los términos y, si procede, presentación del escrito ante la OEPM en plazo, con su comprobante.</p>
+        <div class="sl-mk-letter-zone" aria-label="Ejemplo ilustrativo de carta de requerimiento con anotaciones del despacho">
+          <div class="sl-mk-letter">
+            <p class="sl-mk-letter__head">Requerimiento previo a acciones legales<span>A la atención del titular de la marca en tramitación</span></p>
+            <div class="sl-mk-greek w92"></div>
+            <div class="sl-mk-greek"></div>
+            <div class="sl-mk-greek w80"></div>
+            <p class="sl-mk-quote"><mark>«dispone de un plazo de SIETE DÍAS para manifestar su conformidad»</mark><span class="sl-mk-tag">Plazo de presión. El legal es otro.</span></p>
+            <div class="sl-mk-greek w60"></div>
+            <div class="sl-mk-greek w92"></div>
+            <p class="sl-mk-quote"><mark>«reconoce expresamente el carácter renombrado de la marca»</mark><span class="sl-mk-tag">No se firma. Es munición futura.</span></p>
+            <div class="sl-mk-greek w80"></div>
+            <div class="sl-mk-greek"></div>
+            <p class="sl-mk-quote"><mark>«se compromete a no utilizar en el futuro signo alguno semejante, en ningún ámbito»</mark><span class="sl-mk-tag">Renuncia ilimitada. Más que un pleito.</span></p>
+            <div class="sl-mk-greek w60"></div>
+            <div class="sl-mk-letter__foot">
+              <div class="sl-mk-greek w60" style="width:110px;margin:0"></div>
+              <span class="sl-mk-stamp">No firmar aún</span>
+            </div>
+          </div>
+          <p class="sl-mk-letter__cap">Ejemplo ilustrativo. Las anotaciones son las que haría nuestro equipo sobre tu carta.</p>
         </div>
       </div>
-      <p class="sl-mk-note">¿La carta te da pocos días? Escríbenos hoy mismo y te decimos qué plazo corre de verdad en tu expediente.</p>
     </div>
   </section>
 
