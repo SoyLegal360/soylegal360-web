@@ -42,3 +42,34 @@ Reglas de mantenimiento:
 - **Vigilancia:** `.github/workflows/vigilancia-cookies.yml` compara cada mes las
   cookies reales de producción con las declaradas (`scripts/check-cookies.mjs`;
   también se lanza a mano desde Actions) y abre un issue si hay deriva.
+
+## Reseñas (bloque "Clientes" en home y sobre-nosotros)
+
+Fuente única: `data/reviews.json`. El bloque se genera desde ahí, no se edita a mano en
+el HTML.
+
+- **Añadir/editar una reseña:** edita `data/reviews.json` y ejecuta `npm run reviews`
+  (reescribe entre los marcadores `REVIEWS:START/END` de `index.html` y
+  `sobre-nosotros/index.html`). Commit del JSON + los dos HTML. El build también lo
+  regenera (`build-reviews.mjs` va en `npm run build`), así que prod siempre refleja el JSON.
+- **Formato:** tira continua (marquee) que se desliza sola y se pausa al pasar el ratón;
+  respeta `prefers-reduced-motion`. El CSS/JS vive en la propia sección; el script solo
+  genera las tarjetas.
+- Campos: `name`, `role` (opcional), `rating` (1-5), `date` (texto), `text`.
+
+### Sincronización automática con Google (pendiente de activar)
+
+`.github/workflows/sync-resenas.yml` (día 4 de cada mes) lee las reseñas reales de la
+ficha de Google, reescribe `data/reviews.json`, regenera los HTML y **abre un PR**. No
+publica solo. Requiere, a cargo del titular de la cuenta:
+
+1. Habilitar la **Google Business Profile API** (Google aprueba el proyecto) y crear
+   credenciales OAuth con **refresh token** offline.
+2. Secrets del repo: `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `GOOGLE_REFRESH_TOKEN`,
+   `GBP_ACCOUNT_ID`, `GBP_LOCATION_ID`.
+3. Settings → Actions → General → **"Allow GitHub Actions to create and approve pull
+   requests"**.
+
+Sin esos secrets el fetch es un **no-op** (el workflow no falla). Salvaguardas del
+automático: no publica reseñas de <4 estrellas, minimiza el nombre ("Aroa Martín" →
+"Aroa M.") y conserva el `role` anotado a mano emparejando por `reviewId`.

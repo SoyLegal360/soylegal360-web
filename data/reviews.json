@@ -1,0 +1,27 @@
+{
+  "_comment": "Fuente única de las reseñas mostradas en la web (home + sobre-nosotros). Editar aquí y ejecutar `npm run reviews` para regenerar el bloque en los HTML. En el futuro, el workflow de sincronización con Google Business Profile reescribe este fichero y abre un PR.",
+  "profileUrl": "https://www.google.com/search?kgmid=/g/11njljq3kx&q=SoyLegal360",
+  "reviews": [
+    {
+      "name": "Aroa M.",
+      "role": "Psicóloga · Sabadell",
+      "rating": 5,
+      "date": "julio de 2026",
+      "text": "Me han ayudado a implementar toda la protección de datos de mi consulta de una forma muy profesional y cercana. Han resuelto todas mis dudas y me han dado mucha tranquilidad al saber que todo está correctamente adaptado a la normativa."
+    },
+    {
+      "name": "Jordi C.",
+      "role": "Contratos laborales",
+      "rating": 5,
+      "date": "julio de 2026",
+      "text": "Me han ayudado con contratos de trabajo, muy eficiente y profesional. Volveré seguro."
+    },
+    {
+      "name": "Pablo",
+      "role": "Socio de Nov25Studio",
+      "rating": 5,
+      "date": "agosto de 2026",
+      "text": "Hemos recibido asesoramiento de SoyLegal360 en relación con contratos internos de nuestra empresa y la experiencia ha sido muy positiva. Destacaría especialmente su cercanía, profesionalidad y la claridad con la que explican cuestiones legales que pueden resultar complejas."
+    }
+  ]
+}

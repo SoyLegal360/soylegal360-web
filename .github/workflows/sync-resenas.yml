@@ -1,0 +1,64 @@
+# Sincronizacion mensual de resenas de Google Business Profile.
+# Lee las resenas reales via API (scripts/fetch-google-reviews.mjs), regenera el bloque
+# "Clientes" en los HTML (scripts/build-reviews.mjs) y, si hay cambios, abre un PR.
+# Nunca publica solo: el merge lo aprueba una persona.
+#
+# Requiere estos secrets del repo (Settings > Secrets and variables > Actions):
+#   GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, GOOGLE_REFRESH_TOKEN, GBP_ACCOUNT_ID, GBP_LOCATION_ID
+# Sin ellos, el fetch es un no-op y el workflow termina sin cambios.
+# Ademas: Settings > Actions > General > "Allow GitHub Actions to create and approve pull requests".
+#
+# Guia completa de puesta en marcha: README.md (seccion "Resenas").
+name: Sincronizar resenas de Google
+
+on:
+  schedule:
+    - cron: "0 6 4 * *" # dia 4 de cada mes, 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Traer resenas de Google
+        env:
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
+          GBP_ACCOUNT_ID: ${{ secrets.GBP_ACCOUNT_ID }}
+          GBP_LOCATION_ID: ${{ secrets.GBP_LOCATION_ID }}
+        run: node scripts/fetch-google-reviews.mjs
+
+      - name: Regenerar el bloque de resenas en los HTML
+        run: node scripts/build-reviews.mjs
+
+      - name: Abrir PR si hay cambios
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "Sin cambios en las resenas."
+            exit 0
+          fi
+          BR="resenas/sync-$(date +%Y%m%d)"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BR"
+          git add data/reviews.json index.html sobre-nosotros/index.html
+          git commit -m "resenas: sincronizacion mensual desde Google ($(date +%Y-%m))"
+          git push -u origin "$BR"
+          gh pr create \
+            --base main \
+            --head "$BR" \
+            --title "Resenas: sincronizacion desde Google ($(date +%Y-%m))" \
+            --body "Actualizacion automatica del bloque Clientes desde la ficha de Google Business Profile. Revisar el diff (nombres minimizados, sin reseñas <4 estrellas) y, si procede, anotar el rol/sector en data/reviews.json antes de mergear."
