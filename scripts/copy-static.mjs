@@ -16,7 +16,7 @@ const tracked = execSync('git ls-files', { encoding: 'utf8' })
 
 // No copiar el tooling de Astro, los ficheros de configuración del repo,
 // ni docs/tools internos (trackeados en git pero que NO deben publicarse).
-const skipPrefixes = ['src/', 'scripts/', '.claude/', 'docs/', 'tools/'];
+const skipPrefixes = ['src/', 'scripts/', '.claude/', 'docs/', 'tools/', 'data/'];
 const skipExact = new Set([
   'package.json',
   'package-lock.json',

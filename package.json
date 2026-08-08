@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && node scripts/copy-static.mjs && node scripts/inject-blog-sitemap.mjs && node scripts/gen-og.mjs",
+    "reviews": "node scripts/build-reviews.mjs",
+    "build": "astro build && node scripts/build-reviews.mjs && node scripts/copy-static.mjs && node scripts/inject-blog-sitemap.mjs && node scripts/gen-og.mjs",
     "preview": "astro preview"
   },
   "dependencies": {
