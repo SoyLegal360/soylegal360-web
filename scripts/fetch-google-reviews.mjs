@@ -86,20 +86,27 @@ async function fetchReviews(token) {
 }
 
 async function main() {
-  const missing = missingCreds();
-  if (missing.length) {
-    console.log("fetch-google-reviews: sin credenciales (" + missing.join(", ") + "). No-op.");
-    return; // salida 0: el workflow no falla antes de que exista el acceso a la API
-  }
-
   const current = JSON.parse(readFileSync(DATA, "utf8"));
   const rolesById = new Map();
   for (const r of current.reviews || []) {
     if (r.reviewId && r.role) rolesById.set(r.reviewId, r.role);
   }
 
-  const token = await accessToken();
-  const raw = await fetchReviews(token);
+  // Modo de prueba: GBP_FIXTURE=ruta.json lee una respuesta simulada (array con la forma
+  // de la API) en vez de llamar a Google. Sirve para probar el pipeline sin credenciales.
+  let raw;
+  if (process.env.GBP_FIXTURE) {
+    raw = JSON.parse(readFileSync(resolve(ROOT, process.env.GBP_FIXTURE), "utf8"));
+    console.log("fetch-google-reviews: MODO PRUEBA con fixture " + process.env.GBP_FIXTURE);
+  } else {
+    const missing = missingCreds();
+    if (missing.length) {
+      console.log("fetch-google-reviews: sin credenciales (" + missing.join(", ") + "). No-op.");
+      return; // salida 0: el workflow no falla antes de que exista el acceso a la API
+    }
+    const token = await accessToken();
+    raw = await fetchReviews(token);
+  }
 
   const mapped = raw
     .map((r) => ({

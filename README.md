@@ -73,3 +73,10 @@ publica solo. Requiere, a cargo del titular de la cuenta:
 Sin esos secrets el fetch es un **no-op** (el workflow no falla). Salvaguardas del
 automático: no publica reseñas de <4 estrellas, minimiza el nombre ("Aroa Martín" →
 "Aroa M.") y conserva el `role` anotado a mano emparejando por `reviewId`.
+
+**Probar el pipeline sin Google** (respuesta simulada con la forma de la API):
+```bash
+GBP_FIXTURE=ruta/al/fixture.json node scripts/fetch-google-reviews.mjs && npm run reviews
+```
+Escribe `data/reviews.json` y regenera los HTML como lo haría la sincronización real.
+Revierte los ficheros después (`git checkout`): el fixture son datos de prueba.
