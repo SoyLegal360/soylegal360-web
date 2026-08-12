@@ -3,6 +3,7 @@ titulo: "AI Act 2 de agosto de 2026: qué obliga de verdad (y qué se ha retrasa
 meta: "AI Act 2 de agosto de 2026: no toca auditar la IA de alto riesgo (se retrasa a 2027-2028). Lo que sí obliga hoy es la transparencia del contenido con IA."
 slug: ai-act-2-agosto-que-cambia
 fecha: 2026-08-04
+imagen: /assets/img/blog/ai-act-2-agosto-que-cambia.webp
 publico: empresa
 keyword: "AI Act 2 de agosto"
 cta: auditoria-ia

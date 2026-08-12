@@ -3,6 +3,7 @@ titulo: "Transparencia del contenido generado por IA: qué cumple tu proveedor y
 meta: "La transparencia del contenido generado por IA no acaba en tu proveedor: que Claude o ChatGPT marquen el contenido (art. 50.2) no cubre tus obligaciones."
 slug: transparencia-contenido-generado-ia
 fecha: 2026-08-11
+imagen: /assets/img/blog/transparencia-contenido-generado-ia.webp
 publico: empresa
 keyword: "transparencia del contenido generado por IA"
 cta: auditoria-ia

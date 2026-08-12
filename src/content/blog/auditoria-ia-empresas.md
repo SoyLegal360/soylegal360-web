@@ -3,6 +3,7 @@ titulo: "Auditoría de IA para empresas: qué es, a quién obliga y qué revisa"
 meta: "Qué es una auditoría de IA, a qué empresas obliga el Reglamento de IA (AI Act), qué revisa y qué sanciones evita. Guía práctica de SoyLegal360 para España."
 slug: auditoria-ia-empresas
 fecha: 2026-06-30
+imagen: /assets/img/blog/auditoria-ia-empresas.webp
 publico: empresa
 keyword: "auditoría de IA para empresas"
 cta: auditoria-gratuita

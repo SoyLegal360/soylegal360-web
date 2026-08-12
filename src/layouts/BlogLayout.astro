@@ -18,12 +18,12 @@ const otros = (await getCollection('blog'))
   .filter((p) => p.id !== post.id)
   .sort((a, b) => b.data.fecha.getTime() - a.data.fecha.getTime())
   .slice(0, 2);
-const { titulo, meta, fecha, faq, fuentes, cta, estado_revision, autor } = post.data;
+const { titulo, meta, fecha, faq, fuentes, cta, estado_revision, autor, imagen } = post.data;
 
 const canonical = `https://www.soylegal360.es/blog/${post.id}/`;
 const fechaISO = fecha.toISOString().slice(0, 10);
 const fechaLegible = fecha.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' });
-const ogImage = `${canonical}og.png`; // tarjeta de marca por articulo (scripts/gen-og.mjs)
+const ogImage = imagen ? `https://www.soylegal360.es${imagen}` : `${canonical}og.png`; // imagen custom si la hay; si no, tarjeta programatica (scripts/gen-og.mjs)
 const brandLogo = 'https://www.soylegal360.es/assets/img/soylegal360_logo_color_horizontal.png';
 const titleTag = `${titulo} | SoyLegal360`;
 

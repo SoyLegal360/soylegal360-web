@@ -3,6 +3,7 @@ titulo: "Contrato de encargado del tratamiento: qué es y por qué lo necesitas 
 meta: "Qué es el contrato de encargado del tratamiento (art. 28 RGPD), cuándo lo necesita tu pyme con proveedores y qué riesgo hay si falta. Guía SoyLegal360."
 slug: contrato-encargado-del-tratamiento
 fecha: 2026-07-18
+imagen: /assets/img/blog/contrato-encargado-del-tratamiento.webp
 publico: pyme
 keyword: "contrato de encargado del tratamiento"
 cta: auditoria-gratuita
