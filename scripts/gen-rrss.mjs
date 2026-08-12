@@ -3,7 +3,9 @@
 // OJO — no confundir con gen-og.mjs:
 //   - gen-og.mjs  = tarjeta de marca PROGRAMÁTICA (satori/resvg): navy + logo real +
 //                   título incrustado. Determinista, SIN IA. Es el OG del blog
-//                   (decisión de marca: "no ChatGPT" para las tarjetas del blog).
+//                   Nota: las tarjetas del blog PUEDEN llevar una ILUSTRACION de fondo (Codex)
+//                   compuesta con el marco de marca via scripts/gen-blog-image.mjs; la tarjeta
+//                   plana de gen-og es el fallback cuando el articulo no trae `imagen:`.
 //   - gen-rrss.mjs (esto) = imagen ILUSTRATIVA generada por IA (OpenAI gpt-image) para
 //                   posts de RRSS que necesitan un visual, no una tarjeta-título.
 //

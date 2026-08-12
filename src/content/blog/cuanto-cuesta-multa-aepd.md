@@ -3,6 +3,7 @@ titulo: "¿Cuánto cuesta una multa de la AEPD? Tramos del RGPD y cifras reales 
 meta: "¿Cuánto cuesta una multa de la AEPD? El RGPD prevé hasta 20 millones o el 4% de la facturación; en 2024 la AEPD impuso 35,6M€ en multas. Cifras reales."
 slug: cuanto-cuesta-multa-aepd
 fecha: 2026-07-21
+imagen: /assets/img/blog/cuanto-cuesta-multa-aepd.webp
 publico: pyme
 keyword: "cuánto cuesta una multa de la AEPD"
 cta: auditoria-gratuita

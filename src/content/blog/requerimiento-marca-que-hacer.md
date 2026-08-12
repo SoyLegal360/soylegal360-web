@@ -3,6 +3,7 @@ titulo: "Te ha llegado un requerimiento por tu marca: qué hacer (y qué no firm
 meta: "¿Te ha llegado un requerimiento por tu marca? Qué es una carta de cese y desistimiento, qué no debes firmar y cómo defender tu registro ante la OEPM."
 slug: requerimiento-marca-que-hacer
 fecha: 2026-08-08
+imagen: /assets/img/blog/requerimiento-marca-que-hacer.webp
 publico: pyme
 keyword: "requerimiento marca"
 cta: marcas
