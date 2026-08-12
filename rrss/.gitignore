@@ -1,0 +1,4 @@
+# Imágenes generadas (salida on-demand del generador RRSS). No se versionan.
+out/
+# Config real de lotes (puede cambiar a menudo). El ejemplo sí se versiona.
+posts.json
