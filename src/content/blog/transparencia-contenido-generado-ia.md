@@ -6,6 +6,7 @@ fecha: 2026-08-11
 publico: empresa
 keyword: "transparencia del contenido generado por IA"
 cta: auditoria-ia
+imagen: /assets/img/blog/transparencia-contenido-generado-ia.webp
 enlaces_internos:
   - /blog/ai-act-2-agosto-que-cambia/
   - /auditoria-ia/

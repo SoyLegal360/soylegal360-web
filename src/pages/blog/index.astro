@@ -93,7 +93,7 @@ const breadcrumbSchema = {
       <section class="blog-list" aria-label="Artículos del blog">
         {posts.map((post) => (
           <a class="blog-card" href={`/blog/${post.id}/`}>
-            <img src={`/blog/${post.id}/og.png`} alt="" loading="lazy" width="1200" height="630" />
+            <img src={post.data.imagen ?? `/blog/${post.id}/og.png`} alt="" loading="lazy" width="1200" height="630" />
             <div class="blog-card__body">
               <p class="blog-card__meta-row">
                 <span>{post.data.fecha.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}</span>

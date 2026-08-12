@@ -17,6 +17,7 @@ const blog = defineCollection({
     fuentes: z.array(z.string()).default([]),
     estado_revision: z.enum(['pendiente', 'verificado']).default('pendiente'),
     autor: z.string().default('Samara Nacher'),
+    imagen: z.string().optional(), // imagen custom (Codex + marco de marca). Si falta, gen-og genera la tarjeta automatica.
   }),
 });
 
