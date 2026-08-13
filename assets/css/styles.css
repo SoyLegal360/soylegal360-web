@@ -1657,6 +1657,12 @@ html.sl-js .sl-reveal.is-in { opacity: 1; transform: none; }
   outline-offset: 1px;
 }
 .sl-quick-analyze .button { flex: 0 0 auto; margin: 0; white-space: nowrap; }
+/* En heros alineados a la izquierda (.page-hero), el formulario no debe
+   autocentrarse: comparte borde izquierdo con h1, párrafo y el 2º CTA. */
+.page-hero .sl-quick-analyze { margin-left: 0; margin-right: 0; }
+/* Aire entre el formulario (input + botón dorado) y el 2º CTA blanco de debajo,
+   que iban demasiado pegados. */
+.page-hero .sl-quick-analyze + .button { margin-top: 20px; }
 @media (max-width: 560px) {
   .sl-quick-analyze { flex-direction: column; }
   .sl-quick-analyze .button { width: 100%; }
