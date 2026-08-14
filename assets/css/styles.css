@@ -255,9 +255,9 @@ a { color: inherit; }
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: min(760px, calc(100vh - 82px));
-  padding-top: 92px;
-  padding-bottom: 74px;
+  min-height: min(620px, calc(100vh - 200px));
+  padding-top: 52px;
+  padding-bottom: 54px;
   text-align: center;
   background:
     linear-gradient(90deg, rgba(14, 18, 24, .83), rgba(14, 18, 24, .78)),
@@ -272,7 +272,7 @@ a { color: inherit; }
 .published-hero .eyebrow {
   width: fit-content;
   max-width: 100%;
-  margin: 0 auto 78px;
+  margin: 0 auto 26px;
   font-family: Georgia, "Times New Roman", serif;
   font-size: 17px;
   line-height: 1.65;
@@ -294,7 +294,7 @@ a { color: inherit; }
 .hero-facts {
   display: grid;
   gap: 12px;
-  margin-top: 64px;
+  margin-top: 30px;
 }
 .published-hero .hero-facts p {
   max-width: none;
@@ -310,7 +310,7 @@ a { color: inherit; }
 }
 .published-hero .lead {
   max-width: 950px;
-  margin: 80px auto 0;
+  margin: 30px auto 0;
   color: #fff;
   font-size: clamp(19px, 2vw, 26px);
   line-height: 1.34;
