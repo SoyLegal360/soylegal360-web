@@ -350,7 +350,10 @@
   }
   .hero-video-overlay {
     position: absolute; inset: 0;
-    background: linear-gradient(160deg, rgba(8,12,20,.82) 0%, rgba(10,16,30,.75) 100%);
+    background:
+      radial-gradient(58% 48% at 50% 40%, rgba(201,169,110,.13), transparent 62%),
+      linear-gradient(90deg, rgba(3,8,20,.99) 0%, rgba(4,11,26,.97) 19%, rgba(6,18,40,.86) 42%, rgba(6,18,40,.82) 55%, rgba(5,13,30,.9) 80%, rgba(4,10,24,.97) 100%),
+      linear-gradient(180deg, rgba(6,18,40,.22) 55%, rgba(4,10,24,.52) 100%);
     z-index: 1;
   }
   .hero-has-video .hero-copy { position: relative; z-index: 2; }
@@ -496,8 +499,8 @@
   <main id="contenido">
     <!-- VÍDEO DE FONDO HERO — para revertir: eliminar este bloque y quitar la clase hero-has-video de la section -->
     <section class="hero hero-home published-hero hero-has-video">
-    <video class="hero-video-bg" autoplay muted playsinline preload="metadata" poster="/assets/video/hero-bg-poster.webp">
-      <source data-src="/assets/video/hero-bg.mp4" type="video/mp4">
+    <video class="hero-video-bg" autoplay muted playsinline preload="metadata" poster="/assets/video/hero-bg-poster.webp?v=2">
+      <source data-src="/assets/video/hero-bg.mp4?v=2" type="video/mp4">
     </video>
     <div class="hero-video-overlay"></div>
     <div class="hero-copy hero-copy-centered">
