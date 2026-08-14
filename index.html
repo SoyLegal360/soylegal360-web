@@ -351,9 +351,9 @@
   .hero-video-overlay {
     position: absolute; inset: 0;
     background:
-      radial-gradient(58% 48% at 50% 40%, rgba(201,169,110,.13), transparent 62%),
-      linear-gradient(90deg, rgba(3,8,20,.99) 0%, rgba(4,11,26,.97) 19%, rgba(6,18,40,.86) 42%, rgba(6,18,40,.82) 55%, rgba(5,13,30,.9) 80%, rgba(4,10,24,.97) 100%),
-      linear-gradient(180deg, rgba(6,18,40,.22) 55%, rgba(4,10,24,.52) 100%);
+      radial-gradient(58% 48% at 50% 38%, rgba(201,169,110,.12), transparent 60%),
+      linear-gradient(90deg, rgba(3,8,20,.96) 0%, rgba(4,11,26,.9) 20%, rgba(5,13,30,.7) 36%, rgba(6,18,40,.48) 55%, rgba(5,13,30,.64) 82%, rgba(4,10,24,.82) 100%),
+      linear-gradient(180deg, rgba(6,18,40,.42) 0%, rgba(6,18,40,.12) 42%, rgba(6,18,40,.2) 70%, rgba(4,10,24,.5) 100%);
     z-index: 1;
   }
   .hero-has-video .hero-copy { position: relative; z-index: 2; }
@@ -499,7 +499,7 @@
   <main id="contenido">
     <!-- VÍDEO DE FONDO HERO — para revertir: eliminar este bloque y quitar la clase hero-has-video de la section -->
     <section class="hero hero-home published-hero hero-has-video">
-    <video class="hero-video-bg" autoplay muted playsinline preload="metadata" poster="/assets/video/hero-bg-poster.webp?v=2">
+    <video class="hero-video-bg" autoplay muted playsinline preload="metadata" poster="/assets/video/hero-bg-poster.webp?v=3">
       <source data-src="/assets/video/hero-bg.mp4?v=2" type="video/mp4">
     </video>
     <div class="hero-video-overlay"></div>
@@ -524,7 +524,10 @@
     (function(){
       var v = document.querySelector('.hero-video-bg');
       if(!v) return;
-      v.addEventListener('ended', function(){ this.currentTime = 0; });
+      /* El video se reproduce una vez y se congela en el ultimo frame
+         (la oficina de marca); no vuelve al inicio ni hace loop. */
+      v.removeAttribute('loop');
+      v.addEventListener('ended', function(){ try { this.pause(); } catch(e){} });
       /* Carga el mp4 también en móvil, salvo conexión lenta / ahorro de datos / reduced-motion;
          en esos casos queda el póster (44 KB). */
       var conn = navigator.connection || navigator.webkitConnection || {};
