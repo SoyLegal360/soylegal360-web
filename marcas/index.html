@@ -262,15 +262,43 @@
   @media(max-width:640px){.sl-mk-steps,.sl-mk-fee-grid,.sl-mk-xsell__grid,.sl-mk-two{grid-template-columns:1fr}}
   </style>
 
-    <section class="page-hero page-hero--photo" style="--hero-bg: url('/assets/img/hero-marcas.webp');">
-    <p class="eyebrow">Especialidades · Marcas y nombres comerciales</p>
-    <h1>Tu marca, registrada y defendida</h1>
-    <p class="hero-subline" style="font-size:1.15em;font-weight:700;color:#fff;margin:.5em 0 .75em">Que el nombre de tu negocio sea tuyo sobre el papel. <span style="color:var(--gold,#c9a96e)">Y que nadie te lo quite por carta.</span></p>
-    <p>Registramos tu marca o nombre comercial ante la OEPM con estudio previo, y te defendemos si recibes un requerimiento, una carta de cese y desistimiento o una oposición. Analizamos tu expediente real antes de recomendar nada.</p>
-    <a class="button gold" href="/contacto/">Cuéntanos tu caso</a>
+    <section class="svc-hero" style="--hero-photo: url('/assets/img/hero-marcas.webp');">
+    <div class="svc-hero__photo" aria-hidden="true"></div>
+    <div class="svc-hero__tint" aria-hidden="true"></div>
+    <div class="svc-hero__aura" aria-hidden="true"></div>
+    <div class="svc-hero__shell">
+      <div class="svc-hero__copy">
+        <p class="svc-hero__kicker">Especialidades · Marcas y nombres comerciales</p>
+        <h1 class="svc-hero__title">Tu marca, registrada y defendida</h1>
+        <p class="svc-hero__lead" style="margin-top:22px"><strong style="color:#fff;font-weight:700">Que el nombre de tu negocio sea tuyo sobre el papel. <span style="color:#e2c684">Y que nadie te lo quite por carta.</span></strong> Registramos tu marca o nombre comercial ante la OEPM con estudio previo, y te defendemos si recibes un requerimiento, una carta de cese y desistimiento o una oposición.</p>
+        <div class="svc-hero__actions">
+          <a class="svc-hero__primary" href="/contacto/">Cuéntanos tu caso</a>
+          <a class="svc-hero__secondary" href="#proceso">Cómo funciona</a>
+        </div>
+      </div>
+      <div class="svc-hero__glass" aria-hidden="true">
+        <span class="svc-hero__shine"></span>
+        <svg class="svc-hero__svg" viewBox="0 0 620 560" role="presentation">
+          <defs>
+            <linearGradient id="gold-MK" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e2c684"/><stop offset="1" stop-color="#c9a96e"/></linearGradient>
+            <filter id="sh-MK"><feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#020a17" flood-opacity=".55"/></filter>
+          </defs>
+          <g filter="url(#sh-MK)">
+            <path d="M388 218c39 26 75 34 106 38v86c0 61-34 102-106 137-72-35-106-76-106-137v-86c31-4 67-12 106-38Z" fill="#0d2447" stroke="#ffffff" stroke-opacity=".32" stroke-width="8" stroke-linejoin="round"/>
+            <path d="M388 263c25 16 47 22 67 26v53c0 38-20 64-67 89-47-25-67-51-67-89v-53c20-4 42-10 67-26Z" fill="#06152c" stroke="#ffffff" stroke-opacity=".25" stroke-width="6" stroke-linejoin="round"/>
+            <path d="m350 342 25 25 50-58" fill="none" stroke="#ffffff" stroke-opacity=".34" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+            <g fill="#0d2447" stroke="url(#gold-MK)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="249" cy="235" r="126"/>
+              <path d="M205 314V156h53c42 0 68 22 68 59 0 36-26 59-68 59h-53M258 274l72 40" fill="none"/>
+            </g>
+          </g>
+        </svg>
+        <div class="svc-hero__seal"><span class="svc-hero__seal-mark">✓</span><span class="svc-hero__seal-copy">Estudio<br>previo</span></div>
+      </div>
+    </div>
   </section>
 
-  <section class="sl-mk-process">
+  <section class="sl-mk-process" id="proceso">
     <div class="sl-mk-wrap">
       <div class="sl-mk-grid">
         <div>

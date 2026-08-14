@@ -250,11 +250,51 @@
   @media(max-width:760px){.sl-awr-grid{grid-template-columns:1fr 1fr}}
   </style>
 
-    <section class="page-hero page-hero--photo" style="--hero-bg: url('/assets/img/hero-web.webp');">
-    <p class="eyebrow">Web legal · Desde 390 € + IVA</p>
-    <h1>Adaptación Web RGPD</h1>
-    <p>Aviso legal, política de privacidad, política de cookies, formularios con consentimiento y guía de implementación. Todo redactado a medida por abogados, sin plantillas.</p>
-    <a class="button gold" href="/contacto/">Adapta mi web ahora</a>
+    <section class="svc-hero" style="--hero-photo: url('/assets/img/hero-despacho-torre.webp');">
+    <div class="svc-hero__photo" aria-hidden="true"></div>
+    <div class="svc-hero__tint" aria-hidden="true"></div>
+    <div class="svc-hero__aura" aria-hidden="true"></div>
+    <div class="svc-hero__shell">
+      <div class="svc-hero__copy">
+        <p class="svc-hero__kicker">Web legal · Desde 390 € + IVA</p>
+        <h1 class="svc-hero__title">Adaptación Web RGPD</h1>
+        <p class="svc-hero__lead">Aviso legal, política de privacidad, política de cookies, formularios con consentimiento y guía de implementación. Todo redactado a medida por abogados, sin plantillas.</p>
+        <div class="svc-hero__actions">
+          <a class="svc-hero__primary" href="/contacto/">Adapta mi web ahora</a>
+          <a class="svc-hero__secondary" href="#incluye">Ver qué incluye</a>
+        </div>
+      </div>
+      <div class="svc-hero__glass" aria-hidden="true">
+        <span class="svc-hero__shine"></span>
+        <svg class="svc-hero__svg" viewBox="0 0 620 560" role="presentation">
+          <defs>
+            <linearGradient id="gold-awr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e2c684"/><stop offset="1" stop-color="#c9a96e"/></linearGradient>
+            <linearGradient id="glass-awr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".27"/><stop offset="1" stop-color="#ffffff" stop-opacity=".07"/></linearGradient>
+            <filter id="sh-awr" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#020a17" flood-opacity=".55"/></filter>
+          </defs>
+          <g filter="url(#sh-awr)">
+            <rect x="55" y="72" width="510" height="362" rx="28" fill="url(#glass-awr)" stroke="#ffffff" stroke-opacity=".52" stroke-width="2"/>
+            <path d="M55 137H565" fill="none" stroke="#ffffff" stroke-opacity=".42" stroke-width="2"/>
+            <circle cx="91" cy="105" r="8" fill="#e2c684"/>
+            <circle cx="119" cy="105" r="8" fill="#ffffff" fill-opacity=".38"/>
+            <circle cx="147" cy="105" r="8" fill="#ffffff" fill-opacity=".22"/>
+            <rect x="184" y="94" width="321" height="23" rx="11.5" fill="#ffffff" fill-opacity=".12" stroke="#ffffff" stroke-opacity=".2"/>
+            <path d="M95 185H277M95 219H236M95 253H260" fill="none" stroke="#ffffff" stroke-opacity=".5" stroke-linecap="round" stroke-width="14"/>
+            <rect x="95" y="304" width="167" height="77" rx="14" fill="#ffffff" fill-opacity=".09" stroke="#ffffff" stroke-opacity=".22"/>
+            <path d="M118 329H226M118 351H196" fill="none" stroke="#ffffff" stroke-opacity=".36" stroke-linecap="round" stroke-width="9"/>
+          </g>
+          <g filter="url(#sh-awr)">
+            <path d="M407 187C448 214 484 218 515 220V313C515 386 469 435 407 466C345 435 299 386 299 313V220C330 218 366 214 407 187Z" fill="#06152c" fill-opacity=".86" stroke="url(#gold-awr)" stroke-width="10" stroke-linejoin="round"/>
+            <path d="M351 322L390 361L466 278" fill="none" stroke="url(#gold-awr)" stroke-linecap="round" stroke-linejoin="round" stroke-width="17"/>
+            <path d="M407 207C443 229 471 235 493 237" fill="none" stroke="#ffffff" stroke-opacity=".18" stroke-linecap="round" stroke-width="4"/>
+          </g>
+          <circle cx="520" cy="166" r="7" fill="#e2c684"/>
+          <circle cx="280" cy="428" r="5" fill="#c27b32"/>
+          <path d="M510 188C538 215 550 250 548 285" fill="none" stroke="#e2c684" stroke-dasharray="4 15" stroke-linecap="round" stroke-opacity=".48" stroke-width="4"/>
+        </svg>
+        <div class="svc-hero__seal"><span class="svc-hero__seal-mark">✓</span><span class="svc-hero__seal-copy">Redacción<br>a medida</span></div>
+      </div>
+    </div>
   </section>
 
   <!-- ROI standalone -->
@@ -268,7 +308,7 @@
   </section>
 
   <!-- Qué incluye -->
-  <section class="sl-awr-includes">
+  <section class="sl-awr-includes" id="incluye">
     <div class="sl-awr-wrap">
       <p class="sl-awr-eyebrow">Qué incluye</p>
       <h2 class="sl-awr-h2">Seis documentos legales redactados a medida para tu web</h2>

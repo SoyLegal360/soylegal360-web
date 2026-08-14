@@ -112,11 +112,43 @@
   </header>
   <main id="contenido">
   <nav class="sl-crumbs" aria-label="Ruta de navegación"><a href="/">Inicio</a><span class="sep">/</span><span aria-current="page">Sobre nosotros</span></nav>
-    <section class="page-hero page-hero--photo" style="--hero-bg: url('/assets/img/despacho/oficina-principal.jpg');">
-    <p class="eyebrow">Quiénes somos</p>
-    <h1>Derecho y tecnología trabajando juntos</h1>
-    <p>Democratizamos la protección legal de empresas, pymes, autónomos y profesionales.</p>
-    <a class="button primary" href="https://app.soylegal360.es">Protégete ahora</a>
+    <section class="svc-hero" style="--hero-photo: url('/assets/img/despacho/oficina-principal.jpg');">
+    <div class="svc-hero__photo" aria-hidden="true"></div>
+    <div class="svc-hero__tint" aria-hidden="true"></div>
+    <div class="svc-hero__aura" aria-hidden="true"></div>
+    <div class="svc-hero__shell">
+      <div class="svc-hero__copy">
+        <p class="svc-hero__kicker">Quiénes somos</p>
+        <h1 class="svc-hero__title">Derecho y tecnología trabajando juntos</h1>
+        <p class="svc-hero__lead">Democratizamos la protección legal de empresas, pymes, autónomos y profesionales.</p>
+        <div class="svc-hero__actions">
+          <a class="svc-hero__primary" href="https://app.soylegal360.es">Protégete ahora</a>
+          <a class="svc-hero__secondary" href="/contacto/">Hablemos</a>
+        </div>
+      </div>
+      <div class="svc-hero__glass" aria-hidden="true">
+        <span class="svc-hero__shine"></span>
+        <svg class="svc-hero__svg" viewBox="0 0 620 560" role="presentation">
+          <defs>
+            <linearGradient id="gold-ab" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e2c684"/><stop offset="1" stop-color="#c9a96e"/></linearGradient>
+            <filter id="sh-ab"><feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#020a17" flood-opacity=".55"/></filter>
+          </defs>
+          <g filter="url(#sh-ab)">
+            <ellipse cx="310" cy="284" rx="212" ry="98" fill="none" stroke="url(#gold-ab)" stroke-width="9" transform="rotate(-22 310 284)"/>
+            <circle cx="488" cy="214" r="9" fill="url(#gold-ab)"/>
+            <circle cx="310" cy="284" r="122" fill="#0d2447" stroke="#ffffff" stroke-opacity=".3" stroke-width="3"/>
+            <g fill="none" stroke="#ffffff" stroke-opacity=".55" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M310 224v130M276 356h68"/>
+              <path d="M250 258h120"/>
+              <path d="M228 258l-20 44a24 18 0 0 0 40 0Z" fill="#06152c"/>
+              <path d="M392 258l-20 44a24 18 0 0 0 40 0Z" fill="#06152c"/>
+            </g>
+            <g fill="#ffffff" fill-opacity=".4"><circle cx="250" cy="258" r="6"/><circle cx="370" cy="258" r="6"/><circle cx="310" cy="224" r="6"/></g>
+          </g>
+        </svg>
+        <div class="svc-hero__seal"><span class="svc-hero__seal-mark">✓</span><span class="svc-hero__seal-copy">Derecho<br>+ IA</span></div>
+      </div>
+    </div>
   </section>
   <!-- ===== SOBRE NOSOTROS - estilos embebidos ===== -->
   <style>

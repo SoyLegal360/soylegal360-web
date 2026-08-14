@@ -229,14 +229,46 @@
   @media(max-width:640px){.sl-cpd-steps,.sl-cpd-xsell__grid{grid-template-columns:1fr}}
   </style>
 
-    <section class="page-hero page-hero--photo" style="--hero-bg: url('/assets/img/hero-datos.webp');">
-    <p class="eyebrow">Consultoría puntual · desde 90&nbsp;€ / consulta + IVA</p>
-    <h1>Consultoría Protección de Datos</h1>
-    <p>Sesión de 60 minutos con un abogado especializado en RGPD + informe escrito con las respuestas concretas a tu caso. Sin proyecto completo, sin compromiso de continuidad.</p>
-    <a class="button gold" href="/contacto/">Consúltanos tu caso</a>
+    <section class="svc-hero" style="--hero-photo: url('/assets/img/hero-datos.webp');">
+    <div class="svc-hero__photo" aria-hidden="true"></div>
+    <div class="svc-hero__tint" aria-hidden="true"></div>
+    <div class="svc-hero__aura" aria-hidden="true"></div>
+    <div class="svc-hero__shell">
+      <div class="svc-hero__copy">
+        <p class="svc-hero__kicker">Consultoría puntual · desde 90&nbsp;€ / consulta + IVA</p>
+        <h1 class="svc-hero__title">Consultoría Protección de Datos</h1>
+        <p class="svc-hero__lead">Sesión de 60 minutos con un abogado especializado en RGPD + informe escrito con las respuestas concretas a tu caso. Sin proyecto completo, sin compromiso de continuidad.</p>
+        <div class="svc-hero__actions">
+          <a class="svc-hero__primary" href="/contacto/">Consúltanos tu caso</a>
+          <a class="svc-hero__secondary" href="#proceso">Cómo funciona</a>
+        </div>
+      </div>
+      <div class="svc-hero__glass" aria-hidden="true">
+        <span class="svc-hero__shine"></span>
+        <svg class="svc-hero__svg" viewBox="0 0 620 560" role="presentation">
+          <defs>
+            <linearGradient id="gold-CPD" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e2c684"/><stop offset="1" stop-color="#c9a96e"/></linearGradient>
+            <filter id="sh-CPD"><feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#020a17" flood-opacity=".55"/></filter>
+          </defs>
+          <g filter="url(#sh-CPD)">
+            <path d="M151 105h250l75 76v274H151Z" fill="#0d2447" stroke="#ffffff" stroke-opacity=".32" stroke-width="7" stroke-linejoin="round"/>
+            <path d="M401 105v76h75" fill="#06152c" stroke="#ffffff" stroke-opacity=".28" stroke-width="7" stroke-linejoin="round"/>
+            <g fill="none" stroke="#ffffff" stroke-opacity=".3" stroke-width="7" stroke-linecap="round">
+              <path d="M205 224h183"/><path d="M205 272h153"/><path d="M205 320h183"/><path d="M205 368h124"/>
+            </g>
+            <g fill="#0d2447" stroke="url(#gold-CPD)" stroke-width="8" stroke-linejoin="round">
+              <path d="M472 124c0-43-34-77-77-77s-77 34-77 77c0 30 16 50 36 67 12 11 17 24 18 39h46c1-15 6-28 18-39 20-17 36-37 36-67Z"/>
+              <path d="M371 230h48v24c0 13-11 24-24 24s-24-11-24-24Z" fill="#06152c"/>
+              <path d="m374 143 20 20 31-45" fill="none" stroke-linecap="round"/>
+            </g>
+          </g>
+        </svg>
+        <div class="svc-hero__seal"><span class="svc-hero__seal-mark">✓</span><span class="svc-hero__seal-copy">Informe<br>escrito</span></div>
+      </div>
+    </div>
   </section>
 
-  <section class="sl-cpd-process">
+  <section class="sl-cpd-process" id="proceso">
     <div class="sl-cpd-wrap">
       <p class="sl-cpd-eyebrow">Cómo funciona</p>
       <h2 class="sl-cpd-h2">Tres pasos para resolver tu duda de forma clara y documentada</h2>

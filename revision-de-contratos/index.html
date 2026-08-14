@@ -241,15 +241,48 @@
   @media(max-width:640px){.sl-rc-steps,.sl-rc-del-grid,.sl-rc-xsell__grid{grid-template-columns:1fr}}
   </style>
 
-    <section class="page-hero page-hero--photo" style="--hero-bg: url('/assets/img/despacho/oficina-consulta.webp');">
-    <p class="eyebrow">Contratos · desde 150&nbsp;€ / contrato + IVA</p>
-    <h1>Revisión profesional de contratos</h1>
-    <p class="hero-subline" style="font-size:1.15em;font-weight:700;color:#fff;margin:.5em 0 .75em">Un contrato mal revisado puede salir <span style="color:var(--gold,#c9a96e)">muy caro</span>.</p>
-    <p>Revisamos el contrato, te explicamos en lenguaje claro qué te compromete realmente y dónde están los riesgos. Entregamos el contrato anotado y las correcciones recomendadas en 3-5 días hábiles.</p>
-    <a class="button gold" href="/contacto/">Revisar mi contrato</a>
+    <section class="svc-hero" style="--hero-photo: url('/assets/img/despacho/oficina-consulta.webp');">
+    <div class="svc-hero__photo" aria-hidden="true"></div>
+    <div class="svc-hero__tint" aria-hidden="true"></div>
+    <div class="svc-hero__aura" aria-hidden="true"></div>
+    <div class="svc-hero__shell">
+      <div class="svc-hero__copy">
+        <p class="svc-hero__kicker">Contratos · desde 150&nbsp;€ / contrato + IVA</p>
+        <h1 class="svc-hero__title">Revisión profesional de contratos</h1>
+        <p class="svc-hero__lead" style="margin-top:22px"><strong style="color:#fff;font-weight:700">Un contrato mal revisado puede salir <span style="color:#e2c684">muy caro</span>.</strong> Revisamos el contrato, te explicamos en lenguaje claro qué te compromete realmente y dónde están los riesgos. Entregamos el contrato anotado y las correcciones recomendadas en 3-5 días hábiles.</p>
+        <div class="svc-hero__actions">
+          <a class="svc-hero__primary" href="/contacto/">Revisar mi contrato</a>
+          <a class="svc-hero__secondary" href="#proceso">Cómo funciona</a>
+        </div>
+      </div>
+      <div class="svc-hero__glass" aria-hidden="true">
+        <span class="svc-hero__shine"></span>
+        <svg class="svc-hero__svg" viewBox="0 0 620 560" role="presentation">
+          <defs>
+            <linearGradient id="gold-ct" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e2c684"/><stop offset="1" stop-color="#c9a96e"/></linearGradient>
+            <filter id="sh-ct" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#020a17" flood-opacity=".55"/></filter>
+          </defs>
+          <g filter="url(#sh-ct)">
+            <path d="M170 91h231l68 68v310H170Z" fill="#0d2447" stroke="#ffffff" stroke-opacity=".3" stroke-width="3" stroke-linejoin="round"/>
+            <path d="M401 91v68h68" fill="#06152c" stroke="#ffffff" stroke-opacity=".24" stroke-width="3" stroke-linejoin="round"/>
+            <g fill="none" stroke="#ffffff" stroke-opacity=".34" stroke-width="8" stroke-linecap="round">
+              <path d="M219 202h181M219 247h201M219 292h164M219 337h128"/>
+            </g>
+            <rect x="214" y="374" width="186" height="52" rx="8" fill="#06152c" stroke="#ffffff" stroke-opacity=".22" stroke-width="2"/>
+            <path d="M239 406c19-23 33 14 52-8s31 13 51-7" fill="none" stroke="#ffffff" stroke-opacity=".34" stroke-width="3" stroke-linecap="round"/>
+            <g fill="none" stroke="url(#gold-ct)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m448 211 40 32-135 170-56 27 16-60Z"/>
+              <path d="m313 380 40 33M297 440l35-43M448 211l24-30c8-10 21-11 31-3l18 14c10 8 11 21 3 31l-36 45"/>
+              <path d="M459 220l40 32"/>
+            </g>
+          </g>
+        </svg>
+        <div class="svc-hero__seal"><span class="svc-hero__seal-mark">✓</span><span class="svc-hero__seal-copy">Contrato<br>anotado</span></div>
+      </div>
+    </div>
   </section>
 
-  <section class="sl-rc-process">
+  <section class="sl-rc-process" id="proceso">
     <div class="sl-rc-wrap">
       <p class="sl-rc-eyebrow">Proceso</p>
       <h2 class="sl-rc-h2">Tres pasos para tener el contrato bajo control</h2>

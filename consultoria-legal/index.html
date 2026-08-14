@@ -236,14 +236,45 @@
   @media(max-width:640px){.sl-cl-steps,.sl-cl-xsell__grid{grid-template-columns:1fr}}
   </style>
 
-    <section class="page-hero page-hero--photo" style="--hero-bg: url('/assets/img/despacho/oficina-sala-reunion.webp');">
-    <p class="eyebrow">Legal digital · desde 120&nbsp;€ / sesión + IVA</p>
-    <h1>Consultoría Legal</h1>
-    <p>Sesión de 60 minutos con un abogado especializado en derecho digital + informe escrito con las respuestas concretas a tu caso. Para dudas legales vinculadas a tu actividad digital, mercantil o de e-commerce.</p>
-    <a class="button gold" href="/contacto/">Consultar mi caso</a>
+    <section class="svc-hero" style="--hero-photo: url('/assets/img/despacho/oficina-sala-reunion.webp');">
+    <div class="svc-hero__photo" aria-hidden="true"></div>
+    <div class="svc-hero__tint" aria-hidden="true"></div>
+    <div class="svc-hero__aura" aria-hidden="true"></div>
+    <div class="svc-hero__shell">
+      <div class="svc-hero__copy">
+        <p class="svc-hero__kicker">Legal digital · desde 120&nbsp;€ / sesión + IVA</p>
+        <h1 class="svc-hero__title">Consultoría Legal</h1>
+        <p class="svc-hero__lead">Sesión de 60 minutos con un abogado especializado en derecho digital + informe escrito con las respuestas concretas a tu caso. Para dudas legales vinculadas a tu actividad digital, mercantil o de e-commerce.</p>
+        <div class="svc-hero__actions">
+          <a class="svc-hero__primary" href="/contacto/">Consultar mi caso</a>
+          <a class="svc-hero__secondary" href="#proceso">Cómo funciona</a>
+        </div>
+      </div>
+      <div class="svc-hero__glass" aria-hidden="true">
+        <span class="svc-hero__shine"></span>
+        <svg class="svc-hero__svg" viewBox="0 0 620 560" role="presentation">
+          <defs>
+            <linearGradient id="gold-cl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e2c684"/><stop offset="1" stop-color="#c9a96e"/></linearGradient>
+            <filter id="sh-cl" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#020a17" flood-opacity=".55"/></filter>
+          </defs>
+          <g transform="rotate(-7 300 280)" fill="#0d2447" stroke="#ffffff" stroke-opacity=".22" stroke-width="2" filter="url(#sh-cl)">
+            <rect x="174" y="112" width="254" height="330" rx="18"/>
+            <path d="M213 174h157M213 210h174M213 246h140M213 370h102" fill="none" stroke="#ffffff" stroke-opacity=".4" stroke-width="9" stroke-linecap="round"/>
+            <rect x="212" y="286" width="145" height="48" rx="8" fill="#06152c" stroke-opacity=".12"/>
+          </g>
+          <g fill="none" stroke="url(#gold-cl)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" filter="url(#sh-cl)">
+            <path d="M322 157v238M245 407h154M273 376h98"/>
+            <path d="M205 215h234M322 178l-28 37M322 178l28 37"/>
+            <path d="M223 216l-52 104M223 216l52 104M421 216l-52 104M421 216l52 104" stroke-width="4.5"/>
+            <path d="M159 320h128c-8 35-30 53-64 53s-56-18-64-53ZM357 320h128c-8 35-30 53-64 53s-56-18-64-53Z"/>
+          </g>
+        </svg>
+        <div class="svc-hero__seal"><span class="svc-hero__seal-mark">✓</span><span class="svc-hero__seal-copy">Informe<br>escrito</span></div>
+      </div>
+    </div>
   </section>
 
-  <section class="sl-cl-process">
+  <section class="sl-cl-process" id="proceso">
     <div class="sl-cl-wrap">
       <p class="sl-cl-eyebrow">Cómo funciona</p>
       <h2 class="sl-cl-h2">Tres pasos para resolver tu duda con rigor y claridad</h2>
