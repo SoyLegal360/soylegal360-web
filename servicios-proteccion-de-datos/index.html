@@ -1080,6 +1080,12 @@
   }
   .sl-services .visual--consulting{height:180px}
   .sl-services .visual--consulting .visual-ui{width:min(100%,330px)}
+  /* ── Tratamiento B: escena SVG de marca en la cabecera de la card ── */
+  .sl-services .visual--scene::before,.sl-services .visual--scene::after{display:none}
+  .sl-services .visual--scene .scene{position:absolute;inset:0;z-index:0}
+  .sl-services .visual--scene .scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(100deg,rgba(5,16,38,.92) 6%,rgba(5,16,38,.62) 40%,rgba(5,16,38,.12) 60%,transparent 74%);pointer-events:none}
+  .sl-services .visual--scene .visual-kicker,.sl-services .visual--scene .visual-title{position:relative;z-index:2}
+  .sl-services .visual--scene .visual-title{max-width:190px}
   .sl-services .mini-list{
     display:grid;
     gap:6px;
@@ -1632,14 +1638,17 @@
 
         <div class="service-grid">
           <article class="service-card is-recommended reveal" data-service="audit" data-groups="orientacion web">
-            <a class="visual visual--audit" href="https://app.soylegal360.es" aria-label="Ir a Auditoría Web Express">
+            <a class="visual visual--audit visual--scene" href="https://app.soylegal360.es" aria-label="Ir a Auditoría Web Express">
+              <svg class="scene" viewBox="0 0 360 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs><linearGradient id="bgAu" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a1f42"/><stop offset="1" stop-color="#0b2348"/></linearGradient><linearGradient id="goldAu" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e2c684"/><stop offset="1" stop-color="#c9aa6f"/></linearGradient></defs>
+          <rect width="360" height="180" fill="url(#bgAu)"/>
+          <ellipse cx="300" cy="176" rx="150" ry="128" fill="none" stroke="rgba(201,170,111,.16)"/><ellipse cx="300" cy="176" rx="96" ry="82" fill="none" stroke="rgba(255,255,255,.06)"/><circle cx="356" cy="66" r="3.4" fill="url(#goldAu)"/>
+          <g><rect x="212" y="40" width="140" height="108" rx="11" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.22)"/><line x1="212" y1="62" x2="352" y2="62" stroke="rgba(255,255,255,.16)"/><circle cx="224" cy="51" r="2.3" fill="rgba(226,198,132,.9)"/><circle cx="233" cy="51" r="2.3" fill="rgba(215,227,243,.45)"/><circle cx="242" cy="51" r="2.3" fill="rgba(215,227,243,.45)"/><rect x="226" y="76" width="112" height="7" rx="3.5" fill="rgba(215,227,243,.5)"/><rect x="226" y="91" width="78" height="7" rx="3.5" fill="rgba(215,227,243,.4)"/><rect x="226" y="106" width="100" height="7" rx="3.5" fill="rgba(215,227,243,.32)"/><rect x="226" y="121" width="60" height="7" rx="3.5" fill="rgba(215,227,243,.26)"/></g>
+          <g><circle cx="214" cy="126" r="27" fill="rgba(8,24,54,.66)" stroke="url(#goldAu)" stroke-width="3.2"/><path d="M203 126 h22 M214 115 v22" stroke="rgba(226,198,132,.5)" stroke-width="1.3"/><line x1="195" y1="145" x2="180" y2="160" stroke="url(#goldAu)" stroke-width="5" stroke-linecap="round"/></g>
+        </svg>
+              <span class="scrim"></span>
               <span class="visual-kicker">Entrada web</span>
               <h3 class="visual-title">Auditoría Web Express</h3>
-              <span class="visual-ui">
-                <span class="visual-line visual-line--mid"></span>
-                <span class="visual-meter"><span></span><span></span><span></span><span></span></span>
-                <span class="visual-line visual-line--short"></span>
-              </span>
             </a>
             <div class="card-body">
               <div class="tags"><span class="tag">Orientación</span><span class="tag">Web</span></div>
@@ -1661,14 +1670,20 @@
           </article>
 
           <article class="service-card is-recommended reveal" data-service="diagnostic-rgpd" data-groups="orientacion empresa">
-            <a class="visual visual--diagnostic" href="/contacto/" aria-label="Consultar Diagnóstico RGPD Empresa">
+            <a class="visual visual--diagnostic visual--scene" href="/contacto/" aria-label="Consultar Diagnóstico RGPD Empresa">
+              <svg class="scene" viewBox="0 0 360 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs><linearGradient id="bgDE" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a1f42"/><stop offset="1" stop-color="#0b2348"/></linearGradient><linearGradient id="goldDE" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e2c684"/><stop offset="1" stop-color="#c9aa6f"/></linearGradient></defs>
+          <rect width="360" height="180" fill="url(#bgDE)"/>
+          <ellipse cx="300" cy="176" rx="150" ry="128" fill="none" stroke="rgba(201,170,111,.16)"/><ellipse cx="300" cy="176" rx="96" ry="82" fill="none" stroke="rgba(255,255,255,.06)"/><circle cx="356" cy="66" r="3.4" fill="url(#goldDE)"/>
+          <rect x="218" y="48" width="91" height="103" rx="6" fill="rgba(8,24,54,.66)" stroke="rgba(255,255,255,.22)" stroke-width="1.3"/>
+          <path d="M246 48v-7h35v7" fill="none" stroke="rgba(255,255,255,.22)" stroke-width="4" stroke-linecap="round"/>
+          <path d="M239 77l4 4 7-9m-11 26 4 4 7-9m-11 26 4 4 7-9M260 78h30M260 99h30M260 120h23" fill="none" stroke="rgba(215,227,243,.32)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M274 75a30 30 0 0 1 60 0" fill="none" stroke="url(#goldDE)" stroke-width="4" stroke-linecap="round"/>
+          <path d="M304 75l17-15" fill="none" stroke="url(#goldDE)" stroke-width="3.5" stroke-linecap="round"/><circle cx="304" cy="75" r="3.5" fill="url(#goldDE)"/>
+        </svg>
+              <span class="scrim"></span>
               <span class="visual-kicker">Entrada empresa</span>
               <h3 class="visual-title">Diagnóstico RGPD Empresa</h3>
-              <span class="visual-flow">
-                <span>Actividad</span>
-                <span>Datos</span>
-                <span>Alcance</span>
-              </span>
             </a>
             <div class="card-body">
               <div class="tags"><span class="tag">RGPD</span><span class="tag">Orientación</span></div>
@@ -1690,15 +1705,17 @@
           </article>
 
           <article class="service-card is-recommended reveal" data-service="diagnostic-ai" data-groups="orientacion especial">
-            <a class="visual visual--ai" href="/contacto/" aria-label="Consultar Diagnóstico IA">
+            <a class="visual visual--ai visual--scene" href="/contacto/" aria-label="Consultar Diagnóstico IA">
+              <svg class="scene" viewBox="0 0 360 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs><linearGradient id="bgAI" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a1f42"/><stop offset="1" stop-color="#0b2348"/></linearGradient><linearGradient id="goldAI" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e2c684"/><stop offset="1" stop-color="#c9aa6f"/></linearGradient></defs>
+          <rect width="360" height="180" fill="url(#bgAI)"/>
+          <ellipse cx="300" cy="176" rx="150" ry="128" fill="none" stroke="rgba(201,170,111,.16)"/><ellipse cx="300" cy="176" rx="96" ry="82" fill="none" stroke="rgba(255,255,255,.06)"/><circle cx="356" cy="66" r="3.4" fill="url(#goldAI)"/>
+          <g><rect x="221" y="45" width="104" height="104" rx="13" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.22)" stroke-width="1.4"/><path d="M238 45 V34 M260 45 V34 M282 45 V34 M304 45 V34 M238 149 V160 M260 149 V160 M282 149 V160 M304 149 V160 M221 63 H210 M221 85 H210 M221 107 H210 M221 129 H210 M325 63 H336 M325 85 H336 M325 107 H336 M325 129 H336" fill="none" stroke="rgba(255,255,255,.22)" stroke-width="3" stroke-linecap="round"/><path d="M243 78 H263 V93 H283 M243 119 H259 V105 H277 M283 93 V78 H303" fill="none" stroke="rgba(215,227,243,.32)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="243" cy="78" r="4" fill="rgba(215,227,243,.5)"/><circle cx="283" cy="93" r="4" fill="rgba(215,227,243,.5)"/><circle cx="243" cy="119" r="4" fill="rgba(215,227,243,.26)"/><circle cx="303" cy="78" r="4" fill="rgba(215,227,243,.32)"/></g>
+          <g><path d="M188 134 A31 31 0 0 1 248 134" fill="none" stroke="url(#goldAI)" stroke-width="4" stroke-linecap="round"/><path d="M218 134 L237 113" fill="none" stroke="url(#goldAI)" stroke-width="4" stroke-linecap="round"/><circle cx="218" cy="134" r="5" fill="url(#goldAI)"/><path d="M196 134 H240" fill="none" stroke="rgba(226,198,132,.5)" stroke-width="1.3" stroke-linecap="round"/></g>
+        </svg>
+              <span class="scrim"></span>
               <span class="visual-kicker">Entrada IA</span>
               <h3 class="visual-title">Diagnóstico IA</h3>
-              <span class="visual-nodes">
-                <span>Herramienta</span>
-                <span>Datos</span>
-                <span>Uso</span>
-                <span>Riesgo</span>
-              </span>
             </a>
             <div class="card-body">
               <div class="tags"><span class="tag">IA</span><span class="tag">Orientación</span></div>
@@ -1732,15 +1749,21 @@
 
         <div class="service-grid service-grid--audit">
           <article class="service-card reveal" data-service="audit-rgpd" data-groups="empresa especial">
-            <a class="visual visual--deep-audit" href="/auditoria-rgpd/" aria-label="Ver Auditoría RGPD">
+            <a class="visual visual--deep-audit visual--scene" href="/auditoria-rgpd/" aria-label="Ver Auditoría RGPD">
+              <svg class="scene" viewBox="0 0 360 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs><linearGradient id="bgAR" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a1f42"/><stop offset="1" stop-color="#0b2348"/></linearGradient><linearGradient id="goldAR" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e2c684"/><stop offset="1" stop-color="#c9aa6f"/></linearGradient></defs>
+          <rect width="360" height="180" fill="url(#bgAR)"/>
+          <ellipse cx="300" cy="176" rx="150" ry="128" fill="none" stroke="rgba(201,170,111,.16)"/><ellipse cx="300" cy="176" rx="96" ry="82" fill="none" stroke="rgba(255,255,255,.06)"/><circle cx="356" cy="66" r="3.4" fill="url(#goldAR)"/>
+          <path d="M207 68h43l9 10h73v68H207z" fill="rgba(8,24,54,.66)" stroke="rgba(255,255,255,.22)" stroke-width="1.3" stroke-linejoin="round"/>
+          <rect x="221" y="57" width="85" height="67" rx="3" fill="rgba(8,24,54,.66)" stroke="rgba(255,255,255,.22)" stroke-width="1.1"/>
+          <rect x="228" y="64" width="85" height="67" rx="3" fill="rgba(8,24,54,.66)" stroke="rgba(255,255,255,.22)" stroke-width="1.1"/>
+          <path d="M241 80h47M241 91h55M241 102h38" fill="none" stroke="rgba(215,227,243,.32)" stroke-width="1.4" stroke-linecap="round"/>
+          <circle cx="302" cy="105" r="22" fill="rgba(8,24,54,.66)" stroke="url(#goldAR)" stroke-width="4"/>
+          <path d="M286 121l-19 19" fill="none" stroke="url(#goldAR)" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+              <span class="scrim"></span>
               <span class="visual-kicker">Auditoría</span>
               <h3 class="visual-title">Auditoría RGPD</h3>
-              <span class="visual-checks">
-                <span>Tratamientos</span>
-                <span>Documentos</span>
-                <span>Proveedores</span>
-                <span>Prioridades</span>
-              </span>
             </a>
             <div class="card-body">
               <div class="tags"><span class="tag">RGPD</span><span class="tag">Revisión</span></div>
@@ -1762,15 +1785,20 @@
           </article>
 
           <article class="service-card reveal" data-service="audit-ai" data-groups="especial empresa">
-            <a class="visual visual--ai" href="/auditoria-ia/" aria-label="Ver Auditoría IA">
+            <a class="visual visual--ai visual--scene" href="/auditoria-ia/" aria-label="Ver Auditoría IA">
+              <svg class="scene" viewBox="0 0 360 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs><linearGradient id="bgAAI" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a1f42"/><stop offset="1" stop-color="#0b2348"/></linearGradient><linearGradient id="goldAAI" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e2c684"/><stop offset="1" stop-color="#c9aa6f"/></linearGradient></defs>
+          <rect width="360" height="180" fill="url(#bgAAI)"/>
+          <ellipse cx="300" cy="176" rx="150" ry="128" fill="none" stroke="rgba(201,170,111,.16)"/><ellipse cx="300" cy="176" rx="96" ry="82" fill="none" stroke="rgba(255,255,255,.06)"/><circle cx="356" cy="66" r="3.4" fill="url(#goldAAI)"/>
+          <rect x="205" y="42" width="126" height="104" rx="10" fill="rgba(8,24,54,.66)" stroke="rgba(255,255,255,.22)" stroke-width="1.3"/>
+          <path d="M226 72l37 19 37-25M226 72l16 51 21-32 31 35M300 66l-6 60M242 123l52 3" fill="none" stroke="rgba(215,227,243,.26)" stroke-width="1.2"/>
+          <g fill="rgba(215,227,243,.5)"><circle cx="226" cy="72" r="4"/><circle cx="263" cy="91" r="4"/><circle cx="300" cy="66" r="4"/><circle cx="242" cy="123" r="4"/><circle cx="294" cy="126" r="4"/></g>
+          <circle cx="294" cy="97" r="23" fill="rgba(8,24,54,.66)" stroke="url(#goldAAI)" stroke-width="4"/>
+          <path d="M278 113l-20 20" fill="none" stroke="url(#goldAAI)" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+              <span class="scrim"></span>
               <span class="visual-kicker">Auditoría</span>
               <h3 class="visual-title">Auditoría IA</h3>
-              <span class="visual-nodes">
-                <span>Uso</span>
-                <span>Proveedor</span>
-                <span>Transparencia</span>
-                <span>RGPD</span>
-              </span>
             </a>
             <div class="card-body">
               <div class="tags"><span class="tag">IA</span><span class="tag">Revisión</span></div>
@@ -1804,15 +1832,17 @@
 
         <div class="service-grid">
           <article class="service-card reveal" data-service="web" data-groups="web orientacion">
-            <a class="visual visual--web" href="/adaptacion-web-rgpd/" aria-label="Ir a Adaptación Web RGPD">
+            <a class="visual visual--web visual--scene" href="/adaptacion-web-rgpd/" aria-label="Ir a Adaptación Web RGPD">
+              <svg class="scene" viewBox="0 0 360 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs><linearGradient id="bgW" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a1f42"/><stop offset="1" stop-color="#0b2348"/></linearGradient><linearGradient id="goldW" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e2c684"/><stop offset="1" stop-color="#c9aa6f"/></linearGradient></defs>
+          <rect width="360" height="180" fill="url(#bgW)"/>
+          <ellipse cx="300" cy="176" rx="150" ry="128" fill="none" stroke="rgba(201,170,111,.16)"/><ellipse cx="300" cy="176" rx="96" ry="82" fill="none" stroke="rgba(255,255,255,.06)"/><circle cx="356" cy="66" r="3.4" fill="url(#goldW)"/>
+          <g><rect x="212" y="40" width="140" height="108" rx="11" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.22)"/><line x1="212" y1="62" x2="352" y2="62" stroke="rgba(255,255,255,.16)"/><circle cx="224" cy="51" r="2.3" fill="rgba(226,198,132,.9)"/><circle cx="233" cy="51" r="2.3" fill="rgba(215,227,243,.5)"/><circle cx="242" cy="51" r="2.3" fill="rgba(215,227,243,.5)"/><rect x="226" y="77" width="112" height="7" rx="3.5" fill="rgba(215,227,243,.5)"/><rect x="226" y="93" width="78" height="7" rx="3.5" fill="rgba(215,227,243,.32)"/><rect x="226" y="109" width="99" height="7" rx="3.5" fill="rgba(215,227,243,.26)"/></g>
+          <g><path d="M213 101 L236 110 V126 C236 141 226 151 213 157 C200 151 190 141 190 126 V110 Z" fill="rgba(8,24,54,.66)" stroke="url(#goldW)" stroke-width="3.2" stroke-linejoin="round"/><path d="M202 127 L210 135 L225 118" fill="none" stroke="url(#goldW)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></g>
+        </svg>
+              <span class="scrim"></span>
               <span class="visual-kicker">Adaptación</span>
               <h3 class="visual-title">Adaptación Web RGPD</h3>
-              <span class="visual-checks">
-                <span>Aviso legal</span>
-                <span>Privacidad</span>
-                <span>Cookies</span>
-                <span>Formularios</span>
-              </span>
             </a>
             <div class="card-body">
               <div class="tags"><span class="tag">RGPD</span><span class="tag">LSSI-CE</span></div>
@@ -1834,14 +1864,19 @@
           </article>
 
           <article class="service-card reveal" data-service="company" data-groups="empresa orientacion">
-            <a class="visual visual--company" href="/adaptacion-empresa-rgpd/" aria-label="Ir a Adaptación Empresa RGPD">
+            <a class="visual visual--company visual--scene" href="/adaptacion-empresa-rgpd/" aria-label="Ir a Adaptación Empresa RGPD">
+              <svg class="scene" viewBox="0 0 360 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs><linearGradient id="bgCO" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a1f42"/><stop offset="1" stop-color="#0b2348"/></linearGradient><linearGradient id="goldCO" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e2c684"/><stop offset="1" stop-color="#c9aa6f"/></linearGradient></defs>
+          <rect width="360" height="180" fill="url(#bgCO)"/>
+          <ellipse cx="300" cy="176" rx="150" ry="128" fill="none" stroke="rgba(201,170,111,.16)"/><ellipse cx="300" cy="176" rx="96" ry="82" fill="none" stroke="rgba(255,255,255,.06)"/><circle cx="356" cy="66" r="3.4" fill="url(#goldCO)"/>
+          <rect x="204" y="48" width="91" height="101" rx="3" fill="rgba(8,24,54,.66)" stroke="rgba(255,255,255,.22)" stroke-width="1.3"/>
+          <path d="M218 64h14v12h-14zm25 0h14v12h-14zm25 0h14v12h-14zm-50 25h14v12h-14zm25 0h14v12h-14zm25 0h14v12h-14zm-50 25h14v12h-14zm25 0h14v35h-14z" fill="rgba(215,227,243,.26)" stroke="rgba(215,227,243,.32)" stroke-width="1"/>
+          <path d="M311 83c10 7 18 8 25 9v18c0 17-10 28-25 35-15-7-25-18-25-35V92c7-1 15-2 25-9z" fill="rgba(8,24,54,.66)" stroke="url(#goldCO)" stroke-width="4" stroke-linejoin="round"/>
+          <path d="M299 112l8 8 16-19" fill="none" stroke="url(#goldCO)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+              <span class="scrim"></span>
               <span class="visual-kicker">Adaptación</span>
               <h3 class="visual-title">Adaptación Empresa RGPD</h3>
-              <span class="visual-flow">
-                <span>Clientes</span>
-                <span>Equipo</span>
-                <span>Proveedores</span>
-              </span>
             </a>
             <div class="card-body">
               <div class="tags"><span class="tag">Negocio</span><span class="tag">Tratamientos</span></div>
@@ -1863,15 +1898,21 @@
           </article>
 
           <article class="service-card reveal" data-service="ai" data-groups="especial empresa">
-            <a class="visual visual--ai" href="/adaptacion-ia/" aria-label="Ir a Adaptación IA">
+            <a class="visual visual--ai visual--scene" href="/adaptacion-ia/" aria-label="Ir a Adaptación IA">
+              <svg class="scene" viewBox="0 0 360 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs><linearGradient id="bgAIA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a1f42"/><stop offset="1" stop-color="#0b2348"/></linearGradient><linearGradient id="goldAIA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e2c684"/><stop offset="1" stop-color="#c9aa6f"/></linearGradient></defs>
+          <rect width="360" height="180" fill="url(#bgAIA)"/>
+          <ellipse cx="300" cy="176" rx="150" ry="128" fill="none" stroke="rgba(201,170,111,.16)"/><ellipse cx="300" cy="176" rx="96" ry="82" fill="none" stroke="rgba(255,255,255,.06)"/><circle cx="356" cy="66" r="3.4" fill="url(#goldAIA)"/>
+          <rect x="217" y="55" width="83" height="83" rx="9" fill="rgba(8,24,54,.66)" stroke="rgba(255,255,255,.22)" stroke-width="1.3"/>
+          <path d="M233 47v8m17-8v8m17-8v8m17-8v8m-51 83v8m17-8v8m17-8v8m17-8v8m-75-67h8m-8 18h8m-8 18h8m75-36h8m-8 18h8m-8 18h8" fill="none" stroke="rgba(215,227,243,.32)" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M236 77h18l10 13h17m-45 27h20V99h25" fill="none" stroke="rgba(215,227,243,.26)" stroke-width="1.2"/>
+          <g fill="rgba(215,227,243,.5)"><circle cx="236" cy="77" r="3"/><circle cx="264" cy="90" r="3"/><circle cx="281" cy="90" r="3"/><circle cx="236" cy="117" r="3"/><circle cx="256" cy="99" r="3"/><circle cx="281" cy="99" r="3"/></g>
+          <path d="M310 80c9 6 16 7 22 8v16c0 15-9 25-22 31-13-6-22-16-22-31V88c6-1 13-2 22-8z" fill="rgba(8,24,54,.66)" stroke="url(#goldAIA)" stroke-width="4" stroke-linejoin="round"/>
+          <path d="M300 105l7 7 13-16" fill="none" stroke="url(#goldAIA)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+              <span class="scrim"></span>
               <span class="visual-kicker">Adaptación</span>
               <h3 class="visual-title">Adaptación IA</h3>
-              <span class="visual-nodes">
-                <span>Chatbot</span>
-                <span>Automatización</span>
-                <span>Proveedor</span>
-                <span>RGPD</span>
-              </span>
             </a>
             <div class="card-body">
               <div class="tags"><span class="tag">IA</span><span class="tag">Riesgo</span></div>
@@ -1906,15 +1947,19 @@
 
         <div class="service-grid service-grid--audit service-grid--response">
           <article class="service-card service-card--priority reveal" data-service="defense-aepd" data-groups="reclamación empresa especial">
-            <a class="visual visual--deep-audit" href="/contacto/" aria-label="Consultar Defensa ante reclamaciones AEPD">
+            <a class="visual visual--deep-audit visual--scene" href="/contacto/" aria-label="Consultar Defensa ante reclamaciones AEPD">
+              <svg class="scene" viewBox="0 0 360 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs><linearGradient id="bgDEF" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a1f42"/><stop offset="1" stop-color="#0b2348"/></linearGradient><linearGradient id="goldDEF" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e2c684"/><stop offset="1" stop-color="#c9aa6f"/></linearGradient></defs>
+          <rect width="360" height="180" fill="url(#bgDEF)"/>
+          <ellipse cx="300" cy="176" rx="150" ry="128" fill="none" stroke="rgba(201,170,111,.16)"/><ellipse cx="300" cy="176" rx="96" ry="82" fill="none" stroke="rgba(255,255,255,.06)"/><circle cx="356" cy="66" r="3.4" fill="url(#goldDEF)"/>
+          <path d="M210 45h83l18 18v82H210z" fill="rgba(8,24,54,.66)" stroke="rgba(255,255,255,.22)" stroke-width="1.3" stroke-linejoin="round"/>
+          <path d="M293 45v18h18M227 79h58M227 93h48M227 107h54M227 121h35" fill="none" stroke="rgba(215,227,243,.26)" stroke-width="1.3" stroke-linecap="round"/>
+          <path d="M302 67c13 9 24 10 33 12v25c0 24-14 40-33 49-20-9-34-25-34-49V79c10-2 21-3 34-12z" fill="rgba(8,24,54,.66)" stroke="url(#goldDEF)" stroke-width="5" stroke-linejoin="round"/>
+          <path d="M286 108l11 11 22-27" fill="none" stroke="url(#goldDEF)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+              <span class="scrim"></span>
               <span class="visual-kicker">Respuesta empresa</span>
               <h3 class="visual-title">Defensa ante reclamaciones AEPD</h3>
-              <span class="visual-checks">
-                <span>Hechos</span>
-                <span>Respuesta</span>
-                <span>Evidencias</span>
-                <span>Medidas</span>
-              </span>
             </a>
             <div class="card-body">
               <div class="tags"><span class="tag">Empresa</span><span class="tag">Defensa AEPD</span></div>
@@ -1937,14 +1982,21 @@
           </article>
 
           <article class="service-card reveal" data-service="claim-aepd" data-groups="reclamación especial">
-            <a class="visual visual--claim" href="/contacto/" aria-label="Consultar Reclamación ante la AEPD">
+            <a class="visual visual--claim visual--scene" href="/contacto/" aria-label="Consultar Reclamación ante la AEPD">
+              <svg class="scene" viewBox="0 0 360 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs><linearGradient id="bgRE" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a1f42"/><stop offset="1" stop-color="#0b2348"/></linearGradient><linearGradient id="goldRE" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e2c684"/><stop offset="1" stop-color="#c9aa6f"/></linearGradient></defs>
+          <rect width="360" height="180" fill="url(#bgRE)"/>
+          <ellipse cx="300" cy="176" rx="150" ry="128" fill="none" stroke="rgba(201,170,111,.16)"/><ellipse cx="300" cy="176" rx="96" ry="82" fill="none" stroke="rgba(255,255,255,.06)"/><circle cx="356" cy="66" r="3.4" fill="url(#goldRE)"/>
+          <path d="M218 39h86l18 18v94H218z" fill="rgba(8,24,54,.66)" stroke="rgba(255,255,255,.22)" stroke-width="1.3" stroke-linejoin="round"/>
+          <path d="M304 39v18h18" fill="none" stroke="rgba(255,255,255,.22)" stroke-width="1.2"/>
+          <rect x="233" y="62" width="58" height="14" rx="2" fill="rgba(215,227,243,.26)"/>
+          <path d="M233 91h68M233 103h54M233 115h62M233 127h39" fill="none" stroke="rgba(215,227,243,.32)" stroke-width="1.4" stroke-linecap="round"/>
+          <circle cx="302" cy="120" r="24" fill="rgba(8,24,54,.66)" stroke="url(#goldRE)" stroke-width="4"/>
+          <path d="M302 105l4.5 9 10 1.5-7.2 7 1.7 10-9-4.7-9 4.7 1.7-10-7.2-7 10-1.5z" fill="url(#goldRE)" stroke="url(#goldRE)" stroke-linejoin="round"/>
+        </svg>
+              <span class="scrim"></span>
               <span class="visual-kicker">Derechos</span>
               <h3 class="visual-title">Reclamación ante la AEPD</h3>
-              <span class="visual-flow">
-                <span>Hechos</span>
-                <span>Pruebas</span>
-                <span>Cauce</span>
-              </span>
             </a>
             <div class="card-body">
               <div class="tags"><span class="tag">Particulares</span><span class="tag">AEPD</span></div>
@@ -1978,15 +2030,21 @@
 
         <div class="service-grid">
           <article class="service-card reveal" data-service="continuity" data-groups="continuidad empresa">
-            <a class="visual visual--continuity" href="/proteccion-legal-continua/" aria-label="Ir a Protección Legal Continua">
+            <a class="visual visual--continuity visual--scene" href="/proteccion-legal-continua/" aria-label="Ir a Protección Legal Continua">
+              <svg class="scene" viewBox="0 0 360 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs><linearGradient id="bgPC" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a1f42"/><stop offset="1" stop-color="#0b2348"/></linearGradient><linearGradient id="goldPC" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e2c684"/><stop offset="1" stop-color="#c9aa6f"/></linearGradient></defs>
+          <rect width="360" height="180" fill="url(#bgPC)"/>
+          <ellipse cx="300" cy="176" rx="150" ry="128" fill="none" stroke="rgba(201,170,111,.16)"/><ellipse cx="300" cy="176" rx="96" ry="82" fill="none" stroke="rgba(255,255,255,.06)"/><circle cx="356" cy="66" r="3.4" fill="url(#goldPC)"/>
+          <circle cx="273" cy="99" r="57" fill="rgba(8,24,54,.66)" stroke="rgba(255,255,255,.22)" stroke-width="1.2"/>
+          <path d="M273 62c11 8 21 9 29 10v21c0 20-12 34-29 42-17-8-29-22-29-42V72c8-1 18-2 29-10z" fill="rgba(8,24,54,.66)" stroke="rgba(215,227,243,.5)" stroke-width="3.5" stroke-linejoin="round"/>
+          <path d="M257 83a45 45 0 0 1 59 25" fill="none" stroke="url(#goldPC)" stroke-width="4" stroke-linecap="round"/>
+          <path d="M307 104l10 5 3-11" fill="none" stroke="url(#goldPC)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M289 140a45 45 0 0 1-59-25" fill="none" stroke="url(#goldPC)" stroke-width="4" stroke-linecap="round"/>
+          <path d="M239 119l-10-5-3 11" fill="none" stroke="url(#goldPC)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+              <span class="scrim"></span>
               <span class="visual-kicker">Seguimiento</span>
               <h3 class="visual-title">Protección Legal Continua</h3>
-              <span class="visual-calendar">
-                <span>Q1<br>Revisión</span>
-                <span>Q2<br>Alerta</span>
-                <span>Q3<br>Informe</span>
-                <span>Q4<br>Ajuste</span>
-              </span>
             </a>
             <div class="card-body">
               <div class="tags"><span class="tag">Continuidad</span><span class="tag">Seguimiento</span></div>
@@ -2008,12 +2066,23 @@
           </article>
 
           <article class="service-card reveal" data-service="website" data-groups="web orientacion">
-            <a class="visual visual--website" href="/web-legal-lista-en-7-dias/" aria-label="Ir a Web Legal Lista en 7 Días">
+            <a class="visual visual--website visual--scene" href="/web-legal-lista-en-7-dias/" aria-label="Ir a Web Legal Lista en 7 Días">
+              <svg class="scene" viewBox="0 0 360 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs><linearGradient id="bgW7" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a1f42"/><stop offset="1" stop-color="#0b2348"/></linearGradient><linearGradient id="goldW7" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e2c684"/><stop offset="1" stop-color="#c9aa6f"/></linearGradient></defs>
+          <rect width="360" height="180" fill="url(#bgW7)"/>
+          <ellipse cx="300" cy="176" rx="150" ry="128" fill="none" stroke="rgba(201,170,111,.16)"/><ellipse cx="300" cy="176" rx="96" ry="82" fill="none" stroke="rgba(255,255,255,.06)"/><circle cx="356" cy="66" r="3.4" fill="url(#goldW7)"/>
+          <rect x="190" y="45" width="145" height="101" rx="7" fill="rgba(8,24,54,.66)" stroke="rgba(255,255,255,.22)" stroke-width="1.3"/>
+          <path d="M190 65h145" fill="none" stroke="rgba(255,255,255,.22)" stroke-width="1.2"/>
+          <g fill="rgba(215,227,243,.32)"><circle cx="204" cy="55" r="2.5"/><circle cx="214" cy="55" r="2.5"/><circle cx="224" cy="55" r="2.5"/></g>
+          <rect x="207" y="79" width="55" height="8" rx="2" fill="rgba(215,227,243,.26)"/>
+          <path d="M207 99h64M207 110h49M207 121h57" fill="none" stroke="rgba(215,227,243,.32)" stroke-width="1.4" stroke-linecap="round"/>
+          <rect x="273" y="79" width="47" height="52" rx="5" fill="rgba(8,24,54,.66)" stroke="url(#goldW7)" stroke-width="3.5"/>
+          <path d="M273 94h47M285 73v12m23-12v12M282 103h8m9 0h8m-25 10h8m9 0h8m-25 10h8m9 0h8" fill="none" stroke="url(#goldW7)" stroke-width="2.5" stroke-linecap="round"/>
+          <rect x="299" y="116" width="8" height="7" rx="1" fill="url(#goldW7)"/>
+        </svg>
+              <span class="scrim"></span>
               <span class="visual-kicker">Web nueva</span>
               <h3 class="visual-title">Web Legal Lista en 7 Días</h3>
-              <span class="visual-browser">
-                <span class="visual-browser-grid"><span></span><span></span></span>
-              </span>
             </a>
             <div class="card-body">
               <div class="tags"><span class="tag">Web nueva</span><span class="tag">Entrega</span></div>
@@ -2035,14 +2104,22 @@
           </article>
 
           <article class="service-card reveal" data-service="dpo" data-groups="especial empresa">
-            <a class="visual visual--dpo" href="/delegado-de-proteccion-de-datos-externalizado/" aria-label="Ir a Delegado de Protección de Datos externalizado">
+            <a class="visual visual--dpo visual--scene" href="/delegado-de-proteccion-de-datos-externalizado/" aria-label="Ir a Delegado de Protección de Datos externalizado">
+              <svg class="scene" viewBox="0 0 360 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs><linearGradient id="bgDPO" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a1f42"/><stop offset="1" stop-color="#0b2348"/></linearGradient><linearGradient id="goldDPO" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e2c684"/><stop offset="1" stop-color="#c9aa6f"/></linearGradient></defs>
+          <rect width="360" height="180" fill="url(#bgDPO)"/>
+          <ellipse cx="300" cy="176" rx="150" ry="128" fill="none" stroke="rgba(201,170,111,.16)"/><ellipse cx="300" cy="176" rx="96" ry="82" fill="none" stroke="rgba(255,255,255,.06)"/><circle cx="356" cy="66" r="3.4" fill="url(#goldDPO)"/>
+          <rect x="200" y="49" width="133" height="91" rx="9" fill="rgba(8,24,54,.66)" stroke="rgba(255,255,255,.22)" stroke-width="1.3"/>
+          <path d="M249 49v-8h36v8" fill="none" stroke="rgba(255,255,255,.22)" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="238" cy="83" r="13" fill="none" stroke="rgba(215,227,243,.5)" stroke-width="3"/>
+          <path d="M216 121c2-17 11-25 22-25s20 8 22 25" fill="none" stroke="rgba(215,227,243,.32)" stroke-width="3" stroke-linecap="round"/>
+          <path d="M275 74h39M275 86h30M275 98h35" fill="none" stroke="rgba(215,227,243,.32)" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M293 103c8 6 15 7 21 8v13c0 12-8 21-21 27-12-6-20-15-20-27v-13c6-1 13-2 20-8z" fill="rgba(8,24,54,.66)" stroke="url(#goldDPO)" stroke-width="4" stroke-linejoin="round"/>
+          <path d="M293 113l3.4 7 7.7 1.1-5.5 5.4 1.3 7.6-6.9-3.6-6.8 3.6 1.3-7.6-5.5-5.4 7.6-1.1z" fill="url(#goldDPO)"/>
+        </svg>
+              <span class="scrim"></span>
               <span class="visual-kicker">DPD</span>
               <h3 class="visual-title">Delegado de Protección de Datos</h3>
-              <span class="visual-pills">
-                <span>Supervisión</span>
-                <span>Asesoramiento</span>
-                <span>Interlocución</span>
-              </span>
             </a>
             <div class="card-body">
               <div class="tags"><span class="tag">DPD</span><span class="tag">Especializado</span></div>
@@ -2064,14 +2141,20 @@
           </article>
 
           <article class="service-card reveal" data-service="consulting" data-groups="especial empresa continuidad">
-            <a class="visual visual--consulting" href="/consultoria-proteccion-de-datos/" aria-label="Ir a Consultoría Protección de Datos">
+            <a class="visual visual--consulting visual--scene" href="/consultoria-proteccion-de-datos/" aria-label="Ir a Consultoría Protección de Datos">
+              <svg class="scene" viewBox="0 0 360 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs><linearGradient id="bgCP" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a1f42"/><stop offset="1" stop-color="#0b2348"/></linearGradient><linearGradient id="goldCP" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e2c684"/><stop offset="1" stop-color="#c9aa6f"/></linearGradient></defs>
+          <rect width="360" height="180" fill="url(#bgCP)"/>
+          <ellipse cx="300" cy="176" rx="150" ry="128" fill="none" stroke="rgba(201,170,111,.16)"/><ellipse cx="300" cy="176" rx="96" ry="82" fill="none" stroke="rgba(255,255,255,.06)"/><circle cx="356" cy="66" r="3.4" fill="url(#goldCP)"/>
+          <path d="M207 40h86l18 18v91H207z" fill="rgba(8,24,54,.66)" stroke="rgba(255,255,255,.22)" stroke-width="1.3" stroke-linejoin="round"/>
+          <path d="M293 40v18h18M225 72h61M225 84h49M225 96h57M225 108h39M225 120h50" fill="none" stroke="rgba(215,227,243,.32)" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M303 75a23 23 0 0 1 14 41c-5 4-7 8-7 13h-15c0-5-2-9-7-13a23 23 0 0 1 15-41z" fill="rgba(8,24,54,.66)" stroke="url(#goldCP)" stroke-width="4" stroke-linejoin="round"/>
+          <path d="M296 137h14m-12 7h10M303 64v-8m25 18 6-6m-56 6-6-6m62 34h8m-78 0h8" fill="none" stroke="url(#goldCP)" stroke-width="3" stroke-linecap="round"/>
+          <path d="M296 105l7-9 7 9" fill="none" stroke="rgba(226,198,132,.5)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+              <span class="scrim"></span>
               <span class="visual-kicker">Consulta RGPD</span>
               <h3 class="visual-title">Consultoría Protección de Datos</h3>
-              <span class="visual-ui">
-                <span class="visual-line"></span>
-                <span class="visual-line visual-line--mid"></span>
-                <span class="visual-line visual-line--short"></span>
-              </span>
             </a>
             <div class="card-body">
               <div class="tags"><span class="tag">Consulta</span><span class="tag">RGPD</span><span class="tag">LSSI-CE</span></div>
@@ -2093,14 +2176,21 @@
           </article>
 
           <article class="service-card reveal" data-service="contracts" data-groups="especial">
-            <a class="visual visual--contracts" href="/revision-de-contratos/" aria-label="Ir a Revisión de Contratos">
+            <a class="visual visual--contracts visual--scene" href="/revision-de-contratos/" aria-label="Ir a Revisión de Contratos">
+              <svg class="scene" viewBox="0 0 360 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs><linearGradient id="bgCT" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a1f42"/><stop offset="1" stop-color="#0b2348"/></linearGradient><linearGradient id="goldCT" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e2c684"/><stop offset="1" stop-color="#c9aa6f"/></linearGradient></defs>
+          <rect width="360" height="180" fill="url(#bgCT)"/>
+          <ellipse cx="300" cy="176" rx="150" ry="128" fill="none" stroke="rgba(201,170,111,.16)"/><ellipse cx="300" cy="176" rx="96" ry="82" fill="none" stroke="rgba(255,255,255,.06)"/><circle cx="356" cy="66" r="3.4" fill="url(#goldCT)"/>
+          <path d="M204 39h91l18 18v94H204z" fill="rgba(8,24,54,.66)" stroke="rgba(255,255,255,.22)" stroke-width="1.3" stroke-linejoin="round"/>
+          <path d="M295 39v18h18M222 72h65M222 84h53M222 96h61M222 108h45M222 120h56" fill="none" stroke="rgba(215,227,243,.32)" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M222 138c11-8 19 5 30-3 8-6 14 4 24-1" fill="none" stroke="rgba(215,227,243,.26)" stroke-width="1.3" stroke-linecap="round"/>
+          <path d="M331 72l-11-11-51 51-7 19 19-7z" fill="rgba(8,24,54,.66)" stroke="url(#goldCT)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M269 112l12 12m39-63 8-8 11 11-8 8" fill="none" stroke="url(#goldCT)" stroke-width="4" stroke-linejoin="round"/>
+          <path d="M262 131l10-4-6-6z" fill="url(#goldCT)"/>
+        </svg>
+              <span class="scrim"></span>
               <span class="visual-kicker">Contrato</span>
               <h3 class="visual-title">Revisión de Contratos</h3>
-              <span class="visual-ui">
-                <span class="visual-line"></span>
-                <span class="visual-line visual-line--mid"></span>
-                <span class="visual-line visual-line--short"></span>
-              </span>
             </a>
             <div class="card-body">
               <div class="tags"><span class="tag">Contratos</span></div>
@@ -2122,14 +2212,18 @@
           </article>
 
           <article class="service-card reveal" data-service="legal" data-groups="especial">
-            <a class="visual visual--legal" href="/consultoria-legal/" aria-label="Ir a Consultoría Legal">
+            <a class="visual visual--legal visual--scene" href="/consultoria-legal/" aria-label="Ir a Consultoría Legal">
+              <svg class="scene" viewBox="0 0 360 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs><linearGradient id="bgL" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a1f42"/><stop offset="1" stop-color="#0b2348"/></linearGradient><linearGradient id="goldL" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e2c684"/><stop offset="1" stop-color="#c9aa6f"/></linearGradient></defs>
+          <rect width="360" height="180" fill="url(#bgL)"/>
+          <ellipse cx="300" cy="176" rx="150" ry="128" fill="none" stroke="rgba(201,170,111,.16)"/><ellipse cx="300" cy="176" rx="96" ry="82" fill="none" stroke="rgba(255,255,255,.06)"/><circle cx="356" cy="66" r="3.4" fill="url(#goldL)"/>
+          <g><rect x="205" y="42" width="104" height="110" rx="8" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.22)"/><rect x="219" y="59" width="62" height="7" rx="3.5" fill="rgba(215,227,243,.5)"/><rect x="219" y="75" width="72" height="7" rx="3.5" fill="rgba(215,227,243,.32)"/><rect x="219" y="91" width="50" height="7" rx="3.5" fill="rgba(215,227,243,.26)"/></g>
+          <g fill="none" stroke="url(#goldL)" stroke-linecap="round" stroke-linejoin="round"><path d="M291 50 V139 M253 69 L291 60 L329 69" stroke-width="4"/><path d="M254 70 L244 103 M254 70 L271 103 M328 70 L311 103 M328 70 L338 103" stroke-width="1.4"/><path d="M232 103 Q257 126 283 103 Z" fill="rgba(8,24,54,.66)" stroke-width="3"/><path d="M299 103 Q325 126 350 103 Z" fill="rgba(8,24,54,.66)" stroke-width="3"/><path d="M270 145 H312 M278 137 H304" stroke-width="5"/></g>
+          <circle cx="291" cy="60" r="4.5" fill="url(#goldL)"/>
+        </svg>
+              <span class="scrim"></span>
               <span class="visual-kicker">Legal</span>
               <h3 class="visual-title">Consultoría Legal</h3>
-              <span class="visual-pills">
-                <span>Consulta</span>
-                <span>Estrategia</span>
-                <span>Negocio</span>
-              </span>
             </a>
             <div class="card-body">
               <div class="tags"><span class="tag">Legal</span><span class="tag">A medida</span></div>
