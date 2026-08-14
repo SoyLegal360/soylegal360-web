@@ -797,45 +797,47 @@ h3 { font-size: 22px; }
   border-radius: 4px;
   background: var(--soft);
 }
+/* Banda de contacto: la Torre Millenium de noche (pieza de marca de 06_MARKETING)
+   como fondo. La imagen ya nace en navy y con la mitad izquierda despejada para
+   texto, así que el velo es ligero: solo asegura el contraste a la izquierda y deja
+   la torre y las estelas a la vista. Sustituye a la miniatura de 96px, que se leía
+   como un sello pegado y solo estaba en 2 de las 14 páginas. */
 .contact-band {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 26px;
-  padding: 54px max(22px, calc((100vw - 1180px) / 2));
+  gap: 32px;
+  padding: 92px max(22px, calc((100vw - 1180px) / 2));
   color: #fff;
   background: var(--navy);
+  border-top: 1px solid rgba(201,169,110,.22);
 }
-.contact-band h2 { font-size: clamp(28px, 3vw, 40px); }
-.contact-band p { color: #e0e8f3; }
-.contact-band-tower {
-  position: relative;
-  flex: 0 0 auto;
-  width: 96px;
-  margin: 0;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 6px 24px rgba(0,0,0,.32);
-  border: 1px solid rgba(201,169,110,.18);
-}
-.contact-band-tower img {
-  display: block;
-  width: 100%;
-  height: auto;
-  opacity: .82;
-  transition: opacity .35s ease;
-}
-.contact-band-tower::after {
+.contact-band::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg,
-    rgba(6,21,44,.18) 0%,
-    transparent 40%,
-    rgba(6,21,44,.55) 100%);
-  pointer-events: none;
+  z-index: -2;
+  background: url('/assets/img/torre-nocturna-banner.webp') center 22% / cover no-repeat;
 }
-.contact-band-tower:hover img { opacity: 1; }
+.contact-band::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg,
+      rgba(6,21,44,.88) 0%,
+      rgba(6,21,44,.72) 34%,
+      rgba(6,21,44,.34) 62%,
+      rgba(6,21,44,.12) 100%),
+    linear-gradient(180deg, rgba(6,21,44,.20) 0%, rgba(6,21,44,.34) 100%);
+}
+.contact-band > div { max-width: 620px; }
+.contact-band h2 { font-size: clamp(28px, 3vw, 40px); }
+.contact-band p { color: #e6edf7; }
 .site-footer {
   color: #fff;
   background: #041022;
@@ -1223,7 +1225,17 @@ h3 { font-size: 22px; }
   .home-guide-route { scroll-snap-align: start; }
   .hero-home, .card-grid, .card-grid.four, .family-grid, .entry-grid, .risk-strip, .directory-group, .directory-links, .steps, .split, .footer-grid { grid-template-columns: 1fr; }
   h1 { font-size: 42px; }
-  .contact-band { align-items: flex-start; flex-direction: column; }
+  /* Apilada, el texto pasa por encima de toda la foto: el velo se vuelve uniforme
+     y algo más denso para no comprometer la lectura del blanco. */
+  .contact-band { align-items: flex-start; flex-direction: column; padding-top: 56px; padding-bottom: 56px; }
+  /* En vertical `cover` recorta a lo ancho y la torre se salía de cuadro: se
+     reencuadra para que quede detrás del contenido, con el velo asegurando la lectura. */
+  .contact-band::before { background-position: 72% 18%; }
+  .contact-band::after {
+    background:
+      linear-gradient(90deg, rgba(6,21,44,.90) 0%, rgba(6,21,44,.80) 100%),
+      linear-gradient(180deg, rgba(6,21,44,.34) 0%, rgba(6,21,44,.48) 100%);
+  }
 }
 @media (max-width: 680px) {
   .published-hero {
@@ -1269,6 +1281,12 @@ h3 { font-size: 22px; }
 }
 .sl-brand { font-family: 'Roboto', Arial, Helvetica, sans-serif; font-style: normal; }
 .sl-brand span { color: var(--gold); font-weight: 800; }
+/* Dentro de un botón (que va en caja alta) el wordmark salía "SOYLEGAL360" y perdía
+   la identidad del logotipo, que es caja mixta con el "360" en oro. Solo dentro de
+   botones se respeta la caja de la marca y se anula el interletrado, que la
+   desfiguraba. Fuera de botones .sl-brand se queda como estaba. */
+.button .sl-brand { text-transform: none; letter-spacing: 0; font-weight: 700; }
+.button .sl-brand span { font-weight: 800; }
 
 /* ---- imágenes de contenido (minimalistas, integradas en el diseño) ---- */
 .content-img {
