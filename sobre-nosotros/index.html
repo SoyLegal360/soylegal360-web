@@ -118,6 +118,7 @@
     <video id="sl-sobre-bg" class="sl-sobre-bg" src="/assets/video/sobre-hero.mp4" autoplay playsinline preload="metadata" poster="/assets/video/sobre-hero-poster.webp" aria-hidden="true"></video>
     <div class="svc-hero__tint" aria-hidden="true"></div>
     <div class="svc-hero__aura" aria-hidden="true"></div>
+    <div class="sl-hero-aurora" id="sl-hero-aurora" aria-hidden="true"></div>
     <div class="svc-hero__shell">
       <div class="svc-hero__copy">
         <p class="svc-hero__kicker">Quiénes somos</p>
@@ -138,6 +139,17 @@
   <!-- ===== SOBRE NOSOTROS - estilos embebidos ===== -->
   <style>
     .sl-sobre-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-4;filter:brightness(.85);pointer-events:none}
+    .sl-hero-aurora{display:none}
+    @media (hover:hover) and (pointer:fine){
+      .svc-hero{--gx:72%;--gy:38%}
+      .sl-hero-aurora{display:block;position:absolute;inset:0;z-index:-2;pointer-events:none;mix-blend-mode:screen;opacity:0;transition:opacity .6s ease;
+        background:
+          radial-gradient(440px circle at var(--gx) var(--gy), rgba(226,198,132,.34), rgba(201,169,110,.11) 45%, transparent 68%),
+          radial-gradient(760px circle at calc(var(--gx) + 14%) calc(var(--gy) - 16%), rgba(122,170,255,.17), transparent 70%),
+          radial-gradient(230px circle at calc(var(--gx) - 9%) calc(var(--gy) + 12%), rgba(255,244,214,.15), transparent 70%)}
+      .svc-hero:hover .sl-hero-aurora{opacity:1}
+    }
+    @media (prefers-reduced-motion:reduce){.sl-hero-aurora{display:none}}
     .svc-hero .svc-hero__shell{grid-template-columns:1fr;min-height:560px}
     .svc-hero .svc-hero__copy{max-width:680px}
     .svc-hero .svc-hero__tint{background:linear-gradient(90deg,rgba(6,21,44,.9) 0%,rgba(6,21,44,.78) 42%,rgba(6,21,44,.4) 70%,rgba(6,21,44,.2) 100%),linear-gradient(180deg,rgba(13,36,71,.28),rgba(6,21,44,.55))}
@@ -1009,6 +1021,27 @@
       }
     });
   }
+})();
+(function(){
+  if(!window.matchMedia('(hover:hover) and (pointer:fine)').matches)return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var hero=document.querySelector('.svc-hero');
+  if(!hero||!document.getElementById('sl-hero-aurora'))return;
+  var tx=.72,ty=.38,cx=tx,cy=ty,raf=null;
+  function loop(){
+    raf=requestAnimationFrame(function(){
+      cx+=(tx-cx)*.1;cy+=(ty-cy)*.1;
+      hero.style.setProperty('--gx',(cx*100).toFixed(2)+'%');
+      hero.style.setProperty('--gy',(cy*100).toFixed(2)+'%');
+      if(Math.abs(tx-cx)+Math.abs(ty-cy)>.0015){loop();}else{raf=null;}
+    });
+  }
+  hero.addEventListener('pointermove',function(e){
+    var r=hero.getBoundingClientRect();
+    tx=(e.clientX-r.left)/r.width;
+    ty=(e.clientY-r.top)/r.height;
+    if(!raf)loop();
+  });
 })();
 </script>
 </body>
