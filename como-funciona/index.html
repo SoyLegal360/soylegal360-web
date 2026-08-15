@@ -408,8 +408,11 @@
     }
 
     /* Por qué nosotros */
-    .sl-cf-why { padding: 64px 22px; background: var(--sl-cf-soft); }
-    .sl-cf-why__inner { max-width: 1080px; margin: 0 auto; text-align: center; }
+    .sl-cf-why { padding: 64px 22px; background: var(--sl-cf-soft); position: relative; overflow: hidden; }
+    .sl-cf-why__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+    .sl-cf-why__veil { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(248,250,253,.94), rgba(248,250,253,.86) 45%, rgba(248,250,253,.94)); }
+    .sl-cf-why__inner { max-width: 1080px; margin: 0 auto; text-align: center; position: relative; }
+    .sl-cf-why__sub { font: 400 15px/1.5 Arial, Helvetica, sans-serif; color: var(--sl-cf-muted); margin: 12px auto 0; max-width: 560px; }
     .sl-cf-why__head { margin-bottom: 36px; }
     .sl-cf-why__head .eyebrow {
       color: var(--sl-cf-gold);
@@ -714,20 +717,14 @@
 
     <!-- Por qué nosotros -->
     <section class="sl-cf-why">
+      <video class="sl-cf-why__bg" src="/assets/video/cf-abogado.mp4" autoplay muted playsinline preload="metadata" poster="/assets/video/cf-abogado-poster.webp" aria-hidden="true" tabindex="-1"></video>
+      <div class="sl-cf-why__veil" aria-hidden="true"></div>
       <div class="sl-cf-why__inner">
         <div class="sl-cf-why__head">
           <p class="eyebrow">Por qué SoyLegal360</p>
-          <h2>Premium tecnológico, trato cercano</h2>
+          <h2>Abogados de verdad con herramientas de ahora</h2>
+          <p class="sl-cf-why__sub">Cuando importa, tu caso lo ve un abogado de verdad. Con nombre y apellidos.</p>
         </div>
-        <style>
-          .sl-cf-film{margin:0 auto 40px;width:min(520px,100%);border-radius:18px;overflow:hidden;border:1px solid rgba(201,169,110,.3);box-shadow:0 34px 90px -30px rgba(2,10,23,.6);position:relative;background:#050b18}
-          .sl-cf-film video{display:block;width:100%;height:auto}
-          .sl-cf-film figcaption{position:absolute;left:0;right:0;bottom:0;padding:30px 16px 12px;background:linear-gradient(0deg,rgba(4,10,24,.88),transparent);color:#f4ecd9;font:700 13px/1.4 Georgia,serif;text-align:center}
-        </style>
-        <figure class="sl-cf-film">
-          <video src="/assets/video/cf-abogado.mp4" width="960" height="540" autoplay muted playsinline preload="metadata" poster="/assets/video/cf-abogado-poster.webp" aria-label="Un abogado de SoyLegal360 en su despacho"></video>
-          <figcaption>Cuando importa, tu caso lo ve un abogado de verdad. Con nombre y apellidos.</figcaption>
-        </figure>
         <div class="sl-cf-why__grid">
           <article class="sl-cf-why__card">
             <div class="sl-cf-why__icon">
@@ -740,8 +737,8 @@
             <div class="sl-cf-why__icon">
               <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
             </div>
-            <h3>Integración técnica</h3>
-            <p>No solo redactamos: implementamos. Cookies, consent management, integraciones, validación técnica de IA.</p>
+            <h3>De la teoría a tu web</h3>
+            <p>Cookies, gestión del consentimiento e integraciones: revisamos tu web de principio a fin para que lo que dicen tus textos legales se cumpla de verdad.</p>
           </article>
           <article class="sl-cf-why__card">
             <div class="sl-cf-why__icon">
