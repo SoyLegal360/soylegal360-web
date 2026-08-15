@@ -151,6 +151,11 @@
     padding: 80px max(22px, calc((100vw - 1180px) / 2));
   }
   .sl-about-section--soft { background: var(--soft); }
+  .sl-about-section--team { position: relative; overflow: hidden; }
+  .sl-about-section--team .sl-about-wrap { position: relative; }
+  .sl-about-team-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+  .sl-about-team-veil { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,.95), rgba(255,255,255,.88) 45%, rgba(255,255,255,.95)); }
+  .sl-about-section--team .sl-person { background: rgba(244,246,250,.92); }
   .sl-about-section--dark {
     background: linear-gradient(135deg, #06152c 0%, #0d2447 100%);
     color: #fff;
@@ -306,10 +311,7 @@
     position: relative;
     overflow: hidden;
   }
-  .sl-about-cta-mid__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
-  .sl-about-cta-mid__veil { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(6,21,44,.82), rgba(13,36,71,.72)); }
   .sl-about-cta-mid .sl-about-wrap {
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -498,7 +500,9 @@
   </section>
 
   <!-- 4. Equipo y credenciales -->
-  <section class="sl-about-section">
+  <section class="sl-about-section sl-about-section--team">
+    <video class="sl-about-team-bg" src="/assets/video/sobre-hero-noche.mp4" autoplay muted playsinline preload="metadata" poster="/assets/video/sobre-hero-noche-poster.webp" aria-hidden="true" tabindex="-1"></video>
+    <div class="sl-about-team-veil" aria-hidden="true"></div>
     <div class="sl-about-wrap">
       <p class="eyebrow sl-about-reveal">Nuestro equipo</p>
       <h2 class="sl-about-reveal">Las personas detrás de <span class="sl-about-gold">SoyLegal360</span></h2>
@@ -541,8 +545,6 @@
 
   <!-- CTA intermedio -->
   <section class="sl-about-cta-mid">
-    <video class="sl-about-cta-mid__bg" src="/assets/video/sobre-hero-noche.mp4" autoplay muted playsinline preload="metadata" poster="/assets/video/sobre-hero-noche-poster.webp" aria-hidden="true" tabindex="-1"></video>
-    <div class="sl-about-cta-mid__veil" aria-hidden="true"></div>
     <div class="sl-about-wrap sl-about-reveal">
       <p>¿Necesitas un <strong>DPD certificado</strong> o quieres saber si tu empresa está realmente protegida?</p>
       <a class="button gold" href="https://app.soylegal360.es">Solicitar auditoría gratuita</a>
