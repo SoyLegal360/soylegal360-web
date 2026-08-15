@@ -119,10 +119,10 @@
     .sl-area-frame__url { color:rgba(255,255,255,.6); background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1); border-radius:999px; padding:6px 16px; font:600 12px/1 Arial,Helvetica,sans-serif; }
     .sl-area-frame video { display:block; width:100%; height:auto; }
     .sl-area-frame--film { background:#050b18; }
-    .sl-area-sound { position:absolute; right:16px; bottom:16px; display:inline-flex; align-items:center; gap:8px; padding:9px 16px; border:1px solid rgba(255,255,255,.28); border-radius:999px; background:rgba(6,14,30,.55); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); color:#f4ecd9; font:700 12.5px/1 Arial,Helvetica,sans-serif; letter-spacing:.03em; cursor:pointer; transition:background .2s ease,border-color .2s ease,transform .2s ease; }
+    .sl-area-sound { position:absolute; right:192px; bottom:16px; display:inline-flex; align-items:center; gap:8px; padding:9px 16px; border:1px solid rgba(255,255,255,.28); border-radius:999px; background:rgba(6,14,30,.55); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); color:#f4ecd9; font:700 12.5px/1 Arial,Helvetica,sans-serif; letter-spacing:.03em; cursor:pointer; transition:background .2s ease,border-color .2s ease,transform .2s ease; }
     .sl-area-sound:hover { background:rgba(9,20,42,.75); border-color:rgba(226,200,139,.55); transform:translateY(-1px); }
     .sl-area-sound[aria-pressed="true"] { background:rgba(201,169,110,.22); border-color:rgba(226,200,139,.6); color:#e2c88b; }
-    @media (max-width:560px){ .sl-area-sound { right:10px; bottom:10px; padding:8px 13px; } }
+    @media (max-width:560px){ .sl-area-sound { right:158px; bottom:10px; padding:8px 13px; } .sl-vid-replay { right:10px; bottom:10px; padding:9px 14px; } }
     .sl-vid-replay { position:absolute; right:16px; bottom:16px; z-index:3; display:inline-flex; align-items:center; gap:9px; padding:13px 22px; border:1px solid rgba(226,200,139,.55); border-radius:999px; background:rgba(6,14,30,.72); backdrop-filter:blur(9px); -webkit-backdrop-filter:blur(9px); color:#e2c88b; font:700 14px/1 Arial,Helvetica,sans-serif; letter-spacing:.04em; cursor:pointer; transition:background .2s ease,transform .2s ease; }
     .sl-vid-replay[hidden],.sl-vid-sound[hidden],.sl-area-sound[hidden]{display:none}
         .sl-vid-replay:hover { background:rgba(201,169,110,.26); transform:scale(1.04); }
@@ -313,7 +313,7 @@
       <div class="wrap">
         <div class="sl-area-frame sl-area-frame--film">
           <video id="sl-area-film" src="/assets/video/sl-area-comercial.mp4" width="1600" height="900" autoplay muted playsinline preload="metadata" poster="/assets/video/sl-area-comercial-poster.webp" aria-label="Comercial del área de clientes: una panadera gestiona la protección de datos de su negocio desde el área privada de SoyLegal360"></video>
-          <button type="button" class="sl-vid-replay" id="sl-area-replay" hidden aria-label="Ver el vídeo desde el inicio">
+          <button type="button" class="sl-vid-replay" id="sl-area-replay" aria-label="Ver el vídeo desde el inicio">
             <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 2.6-6.4"/><polyline points="3 3 3 7.5 7.5 7.5"/></svg>
             <span>Ver de nuevo</span>
           </button>
@@ -697,11 +697,8 @@
     var r = document.getElementById('sl-area-replay');
     if (!v || !b) return;
     var label = b.querySelector('span');
-    v.addEventListener('ended', function(){ if (r) r.hidden = false; b.hidden = true; });
-    v.addEventListener('play', function(){ if (r) r.hidden = true; b.hidden = false; });
-    if (r) {
+            if (r) {
       r.addEventListener('click', function(){
-        r.hidden = true;
         try { v.currentTime = 0; } catch(e){}
         v.play().catch(function(){});
       });
