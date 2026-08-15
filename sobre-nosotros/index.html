@@ -128,28 +128,7 @@
           <a class="svc-hero__secondary" href="/contacto/">Hablemos</a>
         </div>
       </div>
-      <div class="svc-hero__glass" aria-hidden="true">
-        <span class="svc-hero__shine"></span>
-        <svg class="svc-hero__svg" viewBox="0 0 620 560" role="presentation">
-          <defs>
-            <linearGradient id="gold-ab" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e2c684"/><stop offset="1" stop-color="#c9a96e"/></linearGradient>
-            <filter id="sh-ab"><feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#020a17" flood-opacity=".55"/></filter>
-          </defs>
-          <g filter="url(#sh-ab)">
-            <ellipse cx="310" cy="284" rx="212" ry="98" fill="none" stroke="url(#gold-ab)" stroke-width="9" transform="rotate(-22 310 284)"/>
-            <circle cx="488" cy="214" r="9" fill="url(#gold-ab)"/>
-            <circle cx="310" cy="284" r="122" fill="#0d2447" stroke="#ffffff" stroke-opacity=".3" stroke-width="3"/>
-            <g fill="none" stroke="#ffffff" stroke-opacity=".55" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M310 224v130M276 356h68"/>
-              <path d="M250 258h120"/>
-              <path d="M228 258l-20 44a24 18 0 0 0 40 0Z" fill="#06152c"/>
-              <path d="M392 258l-20 44a24 18 0 0 0 40 0Z" fill="#06152c"/>
-            </g>
-            <g fill="#ffffff" fill-opacity=".4"><circle cx="250" cy="258" r="6"/><circle cx="370" cy="258" r="6"/><circle cx="310" cy="224" r="6"/></g>
-          </g>
-        </svg>
-        <div class="svc-hero__seal"><span class="svc-hero__seal-mark">✓</span><span class="svc-hero__seal-copy">Derecho<br>+ IA</span></div>
-      </div>
+      
     </div>
     <button type="button" class="sl-vid-sound" id="sl-sobre-sound" hidden aria-pressed="false" aria-label="Activar sonido del vídeo">
       <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="currentColor" stroke="none"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
@@ -158,7 +137,11 @@
   </section>
   <!-- ===== SOBRE NOSOTROS - estilos embebidos ===== -->
   <style>
-    .sl-sobre-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-4;filter:brightness(.8);pointer-events:none}
+    .sl-sobre-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-4;filter:brightness(.85);pointer-events:none}
+    .svc-hero .svc-hero__shell{grid-template-columns:1fr;min-height:560px}
+    .svc-hero .svc-hero__copy{max-width:680px}
+    .svc-hero .svc-hero__tint{background:linear-gradient(90deg,rgba(6,21,44,.9) 0%,rgba(6,21,44,.78) 42%,rgba(6,21,44,.4) 70%,rgba(6,21,44,.2) 100%),linear-gradient(180deg,rgba(13,36,71,.28),rgba(6,21,44,.55))}
+    @media (max-width:900px){ .svc-hero .svc-hero__tint{background:linear-gradient(180deg,rgba(6,21,44,.88),rgba(6,21,44,.68))} }
     .sl-vid-sound[hidden]{display:none}
     .sl-vid-sound{position:absolute;right:18px;bottom:18px;z-index:5;display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border:1px solid rgba(255,255,255,.28);border-radius:999px;background:rgba(6,14,30,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#f4ecd9;font:700 12px/1 Arial,Helvetica,sans-serif;letter-spacing:.03em;cursor:pointer;transition:background .2s ease,border-color .2s ease}
     .sl-vid-sound:hover{background:rgba(9,20,42,.78);border-color:rgba(226,200,139,.55)}
@@ -472,12 +455,12 @@
   <section class="sl-about-stats" aria-label="Cifras clave de SoyLegal360">
     <div class="sl-about-stats__inner">
       <div class="sl-about-stat sl-about-reveal">
-        <span class="sl-about-stat__num">48 h</span>
+        <span class="sl-about-stat__num">&lt;48 h</span>
         <span class="sl-about-stat__label">Respuesta garantizada</span>
       </div>
       <div class="sl-about-stat sl-about-reveal">
-        <span class="sl-about-stat__num">3</span>
-        <span class="sl-about-stat__label">RGPD · LOPDGDD · LSSICE</span>
+        <span class="sl-about-stat__num">4</span>
+        <span class="sl-about-stat__label">RGPD · LOPDGDD · LSSICE · AI Act</span>
       </div>
       <div class="sl-about-stat sl-about-reveal">
         <span class="sl-about-stat__num">100%</span>
@@ -645,10 +628,10 @@
         <p>En <span class="sl-brand">SoyLegal<span>360</span></span> no somos un despacho más. Somos el puente entre el marco legal y la realidad digital de tu negocio, con la metodología propia de la <em class="sl-about-gold">Digitalización Blindada&#8482;</em>.</p>
       </div>
       <ul class="check-list sl-about-reveal">
-        <li>Especialistas exclusivos en RGPD, LOPDGDD y LSSICE, no generalistas.</li>
+        <li>Especialistas exclusivos en RGPD, LOPDGDD, LSSICE y AI Act, no generalistas.</li>
         <li>Documentación 100% personalizada para cada cliente.</li>
         <li>Servicio online a toda España desde Torre Millenium, Sabadell.</li>
-        <li>Respuesta garantizada en <strong style="color:var(--gold)">48 horas</strong> hábiles.</li>
+        <li>Respuesta garantizada en menos de <strong style="color:var(--gold)">48 horas</strong> hábiles.</li>
         <li>Sin contratos de permanencia mínima en los servicios de mantenimiento.</li>
         <li><em class="sl-about-gold">Digitalización Blindada&#8482;</em>, el método propio de <span class="sl-brand">SoyLegal<span>360</span></span>.</li>
       </ul>
