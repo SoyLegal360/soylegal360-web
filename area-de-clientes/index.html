@@ -123,8 +123,17 @@
     .sl-area-sound:hover { background:rgba(9,20,42,.75); border-color:rgba(226,200,139,.55); transform:translateY(-1px); }
     .sl-area-sound[aria-pressed="true"] { background:rgba(201,169,110,.22); border-color:rgba(226,200,139,.6); color:#e2c88b; }
     @media (max-width:560px){ .sl-area-sound { right:10px; bottom:10px; padding:8px 13px; } }
-    .sl-vid-replay { position:absolute; left:50%; bottom:9%; transform:translateX(-50%); z-index:3; display:inline-flex; align-items:center; gap:9px; padding:13px 22px; border:1px solid rgba(226,200,139,.55); border-radius:999px; background:rgba(6,14,30,.72); backdrop-filter:blur(9px); -webkit-backdrop-filter:blur(9px); color:#e2c88b; font:700 14px/1 Arial,Helvetica,sans-serif; letter-spacing:.04em; cursor:pointer; transition:background .2s ease,transform .2s ease; }
-    .sl-vid-replay:hover { background:rgba(201,169,110,.26); transform:translateX(-50%) scale(1.04); }
+    .sl-vid-replay { position:absolute; right:16px; bottom:22%; z-index:3; display:inline-flex; align-items:center; gap:9px; padding:13px 22px; border:1px solid rgba(226,200,139,.55); border-radius:999px; background:rgba(6,14,30,.72); backdrop-filter:blur(9px); -webkit-backdrop-filter:blur(9px); color:#e2c88b; font:700 14px/1 Arial,Helvetica,sans-serif; letter-spacing:.04em; cursor:pointer; transition:background .2s ease,transform .2s ease; }
+    .sl-vid-replay:hover { background:rgba(201,169,110,.26); transform:scale(1.04); }
+    .sl-area-row__media { cursor:zoom-in; }
+    .sl-area-row__media img { transition:transform .3s ease, box-shadow .3s ease; }
+    .sl-area-row__media:hover img { transform:scale(1.025); box-shadow:0 40px 90px -28px rgba(6,20,46,.5); }
+    .sl-vid-ai { margin:10px auto 0; width:min(1000px,100%); text-align:right; color:rgba(90,106,132,.75); font:400 11px/1.4 Arial,Helvetica,sans-serif; }
+    .sl-lightbox { position:fixed; inset:0; z-index:1200; display:grid; place-items:center; padding:4vh 4vw; background:rgba(3,8,20,.9); backdrop-filter:blur(7px); -webkit-backdrop-filter:blur(7px); opacity:0; visibility:hidden; transition:opacity .25s ease, visibility .25s ease; cursor:zoom-out; }
+    .sl-lightbox.on { opacity:1; visibility:visible; }
+    .sl-lightbox img { max-width:min(1100px,92vw); max-height:86vh; width:auto; height:auto; border-radius:12px; box-shadow:0 50px 140px -30px rgba(0,0,0,.9); transform:scale(.96); transition:transform .25s ease; }
+    .sl-lightbox.on img { transform:scale(1); }
+    .sl-lightbox figcaption { margin-top:12px; color:rgba(244,236,217,.75); font:600 13px/1.5 Arial,Helvetica,sans-serif; text-align:center; }
 
     /* Banda de seguridad (glass interactivo) */
     .sl-area-sec { padding:84px 0 90px; background:linear-gradient(160deg,#0a1e3d 0%,#06142e 60%,#050f22 100%); color:#fff; }
@@ -303,6 +312,7 @@
             <span>Activar sonido</span>
           </button>
         </div>
+        <p class="sl-vid-ai">Vídeo promocional creado con IA</p>
       </div>
     </section>
 
@@ -591,6 +601,21 @@
         });
       });
     }
+  })();
+
+  (function(){
+    var box=document.createElement('div');box.className='sl-lightbox';box.setAttribute('role','dialog');box.setAttribute('aria-modal','true');box.setAttribute('aria-label','Imagen ampliada');
+    var fig=document.createElement('figure');fig.style.margin='0';var im=document.createElement('img');var cap=document.createElement('figcaption');
+    fig.appendChild(im);fig.appendChild(cap);box.appendChild(fig);document.body.appendChild(box);
+    function close(){box.classList.remove('on');}
+    box.addEventListener('click',close);
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+    document.querySelectorAll('.sl-area-row__media img').forEach(function(img){
+      img.parentElement.addEventListener('click',function(){
+        im.src=img.currentSrc||img.src;im.alt=img.alt;cap.textContent=img.alt||'';
+        box.classList.add('on');
+      });
+    });
   })();
   (function(){
     var v = document.getElementById('sl-area-film');

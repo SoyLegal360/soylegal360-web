@@ -569,6 +569,20 @@
     </script>
     <!-- FIN VÍDEO DE FONDO HERO -->
   </section>
+  <a class="sl-area-strip" href="/area-de-clientes/">
+    <span class="sl-area-strip__dot" aria-hidden="true"></span>
+    <span class="sl-area-strip__txt">En SoyLegal360 llevamos la protección de datos 360 <em>al siguiente nivel</em>: descubre tu área de clientes</span>
+    <span class="sl-area-strip__arrow" aria-hidden="true">→</span>
+  </a>
+  <style>
+    .sl-area-strip{display:flex;align-items:center;justify-content:center;gap:10px;padding:11px 18px;background:linear-gradient(90deg,#081831,#0c2246 50%,#081831);border-top:1px solid rgba(201,169,110,.28);border-bottom:1px solid rgba(201,169,110,.28);color:#f4ecd9;text-decoration:none;font:600 13.5px/1.4 Arial,Helvetica,sans-serif;letter-spacing:.02em;transition:background .25s ease}
+    .sl-area-strip:hover{background:linear-gradient(90deg,#0a1e3d,#10294f 50%,#0a1e3d)}
+    .sl-area-strip__dot{width:7px;height:7px;border-radius:50%;background:#e2c684;box-shadow:0 0 10px rgba(226,198,132,.8);flex:0 0 auto}
+    .sl-area-strip__txt em{color:#e2c88b;font-style:normal}
+    .sl-area-strip__arrow{color:#e2c88b;transition:transform .25s ease}
+    .sl-area-strip:hover .sl-area-strip__arrow{transform:translateX(4px)}
+    @media(max-width:600px){.sl-area-strip{font-size:12px;text-align:center;padding:10px 14px}}
+  </style>
   <nav class="home-guide" aria-label="Guía rápida de la página principal">
     <div class="home-guide-wrap">
       <div class="home-guide-intro">
@@ -1668,6 +1682,7 @@
           <span>Ver de nuevo</span>
         </button>
       </div>
+      <p class="sl-vid-ai">Vídeo promocional creado con IA</p>
       <div class="sl-app-shots">
         <figure>
           <img src="/assets/img/sl-app-chat.webp?v=2" width="1000" height="625" alt="Conversación real con el asistente citando el artículo 12 del RGPD, verificado por abogados" loading="lazy">
@@ -1688,8 +1703,17 @@
         .sl-vid-sound[aria-pressed="true"]{background:rgba(201,169,110,.24);border-color:rgba(226,200,139,.6);color:#e2c88b}
         .sl-app-film{position:relative;width:min(1000px,100%);margin:0 auto;border-radius:18px;overflow:hidden;background:#050b18;border:1px solid rgba(255,255,255,.1);box-shadow:0 46px 110px -38px rgba(2,8,20,.85)}
         .sl-app-film video{display:block;width:100%;height:auto}
-        .sl-vid-replay{position:absolute;left:50%;bottom:9%;transform:translateX(-50%);z-index:3;display:inline-flex;align-items:center;gap:9px;padding:13px 22px;border:1px solid rgba(226,200,139,.55);border-radius:999px;background:rgba(6,14,30,.72);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);color:#e2c88b;font:700 14px/1 Arial,Helvetica,sans-serif;letter-spacing:.04em;cursor:pointer;transition:background .2s ease,transform .2s ease}
-        .sl-vid-replay:hover{background:rgba(201,169,110,.26);transform:translateX(-50%) scale(1.04)}
+        .sl-vid-replay{position:absolute;right:16px;bottom:22%;z-index:3;display:inline-flex;align-items:center;gap:9px;padding:13px 22px;border:1px solid rgba(226,200,139,.55);border-radius:999px;background:rgba(6,14,30,.72);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);color:#e2c88b;font:700 14px/1 Arial,Helvetica,sans-serif;letter-spacing:.04em;cursor:pointer;transition:background .2s ease,transform .2s ease}
+        .sl-vid-replay:hover{background:rgba(201,169,110,.26);transform:scale(1.04)}
+        .sl-app-shots figure{overflow:hidden;border-radius:10px;cursor:zoom-in}
+        .sl-app-shots img{transition:transform .35s ease}
+        .sl-app-shots figure:hover img{transform:scale(1.05)}
+        .sl-vid-ai{margin:10px auto 0;width:min(1000px,100%);text-align:right;color:rgba(244,236,217,.45);font:400 11px/1.4 Arial,Helvetica,sans-serif}
+        .sl-lightbox{position:fixed;inset:0;z-index:1200;display:grid;place-items:center;padding:4vh 4vw;background:rgba(3,8,20,.9);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);opacity:0;visibility:hidden;transition:opacity .25s ease,visibility .25s ease;cursor:zoom-out}
+        .sl-lightbox.on{opacity:1;visibility:visible}
+        .sl-lightbox img{max-width:min(1100px,92vw);max-height:86vh;width:auto;height:auto;border-radius:12px;box-shadow:0 50px 140px -30px rgba(0,0,0,.9);transform:scale(.96);transition:transform .25s ease}
+        .sl-lightbox.on img{transform:scale(1)}
+        .sl-lightbox figcaption{margin-top:12px;color:rgba(244,236,217,.75);font:600 13px/1.5 Arial,Helvetica,sans-serif;text-align:center}
         .sl-app-shots{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;width:min(1000px,100%);margin:18px auto 0}
         .sl-app-shots figure{margin:0}
         .sl-app-shots img{display:block;width:100%;height:auto;border-radius:10px;border:1px solid rgba(255,255,255,.12);box-shadow:0 18px 40px -18px rgba(2,8,20,.7)}
@@ -1697,6 +1721,23 @@
         @media(max-width:720px){.sl-app-shots{grid-template-columns:1fr;gap:20px;width:min(420px,100%)}}
       </style>
       <script>
+
+      (function(){
+        var box=document.createElement('div');box.className='sl-lightbox';box.setAttribute('role','dialog');box.setAttribute('aria-modal','true');box.setAttribute('aria-label','Imagen ampliada');
+        var fig=document.createElement('figure');fig.style.margin='0';var im=document.createElement('img');var cap=document.createElement('figcaption');
+        fig.appendChild(im);fig.appendChild(cap);box.appendChild(fig);document.body.appendChild(box);
+        function close(){box.classList.remove('on');}
+        box.addEventListener('click',close);
+        document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+        document.querySelectorAll('.sl-app-shots img').forEach(function(img){
+          img.parentElement.addEventListener('click',function(){
+            im.src=img.currentSrc||img.src;im.alt=img.alt;
+            var fc=img.closest('figure')&&img.closest('figure').querySelector('figcaption');
+            cap.textContent=fc?fc.textContent:(img.alt||'');
+            box.classList.add('on');
+          });
+        });
+      })();
       (function(){
         var v=document.getElementById('sl-film-home'),b=document.getElementById('sl-sound-home'),r=document.getElementById('sl-replay-home');
         if(!v||!b)return;
