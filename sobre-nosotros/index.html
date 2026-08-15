@@ -115,7 +115,7 @@
   <nav class="sl-crumbs" aria-label="Ruta de navegación"><a href="/">Inicio</a><span class="sep">/</span><span aria-current="page">Sobre nosotros</span></nav>
     <section class="svc-hero" style="--hero-photo: url('/assets/img/despacho/oficina-principal.webp');">
     <div class="svc-hero__photo" aria-hidden="true"></div>
-    <video id="sl-sobre-bg" class="sl-sobre-bg" src="/assets/video/sobre-hero-noche.mp4" autoplay playsinline preload="metadata" poster="/assets/video/sobre-hero-noche-poster.webp" aria-hidden="true"></video>
+    <video id="sl-sobre-bg" class="sl-sobre-bg" src="/assets/video/sobre-hero.mp4" autoplay playsinline preload="metadata" poster="/assets/video/sobre-hero-poster.webp" aria-hidden="true"></video>
     <div class="svc-hero__tint" aria-hidden="true"></div>
     <div class="svc-hero__aura" aria-hidden="true"></div>
     <div class="svc-hero__shell">
@@ -303,8 +303,13 @@
     border-top: 2px solid var(--gold);
     border-bottom: 2px solid rgba(201,169,110,.25);
     text-align: center;
+    position: relative;
+    overflow: hidden;
   }
+  .sl-about-cta-mid__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+  .sl-about-cta-mid__veil { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(6,21,44,.82), rgba(13,36,71,.72)); }
   .sl-about-cta-mid .sl-about-wrap {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -536,6 +541,8 @@
 
   <!-- CTA intermedio -->
   <section class="sl-about-cta-mid">
+    <video class="sl-about-cta-mid__bg" src="/assets/video/sobre-hero-noche.mp4" autoplay muted playsinline preload="metadata" poster="/assets/video/sobre-hero-noche-poster.webp" aria-hidden="true" tabindex="-1"></video>
+    <div class="sl-about-cta-mid__veil" aria-hidden="true"></div>
     <div class="sl-about-wrap sl-about-reveal">
       <p>¿Necesitas un <strong>DPD certificado</strong> o quieres saber si tu empresa está realmente protegida?</p>
       <a class="button gold" href="https://app.soylegal360.es">Solicitar auditoría gratuita</a>
