@@ -252,6 +252,63 @@
     pointer-events: none;
   }
 
+  /* Diagrama del círculo: imagen de fondo + etiquetas del mercado encima.
+     Las etiquetas van en % para escalar con el contenedor; en móvil pasan a lista. */
+  .sl-circulo { position: relative; margin: 0; }
+  .sl-circulo img { display: block; width: 100%; height: auto; border-radius: 16px; }
+  .sl-circulo__tag {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    padding: 7px 13px;
+    border-radius: 999px;
+    background: rgba(6,21,44,.72);
+    border: 1px solid rgba(226,198,132,.22);
+    color: #cbd6e6;
+    font: 700 11.5px/1.2 Arial, Helvetica, sans-serif;
+    letter-spacing: .04em;
+    white-space: nowrap;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+  .sl-circulo__tag--nos {
+    background: rgba(6,21,44,.86);
+    border-color: rgba(226,198,132,.65);
+    color: var(--gold);
+    font-size: 13.5px;
+    padding: 11px 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(2,10,23,.45);
+  }
+  .sl-circulo__tag--nos span {
+    display: block;
+    color: #eef3fa;
+    font-weight: 400;
+    font-size: 10.5px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    margin-top: 3px;
+  }
+  .sl-circulo__leyenda { display: none; }
+  @media (max-width: 860px) {
+    .sl-circulo__tag:not(.sl-circulo__tag--nos) { display: none; }
+    .sl-circulo__leyenda {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin: 16px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .sl-circulo__leyenda li {
+      padding: 6px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      font: 700 11.5px/1.2 Arial, Helvetica, sans-serif;
+    }
+  }
+
   /* Equipo y credenciales */
   .sl-about-team {
     display: grid;
@@ -341,9 +398,80 @@
   /* Valores */
   .sl-about-values {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 22px;
     margin-top: 44px;
+  }
+
+  /* Cierre "por qué actuar ahora": las dos caras del cumplimiento sobre banda oscura */
+  .sl-about-ahora { position: relative; overflow: hidden; }
+  .sl-about-ahora__bg {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center 40%;
+    pointer-events: none;
+  }
+  .sl-about-ahora__veil {
+    position: absolute; inset: 0;
+    background: linear-gradient(100deg, rgba(6,21,44,.96) 0%, rgba(6,21,44,.9) 45%, rgba(6,21,44,.72) 100%);
+  }
+  .sl-about-ahora .sl-about-wrap { position: relative; }
+  .sl-about-doble {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-top: 40px;
+  }
+  .sl-about-doble__col h3 {
+    font-size: 20px;
+    color: #fff;
+    margin: 14px 0 10px;
+    font-weight: 700;
+  }
+  .sl-about-doble__col p {
+    color: rgba(255,255,255,.78);
+    font-size: 14.5px;
+    line-height: 1.68;
+    margin: 0;
+  }
+  .sl-about-doble .sl-about-value-icon { margin: 0; }
+  .sl-about-cierre {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    flex-wrap: wrap;
+    margin-top: 44px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(226,198,132,.24);
+  }
+  .sl-about-cierre p {
+    margin: 0;
+    color: rgba(255,255,255,.9);
+    font-family: Georgia, serif;
+    font-size: clamp(16px, 1.7vw, 19px);
+    max-width: 560px;
+  }
+
+  /* Bloque de la objeción de la IA */
+  .sl-about-ia { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+  .sl-about-ia li {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--gold);
+    border-radius: 12px;
+    padding: 16px 18px;
+  }
+  .sl-about-ia h3 {
+    font: 700 15.5px/1.3 Georgia, serif;
+    color: var(--ink);
+    margin: 0 0 6px;
+  }
+  .sl-about-ia p {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--muted);
+    margin: 0;
   }
   .sl-about-value-card {
     background: #fff;
@@ -454,6 +582,9 @@
     .sl-about-team { grid-template-columns: 1fr; }
     .sl-about-people { grid-template-columns: 1fr; }
   }
+  @media (max-width: 860px) {
+    .sl-about-doble { grid-template-columns: 1fr; gap: 30px; }
+  }
   @media (max-width: 760px) {
     .sl-about-split { grid-template-columns: 1fr; gap: 32px; }
     .sl-about-img-wrap { order: -1; }
@@ -493,21 +624,35 @@
   </section>
 
   <!-- 3. Historia -->
-  <section class="sl-about-section sl-about-section--soft">
+  <section class="sl-about-section sl-about-section--soft" id="por-que-existimos">
     <div class="sl-about-wrap sl-about-split">
       <div class="sl-about-reveal">
         <p class="eyebrow">Por qué existimos</p>
-        <h2>Cerramos la brecha entre el <span class="sl-about-gold">derecho</span> y la <span class="sl-about-gold">tecnología</span></h2>
-        <p>Hoy las empresas crean webs, usan herramientas de inteligencia artificial y manejan datos de clientes y trabajadores cada día. Pero el cumplimiento siempre va por detrás: hay agencias que diseñan webs bonitas sin pensar en las obligaciones legales, y despachos que redactan documentos correctos pero sin saber implementarlos en la realidad digital de un negocio. En medio quedan miles de empresas, pymes y autónomos expuestos a sanciones sin saberlo.</p>
-        <p>Y el riesgo ya no es teórico. Cualquier persona descontenta, un cliente, un extrabajador o incluso un competidor, puede informarse en minutos, ejercer sus derechos contra tu negocio o escalar una reclamación a la AEPD.</p>
-        <p><span class="sl-brand">SoyLegal<span>360</span></span> nace para cerrar esa brecha, y vamos mucho más allá de los textos de una web. Somos protección de datos integral: RGPD, LOPDGDD, LSSICE y el nuevo Reglamento Europeo de Inteligencia Artificial. Unimos el rigor de abogados especializados con la capacidad técnica para implementarlo de verdad y un conocimiento real de la IA y de sus riesgos. Desde Torre Millenium (Sabadell) damos servicio a toda España, con la agilidad de una consultoría digital y la solidez de un despacho consolidado.</p>
-        <p>Y por encima de toda esa tecnología, siempre hay personas. Trato directo, cercano y humano: sabemos lo engorrosa que puede ser la normativa, y nuestro trabajo es quitarte ese peso de encima para que cumplas con tranquilidad.</p>
+        <h2>Nadie cerraba el <span class="sl-about-gold">círculo</span></h2>
+        <p>Tu gestoría lleva el fiscal y el laboral. Tu agencia te monta la web. Un despacho te redacta los documentos. Las grandes consultoras lo abarcan casi todo, a precios que una pyme no puede pagar. Y las plataformas de cien euros te entregan un documento generado en automático. Cada uno cubre su trozo, y lo que queda entre medias lo acabas cubriendo tú.</p>
+        <p><span class="sl-brand">SoyLegal<span>360</span></span> nace para cerrar ese círculo. No somos una plantilla, ni un chatbot, ni una respuesta de IA: somos un despacho con abogados colegiados que estudian tu caso, firman lo que entregan y dan la cara si mañana llega una inspección. Protección de datos, AI Act, tu web, tus contratos y tu marca, desde Torre Millenium para toda España.</p>
+        <p>Y por encima de la tecnología, siempre hay personas. Sabemos lo engorrosa que puede ser la normativa: nuestro trabajo es quitarte ese peso de encima para que cumplas con tranquilidad.</p>
       </div>
-      <figure class="sl-about-img-wrap sl-about-reveal">
-        <img src="/assets/img/despacho/recepcion.jpg"
-             alt="Sala de reuniones SoyLegal360 en Torre Millenium, Sabadell"
-             loading="lazy" width="960" height="640">
-      </figure>
+      <div class="sl-about-reveal">
+        <figure class="sl-circulo">
+          <img src="/assets/img/circulo-360.webp"
+               alt="Un anillo dorado completo rodeado de arcos incompletos: cada proveedor cubre solo una parte del cumplimiento legal y SoyLegal360 lo cierra entero"
+               loading="lazy" width="1200" height="800">
+          <span class="sl-circulo__tag" style="left:23%;top:11%">Gestorías</span>
+          <span class="sl-circulo__tag" style="left:77%;top:13%">Agencias web</span>
+          <span class="sl-circulo__tag" style="left:14%;top:62%">Despachos</span>
+          <span class="sl-circulo__tag" style="left:79%;top:70%">Grandes consultoras</span>
+          <span class="sl-circulo__tag" style="left:50%;top:92%">Plataformas low cost</span>
+          <span class="sl-circulo__tag sl-circulo__tag--nos" style="left:50%;top:50%">SoyLegal360<span>El círculo entero</span></span>
+        </figure>
+        <ul class="sl-circulo__leyenda">
+          <li>Gestorías</li>
+          <li>Agencias web</li>
+          <li>Despachos</li>
+          <li>Grandes consultoras</li>
+          <li>Plataformas low cost</li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -580,8 +725,8 @@
           <div class="sl-about-value-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
           </div>
-          <h3>Integración técnica</h3>
-          <p>Derecho y tecnología en un único servicio. La brecha entre el despacho y la agencia, cerrada de una vez.</p>
+          <h3>Especialistas, no generalistas</h3>
+          <p>RGPD, LOPDGDD, LSSICE y AI Act. No es una materia más de las que llevamos: es a lo que nos dedicamos.</p>
         </article>
         <article class="sl-about-value-card sl-about-reveal">
           <div class="sl-about-value-icon">
@@ -604,6 +749,13 @@
           <h3>Responsabilidad real</h3>
           <p>Detrás de cada entrega hay un abogado colegiado que responde por ella, no un algoritmo ni una plantilla. La tecnología y la IA están al servicio del cliente; el criterio es siempre nuestro.</p>
         </article>
+        <article class="sl-about-value-card sl-about-reveal">
+          <div class="sl-about-value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg>
+          </div>
+          <h3>Sin ataduras</h3>
+          <p>Ningún servicio de mantenimiento tiene permanencia mínima. Te quedas porque quieres, no porque hayas firmado un candado.</p>
+        </article>
       </div>
     </div>
   </section>
@@ -613,7 +765,7 @@
     <div class="sl-about-wrap">
       <p class="eyebrow sl-about-reveal">El método</p>
       <h2 class="sl-about-reveal">Cómo <span class="sl-about-gold">trabajamos</span></h2>
-      <p class="sl-about-reveal" style="max-width:580px;color:var(--muted)">Un proceso estructurado y transparente que convierte la exposición legal en seguridad real para tu negocio.</p>
+      <p class="sl-about-reveal" style="max-width:580px;color:var(--muted)">Un proceso estructurado y transparente que convierte la exposición legal en seguridad real para tu negocio. <a href="/como-funciona/" style="color:var(--gold);font-weight:700">Verlo paso a paso &rarr;</a></p>
       <div class="sl-about-process">
         <article class="sl-about-step sl-about-reveal">
           <span class="sl-about-step-num">01</span>
@@ -639,58 +791,67 @@
     </div>
   </section>
 
-  <!-- 7. Por qué SoyLegal360 -->
-  <section class="sl-about-section sl-about-section--dark">
-    <div class="sl-about-wrap sl-about-why">
-      <div class="sl-about-reveal">
-        <p class="eyebrow">Por qué elegirnos</p>
-        <h2>La diferencia que <span class="sl-about-gold">marca la diferencia</span></h2>
-        <hr class="sl-about-sep">
-        <p>En <span class="sl-brand">SoyLegal<span>360</span></span> no somos un despacho más. Somos el puente entre el marco legal y la realidad digital de tu negocio, con la metodología propia de la <em class="sl-about-gold">Digitalización Blindada&#8482;</em>.</p>
-      </div>
-      <ul class="check-list sl-about-reveal">
-        <li>Especialistas exclusivos en RGPD, LOPDGDD, LSSICE y AI Act, no generalistas.</li>
-        <li>Documentación 100% personalizada para cada cliente.</li>
-        <li>Servicio online a toda España desde Torre Millenium, Sabadell.</li>
-        <li>Respuesta garantizada en menos de <strong style="color:var(--gold)">48 horas</strong> hábiles.</li>
-        <li>Sin contratos de permanencia mínima en los servicios de mantenimiento.</li>
-        <li><em class="sl-about-gold">Digitalización Blindada&#8482;</em>, el método propio de <span class="sl-brand">SoyLegal<span>360</span></span>.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Cierre: cumplir es una ventaja -->
-  <section class="sl-about-section">
-    <div class="sl-about-wrap sl-about-reveal" style="max-width:760px">
-      <p class="eyebrow">Por qué actuar ahora</p>
-      <h2>Cumplir es una <span class="sl-about-gold">ventaja</span>, no solo un escudo</h2>
-      <p style="color:var(--muted)">Cumplir no es solo evitar sanciones. Hoy cualquier persona descontenta, un cliente, un extrabajador o incluso un competidor, puede conocer sus derechos en minutos y ejercerlos contra tu negocio, o escalar una reclamación a la AEPD. Ponerte en regla te protege de eso y, además, te abre puertas: cada vez más empresas exigen a sus proveedores estar al día. Nosotros lo dejamos resuelto, con rigor y sin que te suponga un quebradero de cabeza.</p>
-    </div>
-  </section>
-
-  <!-- Galería de espacio -->
-  <section class="sl-about-section">
+  <!-- 7. Cierre: cumplir es una ventaja (banda oscura, el momento de máxima tensión) -->
+  <section class="sl-about-section sl-about-section--dark sl-about-ahora">
+    <img class="sl-about-ahora__bg" src="/assets/img/circulo-360-despacho.webp" alt="" aria-hidden="true" loading="lazy" width="1400" height="933">
+    <div class="sl-about-ahora__veil" aria-hidden="true"></div>
     <div class="sl-about-wrap">
-      <p class="eyebrow sl-about-reveal">Dónde trabajamos</p>
-      <h2 class="sl-about-reveal">Nuestro <span class="sl-about-gold">espacio</span></h2>
-      <p class="sl-about-space-lead sl-about-reveal">Torre Millenium, planta 19. Sabadell (Barcelona).</p>
-      <div class="sl-about-photos sl-about-reveal">
-        <figure class="sl-about-photo sl-about-photo--reception">
-          <img src="/assets/img/despacho/oficina-despacho-vista.webp"
-               alt="Despacho SoyLegal360 en Torre Millenium planta 19, Sabadell · vista panorámica"
-               width="1297" height="1212" loading="lazy">
-        </figure>
-        <figure class="sl-about-photo sl-about-photo--building">
-          <img src="/assets/img/despacho/oficina-consulta.webp"
-               alt="Puesto de trabajo SoyLegal360 con Digitalización Blindada™ y vista de ciudad"
-               width="1492" height="1054" loading="lazy">
-        </figure>
-        <figure class="sl-about-photo sl-about-photo--exterior">
-          <img src="/assets/img/despacho/oficina-edificio.webp"
-               alt="Fachada de Torre Millenium en Sabadell · sede de SoyLegal360"
-               width="565" height="633" loading="lazy">
-        </figure>
+      <div class="sl-about-reveal" style="max-width:720px">
+        <p class="eyebrow">Por qué actuar ahora</p>
+        <h2>Cumplir es una <span class="sl-about-gold">ventaja</span>, no solo un escudo</h2>
+        <p style="color:rgba(255,255,255,.82)">Ponerte en regla hace dos cosas a la vez, y casi siempre solo se piensa en la primera.</p>
       </div>
+      <div class="sl-about-doble">
+        <article class="sl-about-doble__col sl-about-reveal">
+          <div class="sl-about-value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 2L3 7v5c0 5.25 3.75 10.14 9 11.25C17.25 22.14 21 17.25 21 12V7L12 2z"/></svg>
+          </div>
+          <h3>Te protege</h3>
+          <p>Cualquier persona descontenta, un cliente, un extrabajador o incluso un competidor, puede conocer sus derechos en minutos y ejercerlos contra tu negocio, o escalar una reclamación a la AEPD. Ya no hace falta un abogado para empezar ese camino.</p>
+        </article>
+        <article class="sl-about-doble__col sl-about-reveal">
+          <div class="sl-about-value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="7.5" cy="15.5" r="4.5"/><path d="M10.7 12.3 21 2"/><path d="m17 6 3 3"/></svg>
+          </div>
+          <h3>Y te abre puertas</h3>
+          <p>Cada vez más empresas piden a sus proveedores estar al día antes de firmar. Es ese cuestionario de homologación que te manda tu cliente grande, con su casilla de protección de datos. Llegar con los deberes hechos deja de ser un gasto y pasa a ser un argumento de venta.</p>
+        </article>
+      </div>
+      <div class="sl-about-cierre sl-about-reveal">
+        <p>Nosotros lo dejamos resuelto, con rigor y sin que te suponga un quebradero de cabeza.</p>
+        <a class="button gold" href="https://app.soylegal360.es">Comprobar cómo estoy, gratis</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- La objeción de la IA: desactivarla antes de que la piense -->
+  <section class="sl-about-section sl-about-section--soft">
+    <div class="sl-about-wrap sl-about-split">
+      <div class="sl-about-reveal">
+        <p class="eyebrow">La pregunta que todos se hacen</p>
+        <h2>¿Y si me lo hace una <span class="sl-about-gold">IA</span>?</h2>
+        <p>Es una pregunta legítima, y la respuesta honesta no es que la inteligencia artificial escriba mal. Escribe muy bien. Nosotros la usamos cada día para trabajar más rápido.</p>
+        <p>La diferencia no está en la herramienta, está en quién responde de lo que sale de ella. Un texto generado no es un documento firmado, y esa distancia solo se ve el día que alguien te reclama.</p>
+        <p style="color:var(--muted);font-size:14.5px">La pregunta útil no es si tu asesor usa IA. Es a quién puedes llamar cuando llegue la inspección.</p>
+      </div>
+      <ul class="sl-about-ia sl-about-reveal">
+        <li>
+          <h3>Nadie responde por ese texto</h3>
+          <p>Los proveedores de IA excluyen su responsabilidad y advierten de que no es asesoramiento jurídico. Si llega una sanción, la pagas tú. Un abogado colegiado tiene colegio, deontología y seguro de responsabilidad civil.</p>
+        </li>
+        <li>
+          <h3>El documento no es el trabajo</h3>
+          <p>Una política de privacidad es la foto final de un análisis: qué datos tratas, con qué base jurídica, quién los toca y cuánto los guardas. Sin ese análisis tienes un texto impecable que describe a otra empresa.</p>
+        </li>
+        <li>
+          <h3>El error no se ve</h3>
+          <p>Un modelo genera lo más probable, no lo verdadero, y una referencia legal inventada suena exactamente igual que una buena. Quien no es jurista no puede distinguirlas, y el fallo aparece cuando ya es tarde.</p>
+        </li>
+        <li>
+          <h3>Y hay una paradoja</h3>
+          <p>Para que te lo redacte tienes que pegar en un chat los datos de tus clientes y de tu equipo. Eso ya es un tratamiento de datos que necesita su base jurídica y su contrato. Por ahorrarte el cumplimiento, incumples por otro lado.</p>
+        </li>
+      </ul>
     </div>
   </section>
 
