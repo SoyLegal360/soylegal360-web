@@ -181,7 +181,9 @@
     line-height: 1.22;
   }
   .sl-about-section--dark h2 { color: #fff; }
-  .sl-about-section p { color: var(--muted); line-height: 1.7; margin: 0 0 16px; }
+  /* text-wrap: pretty reparte mejor las últimas líneas y evita palabras huérfanas.
+     Preferido al justificado, que en columna estrecha abre ríos de blanco y penaliza la lectura. */
+  .sl-about-section p { color: var(--muted); line-height: 1.7; margin: 0 0 16px; text-wrap: pretty; }
   .sl-about-section--dark p { color: rgba(255,255,255,.76); }
   .sl-about-gold { color: var(--gold); }
 
@@ -494,6 +496,29 @@
     align-items: start;
   }
   .sl-about-sep { width: 44px; height: 2px; background: var(--gold); border: none; margin: 28px 0; opacity: .7; }
+
+  /* En qué creemos: el manifiesto, tres ideas cortas */
+  .sl-about-credo {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 44px;
+  }
+  .sl-about-credo article { padding-top: 22px; border-top: 2px solid var(--gold); }
+  .sl-about-credo h3 {
+    font: 700 19px/1.3 Georgia, serif;
+    color: var(--ink);
+    margin: 0 0 12px;
+  }
+  .sl-about-credo p {
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: var(--muted);
+    margin: 0;
+  }
+  @media (max-width: 900px) {
+    .sl-about-credo { grid-template-columns: 1fr; gap: 28px; }
+  }
   .sl-about-section--dark .check-list { padding: 0; list-style: none; margin: 0; }
   .sl-about-section--dark .check-list li {
     color: rgba(255,255,255,.82);
@@ -581,6 +606,28 @@
              alt="Un sello de lacre dorado íntegro entre varios lacres rotos y cuarteados: solo uno queda cerrado del todo"
              loading="lazy" width="900" height="1125">
       </figure>
+    </div>
+  </section>
+
+  <!-- 3b. En qué creemos -->
+  <section class="sl-about-section">
+    <div class="sl-about-wrap">
+      <p class="eyebrow sl-about-reveal">Nuestra forma de verlo</p>
+      <h2 class="sl-about-reveal">En qué <span class="sl-about-gold">creemos</span></h2>
+      <div class="sl-about-credo">
+        <article class="sl-about-reveal">
+          <h3>Un dato no es un activo, es una persona</h3>
+          <p>Detrás de cada registro de tu base de datos hay alguien: dónde vive, qué compra, qué le preocupa. Protegerlos no es papeleo administrativo, es un derecho fundamental. Por eso tratamos los datos de tus clientes como nos gustaría que trataran los nuestros.</p>
+        </article>
+        <article class="sl-about-reveal">
+          <h3>El derecho nos gusta de verdad</h3>
+          <p>Leemos las normas el día que salen, no cuando llega el problema. Discutimos cómo se aplican a un negocio concreto, no en abstracto. Eso se nota en lo que recibes.</p>
+        </article>
+        <article class="sl-about-reveal">
+          <h3>La tecnología no nos ahorra trabajo: nos deja hacer más</h3>
+          <p>Nos permite seguir cada norma que cambia y bajar a un detalle que antes solo estaba al alcance de las grandes firmas. El tiempo que ganamos no se lo descontamos al servicio: lo dedicamos a pensar tu caso. Ninguna herramienta firma un documento ni responde de él.</p>
+        </article>
+      </div>
     </div>
   </section>
 
@@ -675,7 +722,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>
           </div>
           <h3>Responsabilidad real</h3>
-          <p>Detrás de cada entrega hay un abogado colegiado que responde por ella, no un algoritmo ni una plantilla. La tecnología y la IA están al servicio del cliente; el criterio es siempre nuestro.</p>
+          <p>Detrás de cada entrega hay un abogado colegiado que responde por ella. Si mañana te reclaman, sabes a quién llamar y quién asume lo que se entregó.</p>
         </article>
         <article class="sl-about-value-card sl-about-reveal">
           <div class="sl-about-value-icon">
@@ -758,7 +805,7 @@
       <div class="sl-about-reveal">
         <p class="eyebrow">La pregunta que todos se hacen</p>
         <h2>¿Y si me lo hace una <span class="sl-about-gold">IA</span>?</h2>
-        <p>Es una pregunta legítima, y la respuesta honesta no es que la inteligencia artificial escriba mal. Escribe muy bien. Nosotros la usamos cada día para trabajar más rápido.</p>
+        <p>Es una pregunta legítima, y la respuesta honesta no es que la inteligencia artificial escriba mal. Escribe muy bien. Nosotros la usamos a diario, y no para ir más deprisa: para revisar más y mejor de lo que daría tiempo de otro modo. La calidad sube, no el reloj.</p>
         <p>La diferencia no está en la herramienta, está en quién responde de lo que sale de ella. Un texto generado no es un documento firmado, y esa distancia solo se ve el día que alguien te reclama.</p>
         <p style="color:var(--muted);font-size:14.5px">La pregunta útil no es si tu asesor usa IA. Es a quién puedes llamar cuando llegue la inspección.</p>
       </div>
