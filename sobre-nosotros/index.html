@@ -252,63 +252,6 @@
     pointer-events: none;
   }
 
-  /* Diagrama del círculo: imagen de fondo + etiquetas del mercado encima.
-     Las etiquetas van en % para escalar con el contenedor; en móvil pasan a lista. */
-  .sl-circulo { position: relative; margin: 0; }
-  .sl-circulo img { display: block; width: 100%; height: auto; border-radius: 16px; }
-  .sl-circulo__tag {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    padding: 7px 13px;
-    border-radius: 999px;
-    background: rgba(6,21,44,.72);
-    border: 1px solid rgba(226,198,132,.22);
-    color: #cbd6e6;
-    font: 700 11.5px/1.2 Arial, Helvetica, sans-serif;
-    letter-spacing: .04em;
-    white-space: nowrap;
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-  }
-  .sl-circulo__tag--nos {
-    background: rgba(6,21,44,.86);
-    border-color: rgba(226,198,132,.65);
-    color: var(--gold);
-    font-size: 13.5px;
-    padding: 11px 20px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(2,10,23,.45);
-  }
-  .sl-circulo__tag--nos span {
-    display: block;
-    color: #eef3fa;
-    font-weight: 400;
-    font-size: 10.5px;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    margin-top: 3px;
-  }
-  .sl-circulo__leyenda { display: none; }
-  @media (max-width: 860px) {
-    .sl-circulo__tag:not(.sl-circulo__tag--nos) { display: none; }
-    .sl-circulo__leyenda {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      justify-content: center;
-      margin: 16px 0 0;
-      padding: 0;
-      list-style: none;
-    }
-    .sl-circulo__leyenda li {
-      padding: 6px 12px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      color: var(--muted);
-      font: 700 11.5px/1.2 Arial, Helvetica, sans-serif;
-    }
-  }
-
   /* Equipo y credenciales */
   .sl-about-team {
     display: grid;
@@ -629,30 +572,15 @@
       <div class="sl-about-reveal">
         <p class="eyebrow">Por qué existimos</p>
         <h2>Nadie cerraba el <span class="sl-about-gold">círculo</span></h2>
-        <p>Tu gestoría lleva el fiscal y el laboral. Tu agencia te monta la web. Un despacho te redacta los documentos. Las grandes consultoras lo abarcan casi todo, a precios que una pyme no puede pagar. Y las plataformas de cien euros te entregan un documento generado en automático. Cada uno cubre su trozo, y lo que queda entre medias lo acabas cubriendo tú.</p>
-        <p><span class="sl-brand">SoyLegal<span>360</span></span> nace para cerrar ese círculo. No somos una plantilla, ni un chatbot, ni una respuesta de IA: somos un despacho con abogados colegiados que estudian tu caso, firman lo que entregan y dan la cara si mañana llega una inspección. Protección de datos, AI Act, tu web, tus contratos y tu marca, desde Torre Millenium para toda España.</p>
+        <p>Tu gestoría lleva el fiscal y el laboral. Tu agencia monta la web. Un despacho redacta los documentos. Las grandes consultoras lo abarcan casi todo, con presupuestos pensados para otro tamaño de empresa. Y las plataformas automáticas te entregan un PDF que nadie ha leído antes de mandártelo. Cada uno cubre su trozo, y lo que queda entre medias lo acabas cubriendo tú.</p>
+        <p>Nosotros existimos para cerrarlo. Todo lo que la ley te pide en digital, en una sola casa y bajo un mismo criterio: tus datos, tu IA, tu web, tus contratos y tu marca. Y detrás de cada entrega, un abogado que responde de ella.</p>
         <p>Y por encima de la tecnología, siempre hay personas. Sabemos lo engorrosa que puede ser la normativa: nuestro trabajo es quitarte ese peso de encima para que cumplas con tranquilidad.</p>
       </div>
-      <div class="sl-about-reveal">
-        <figure class="sl-circulo">
-          <img src="/assets/img/circulo-360.webp"
-               alt="Un anillo dorado completo rodeado de arcos incompletos: cada proveedor cubre solo una parte del cumplimiento legal y SoyLegal360 lo cierra entero"
-               loading="lazy" width="1200" height="800">
-          <span class="sl-circulo__tag" style="left:23%;top:11%">Gestorías</span>
-          <span class="sl-circulo__tag" style="left:77%;top:13%">Agencias web</span>
-          <span class="sl-circulo__tag" style="left:14%;top:62%">Despachos</span>
-          <span class="sl-circulo__tag" style="left:79%;top:70%">Grandes consultoras</span>
-          <span class="sl-circulo__tag" style="left:50%;top:92%">Plataformas low cost</span>
-          <span class="sl-circulo__tag sl-circulo__tag--nos" style="left:50%;top:50%">SoyLegal360<span>El círculo entero</span></span>
-        </figure>
-        <ul class="sl-circulo__leyenda">
-          <li>Gestorías</li>
-          <li>Agencias web</li>
-          <li>Despachos</li>
-          <li>Grandes consultoras</li>
-          <li>Plataformas low cost</li>
-        </ul>
-      </div>
+      <figure class="sl-about-img-wrap sl-about-reveal">
+        <img src="/assets/img/sello-cerrado.webp"
+             alt="Un sello de lacre dorado íntegro entre varios lacres rotos y cuarteados: solo uno queda cerrado del todo"
+             loading="lazy" width="900" height="1125">
+      </figure>
     </div>
   </section>
 
