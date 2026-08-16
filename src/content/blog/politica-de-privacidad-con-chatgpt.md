@@ -22,7 +22,7 @@ faq:
   - q: "¿Es ilegal usar inteligencia artificial para redactar el aviso legal o la política de privacidad?"
     a: "No es ilegal. Lo que exige la ley es que el resultado sea correcto y esté adaptado a tu tratamiento real de datos. El artículo 12.1 del RGPD obliga a informar de forma concisa, transparente, inteligible y con lenguaje claro, y los artículos 13 y 14 fijan exactamente qué información hay que dar. El aviso legal, además, tiene su propia lista en el artículo 10 de la LSSICE (denominación, domicilio, NIF, datos registrales, contacto). La norma valora el contenido y su veracidad, no la herramienta con la que se escribió."
   - q: "¿Quién responde si la política de privacidad generada con IA está mal?"
-    a: "El titular de la web. Los responsables y encargados del tratamiento están sujetos al régimen sancionador (artículo 70.1 de la LOPDGDD), y no hay contra quién repetir: las condiciones de uso de los proveedores de IA advierten de que las respuestas pueden contener inexactitudes y limitan su responsabilidad de forma muy estricta. Un abogado, en cambio, ejerce con colegiación obligatoria (artículo 7.1 del Estatuto General de la Abogacía Española), está sujeto a deontología y al régimen disciplinario de su colegio, y tiene el deber de cubrir su responsabilidad profesional (artículo 21 del mismo Estatuto)."
+    a: "Ante la Agencia, el titular de la web: los responsables y encargados del tratamiento son los sujetos del régimen sancionador (artículo 70.1 de la LOPDGDD), y eso no cambia por haber usado una herramienta u otra. La diferencia está en el encargo profesional. Un texto generado en un chat no tiene autor: nadie lo ha revisado y no hay a quién pedirle explicaciones. Un abogado ejerce con colegiación obligatoria (artículo 7.1 del Estatuto General de la Abogacía Española) y está sujeto a deontología, a un régimen disciplinario y a un deber de diligencia profesional. No garantiza que no llegue una reclamación, pero sí que el trabajo se hizo conforme a la lex artis, y de eso sí se le puede pedir cuenta."
   - q: "¿Puedo pegar datos de mis clientes o empleados en ChatGPT para que redacte los documentos?"
     a: "No sin haberlo analizado antes. Meter datos personales de clientes, proveedores o trabajadores en una herramienta de un tercero es un tratamiento de datos: necesita una base jurídica del artículo 6 del RGPD, información a los afectados (artículos 13 y 14) y, con el proveedor, un contrato de encargado del tratamiento con el contenido del artículo 28.3. Encargar el tratamiento a un tercero sin ese contrato es una infracción grave (artículo 73.k de la LOPDGDD). Además hay que revisar dónde se alojan los datos, por las reglas de transferencias internacionales (artículos 44 y siguientes del RGPD)."
   - q: "¿Por qué una IA puede inventarse un artículo o una sentencia?"
@@ -37,7 +37,7 @@ fuentes:
   - "Reglamento (UE) 2026/1744 (Ómnibus Digital sobre IA), que modifica el artículo 113 del Reglamento de IA y retrasa el calendario de la IA de alto riesgo · https://www.boe.es/doue/2026/1744/L00001-00041.pdf"
   - "CGPJ, nota de prensa 30-jul-2026: la Sala de lo Penal del TSJ de Canarias multa con 840 € a un abogado por un recurso con al menos 25 citas jurisprudenciales inexistentes; el tribunal recuerda que el uso de herramientas de IA no exime de revisar y verificar el contenido y que la responsabilidad última del escrito es del letrado que lo firma · https://www.poderjudicial.es/cgpj/es/Poder-Judicial/Tribunales-Superiores-de-Justicia/TSJ-Canarias/Oficina-de-Comunicacion/Archivo-de-notas-de-prensa/El-TSJ-de-Canarias-multa-a-un-abogado-por-presentar-un-recurso-con-citas-jurisprudenciales-inexistentes-"
   - "CGPJ, nota de prensa 13-feb-2026: la Sala de lo Penal del TSJ de Canarias multa con 420 € a un abogado por citar hasta 48 sentencias falsas sugeridas por IA · https://www.poderjudicial.es/cgpj/es/Poder-Judicial/Noticias-Judiciales/El-TSJ-de-Canarias-multa-a-un-abogado-por-citar-hasta-48-sentencias-falsas-sugeridas-por-IA"
-  - "Real Decreto 135/2021, Estatuto General de la Abogacía Española: artículo 7.1 (la incorporación al Colegio es requisito imprescindible para el ejercicio) y artículo 21 (cobertura de la responsabilidad profesional) · https://www.boe.es/buscar/act.php?id=BOE-A-2021-4568"
+  - "Real Decreto 135/2021, Estatuto General de la Abogacía Española: artículo 7.1 (la incorporación al Colegio es requisito imprescindible para el ejercicio) · https://www.boe.es/buscar/act.php?id=BOE-A-2021-4568"
   - "Anthropic, Consumer Terms of Service: «Outputs may not always be accurate and may contain material inaccuracies even if they appear accurate»; servicio prestado «as is», sin garantías, y responsabilidad total limitada a la mayor de estas cifras: lo pagado en los seis meses anteriores o 100 € · https://www.anthropic.com/legal/consumer-terms"
   - "OpenAI, Europe Terms of Use (apartados sobre exactitud y uso permitido): el resultado puede no ser exacto, no debe usarse como única fuente de verdad ni como sustituto de asesoramiento profesional, y el usuario debe evaluarlo antes de utilizarlo o compartirlo · https://openai.com/policies/eu-terms-of-use/"
 estado_revision: pendiente
@@ -66,13 +66,13 @@ No es letra pequeña abusiva: es una descripción sincera de lo que es la herram
 
 Porque enfrente el reparto de responsabilidad es distinto. El artículo 70.1 de la LOPDGDD dice quién está sujeto al régimen sancionador: los responsables del tratamiento y los encargados. No los fabricantes del software con el que se redactó el documento. Si la AEPD abre un procedimiento porque tu política de privacidad no informa de lo que exige el RGPD, el expediente lleva tu nombre y la multa la pagas tú. Y no hay contra quién repetir.
 
-La alternativa no es "un texto más caro". Es un texto del que alguien responde:
+La alternativa no es "un texto más caro". Es un texto con autor, y un autor sujeto a deberes que se le pueden exigir:
 
 - Un abogado ejerce con **colegiación obligatoria**: la incorporación al Colegio es requisito imprescindible para ejercer (artículo 7.1 del Estatuto General de la Abogacía Española).
 - Está sujeto a **normas deontológicas y a un régimen disciplinario** ante ese colegio.
-- Tiene el **deber de cubrir su responsabilidad profesional** (artículo 21 del mismo Estatuto).
+- Trabaja bajo un **deber de diligencia profesional**. Conviene decirlo con precisión: no garantiza un resultado, porque nadie puede garantizar que no llegue una reclamación. Lo que sí compromete es que el trabajo se haga conforme a la técnica exigible, y de eso se le puede pedir cuenta.
 
-Esa es la diferencia real, y no es una cuestión de gremio: es a quién puedes reclamar cuando algo sale mal.
+Esa es la diferencia real, y no es corporativismo: es la diferencia entre un documento con alguien detrás y un texto huérfano que nadie ha revisado.
 
 ## 2. El documento no es el trabajo
 
