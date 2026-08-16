@@ -361,6 +361,46 @@
     gap: 40px;
     margin-top: 40px;
   }
+  /* variante nocturna del sistema de tarjeta-documento, para la banda oscura */
+  .sl-about-doble__col {
+    position: relative;
+    padding: 28px 26px;
+    border: 1px solid rgba(226,198,132,.2);
+    border-top: 3px solid var(--gold);
+    border-radius: 4px;
+    background-color: rgba(255,255,255,.04);
+    background-image:
+      linear-gradient(90deg, rgba(255,255,255,.012) 50%, transparent 50%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.55' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)' opacity='.07'/%3E%3C/svg%3E");
+    background-size: 4px 4px, 60px 60px;
+    box-shadow: 6px 8px 0 rgba(226,198,132,.05), 0 18px 40px rgba(2,10,23,.32);
+  }
+  .sl-about-doble__col::before,
+  .sl-about-doble__col::after {
+    position: absolute;
+    width: 18px; height: 18px;
+    content: "";
+    pointer-events: none;
+    opacity: .55;
+  }
+  .sl-about-doble__col::before {
+    top: 9px; left: 9px;
+    border-top: 1px solid var(--gold);
+    border-left: 1px solid var(--gold);
+  }
+  .sl-about-doble__col::after {
+    right: 9px; bottom: 9px;
+    border-right: 1px solid var(--gold);
+    border-bottom: 1px solid var(--gold);
+  }
+  .sl-about-doble__col h3::after {
+    display: block;
+    width: 42px; height: 1px;
+    margin-top: 12px;
+    content: "";
+    background: var(--gold);
+    opacity: .6;
+  }
   .sl-about-doble__col h3 {
     font-size: 20px;
     color: #fff;
@@ -488,6 +528,13 @@
     /* linterna: cuando el grupo está activo, las no señaladas se atenúan */
     .sl-lit-group.is-lit .sl-lit-card { opacity: .55; }
     .sl-lit-group.is-lit .sl-lit-card:hover { opacity: 1; }
+    /* sobre la banda oscura el halo necesita algo más de cuerpo */
+    .sl-about-doble .sl-glow {
+      background: radial-gradient(320px circle at var(--mx) var(--my), rgba(226,198,132,.26), rgba(201,169,110,.09) 45%, transparent 70%);
+    }
+    .sl-about-doble .sl-lit-card:hover {
+      box-shadow: 8px 12px 0 rgba(226,198,132,.09), 0 26px 52px rgba(2,10,23,.45);
+    }
   }
   @media (prefers-reduced-motion: reduce) {
     .sl-lit-card, .sl-glow { transition: none !important; }
@@ -1222,7 +1269,7 @@
   })();
   (function(){
     var sides = ['top','right','bottom','left'];
-    var sel = '.sl-about-value-card, .sl-about-credo article, .sl-about-ia li, .sl-person, .sl-about-step';
+    var sel = '.sl-about-value-card, .sl-about-credo article, .sl-about-ia li, .sl-person, .sl-about-step, .sl-about-doble__col';
     document.querySelectorAll(sel).forEach(function(card){
       // el perímetro se dibuja cuando la propia tarjeta entra en pantalla
       card.classList.add('sl-about-reveal');
@@ -1242,7 +1289,10 @@
     var grupos = [
       ['.sl-about-ia', 'li'],
       ['.sl-about-values', '.sl-about-value-card'],
-      ['.sl-about-credo', 'article']
+      ['.sl-about-credo', 'article'],
+      ['.sl-about-process', '.sl-about-step'],
+      ['.sl-about-people', '.sl-person'],
+      ['.sl-about-doble', '.sl-about-doble__col']
     ];
     grupos.forEach(function(par){
       var cont = document.querySelector(par[0]);
