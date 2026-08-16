@@ -167,7 +167,6 @@
   .sl-about-section--team .sl-about-wrap { position: relative; }
   .sl-about-team-bg { position: absolute; left: 0; top: -28%; width: 100%; height: 128%; object-fit: cover; pointer-events: none; }
   .sl-about-team-veil { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,.9), rgba(255,255,255,.82) 40%, rgba(255,255,255,.94) 75%); }
-  .sl-about-section--team .sl-person { background: rgba(244,246,250,.92); }
   .sl-about-section--dark {
     background: linear-gradient(135deg, #06152c 0%, #0d2447 100%);
     color: #fff;
@@ -293,13 +292,8 @@
 
   /* Personas del equipo */
   .sl-about-people { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 44px; }
-  .sl-person {
-    background: var(--soft);
-    border-radius: 16px;
-    border-top: 3px solid var(--gold);
-    padding: 30px 24px;
-    text-align: center;
-  }
+  /* fondo, radio, borde y sombra los define el sistema de tarjeta-documento */
+  .sl-person { text-align: center; }
   .sl-person-avatar {
     width: 88px; height: 88px; border-radius: 50%; margin: 0 auto 16px;
     display: flex; align-items: center; justify-content: center;
@@ -418,11 +412,15 @@
     color: var(--muted);
     margin: 0;
   }
-  /* Tarjetas tratadas como documento de archivo: trama de lino imperceptible,
-     esquinas de encuadernación, filete bajo el título y perímetro que se rubrica
-     al entrar en pantalla. Esquina poco redondeada a propósito: el radio grande
-     es la firma de la plantilla genérica. */
-  .sl-about-value-card {
+  /* SISTEMA DE TARJETA-DOCUMENTO (toda la página usa el mismo lenguaje):
+     trama de lino imperceptible, esquinas de encuadernación, filete bajo el título
+     y perímetro que se rubrica al entrar. Esquina poco redondeada a propósito:
+     el radio grande es la firma de la plantilla genérica. */
+  .sl-about-value-card,
+  .sl-about-ia li,
+  .sl-person,
+  .sl-about-step,
+  .sl-about-credo article {
     position: relative;
     background-color: #fff;
     background-image:
@@ -431,32 +429,44 @@
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.55' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)' opacity='.05'/%3E%3C/svg%3E");
     background-size: 4px 4px, 4px 4px, 60px 60px;
     border-radius: 4px;
-    padding: 30px 26px;
     border: 1px solid var(--line);
-    border-top: 3px solid var(--gold);
     box-shadow: 6px 8px 0 rgba(201,169,110,.07), 0 14px 30px rgba(6,21,44,.06);
-    transition: transform .25s ease, box-shadow .25s ease;
   }
+  .sl-about-value-card { padding: 30px 26px; border-top: 3px solid var(--gold); transition: transform .25s ease, box-shadow .25s ease; }
+  .sl-about-ia li { padding: 20px 22px; border-left: 3px solid var(--gold); }
+  .sl-person { padding: 30px 24px; border-top: 3px solid var(--gold); text-align: center; }
+  .sl-about-step { padding: 30px 20px 24px; border-top: 3px solid var(--gold); text-align: center; }
+  .sl-about-credo article { padding: 26px 24px; border-top: 3px solid var(--gold); }
+  .sl-about-section--team .sl-person { background-color: rgba(255,255,255,.94); }
+
   /* esquinas de encuadernación */
-  .sl-about-value-card::before,
-  .sl-about-value-card::after {
+  .sl-about-value-card::before, .sl-about-value-card::after,
+  .sl-about-ia li::before, .sl-about-ia li::after,
+  .sl-person::before, .sl-person::after,
+  .sl-about-step::before, .sl-about-step::after,
+  .sl-about-credo article::before, .sl-about-credo article::after {
     position: absolute;
-    width: 22px; height: 22px;
+    width: 18px; height: 18px;
     content: "";
     pointer-events: none;
-    opacity: .55;
+    opacity: .5;
   }
-  .sl-about-value-card::before {
-    top: 10px; left: 10px;
+  .sl-about-value-card::before, .sl-about-ia li::before, .sl-person::before,
+  .sl-about-step::before, .sl-about-credo article::before {
+    top: 9px; left: 9px;
     border-top: 1px solid var(--gold);
     border-left: 1px solid var(--gold);
   }
-  .sl-about-value-card::after {
-    right: 10px; bottom: 10px;
+  .sl-about-value-card::after, .sl-about-ia li::after, .sl-person::after,
+  .sl-about-step::after, .sl-about-credo article::after {
+    right: 9px; bottom: 9px;
     border-right: 1px solid var(--gold);
     border-bottom: 1px solid var(--gold);
   }
-  .sl-about-value-card h3::after {
+  /* filete bajo el título */
+  .sl-about-value-card h3::after,
+  .sl-about-ia h3::after,
+  .sl-about-credo h3::after {
     display: block;
     width: 42px; height: 1px;
     margin-top: 12px;
@@ -518,14 +528,8 @@
     background: linear-gradient(to right, rgba(201,169,110,.15), var(--gold), rgba(201,169,110,.15));
     pointer-events: none;
   }
-  .sl-about-step {
-    position: relative;
-    padding: 28px 18px 22px;
-    background: #fff;
-    border-radius: 14px;
-    box-shadow: 0 4px 16px rgba(6,21,44,.06);
-    text-align: center;
-  }
+  /* fondo, radio, padding y sombra los define el sistema de tarjeta-documento */
+  .sl-about-step { position: relative; text-align: center; }
   .sl-about-step-num {
     display: inline-flex;
     align-items: center;
@@ -1187,7 +1191,10 @@
   })();
   (function(){
     var sides = ['top','right','bottom','left'];
-    document.querySelectorAll('.sl-about-value-card').forEach(function(card){
+    var sel = '.sl-about-value-card, .sl-about-credo article, .sl-about-ia li, .sl-person, .sl-about-step';
+    document.querySelectorAll(sel).forEach(function(card){
+      // el perímetro se dibuja cuando la propia tarjeta entra en pantalla
+      card.classList.add('sl-about-reveal');
       sides.forEach(function(s){
         var el = document.createElement('span');
         el.className = 'sl-vline sl-vline--' + s;
