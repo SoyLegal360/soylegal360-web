@@ -173,6 +173,7 @@ Si en cualquiera de estos puntos la respuesta es "no lo sé", ese es el hallazgo
 - Para saber en qué punto estás sin coste, pide la [auditoría web gratuita](/auditoria-web-gratuita/): revisamos tus textos legales, formularios y cookies y te decimos qué falta y con qué prioridad.
 - Si ya sabes que hay que rehacer los documentos, la [adaptación web al RGPD](/adaptacion-web-rgpd/) incluye aviso legal, política de privacidad, política de cookies con banner de consentimiento y cláusulas de formulario, redactados a medida de tu negocio por abogados colegiados.
 - Si el problema no es solo la web (empleados, proveedores, registro de actividades, contratos de encargado), lo que toca es la [adaptación de empresa al RGPD](/adaptacion-empresa-rgpd/).
+- Si no sabes ni qué tienes ni qué falta, una [auditoría RGPD](/auditoria-rgpd/) te da el mapa: qué datos tratas, qué documentación existe y qué corregir primero. Antes de redactar nada, hay que saber qué empresa está describiendo el documento.
 - Y si usas IA en tu operativa, la [auditoría de IA](/auditoria-ia/) revisa con qué datos la alimentas y bajo qué condiciones.
 
 Puedes ver el catálogo completo en [servicios de protección de datos](/servicios-proteccion-de-datos/).
