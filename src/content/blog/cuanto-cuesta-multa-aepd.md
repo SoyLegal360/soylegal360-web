@@ -80,6 +80,8 @@ Ahora bien, el importe se modula. La Agencia valora la gravedad de la infracció
 
 Además, el importe puede reducirse. Por **pronto pago** y por **reconocimiento de responsabilidad** la sanción baja, y en algunos casos ambas reducciones se acumulan. En la resolución de SEUR GEOPOST, la multa pasó de 205.000 € a 164.000 € por pronto pago. Sigue siendo mucho dinero: reducir una sanción siempre es más caro que no tenerla.
 
+Por eso la [adaptación RGPD para autónomos y pymes](/adaptacion-empresa-rgpd/) existe como servicio con niveles: las obligaciones de fondo son las mismas, pero el alcance (y el coste) se ajusta al tamaño real del negocio.
+
 ## Cumplir cuesta menos que no cumplir
 
 Aquí está el cálculo que importa. Frente a una posible multa, hay que sumar tres costes que casi nadie contabiliza al principio:
@@ -88,7 +90,7 @@ Aquí está el cálculo que importa. Frente a una posible multa, hay que sumar t
 2. **El arreglo que tendrás que hacer igual.** Tras una sanción, la AEPD te obliga a corregir. Vas a acabar adaptándote de todas formas, pero a destiempo y con la multa ya pagada.
 3. **El coste reputacional y de tiempo:** clientes que preguntan, proveedores que exigen garantías, horas dedicadas a un procedimiento en lugar de al negocio.
 
-Adaptarse de forma proactiva, en cambio, es un coste **acotado, conocido y una sola vez** (con revisiones cuando cambia algo). No depende de tu suerte ni de que nadie te reclame. Es la diferencia entre una inversión que controlas y un riesgo que no.
+Adaptarse de forma proactiva, en cambio, es un coste **acotado, conocido y una sola vez** (con revisiones cuando cambia algo). No depende de tu suerte ni de que nadie te reclame. Es la diferencia entre una inversión que controlas y un riesgo que no. Y si no sabes qué te falta, una [auditoría RGPD](/auditoria-rgpd/) te lo dice antes de gastar en corregir a ciegas.
 
 ## Por dónde empezar
 
