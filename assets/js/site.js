@@ -187,42 +187,6 @@ document.querySelectorAll("[data-carousel]").forEach((root) => {
   window.addEventListener("scroll", onScroll, { passive: true });
 })();
 
-// ── Barra CTA fija en móvil (glass): auditoría gratis + WhatsApp ──
-// Solo en pantallas táctiles estrechas y fuera de la home (el hero ya tiene su CTA).
-(function () {
-  if (window.matchMedia("(min-width: 721px)").matches) return;
-  if (location.pathname === "/" || document.querySelector(".sl-mobile-cta")) return;
-  var bar = document.createElement("div");
-  bar.className = "sl-mobile-cta";
-  bar.innerHTML =
-    '<a class="sl-mobile-cta__main" href="https://app.soylegal360.es" rel="noopener">Auditoría web gratis</a>' +
-    '<a class="sl-mobile-cta__wa" href="https://wa.me/34645668235?text=Hola%2C%20me%20gustar%C3%ADa%20informarme%20sobre%20vuestros%20servicios." target="_blank" rel="noopener" aria-label="WhatsApp">' +
-    '<svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16.04 3C9.4 3 4 8.4 4 15.04c0 2.13.56 4.2 1.62 6.03L4 29l8.13-1.58a12 12 0 0 0 3.9.65h.01c6.64 0 12.04-5.4 12.04-12.04C28.08 8.4 22.68 3 16.04 3Z"/></svg></a>';
-  document.body.appendChild(bar);
-  // Se esconde cuando el chat de ClaudIA está abierto para no tapar el input.
-  var mo = new MutationObserver(function () {
-    bar.style.display = document.body.classList.contains("sl-chat-open") ? "none" : "";
-  });
-  mo.observe(document.body, { attributes: true, attributeFilter: ["class"] });
-  // Educada: no aparece hasta que hay scroll de verdad, y se aparta mientras
-  // bajas leyendo; vuelve al subir o al llegar al final de la página.
-  var lastY = window.scrollY;
-  bar.classList.add("is-away");
-  function paint() {
-    var y = window.scrollY;
-    var nearEnd = y + innerHeight >= document.body.scrollHeight - 120;
-    var goingUp = y < lastY - 4;
-    var goingDown = y > lastY + 4;
-    if (y < 260) bar.classList.add("is-away");
-    else if (goingUp || nearEnd) bar.classList.remove("is-away");
-    else if (goingDown) bar.classList.add("is-away");
-    lastY = y;
-  }
-  window.addEventListener("scroll", paint, { passive: true });
-  paint();
-})();
-
-
 // ── "Analiza tu web": acepta tuweb.es, www.tuweb.es o https://…; normaliza al enviar ──
 document.querySelectorAll("[data-quick-analyze]").forEach((form) => {
   form.addEventListener("submit", () => {
