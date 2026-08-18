@@ -34,7 +34,8 @@ const fontBold = readFileSync(join(root, 'src/og/fonts/PTSerif-700.woff'));
 const fontReg = readFileSync(join(root, 'src/og/fonts/PTSerif-400.woff'));
 
 // Logos -> data uri (satori no rasteriza SVG externo)
-const LOGO_H = 88;
+// Altura del logo. Legible en 1080x1350; se puede afinar por carrusel con "logoAlto".
+const LOGO_H = Number(process.env.LOGO_H) || 128;
 const logoUri = (file) => {
   const png = new Resvg(readFileSync(join(root, file), 'utf8'), {
     fitTo: { mode: 'height', value: LOGO_H * 3 },
