@@ -251,8 +251,21 @@
   .sl-qr h2{font-size:36px;font-weight:400;color:#fff;line-height:1.2;margin-bottom:16px}
   .sl-qr h2 b{color:var(--gold);font-weight:700}
   .sl-qr .lead{
-    font-family:Arial,Helvetica,sans-serif;font-size:16px;color:var(--muted);
+    font-family:Arial,Helvetica,sans-serif;font-size:16px;color:var(--txt);
     line-height:1.75;max-width:640px;margin:0 auto;
+  }
+
+  /* enlaces sobre fondo oscuro: mismo patron que .sl-fq */
+  .sl-qr a{
+    color:var(--gold-soft);text-decoration:underline;
+    text-decoration-color:rgba(226,198,132,.4);transition:color .2s ease;
+  }
+  .sl-qr a:hover{color:#fff}
+
+  /* cierre con enlace a la auditoria */
+  .sl-qr .risk-cta{
+    font-family:Arial,Helvetica,sans-serif;font-size:15px;color:var(--txt);
+    line-height:1.75;max-width:640px;margin:28px auto 0;text-align:center;
   }
 
   /* grid de riesgos */
@@ -305,9 +318,9 @@
     font-size:15px;font-weight:700;color:#fff;margin-bottom:9px;line-height:1.35;
   }
   .sl-qr .risk-card p{
-    font-family:Arial,Helvetica,sans-serif;font-size:13.5px;color:var(--muted);line-height:1.65;
+    font-family:Arial,Helvetica,sans-serif;font-size:15px;color:var(--txt);line-height:1.7;
   }
-  .sl-qr .risk-card p b{color:var(--txt)}
+  .sl-qr .risk-card p b{color:#fff}
 
   /* fila inferior: 2 centradas */
   .sl-qr .risks-row2{
@@ -332,7 +345,7 @@
   }
   .sl-qr .statement p b{color:var(--gold);font-style:normal;font-weight:700}
   .sl-qr .statement .attr{
-    font-family:Arial,Helvetica,sans-serif;font-size:12px;color:var(--muted);
+    font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#aab6cc;
     margin-top:14px;letter-spacing:.06em;text-transform:uppercase;
   }
 
@@ -349,6 +362,7 @@
     .sl-qr h2{font-size:28px}
     .sl-qr .lead{font-size:15px}
     .sl-qr .statement p{font-size:15px}
+    .sl-qr .risk-cta{font-size:14.5px}
   }
   @media(prefers-reduced-motion:reduce){
     .sl-qr .risk-card{animation:none;transition:none}
@@ -418,7 +432,7 @@
       <p class="attr">Equipo legal · <span class="sl-brand">SoyLegal<span>360</span></span></p>
     </div>
 
-    <p class="lead" style="margin-top:28px">¿No tienes claro qué falla en tu caso? Empieza por una <a href="/auditoria-rgpd/">auditoría RGPD</a>: revisamos tratamientos, documentación y proveedores, y adaptas después con el mapa claro.</p>
+    <p class="risk-cta">¿No tienes claro qué falla en tu caso? Empieza por una <a href="/auditoria-rgpd/">auditoría RGPD</a>: revisamos tratamientos, documentación y proveedores, y adaptas después con el mapa claro.</p>
 
   </div>
 </div>
