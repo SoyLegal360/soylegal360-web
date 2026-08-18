@@ -1486,7 +1486,13 @@
   .sl-edd-cases__head .eyebrow,
   .sl-edd-case .sl-edd-case__foot strong,
   .sl-edd-pricing__head .eyebrow,
-  .sl-edd-why__head .eyebrow{color:#866932}
+  .sl-edd-why__head .eyebrow,
+  .sl-edd-faq__head .eyebrow{color:#866932}
+  /* El formulario (tarjeta blanca) vive DENTRO de la seccion final oscura y
+     heredaba su color claro: el texto legal quedaba a 1,43:1 sobre blanco. */
+  .sl-edd-final .sl-form-card p,
+  .sl-edd-final .sl-form-card .sl-form__legal p,
+  .sl-edd-final .sl-form-card details p{color:#4f596d}
   .sl-edd-pricing__grid .sl-edd-pcard .sl-edd-pcard__price,
   .sl-edd-pricing__aepd .sl-edd-pricing__aepd-price{color:#aa853f}
 </style>
