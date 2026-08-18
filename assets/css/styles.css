@@ -143,6 +143,9 @@ a { color: inherit; }
   border-color: rgba(255, 255, 255, .42);
   background: linear-gradient(180deg, #ddc287, #c9a96e);
 }
+/* Dentro del boton dorado el "360" del wordmark quedaba dorado sobre dorado
+   (1,15:1, invisible). Hereda el color del boton. */
+.button.gold .sl-brand span { color: inherit; }
 .services-menu { position: static; }
 
 /* ── Summary: hover dorado + subrayado animado + micro-lift ── */
