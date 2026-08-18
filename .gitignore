@@ -20,7 +20,8 @@ deploy.sh
 .claude/
 
 # Astro / Node (build del blog)
-node_modules/
+# Sin barra final: asi tambien ignora un enlace simbolico llamado node_modules
+node_modules
 .astro/
 
 # Editor
