@@ -791,15 +791,14 @@
   <script src="/assets/js/chat.js?v=14" defer></script>
 <style>
   /* Contraste AA (auditoria 17-ago-2026), verificado sobre render. */
-  .sl-rianeed .eyebrow,
-  .sl-rianeed p a,
-  .sl-ria-public-note .eyebrow,
-  .sl-riaopt .head .eyebrow,
-  .sl-riaincl .head .eyebrow{color:#866932}
-  .sl-rianeed h2 b,
-  .sl-ria-public-note h3 strong,
-  .sl-riaopt .head h2 b,
-  .sl-riaincl .head h2 b{color:#aa853f}
+  /* .sl-riaincl queda fuera: su fondo es oscuro y el dorado ahi ya cumple.
+     Selectores con la especificidad de las reglas originales, que si no ganan ellas. */
+  .sl-rianeed .inner .head .eyebrow,
+  .sl-rianeed .inner .note a,
+  .sl-rianeed .inner p a,
+  .sl-ria-public-note .inner .eyebrow{color:#866932}
+  .sl-rianeed .inner .head h2 b,
+  .sl-ria-public-note .inner h3 strong{color:#aa853f}
   .sl-twofig .row-label{color:#c3cfe4}
 </style>
 </body>
