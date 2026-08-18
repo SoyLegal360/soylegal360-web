@@ -134,7 +134,7 @@
     ".sl360c-head{display:flex;align-items:center;gap:10px;margin:0 0 8px}" +
     ".sl360c-head svg{flex:0 0 auto}" +
     ".sl360c-title{margin:0;color:#06142E;font-family:Georgia,'Times New Roman',serif;font-size:20px;font-weight:700;letter-spacing:0}" +
-    ".sl360c-title span{color:#C9AA6F}" +
+    ".sl360c-title span{color:#AA853F}" +
     ".sl360c-text{margin:0;color:#46546b;font-size:13.5px;line-height:1.6}" +
     ".sl360c-text a{color:#2E568D;text-decoration:underline;text-underline-offset:3px}" +
     ".sl360c-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:15px}" +
