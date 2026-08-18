@@ -116,15 +116,23 @@
   <script defer src="/assets/js/sl360-cookies.js?v=5"></script>
   <link rel="stylesheet" href="/assets/css/styles.css?v=37">
   <style>
-  /* Hero sin ilustracion: la foto de fondo es el motivo visual, asi que el velo se
-     aligera hacia la derecha y se reencuadra para que el escudo quede centrado en su mitad.
-     Ambito: solo esta pagina (el resto de heros de servicio mantienen su velo). */
-  .svc-hero__tint{background:linear-gradient(90deg,rgba(6,21,44,.985) 0%,rgba(6,21,44,.93) 40%,rgba(6,21,44,.42) 66%,rgba(6,21,44,.12) 100%)}
-  .svc-hero__photo{background-position:62% 50%}
-  .svc-hero__shell{grid-template-columns:minmax(0,1fr) minmax(0,.82fr)}
+  /* Hero sin ilustracion: manda la foto. Ambito: solo esta pagina.
+     El gris de marca se levanta AQUI a proposito: sin la tarjeta encima, el escudo dorado
+     de la foto es el unico motivo visual, y en blanco y negro no se leia. */
+  @media (min-width:901px){
+    .svc-hero__photo{filter:grayscale(0) contrast(1.06) brightness(.88);background-position:62% 50%}
+    .svc-hero__tint{background:linear-gradient(90deg,rgba(6,21,44,.985) 0%,rgba(6,21,44,.93) 38%,rgba(6,21,44,.45) 64%,rgba(6,21,44,.14) 100%)}
+    .svc-hero__shell{grid-template-columns:minmax(0,1fr) minmax(0,.82fr)}
+  }
+  /* Movil: recorte vertical del escudo, colocado bajo el texto con banda propia. */
   @media (max-width:900px){
-    .svc-hero__tint{background:linear-gradient(180deg,rgba(6,21,44,.94),rgba(6,21,44,.86))}
-    .svc-hero__photo{background-position:60% 45%}
+    .svc-hero__photo{
+      background-image:url('/assets/img/hero-datos-movil.webp');
+      background-size:auto 42%;background-repeat:no-repeat;background-position:center bottom;
+      filter:grayscale(0) contrast(1.06) brightness(.9);transform:none}
+    .svc-hero__tint{background:linear-gradient(180deg,rgba(6,21,44,.97) 0%,rgba(6,21,44,.95) 44%,rgba(6,21,44,.66) 66%,rgba(6,21,44,.25) 100%)}
+    .svc-hero__shell{padding-bottom:236px}
+    .svc-hero__title{font-size:clamp(38px,10.2vw,52px)}
   }
   </style>
 </head>
