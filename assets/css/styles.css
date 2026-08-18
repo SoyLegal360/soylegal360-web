@@ -664,7 +664,8 @@ h3 { font-size: 22px; }
   padding: 18px 20px;
   background: #fff;
 }
-.faq-list summary { cursor: pointer; color: var(--navy); font-weight: 800; }
+.faq-list summary { cursor: pointer; color: var(--navy); font-weight: 800; font-size: 17px; line-height: 1.5; }
+.faq-list details p { font-size: 16px; line-height: 1.7; }
 .tally-embed {
   margin-top: 18px;
   border: 1px solid var(--line);
