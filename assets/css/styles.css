@@ -877,9 +877,9 @@ h3 { font-size: 22px; }
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: #25d366;
+  background: radial-gradient(120% 120% at 30% 20%, #4ae37f 0%, #25d366 45%, #12a250 100%);
   color: #fff;
-  box-shadow: 0 6px 18px rgba(6, 20, 46, .28);
+  box-shadow: 0 8px 22px rgba(6, 20, 46, .3), 0 2px 6px rgba(18, 162, 80, .35), inset 0 1px 0 rgba(255, 255, 255, .35);
   transition: transform .18s ease, box-shadow .18s ease;
 }
 .wa-float:hover,
@@ -888,7 +888,7 @@ h3 { font-size: 22px; }
   box-shadow: 0 10px 26px rgba(6, 20, 46, .35);
 }
 .wa-float:focus-visible { outline: 3px solid rgba(37, 211, 102, .45); outline-offset: 3px; }
-.wa-float svg { width: 32px; height: 32px; display: block; }
+.wa-float svg { width: 30px; height: 30px; display: block; filter: drop-shadow(0 1px 1px rgba(6, 20, 46, .25)); }
 @media (max-width: 600px) {
   .wa-float { width: 52px; height: 52px; right: 14px; bottom: 14px; }
   .wa-float svg { width: 30px; height: 30px; }
@@ -1788,57 +1788,13 @@ html.sl-js .sl-reveal.is-in { opacity: 1; transform: none; }
   .button:hover, .button:active { transform: none; }
 }
 
-/* ── Barra CTA fija en móvil (la inyecta site.js fuera de la home) ── */
-@media (min-width: 721px) { .sl-mobile-cta { display: none !important; } }
-.sl-mobile-cta {
-  transition: transform .3s ease, opacity .3s ease;
-}
-.sl-mobile-cta.is-away { transform: translateY(140%); opacity: 0; pointer-events: none; }
-.sl-mobile-cta {
-  position: fixed;
-  left: 12px;
-  right: 76px;
-  bottom: calc(10px + env(safe-area-inset-bottom, 0px));
-  z-index: 58;
-  display: flex;
-  gap: 10px;
-  align-items: stretch;
-}
-.sl-mobile-cta__main {
-  flex: 1;
-  display: grid;
-  place-items: center;
-  min-height: 52px;
-  border: 1px solid rgba(255, 255, 255, .4);
-  border-radius: 14px;
-  background: linear-gradient(180deg, rgba(226, 198, 132, .92), rgba(201, 169, 110, .92));
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
-  color: #06152c;
-  text-decoration: none;
-  font: 800 14px/1 Arial, Helvetica, sans-serif;
-  letter-spacing: .04em;
-  text-transform: uppercase;
-  box-shadow: 0 14px 34px -10px rgba(6, 20, 46, .5);
-}
-.sl-mobile-cta__wa {
-  display: grid;
-  place-items: center;
-  width: 52px;
-  border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, .35);
-  background: rgba(37, 211, 102, .92);
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
-  color: #fff;
-  box-shadow: 0 14px 34px -10px rgba(6, 20, 46, .5);
-}
-.sl-mobile-cta__wa svg { width: 26px; height: 26px; }
-/* En móvil, los flotantes de WhatsApp/ClaudIA suben para no chocar con la barra */
+/* ── Flotantes de contacto: ClaudIA arriba, WhatsApp justo debajo ──
+   En movil van igual que en escritorio (antes se ocultaba WhatsApp porque
+   estorbaba la barra CTA fija, que se retiro). */
 @media (max-width: 720px) {
-  body:not(.sl-chat-open) .wa-float { display: none; }
-  .sl-chat-launcher { bottom: calc(74px + env(safe-area-inset-bottom, 0px)); }
-  .sl-chat-teaser { bottom: calc(148px + env(safe-area-inset-bottom, 0px)); }
+  .sl-chat-launcher { bottom: calc(84px + env(safe-area-inset-bottom, 0px)); }
+  .sl-chat-teaser { bottom: calc(158px + env(safe-area-inset-bottom, 0px)); }
+  .wa-float { bottom: calc(16px + env(safe-area-inset-bottom, 0px)); }
 }
 
 /* ── Miga de pan de páginas interiores ── */
