@@ -1,0 +1,59 @@
+{
+  "slug": "watermarking-ia",
+  "titulo": "Carrusel IG · La IA ya viene con marca de agua (ago-2026)",
+  "slides": [
+    {
+      "tipo": "portada",
+      "fondo": "/Users/josemotos/SoyLegal360/Empresa - SoyLegal360 S.L./06_MARKETING/Marca/propuestas-blog-chatgpt/descartadas/hueco-sello.png",
+      "eyebrow": "Reglamento europeo de IA",
+      "titulo": "La IA ya viene con marca de agua.",
+      "destacado": "La responsabilidad, no.",
+      "pie": "soylegal360.es"
+    },
+    {
+      "tipo": "navy",
+      "eyebrow": "Qué ha cambiado",
+      "titulo": "Marcar la IA ya es obligatorio",
+      "cuerpo": "Desde el 2 de agosto de 2026, el Reglamento europeo de IA obliga a marcar el contenido generado por inteligencia artificial. Anthropic acaba de explicar cómo lo hará Claude."
+    },
+    {
+      "tipo": "crema",
+      "eyebrow": "Cómo funciona",
+      "titulo": "No es un código oculto",
+      "cuerpo": "No añade caracteres invisibles ni metadatos. Condiciona la elección de palabras con una clave y deja un patrón estadístico que después se puede verificar."
+    },
+    {
+      "tipo": "navy",
+      "eyebrow": "No solo el texto",
+      "titulo": "Las imágenes también",
+      "cuerpo": "Los archivos generados (png, jpg, svg) llevarán credenciales C2PA, el mismo estándar que ya usan fabricantes de cámaras y programas de edición de foto."
+    },
+    {
+      "tipo": "crema",
+      "eyebrow": "Lo que viene",
+      "titulo": "Habrá API de detección",
+      "cuerpo": "Cualquiera podrá comprobar si un texto lleva la marca: un cliente sobre tu propuesta, un tribunal sobre un escrito. La pregunta deja de ser retórica."
+    },
+    {
+      "tipo": "navy",
+      "eyebrow": "El matiz que casi nadie cuenta",
+      "titulo": "El detector falla",
+      "destacado": "en los dos sentidos",
+      "cuerpo": "La señal es débil en textos cortos, factuales y en código, y desaparece si se reescribe todo. Un negativo no prueba que no hubo IA. Un positivo no prueba que el texto esté mal."
+    },
+    {
+      "tipo": "crema",
+      "eyebrow": "Lo que ninguna marca marca",
+      "titulo": "Quién responde",
+      "cuerpo": "Si publicas una política de privacidad generada con IA y está mal, ante la AEPD responde el responsable del tratamiento. Tu empresa. Con marca de agua o sin ella."
+    },
+    {
+      "tipo": "navy",
+      "eyebrow": "Conclusión",
+      "titulo": "Usar IA no es ilegal.",
+      "destacado": "Publicar sin revisión profesional, ese es el riesgo.",
+      "cuerpo": "Abogados especializados en protección de datos e inteligencia artificial. En Sabadell y para toda España.",
+      "pie": "soylegal360.es · enlace en la bio"
+    }
+  ]
+}
