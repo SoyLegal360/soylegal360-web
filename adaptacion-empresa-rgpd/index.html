@@ -115,6 +115,18 @@
   <!-- Consentimiento de cookies propio (sl360-cookies.js) + GA4 + Vercel Analytics. La analitica solo se carga si el usuario acepta la categoria de estadistica (Consent Mode v2, modo basico). Al editar el JS, subir el ?v= (cache immutable de /assets). -->
   <script defer src="/assets/js/sl360-cookies.js?v=5"></script>
   <link rel="stylesheet" href="/assets/css/styles.css?v=37">
+  <style>
+  /* Hero sin ilustracion: la foto de fondo es el motivo visual, asi que el velo se
+     aligera hacia la derecha y se reencuadra para que el escudo quede centrado en su mitad.
+     Ambito: solo esta pagina (el resto de heros de servicio mantienen su velo). */
+  .svc-hero__tint{background:linear-gradient(90deg,rgba(6,21,44,.985) 0%,rgba(6,21,44,.93) 40%,rgba(6,21,44,.42) 66%,rgba(6,21,44,.12) 100%)}
+  .svc-hero__photo{background-position:62% 50%}
+  .svc-hero__shell{grid-template-columns:minmax(0,1fr) minmax(0,.82fr)}
+  @media (max-width:900px){
+    .svc-hero__tint{background:linear-gradient(180deg,rgba(6,21,44,.94),rgba(6,21,44,.86))}
+    .svc-hero__photo{background-position:60% 45%}
+  }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -177,30 +189,6 @@
         <div class="svc-hero__actions">
           <a class="svc-hero__primary" href="/contacto/">Resolver dudas</a>
         </div>
-      </div>
-      <div class="svc-hero__glass" aria-hidden="true">
-        <span class="svc-hero__shine"></span>
-        <svg class="svc-hero__svg" viewBox="0 0 620 560" role="presentation">
-          <defs>
-            <linearGradient id="gold-EMP" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e2c684"/><stop offset="1" stop-color="#c9a96e"/></linearGradient>
-            <filter id="sh-EMP"><feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#020a17" flood-opacity=".55"/></filter>
-          </defs>
-          <g filter="url(#sh-EMP)">
-            <path d="M159 438V154l151-61 151 61v284Z" fill="#0d2447" stroke="#ffffff" stroke-opacity=".32" stroke-width="7" stroke-linejoin="round"/>
-            <path d="M198 181h224v257H198Z" fill="#06152c" stroke="#ffffff" stroke-opacity=".24" stroke-width="6"/>
-            <g fill="#0d2447" stroke="#ffffff" stroke-opacity=".3" stroke-width="5">
-              <path d="M222 207h43v39h-43zM288 207h43v39h-43zM355 207h43v39h-43z"/>
-              <path d="M222 270h43v39h-43zM288 270h43v39h-43zM355 270h43v39h-43z"/>
-              <path d="M222 333h43v39h-43zM288 333h43v39h-43zM355 333h43v39h-43z"/>
-            </g>
-            <path d="M278 438v-48h64v48" fill="#0d2447" stroke="#ffffff" stroke-opacity=".3" stroke-width="6"/>
-            <g fill="#0d2447" stroke="url(#gold-EMP)" stroke-width="8" stroke-linejoin="round">
-              <path d="M408 266c27 18 51 23 72 25v67c0 48-26 79-72 101-46-22-72-53-72-101v-67c21-2 45-7 72-25Z"/>
-              <path d="m375 355 22 22 43-51" fill="none" stroke-linecap="round"/>
-            </g>
-          </g>
-        </svg>
-        <div class="svc-hero__seal"><span class="svc-hero__seal-mark">✓</span><span class="svc-hero__seal-copy">Redactado por<br>abogados</span></div>
       </div>
     </div>
   </section>
