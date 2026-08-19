@@ -1,0 +1,56 @@
+{
+  "slug": "conecta-tu-ia",
+  "titulo": "Carrusel IG · Conecta tu IA a tu cumplimiento (ago-2026)",
+  "slides": [
+    {
+      "tipo": "portada",
+      "fondo": "/Users/josemotos/SoyLegal360/Empresa - SoyLegal360 S.L./06_MARKETING/Marca/propuestas-sobre-nosotros/descartadas/engranaje-precision.png",
+      "eyebrow": "IA en la empresa",
+      "titulo": "Tu IA ya puede leer tu cumplimiento.",
+      "destacado": "Sin quedarse tus datos.",
+      "pie": "soylegal360.es"
+    },
+    {
+      "tipo": "navy",
+      "eyebrow": "Qué ha pasado",
+      "titulo": "Tu ChatGPT, conectado a tu RGPD",
+      "cuerpo": "Desde agosto de 2026, los clientes de SoyLegal360 pueden conectar la IA que ya usan (Claude, ChatGPT, Copilot o Gemini) a su área de cumplimiento. Se llama MCP y es un estándar abierto."
+    },
+    {
+      "tipo": "crema",
+      "eyebrow": "Qué gana tu empresa",
+      "titulo": "Se acabó el copiar y pegar",
+      "cuerpo": "Tu IA consulta tu ficha, tus documentos RGPD y tus consultas con abogados. Le preguntas si tienes contrato de encargo con tu gestoría y responde con tus datos, no con generalidades."
+    },
+    {
+      "tipo": "navy",
+      "eyebrow": "La letra grande",
+      "titulo": "Solo lectura, de verdad",
+      "cuerpo": "La conexión no puede cambiar ni borrar nada. Tampoco ve los datos privados: ni el CIF ni los contactos. Y se revoca con un clic, con efecto inmediato."
+    },
+    {
+      "tipo": "crema",
+      "eyebrow": "El contraste",
+      "titulo": "Lo contrario de pegar datos en un chat",
+      "cuerpo": "Miles de pymes pegan contratos y datos de clientes en chats de IA sin control. Una conexión con permisos definidos y registro de uso es el camino contrario: la IA va a los datos, gobernada."
+    },
+    {
+      "tipo": "navy",
+      "eyebrow": "El matiz",
+      "titulo": "La privacidad de tu IA sigue contando",
+      "cuerpo": "Lo que tu IA lea pasa a tu conversación con ella y se rige por la privacidad de ese proveedor. Por eso conviene elegir proveedores con garantías europeas y planes de empresa."
+    },
+    {
+      "tipo": "crema",
+      "eyebrow": "Y tus datos, tuyos",
+      "titulo": "Portabilidad en un clic",
+      "cuerpo": "En la misma área puedes descargar todos tus datos (documentos, consultas, actividad) en un archivo. Es el derecho de portabilidad del artículo 20 del RGPD, sin esperas ni formularios."
+    },
+    {
+      "tipo": "navy",
+      "eyebrow": "Quiénes somos",
+      "titulo": "IA con abogados detrás",
+      "cuerpo": "SoyLegal360: protección de datos y Reglamento de IA para pymes, desde Sabadell para toda España. Nuestra área de cliente incluye un asistente de IA supervisado por abogados. Enlace en la bio."
+    }
+  ]
+}
