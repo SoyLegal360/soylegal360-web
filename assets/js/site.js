@@ -120,7 +120,7 @@ document.querySelectorAll("[data-carousel]").forEach((root) => {
   // Reveal: cards y bloques repetidos aparecen con fade+rise, escalonados por grupo.
   const revealSel =
     ".feature-card, .family-card, .entry-card, .content-card, .mini-card, " +
-    ".directory-group, .steps article, .home-guide-route";
+    ".directory-group, .steps article, .home-guide-route, .sl-appear";
   const items = document.querySelectorAll(revealSel);
   if (items.length && "IntersectionObserver" in window && !reduceMotion) {
     const groups = new Map(); // padre → índice para escalonar la entrada
