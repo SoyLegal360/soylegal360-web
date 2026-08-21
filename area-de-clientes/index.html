@@ -278,6 +278,50 @@
     @media (max-width:560px) {
       .sl-area-extras ul { grid-template-columns:1fr; }
     }
+
+    /* ── Timeline "Así va tu consulta" (fila del abogado) ── */
+    .sl-tl { list-style:none; display:flex; margin:24px 0 4px; padding:0; position:relative; }
+    .sl-tl li { flex:1; position:relative; padding-top:26px; text-align:center; }
+    .sl-tl b { display:block; color:var(--navy); font:700 13.5px/1.25 Georgia,serif; }
+    .sl-tl i { display:block; font-style:normal; color:var(--muted); font:400 11.5px/1.35 Arial,Helvetica,sans-serif; margin-top:2px; }
+    .sl-tl::before { content:""; position:absolute; left:16.6%; right:16.6%; top:8px; height:2px; background:var(--line); }
+    .sl-tl::after { content:""; position:absolute; left:16.6%; top:8px; height:2px; width:33.4%; background:linear-gradient(90deg,var(--gold-soft),var(--gold)); transition:width 1.1s ease .25s; }
+    .sl-tl .dot { position:absolute; top:2px; left:50%; transform:translateX(-50%); width:14px; height:14px; border-radius:50%; background:#fff; border:2px solid var(--line); }
+    .sl-tl li:nth-child(1) .dot, .sl-tl li:nth-child(2) .dot { border-color:var(--gold); background:linear-gradient(180deg,var(--gold-soft),var(--gold)); }
+    .sl-tl-note { margin:12px 0 0; color:var(--muted); font:400 14.5px/1.65 Arial,Helvetica,sans-serif; }
+    .sl-tl-note strong { color:var(--ink); }
+    @media (prefers-reduced-motion:no-preference) {
+      html.sl-js .sl-appear.sl-tl::after { width:0; }
+      html.sl-js .sl-appear.sl-tl.is-in::after { width:33.4%; }
+      .sl-tl li:nth-child(2) .dot { animation:sl-tl-pulse 1.9s ease-out infinite; }
+    }
+    @keyframes sl-tl-pulse { 0% { box-shadow:0 0 0 0 rgba(201,169,110,.5); } 100% { box-shadow:0 0 0 11px rgba(201,169,110,0); } }
+    @media (max-width:560px) {
+      .sl-tl { flex-direction:column; gap:16px; margin-top:20px; }
+      .sl-tl::before, .sl-tl::after { display:none; }
+      .sl-tl li { padding:0 0 0 26px; text-align:left; }
+      .sl-tl .dot { left:0; top:2px; transform:none; }
+    }
+
+    /* ── Tus datos, siempre tuyos (portabilidad, anti lock-in) ── */
+    .sl-port { padding:8px 0 84px; }
+    .sl-port .card { position:relative; overflow:hidden; display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr); gap:clamp(26px,4vw,54px); align-items:center; width:min(1000px,100%); margin:0 auto; padding:clamp(30px,4vw,50px); border:1px solid rgba(201,169,110,.42); border-radius:20px; background:linear-gradient(160deg,#fffdf8,#faf6ee); box-shadow:0 26px 70px rgba(6,21,44,.10); }
+    .sl-port h2 { margin:6px 0 12px; color:var(--navy); font-size:clamp(24px,3vw,36px); line-height:1.12; }
+    .sl-port p { margin:0; color:var(--muted); font:400 16px/1.7 Arial,Helvetica,sans-serif; }
+    .sl-port p strong { color:var(--ink); }
+    .sl-port .pull { margin:16px 0 0; color:var(--navy); font:italic 600 16px/1.5 Georgia,serif; }
+    .sl-port__viz { display:grid; place-items:center; gap:12px; }
+    .sl-port__tile { position:relative; width:128px; height:128px; border-radius:26px; display:grid; place-items:center; background:linear-gradient(180deg,#fff,#fbf6ea); border:1px solid rgba(201,169,110,.5); box-shadow:0 22px 50px rgba(6,21,44,.12); }
+    .sl-port__tile svg { width:54px; height:54px; fill:none; stroke:var(--gold); stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
+    .sl-port__tile::after { content:""; position:absolute; inset:-6px; border-radius:30px; border:2px solid rgba(201,169,110,.35); opacity:0; }
+    .sl-port__tag { font:700 11px/1 Arial,Helvetica,sans-serif; letter-spacing:.03em; color:var(--navy); padding:5px 11px; border-radius:999px; border:1px solid rgba(201,169,110,.45); background:rgba(201,169,110,.1); }
+    @media (prefers-reduced-motion:no-preference) {
+      .sl-port__tile::after { animation:sl-port-ring 2.6s ease-out infinite; }
+      html.sl-js .sl-appear .sl-port__arrow { animation:sl-port-arrow 2.2s ease-in-out infinite; }
+    }
+    @keyframes sl-port-ring { 0% { opacity:.5; transform:scale(.9); } 100% { opacity:0; transform:scale(1.14); } }
+    @keyframes sl-port-arrow { 0%,100% { transform:translateY(0); } 50% { transform:translateY(3px); } }
+    @media (max-width:760px) { .sl-port .card { grid-template-columns:1fr; text-align:center; } .sl-port__viz { order:-1; } }
   </style>
 </head>
 <body>
@@ -382,8 +426,14 @@
         <article class="sl-area-row">
           <div>
             <p class="eyebrow">Abogado de verdad</p>
-            <h2>Cuando importa, lo ve un abogado.</h2>
-            <p>Tu pack incluye <strong>consultas con abogado cada mes</strong>. Las planteas desde tu área y eliges el formato: respuesta por escrito o videollamada de 30 minutos. Todo queda en su hilo: la pregunta, la respuesta y los documentos que salgan de ella.</p>
+            <h2>Detrás del asistente, siempre un abogado.</h2>
+            <p>Tu pack incluye <strong>consultas con abogado cada mes</strong>, por escrito o en videollamada de 30 minutos. Y cuando una consulta necesita a tu abogado, no se dispara sola ni se cobra por sorpresa: lo ves en todo momento y decides cómo seguir.</p>
+            <ol class="sl-tl sl-appear" aria-label="Cómo avanza tu consulta">
+              <li><span class="dot"></span><b>Recibida</b></li>
+              <li><span class="dot"></span><b>Tu abogado la revisa</b><i>en menos de 48 h hábiles</i></li>
+              <li><span class="dot"></span><b>Resuelta</b><i>en tu mismo hilo</i></li>
+            </ol>
+            <p class="sl-tl-note"><strong>Eliges la vía</strong>: tu consulta incluida, tu bolsa de horas o una puntual de 29 € + IVA. Te confirmamos antes de facturar nada.</p>
           </div>
           <div class="sl-area-row__media">
             <img src="/assets/img/sl-app-consultas.webp?v=3" width="1000" height="625" alt="Mis consultas: dos consultas derivadas a un abogado de SoyLegal360, ambas respondidas" loading="lazy">
@@ -430,6 +480,25 @@
           </div>
         </article>
 
+      </div>
+    </section>
+
+    <section class="sl-port" aria-labelledby="sl-port-title">
+      <div class="wrap">
+        <div class="card sl-appear">
+          <div>
+            <p class="eyebrow">Sin ataduras</p>
+            <h2 id="sl-port-title">Tus datos, siempre tuyos.</h2>
+            <p>Aquí no hay puertas cerradas. Cuando quieras, te descargas <strong>todo tu cumplimiento</strong> en un clic: tus datos, tus consultas y tus documentos, en un formato que cualquiera puede abrir. Es tu derecho de portabilidad (art. 20 RGPD), y lo tienes a un botón, sin llamadas ni letra pequeña.</p>
+            <p class="pull">La misma ley que te ayudamos a cumplir, la cumplimos contigo.</p>
+          </div>
+          <div class="sl-port__viz">
+            <div class="sl-port__tile">
+              <svg class="sl-port__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11"/><path d="M8 11l4 4 4-4"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg>
+            </div>
+            <span class="sl-port__tag">Tu derecho · art. 20</span>
+          </div>
+        </div>
       </div>
     </section>
 
