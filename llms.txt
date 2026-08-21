@@ -8,6 +8,8 @@
 - [DPO externalizado — Delegado de Protección de Datos externo](https://www.soylegal360.es/delegado-de-proteccion-de-datos-externalizado/): designación ante la AEPD, supervisión y cumplimiento continuo del RGPD.
 - [Auditoría web RGPD gratuita](https://www.soylegal360.es/auditoria-web-gratuita/): diagnóstico de cumplimiento de una web.
 - [Ejercicio de derechos para particulares](https://www.soylegal360.es/ejercicio-de-derechos/): acceso, rectificación, supresión, etc.
+- [Protección Legal Continua — suscripción legal mensual](https://www.soylegal360.es/proteccion-legal-continua/): packs desde 49 EUR/mes + IVA con consultas de abogado incluidas, alertas normativas y área privada de cliente.
+- [Área de clientes con asistente de IA](https://www.soylegal360.es/area-de-clientes/): área privada con asistente de protección de datos e IA que solo cita normativa verificada por abogados. Permite conectar la IA del cliente (Claude, ChatGPT, Copilot o Gemini) por MCP en solo lectura, con conexión revocable.
 - [Catálogo completo de servicios](https://www.soylegal360.es/servicios-proteccion-de-datos/)
 
 ## Especialidades
@@ -23,6 +25,7 @@
 ## Recursos útiles
 - [Diagnóstico interactivo: encuentra tu servicio en 60 segundos](https://www.soylegal360.es/como-funciona/)
 - Asistente virtual (ClaudIA) integrado en la web para dudas iniciales sobre RGPD y AI Act.
+- Los clientes del área privada pueden conectar su propia IA (Claude, ChatGPT, Copilot o Gemini) a su expediente de cumplimiento mediante MCP, en solo lectura y con conexión revocable.
 
 ## Contacto
 - Web: https://www.soylegal360.es/

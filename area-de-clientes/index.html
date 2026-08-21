@@ -54,30 +54,66 @@
   </script>
   <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "¿Cómo consigo acceso al área de clientes?",
-      "acceptedAnswer": { "@type": "Answer", "text": "El área de clientes está incluida en todos los packs de Protección Legal Continua, desde 49 euros al mes más IVA. Al activar tu pack te creamos la cuenta y te acompañamos en el primer acceso." }
-    },
-    {
-      "@type": "Question",
-      "name": "¿El asistente de IA puede inventarse una norma?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Está diseñado para lo contrario: a diferencia de un asistente generalista, responde a partir de normativa que nuestros abogados han verificado en su base de conocimiento y prefiere un «no lo sé» antes que una respuesta inventada. Si no tiene la respuesta comprobada, lo dice y te ofrece derivar la consulta a un abogado." }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Quién responde mis consultas serias?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Un abogado de SoyLegal360. Tu pack de Protección Legal Continua incluye consultas con abogado cada mes: por escrito en tu área privada o por videollamada de 30 minutos, como prefieras." }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Qué seguridad tiene mi información?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Cifrado AES-256 en tránsito y en reposo, doble factor de autenticación (2FA), registro de auditoría, base de datos alojada en la Unión Europea y acceso únicamente por invitación de SoyLegal360." }
-    }
-  ]
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "¿Cómo consigo acceso al área de clientes?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "El área de clientes está incluida en todos los packs de Protección Legal Continua, desde 49 euros al mes más IVA. Al activar tu pack te creamos la cuenta y te acompañamos en el primer acceso."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿El asistente de IA puede inventarse una norma?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Está diseñado para lo contrario: a diferencia de un asistente generalista, responde a partir de normativa que nuestros abogados han verificado en su base de conocimiento y prefiere un «no lo sé» antes que una respuesta inventada. Si no tiene la respuesta comprobada, lo dice y te ofrece derivar la consulta a un abogado."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Quién responde mis consultas serias?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Un abogado de SoyLegal360. Tu pack de Protección Legal Continua incluye consultas con abogado cada mes: por escrito en tu área privada o por videollamada de 30 minutos, como prefieras."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Qué seguridad tiene mi información?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Cifrado AES-256 en tránsito y en reposo, doble factor de autenticación (2FA), registro de auditoría, base de datos alojada en la Unión Europea y acceso únicamente por invitación de SoyLegal360."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Puedo conectar ChatGPT o Claude a mi área?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Sí. Desde Ajustes, en un clic, generas una conexión segura para Claude, ChatGPT, Copilot o Gemini. Tu IA podrá consultar tu ficha, tus documentos y tus consultas para responderte con tu contexto real. La conexión es de solo lectura y la puedes revocar en cualquier momento desde tu área."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Qué ve exactamente mi IA cuando la conecto?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Solo lo tuyo y solo en lectura: la ficha de tu empresa (sin datos privados de contacto ni CIF), tus documentos y tus consultas. Nunca puede modificar nada ni ver información de otros clientes, y cada acceso queda registrado. Eso sí: lo que tu proveedor de IA haga con lo que lee se rige por su propia política de privacidad, así que conecta la IA que tu empresa ya tenga aprobada."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Puedo escribir al asistente en catalán, gallego, euskera o inglés?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Sí. Escríbele en el idioma en el que pienses y te responderá en ese mismo idioma. Las citas legales van siempre en castellano, tal y como están publicadas en el BOE, para que la literalidad de la norma no se pierda por el camino."
+   }
+  }
+ ]
 }
   </script>
   <link rel="icon" href="/favicon.ico?v=3" sizes="any">
@@ -126,6 +162,8 @@
     .sl-vid-replay { position:absolute; right:16px; bottom:12%; z-index:3; display:inline-flex; align-items:center; gap:9px; padding:13px 22px; border:1px solid rgba(226,200,139,.55); border-radius:999px; background:rgba(6,14,30,.72); backdrop-filter:blur(9px); -webkit-backdrop-filter:blur(9px); color:#e2c88b; font:700 14px/1 Arial,Helvetica,sans-serif; letter-spacing:.04em; cursor:pointer; transition:background .2s ease,transform .2s ease; }
     .sl-vid-replay[hidden],.sl-vid-sound[hidden],.sl-area-sound[hidden]{display:none}
         .sl-vid-replay:hover { background:rgba(201,169,110,.26); transform:scale(1.04); }
+    .sl-area-ia-logos { display:flex; align-items:center; flex-wrap:wrap; gap:6px 10px; margin-top:14px; font-weight:600; color:var(--navy,#06152c); }
+    .sl-area-ia-logos img { vertical-align:middle; }
     .sl-area-row__media { cursor:zoom-in; }
     .sl-area-row__media img { transition:transform .3s ease, box-shadow .3s ease; }
     .sl-area-row__media:hover img { transform:scale(1.025); box-shadow:0 40px 90px -28px rgba(6,20,46,.5); }
@@ -337,7 +375,7 @@
             <p class="sl-area-quote">Si algo es serio, no te deja solo: <b>te lo deriva a un abogado</b> con un clic.</p>
           </div>
           <div class="sl-area-row__media">
-            <img src="/assets/img/sl-app-chat.webp?v=2" width="1000" height="625" alt="El asistente respondiendo una duda sobre el derecho de acceso citando el artículo 12 del RGPD" loading="lazy">
+            <img src="/assets/img/sl-app-chat.webp?v=3" width="1000" height="625" alt="El asistente proponiendo derivar una consulta a un abogado: usar la consulta incluida, una adicional o seguir con el asistente" loading="lazy">
           </div>
         </article>
 
@@ -348,7 +386,7 @@
             <p>Tu pack incluye <strong>consultas con abogado cada mes</strong>. Las planteas desde tu área y eliges el formato: respuesta por escrito o videollamada de 30 minutos. Todo queda en su hilo: la pregunta, la respuesta y los documentos que salgan de ella.</p>
           </div>
           <div class="sl-area-row__media">
-            <img src="/assets/img/sl-app-consultas.webp?v=2" width="1000" height="625" alt="Consulta respondida por un abogado de SoyLegal360 sobre un encargo de tratamiento" loading="lazy">
+            <img src="/assets/img/sl-app-consultas.webp?v=3" width="1000" height="625" alt="Mis consultas: dos consultas derivadas a un abogado de SoyLegal360, ambas respondidas" loading="lazy">
           </div>
         </article>
 
@@ -359,7 +397,25 @@
             <p>Tu RAT, tus políticas y la ficha de tu empresa, <strong>siempre en su última versión</strong>, centralizado en un solo sitio cifrado. Se acabó el cumplimiento repartido por correos y carpetas.</p>
           </div>
           <div class="sl-area-row__media">
-            <img src="/assets/img/sl-app-documentos.webp?v=2" width="1000" height="625" alt="Sección Mis documentos con el RAT, la política de privacidad y la de cookies" loading="lazy">
+            <img src="/assets/img/sl-app-documentos.webp?v=3" width="1000" height="625" alt="Mis documentos: el RAT, la evaluación de impacto y el contrato de encargo, en su última versión" loading="lazy">
+          </div>
+        </article>
+
+        <article class="sl-area-row">
+          <div>
+            <p class="eyebrow">Tu IA, conectada</p>
+            <h2>Pregunta desde la IA que ya usas.</h2>
+            <p>Conecta <strong>Claude, ChatGPT, Copilot o Gemini</strong> a tu área en un clic. Tu IA deja de responder en abstracto: consulta <strong>tu ficha, tus documentos y tus consultas reales</strong> para darte respuestas sobre tu empresa, no sobre una empresa cualquiera.</p>
+            <p class="sl-area-quote">Con tres garantías: <b>solo lectura</b>, solo tus datos, y <b>se desconecta en un clic</b> desde tu área.</p>
+            <p class="sl-area-ia-logos" aria-label="IA compatibles">
+              <img src="/assets/img/ia/claude.svg" width="22" height="22" alt="" loading="lazy"> Claude&nbsp;&nbsp;
+              <img src="/assets/img/ia/openai.svg" width="22" height="22" alt="" loading="lazy"> ChatGPT&nbsp;&nbsp;
+              <img src="/assets/img/ia/githubcopilot.svg" width="22" height="22" alt="" loading="lazy"> Copilot&nbsp;&nbsp;
+              <img src="/assets/img/ia/googlegemini.svg" width="22" height="22" alt="" loading="lazy"> Gemini
+            </p>
+          </div>
+          <div class="sl-area-row__media">
+            <img src="/assets/img/sl-app-conexiones.webp" width="1000" height="625" alt="Pantalla de Conexiones del área: conectar Claude, ChatGPT, Copilot o Gemini con un clic" loading="lazy">
           </div>
         </article>
 
@@ -370,7 +426,7 @@
             <p>El área funciona igual de bien en el móvil: entras con tu enlace de acceso, preguntas al asistente o revisas tu estado de cumplimiento <strong>desde la obra, la tienda o la consulta</strong>. Sin instalar nada.</p>
           </div>
           <div class="sl-area-row__media sl-area-row__media--phone">
-            <img src="/assets/img/sl-app-movil.webp" width="332" height="720" alt="El área de clientes en un móvil: dashboard con el asistente y el estado de cumplimiento" loading="lazy">
+            <img src="/assets/img/sl-app-movil.webp?v=3" width="332" height="720" alt="El área de clientes en un móvil: dashboard con el asistente y el estado de cumplimiento" loading="lazy">
           </div>
         </article>
 
@@ -456,6 +512,18 @@
           <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M16 11c1.7 0 3-1.6 3-3.5S17.7 4 16 4c-.3 0-.7.1-1 .2"/><path d="M8 11c1.7 0 3-1.6 3-3.5S9.7 4 8 4 5 5.6 5 7.5 6.3 11 8 11z"/><path d="M2 20c0-3 2.7-5 6-5s6 2 6 5"/><path d="M17 14h5M19.5 11.5v5"/></svg></span>
           <span class="tx"><b>Solo por invitación</b><i>El alta la crea SoyLegal360</i></span>
         </div>
+        <div class="sl-chip" role="listitem">
+          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/><path d="M9 10l2 2 4-4"/></svg></span>
+          <span class="tx"><b>Sesiones bajo control</b><i>Ve tus accesos y ciérralos tú</i></span>
+        </div>
+        <div class="sl-chip" role="listitem">
+          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v10"/><path d="M8 9l4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg></span>
+          <span class="tx"><b>Tus datos, descargables</b><i>Todo lo tuyo, en un clic</i></span>
+        </div>
+        <div class="sl-chip" role="listitem">
+          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 8V5a3 3 0 0 1 6 0v3"/><rect x="5" y="8" width="14" height="8" rx="3"/><path d="M9 12h.01M15 12h.01"/><path d="M12 16v3M8 21h8"/></svg></span>
+          <span class="tx"><b>Conexiones de IA revocables</b><i>Solo lectura, las quitas tú</i></span>
+        </div>
           </div>
           <div class="sl-chips__set" aria-hidden="true">
         <div class="sl-chip">
@@ -477,6 +545,18 @@
         <div class="sl-chip">
           <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M16 11c1.7 0 3-1.6 3-3.5S17.7 4 16 4c-.3 0-.7.1-1 .2"/><path d="M8 11c1.7 0 3-1.6 3-3.5S9.7 4 8 4 5 5.6 5 7.5 6.3 11 8 11z"/><path d="M2 20c0-3 2.7-5 6-5s6 2 6 5"/><path d="M17 14h5M19.5 11.5v5"/></svg></span>
           <span class="tx"><b>Solo por invitación</b><i>El alta la crea SoyLegal360</i></span>
+        </div>
+        <div class="sl-chip">
+          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/><path d="M9 10l2 2 4-4"/></svg></span>
+          <span class="tx"><b>Sesiones bajo control</b><i>Ve tus accesos y ciérralos tú</i></span>
+        </div>
+        <div class="sl-chip">
+          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v10"/><path d="M8 9l4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg></span>
+          <span class="tx"><b>Tus datos, descargables</b><i>Todo lo tuyo, en un clic</i></span>
+        </div>
+        <div class="sl-chip">
+          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 8V5a3 3 0 0 1 6 0v3"/><rect x="5" y="8" width="14" height="8" rx="3"/><path d="M9 12h.01M15 12h.01"/><path d="M12 16v3M8 21h8"/></svg></span>
+          <span class="tx"><b>Conexiones de IA revocables</b><i>Solo lectura, las quitas tú</i></span>
         </div>
           </div>
         </div>
@@ -535,6 +615,18 @@
           <details>
             <summary>¿Qué seguridad tiene mi información?</summary>
             <p>Cifrado AES-256 en tránsito y en reposo, doble factor de autenticación (2FA), registro de auditoría, base de datos alojada en la Unión Europea y acceso únicamente por invitación de SoyLegal360.</p>
+          </details>
+          <details>
+            <summary>¿Puedo conectar ChatGPT o Claude a mi área?</summary>
+            <p>Sí. Desde Ajustes, en un clic, generas una conexión segura para Claude, ChatGPT, Copilot o Gemini. Tu IA podrá consultar tu ficha, tus documentos y tus consultas para responderte con tu contexto real. La conexión es de solo lectura y la puedes revocar en cualquier momento desde tu área.</p>
+          </details>
+          <details>
+            <summary>¿Qué ve exactamente mi IA cuando la conecto?</summary>
+            <p>Solo lo tuyo y solo en lectura: la ficha de tu empresa (sin datos privados de contacto ni CIF), tus documentos y tus consultas. Nunca puede modificar nada ni ver información de otros clientes, y cada acceso queda registrado. Eso sí: lo que tu proveedor de IA haga con lo que lee se rige por su propia política de privacidad, así que conecta la IA que tu empresa ya tenga aprobada.</p>
+          </details>
+          <details>
+            <summary>¿Puedo escribir al asistente en catalán, gallego, euskera o inglés?</summary>
+            <p>Sí. Escríbele en el idioma en el que pienses y te responderá en ese mismo idioma. Las citas legales van siempre en castellano, tal y como están publicadas en el BOE, para que la literalidad de la norma no se pierda por el camino.</p>
           </details>
         </div>
       </div>
