@@ -92,6 +92,6 @@ En la práctica, muchas empresas necesitan las dos miradas, porque sus herramien
 
 ## Por dónde empezar
 
-Si en tu empresa ya se usan herramientas de IA y no tienes claro qué obligaciones implican, el orden lógico es: primero diagnosticar, después adaptar. Puedes empezar por una [auditoría de IA](/auditoria-ia/) a medida, valorar un [responsable de IA externalizado](/responsable-ia-externalizado/) si necesitas acompañamiento continuo, o pasar a la [adaptación de IA](/adaptacion-ia/) cuando el alcance ya está definido.
+Si en tu empresa ya se usan herramientas de IA y no tienes claro qué obligaciones implican, el orden lógico es: primero diagnosticar, después adaptar. Puedes empezar por una [auditoría legal de inteligencia artificial](/auditoria-ia/) a medida, valorar un [responsable de IA externalizado](/responsable-ia-externalizado/) si necesitas acompañamiento continuo, o pasar a la [adaptación de IA](/adaptacion-ia/) cuando el alcance ya está definido.
 
 ¿Quieres una primera foto sin coste de tu punto de partida? Solicita nuestra [auditoría gratuita](/auditoria-web-gratuita/) y revisamos por dónde conviene empezar.
