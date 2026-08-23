@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "astro dev",
     "reviews": "node scripts/build-reviews.mjs",
-    "build": "astro build && node scripts/build-reviews.mjs && node scripts/copy-static.mjs && node scripts/inject-blog-sitemap.mjs && node scripts/gen-og.mjs",
+    "sitemap": "node scripts/sitemap-lastmod.mjs --src",
+    "build": "astro build && node scripts/build-reviews.mjs && node scripts/copy-static.mjs && node scripts/sitemap-lastmod.mjs && node scripts/inject-blog-sitemap.mjs && node scripts/gen-og.mjs",
     "preview": "astro preview"
   },
   "dependencies": {

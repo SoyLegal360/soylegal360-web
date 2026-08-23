@@ -18,7 +18,10 @@ const entries = [
 for (const f of files) {
   const slug = f.replace(/\.md$/, '');
   const src = readFileSync(join(blogDir, f), 'utf8');
-  const m = src.match(/^fecha:\s*(\d{4}-\d{2}-\d{2})/m);
+  // `actualizado` (revision de contenido) manda sobre `fecha` (publicacion).
+  const rev = src.match(/^actualizado:\s*(\d{4}-\d{2}-\d{2})/m);
+  const pub = src.match(/^fecha:\s*(\d{4}-\d{2}-\d{2})/m);
+  const m = rev || pub;
   const lastmod = m ? m[1] : new Date().toISOString().slice(0, 10);
   entries.push(
     `  <url><loc>${BASE}/blog/${slug}/</loc><lastmod>${lastmod}</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>`,

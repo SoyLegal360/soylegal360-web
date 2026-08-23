@@ -18,11 +18,16 @@ const otros = (await getCollection('blog'))
   .filter((p) => p.id !== post.id)
   .sort((a, b) => b.data.fecha.getTime() - a.data.fecha.getTime())
   .slice(0, 2);
-const { titulo, meta, fecha, faq, fuentes, cta, estado_revision, autor, imagen } = post.data;
+const { titulo, meta, fecha, actualizado, faq, fuentes, cta, estado_revision, autor, imagen } = post.data;
 
 const canonical = `https://www.soylegal360.es/blog/${post.id}/`;
 const fechaISO = fecha.toISOString().slice(0, 10);
 const fechaLegible = fecha.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' });
+// `actualizado` solo se declara cuando el contenido se ha revisado de verdad:
+// no se toca por un retoque de maquetacion, para no fingir frescura ante Google.
+const revisadoISO = (actualizado ?? fecha).toISOString().slice(0, 10);
+const hayRevision = revisadoISO !== fechaISO;
+const revisadoLegible = (actualizado ?? fecha).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' });
 const ogImage = imagen ? `https://www.soylegal360.es${imagen}` : `${canonical}og.png`; // imagen custom si la hay; si no, tarjeta programatica (scripts/gen-og.mjs)
 const brandLogo = 'https://www.soylegal360.es/assets/img/soylegal360_logo_color_horizontal.png';
 const titleTag = `${titulo} | SoyLegal360`;
@@ -79,7 +84,7 @@ const articleSchema = {
   description: meta,
   image: ogImage,
   datePublished: fechaISO,
-  dateModified: fechaISO,
+  dateModified: revisadoISO,
   inLanguage: 'es-ES',
   author: { '@type': 'Person', name: autor, worksFor: { '@type': 'Organization', name: 'SoyLegal360' } },
   publisher: {
@@ -259,6 +264,7 @@ const faqSchema = faq.length
         <div class="blog-hero__meta">
           <span>Por {autor}</span>
           <span>{fechaLegible}</span>
+          {hayRevision && <span>Actualizado el {revisadoLegible}</span>}
           <span>{minutos} min de lectura</span>
           {estado_revision === 'verificado' && (
             <span class="blog-hero__badge">Revisado por el equipo legal de SoyLegal360</span>

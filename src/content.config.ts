@@ -9,6 +9,9 @@ const blog = defineCollection({
     titulo: z.string(),
     meta: z.string(),
     fecha: z.coerce.date(),
+    // Fecha de la ultima REVISION del contenido (no de cualquier retoque).
+    // Alimenta dateModified y el <lastmod> del sitemap. Si falta, vale `fecha`.
+    actualizado: z.coerce.date().optional(),
     publico: z.enum(['pyme', 'autonomo', 'empresa', 'b2c']).optional(),
     keyword: z.string().optional(),
     cta: z.string().optional(),
