@@ -17,7 +17,11 @@
 /https-www-soylegal360-es-analiza-en/
 serve.py
 deploy.sh
-.claude/
+.claude/*
+# settings.json SI se versiona: lleva el hook de pre-push, que protege
+# produccion y debe valer para cualquiera que trabaje en el repo.
+# settings.local.json (permisos de cada maquina) se queda fuera.
+!.claude/settings.json
 
 # Astro / Node (build del blog)
 # Sin barra final: asi tambien ignora un enlace simbolico llamado node_modules
