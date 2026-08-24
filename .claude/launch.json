@@ -1,6 +1,27 @@
 {
   "version": "0.0.1",
   "configurations": [
-    { "name": "web-static", "runtimeExecutable": "python3", "runtimeArgs": ["-m", "http.server", "4321"], "port": 4321 }
+    {
+      "name": "web-static",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "4321"
+      ],
+      "port": 4321
+    },
+    {
+      "name": "minimo-legal",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "--prefix",
+        "/Users/josemotos/SoyLegal360/dev/soylegal360-express",
+        "run",
+        "dev"
+      ],
+      "port": 3000,
+      "autoPort": true
+    }
   ]
 }
