@@ -228,7 +228,7 @@ const STATIC_PAGES = {
   'responsable-ia-externalizado': ['Responsable de IA externalizado', 'IA', 'assets/img/hero-ia.webp'],
   'delegado-de-ia-publico': ['Delegado de IA para el sector público', 'IA', 'assets/img/hero-ia.webp'],
   'web-legal-lista-en-7-dias': ['Web legal lista en 7 días', 'WEB LEGAL', 'assets/img/hero-web.webp'],
-  'legal-para-saas-y-apps': ['Legal y RGPD para SaaS y apps', 'SAAS · APPS', 'assets/img/hero-web.webp'],
+  'legal-para-saas-y-apps': ['Legal y RGPD para SaaS y apps', 'SAAS · APPS', 'assets/img/hero-saas.webp', 'east'],
   'consultoria-proteccion-de-datos': ['Consultoría de protección de datos', 'CONSULTORÍA', 'assets/img/hero-datos.webp'],
   'consultoria-legal': ['Consultoría legal', 'CONSULTORÍA', 'assets/img/despacho/oficina-sala-reunion.webp'],
   'revision-de-contratos': ['Revisión de contratos', 'CONTRATOS', 'assets/img/despacho/oficina-consulta.webp'],
