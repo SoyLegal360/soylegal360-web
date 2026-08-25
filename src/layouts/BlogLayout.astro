@@ -86,7 +86,10 @@ const articleSchema = {
   datePublished: fechaISO,
   dateModified: revisadoISO,
   inLanguage: 'es-ES',
-  author: { '@type': 'Person', name: autor, worksFor: { '@type': 'Organization', name: 'SoyLegal360' } },
+  // La autoria del contenido juridico es de la firma, no de una persona: el marketing
+  // es de marca, sin persona (FUENTE_DE_VERDAD). Ademas evita atribuir contenido YMYL
+  // a quien la web presenta en Marketing y Comunicacion. La firma visible no cambia.
+  author: { '@type': 'Organization', name: 'SoyLegal360', url: 'https://www.soylegal360.es/' },
   publisher: {
     '@type': 'Organization',
     name: 'SoyLegal360',
