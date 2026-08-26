@@ -7,8 +7,9 @@
     "reviews": "node scripts/build-reviews.mjs",
     "sitemap": "node scripts/sitemap-lastmod.mjs --src",
     "check": "node scripts/check-publicacion.mjs",
-    "build": "astro build && node scripts/build-reviews.mjs && node scripts/copy-static.mjs && node scripts/sitemap-lastmod.mjs && node scripts/inject-blog-sitemap.mjs && node scripts/gen-og.mjs",
-    "preview": "astro preview"
+    "build": "astro build && node scripts/build-reviews.mjs && node scripts/build-clientes.mjs && node scripts/copy-static.mjs && node scripts/sitemap-lastmod.mjs && node scripts/inject-blog-sitemap.mjs && node scripts/gen-og.mjs",
+    "preview": "astro preview",
+    "clientes": "node scripts/build-clientes.mjs"
   },
   "dependencies": {
     "@resvg/resvg-js": "^2.6.2",
