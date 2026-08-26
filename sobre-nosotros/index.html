@@ -63,7 +63,7 @@
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png?v=3">
   <!-- Consentimiento de cookies propio (sl360-cookies.js) + GA4 + Vercel Analytics. La analitica solo se carga si el usuario acepta la categoria de estadistica (Consent Mode v2, modo basico). Al editar el JS, subir el ?v= (cache immutable de /assets). -->
   <script defer src="/assets/js/sl360-cookies.js?v=6"></script>
-  <link rel="stylesheet" href="/assets/css/styles.css?v=42">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=43">
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -1069,78 +1069,15 @@
   .sl-mq__all:hover{color:var(--navy);border-bottom-color:var(--gold)}
   .sl-mq__all::after{content:"\2192";font-size:14px}
 
-  /* ---------- Tarjeta de cliente (generada desde data/clientes.json) ---------- */
-  .sl-cl__list{display:flex;flex-direction:column;gap:22px;margin-top:30px}
-  .sl-cl__list--grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(400px,1fr));align-items:stretch}
-  .sl-cl{position:relative;overflow:hidden;display:flex;flex-direction:column;border-radius:3px;
-    background:var(--navy);color:#e9eef7;box-shadow:0 30px 72px rgba(6,21,44,.30)}
-  .sl-cl::before{content:"";position:absolute;inset:0;pointer-events:none;
-    background:radial-gradient(120% 90% at 82% 0%,rgba(46,86,141,.5),transparent 62%)}
-  .sl-cl__in{position:relative;padding:32px 36px 0}
-  .sl-cl__top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap}
-  .sl-cl__logo img{display:block;width:100%;max-width:184px;height:auto;filter:brightness(0) invert(1);opacity:.94}
-  .sl-cl__tag{color:var(--gold);font:800 10px/1.7 Arial,Helvetica,sans-serif;letter-spacing:.18em;text-transform:uppercase;text-align:right}
-  .sl-cl__tag span{display:block;color:rgba(233,238,247,.6)}
-  .sl-cl__lead{margin-top:24px;max-width:58ch;color:#f2f5fb;font-size:18.5px;line-height:1.5}
-  .sl-cl__lead b{color:var(--gold-soft);font-weight:400}
-  .sl-cl__wave{display:block;width:100%;height:48px;margin-top:24px;fill:rgba(201,170,111,.5)}
-  .sl-cl__crew{position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px;
-    margin-top:14px;padding-top:24px;border-top:1px solid rgba(201,170,111,.34)}
-  .sl-cl__p{display:flex;align-items:flex-start;gap:16px;min-width:0}
-  .sl-cl__face{position:relative;flex:0 0 auto;width:66px;height:66px;border-radius:50%;overflow:hidden;background:var(--navy-2)}
-  .sl-cl__face img{display:block;width:100%;height:100%;object-fit:cover}
-  .sl-cl__face::after{content:"";position:absolute;inset:0;border-radius:50%;
-    box-shadow:inset 0 0 0 1px rgba(255,255,255,.22),0 0 0 3px var(--navy),0 0 0 5px rgba(201,170,111,.75)}
-  .sl-cl__role{display:block;color:var(--gold);font:800 9.5px/1.4 Arial,Helvetica,sans-serif;letter-spacing:.18em;text-transform:uppercase}
-  .sl-cl__name{display:block;margin-top:5px;color:#fff;font-size:19px;line-height:1.2}
-  .sl-cl__bio{display:block;margin-top:6px;color:rgba(233,238,247,.72);font:13.5px/1.5 Arial,Helvetica,sans-serif}
-  .sl-cl__li{display:inline-flex;align-items:center;gap:6px;margin-top:9px;min-height:24px;padding-bottom:3px;
-    color:var(--gold-soft);font:800 10.5px/1 Arial,Helvetica,sans-serif;letter-spacing:.1em;text-transform:uppercase;
-    text-decoration:none;border-bottom:1px solid rgba(216,190,131,.3)}
-  .sl-cl__li:hover{color:#fff;border-bottom-color:var(--gold)}
-  /* El subrayado abraza el texto, pero el area de toque llega a los 44px minimos
-     con un pseudoelemento, sin despegar la linea ni cambiar la pinta del enlace. */
-  .sl-cl__li,.sl-cl__foot a{position:relative}
-  .sl-cl__li::after,.sl-cl__foot a::after{content:"";position:absolute;left:0;right:0;top:50%;
-    transform:translateY(-50%);height:44px}
-  .sl-cl__li svg,.sl-cl__foot svg{display:block;width:12px;height:12px;flex:0 0 auto;fill:currentColor}
-  .sl-cl__strip{display:flex;align-items:center;min-height:50px;margin-top:28px;
-    border-top:1px solid rgba(233,238,247,.14);background:rgba(0,0,0,.24)}
-  .sl-cl__strip-lab{flex:0 0 auto;padding:0 18px 0 36px;color:rgba(233,238,247,.5);
-    font:800 9.5px/1.4 Arial,Helvetica,sans-serif;letter-spacing:.18em;text-transform:uppercase}
-  .sl-cl__mq{position:relative;flex:1 1 auto;min-width:0;overflow:hidden;
-    -webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 88%,transparent);
-            mask-image:linear-gradient(90deg,transparent,#000 5%,#000 88%,transparent)}
-  .sl-cl__mq-track{display:flex;width:max-content;animation:sl-cl-slide var(--sl-cl-dur,46s) linear infinite}
-  .sl-cl__mq-group{display:flex;align-items:center;gap:30px;padding-right:30px}
-  .sl-cl__wm{color:#fff;opacity:.74;font:700 13.5px/1 Arial,Helvetica,sans-serif;letter-spacing:.04em;white-space:nowrap}
-  @keyframes sl-cl-slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-  .sl-cl:hover .sl-cl__mq-track,.sl-cl:focus-within .sl-cl__mq-track{animation-play-state:paused}
-  .sl-cl__foot{position:relative;margin-top:auto;display:flex;align-items:center;gap:12px 24px;flex-wrap:wrap;
-    padding:16px 36px 18px;border-top:1px solid rgba(233,238,247,.14)}
-  .sl-cl__foot a{display:inline-flex;align-items:center;gap:8px;min-height:32px;padding-bottom:2px;
-    color:var(--gold-soft);font:800 11.5px/1.3 Arial,Helvetica,sans-serif;letter-spacing:.09em;text-transform:uppercase;
-    text-decoration:none;border-bottom:1px solid rgba(216,190,131,.3)}
-  .sl-cl__foot a:hover{color:#fff;border-bottom-color:var(--gold)}
 
   .sl-proof__reveal{opacity:0;transform:translateY(22px);transition:opacity .68s ease,transform .68s ease}
   .sl-proof__reveal.is-visible{opacity:1;transform:none}
   @media(max-width:900px){
     .sl-proof{padding:60px 16px}
-    .sl-cl__in{padding:24px 20px 0}
-    .sl-cl__tag{text-align:left}
-    .sl-cl__lead{font-size:17px}
-    .sl-cl__strip{flex-direction:column;align-items:stretch;min-height:0;padding:14px 0 16px}
-    .sl-cl__strip-lab{padding:0 20px 8px}
-    .sl-cl__foot{padding:14px 20px 16px;gap:16px 24px}
-    .sl-cl__list--grid{grid-template-columns:1fr}
   }
   @media(prefers-reduced-motion:reduce){
     .sl-mq.is-anim .sl-mq__track{animation:none}
     .sl-mq.is-anim .sl-mq__viewport{overflow-x:auto}
-    .sl-cl__mq-track{animation:none}
-    .sl-cl__mq{overflow-x:auto;-webkit-mask-image:none;mask-image:none}
-    .sl-cl__mq-group:last-child{display:none}
     .sl-proof__reveal{transition:none;opacity:1;transform:none}
   }
   </style>

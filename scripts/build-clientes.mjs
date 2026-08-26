@@ -19,7 +19,14 @@ import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-const TARGETS = ["index.html", "sobre-nosotros/index.html"];
+const TARGETS = [
+  "index.html",
+  "sobre-nosotros/index.html",
+  "revision-de-contratos/index.html",
+  "consultoria-legal/index.html",
+  "consultoria-proteccion-de-datos/index.html",
+  "proteccion-legal-continua/index.html",
+];
 const START = "<!-- CLIENTES:START -->";
 const END = "<!-- CLIENTES:END -->";
 
