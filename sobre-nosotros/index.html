@@ -63,7 +63,7 @@
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png?v=3">
   <!-- Consentimiento de cookies propio (sl360-cookies.js) + GA4 + Vercel Analytics. La analitica solo se carga si el usuario acepta la categoria de estadistica (Consent Mode v2, modo basico). Al editar el JS, subir el ?v= (cache immutable de /assets). -->
   <script defer src="/assets/js/sl360-cookies.js?v=6"></script>
-  <link rel="stylesheet" href="/assets/css/styles.css?v=42">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=43">
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -1036,6 +1036,9 @@
   .sl-proof__head{max-width:800px;margin:0 auto 30px;text-align:center}
   .sl-proof__eyebrow{margin-bottom:12px;color:var(--blue);font:800 12px/1.3 Arial,Helvetica,sans-serif;letter-spacing:.22em;text-transform:uppercase}
   .sl-proof__head h2{color:var(--navy);font-size:clamp(30px,4.4vw,50px);line-height:1.07}
+  .sl-proof__head h2{text-wrap:balance}
+  .sl-proof__head h2 .sl-brand{font-weight:700;font-size:.92em;letter-spacing:-.005em;white-space:nowrap}
+  .sl-proof__head h2 .sl-brand span{color:var(--gold);font-weight:800}
 
   /* ---------- Marquee de reseñas (tira continua) ---------- */
   .sl-mq{position:relative}
@@ -1066,31 +1069,11 @@
   .sl-mq__all:hover{color:var(--navy);border-bottom-color:var(--gold)}
   .sl-mq__all::after{content:"\2192";font-size:14px}
 
-  /* ---------- Ficha de cliente ---------- */
-  .sl-client{position:relative;overflow:hidden;display:grid;grid-template-columns:minmax(0,250px) minmax(0,1fr);gap:34px;align-items:center;
-    margin-top:26px;border:1px solid var(--line);border-radius:10px;padding:30px 32px;
-    background:rgba(255,255,255,.9);box-shadow:0 26px 60px rgba(12,39,78,.10)}
-  .sl-client::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold-soft),var(--gold),rgba(201,170,111,.25))}
-  .sl-client__tag{display:inline-flex;align-items:center;min-height:28px;border:1px solid rgba(201,170,111,.42);border-radius:999px;padding:5px 12px;color:#6F5420;background:rgba(201,170,111,.18);font:800 11px/1 Arial,Helvetica,sans-serif;letter-spacing:.09em;text-transform:uppercase}
-  .sl-client__logo{margin-top:16px}
-  .sl-client__logo img{display:block;width:100%;max-width:210px;height:auto}
-  .sl-client__meta{margin-top:12px;color:var(--blue);font:800 11px/1.45 Arial,Helvetica,sans-serif;letter-spacing:.12em;text-transform:uppercase}
-  .sl-client__body{color:var(--muted);font:15px/1.62 Arial,Helvetica,sans-serif}
-  .sl-client__brands{margin-top:18px;border-left:3px solid var(--gold);padding:2px 0 2px 15px}
-  .sl-client__brands-label{color:var(--muted);font:800 10px/1.3 Arial,Helvetica,sans-serif;letter-spacing:.18em;text-transform:uppercase}
-  .sl-client__brands-list{margin-top:7px;color:var(--navy);font-size:18px;line-height:1.35}
-  .sl-client__brands-list i{color:var(--gold);font-style:normal;padding:0 5px}
-  .sl-client__claim{margin-top:18px;color:var(--navy);font-size:19px;line-height:1.4}
-  .sl-client__link{display:inline-flex;align-items:center;gap:7px;margin-top:14px;padding-bottom:3px;color:var(--blue);
-    font:800 12px/1.3 Arial,Helvetica,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid rgba(46,86,141,.35)}
-  .sl-client__link:hover{color:var(--navy);border-bottom-color:var(--gold)}
-  .sl-client__link::after{content:"\2192";font-size:14px}
 
   .sl-proof__reveal{opacity:0;transform:translateY(22px);transition:opacity .68s ease,transform .68s ease}
   .sl-proof__reveal.is-visible{opacity:1;transform:none}
   @media(max-width:900px){
     .sl-proof{padding:60px 16px}
-    .sl-client{grid-template-columns:1fr;gap:22px;padding:26px 22px}
   }
   @media(prefers-reduced-motion:reduce){
     .sl-mq.is-anim .sl-mq__track{animation:none}
@@ -1101,8 +1084,51 @@
   <div class="sl-proof__wrap">
     <header class="sl-proof__head sl-proof__reveal">
       <p class="sl-proof__eyebrow">Confianza</p>
-      <h2 id="sl-proof-title">Clientes</h2>
+      <h2 id="sl-proof-title">Ya confían su protección de datos en <span class="sl-brand">SoyLegal<span>360</span></span></h2>
     </header>
+
+    <!-- CLIENTES:START -->
+    <div class="sl-cl__list">
+      <article class="sl-cl sl-proof__reveal">
+        <div class="sl-cl__in">
+          <header class="sl-cl__top">
+            <p class="sl-cl__logo"><img src="/assets/img/nov25studio-logo.webp" alt="Nov25Studio" width="440" height="111" loading="lazy" decoding="async"></p>
+            <p class="sl-cl__tag">Cliente<span>Barcelona · desde 2014</span></p>
+          </header>
+          <p class="sl-cl__lead">Productora audiovisual y estudio de sonido. <b>Motion graphics, animación 2D y 3D, postproducción de vídeo, diseño sonoro y música.</b> Cuentan historias para marcas que se auditan entre ellas.</p>
+          <svg class="sl-cl__wave" viewBox="0 0 440 48" preserveAspectRatio="none" aria-hidden="true"><rect x="0" y="23.0" width="2" height="2" rx="1"/><rect x="4" y="22.0" width="2" height="4" rx="1"/><rect x="8" y="23.0" width="2" height="2" rx="1"/><rect x="12" y="23.0" width="2" height="2" rx="1"/><rect x="16" y="20.5" width="2" height="7" rx="1"/><rect x="20" y="18.5" width="2" height="11" rx="1"/><rect x="24" y="22.0" width="2" height="4" rx="1"/><rect x="28" y="22.0" width="2" height="4" rx="1"/><rect x="32" y="21.0" width="2" height="6" rx="1"/><rect x="36" y="23.0" width="2" height="2" rx="1"/><rect x="40" y="14.5" width="2" height="19" rx="1"/><rect x="44" y="20.0" width="2" height="8" rx="1"/><rect x="48" y="22.5" width="2" height="3" rx="1"/><rect x="52" y="22.0" width="2" height="4" rx="1"/><rect x="56" y="15.0" width="2" height="18" rx="1"/><rect x="60" y="19.0" width="2" height="10" rx="1"/><rect x="64" y="16.5" width="2" height="15" rx="1"/><rect x="68" y="22.5" width="2" height="3" rx="1"/><rect x="72" y="21.5" width="2" height="5" rx="1"/><rect x="76" y="11.0" width="2" height="26" rx="1"/><rect x="80" y="18.0" width="2" height="12" rx="1"/><rect x="84" y="20.5" width="2" height="7" rx="1"/><rect x="88" y="19.0" width="2" height="10" rx="1"/><rect x="92" y="15.5" width="2" height="17" rx="1"/><rect x="96" y="17.0" width="2" height="14" rx="1"/><rect x="100" y="12.0" width="2" height="24" rx="1"/><rect x="104" y="17.0" width="2" height="14" rx="1"/><rect x="108" y="17.0" width="2" height="14" rx="1"/><rect x="112" y="13.5" width="2" height="21" rx="1"/><rect x="116" y="18.5" width="2" height="11" rx="1"/><rect x="120" y="18.5" width="2" height="11" rx="1"/><rect x="124" y="9.5" width="2" height="29" rx="1"/><rect x="128" y="18.0" width="2" height="12" rx="1"/><rect x="132" y="18.5" width="2" height="11" rx="1"/><rect x="136" y="12.0" width="2" height="24" rx="1"/><rect x="140" y="14.0" width="2" height="20" rx="1"/><rect x="144" y="11.0" width="2" height="26" rx="1"/><rect x="148" y="21.0" width="2" height="6" rx="1"/><rect x="152" y="21.5" width="2" height="5" rx="1"/><rect x="156" y="18.5" width="2" height="11" rx="1"/><rect x="160" y="3.5" width="2" height="41" rx="1"/><rect x="164" y="20.5" width="2" height="7" rx="1"/><rect x="168" y="23.0" width="2" height="2" rx="1"/><rect x="172" y="17.0" width="2" height="14" rx="1"/><rect x="176" y="14.5" width="2" height="19" rx="1"/><rect x="180" y="6.5" width="2" height="35" rx="1"/><rect x="184" y="18.5" width="2" height="11" rx="1"/><rect x="188" y="23.0" width="2" height="2" rx="1"/><rect x="192" y="21.5" width="2" height="5" rx="1"/><rect x="196" y="3.0" width="2" height="42" rx="1"/><rect x="200" y="22.0" width="2" height="4" rx="1"/><rect x="204" y="17.0" width="2" height="14" rx="1"/><rect x="208" y="23.0" width="2" height="2" rx="1"/><rect x="212" y="16.0" width="2" height="16" rx="1"/><rect x="216" y="6.5" width="2" height="35" rx="1"/><rect x="220" y="12.0" width="2" height="24" rx="1"/><rect x="224" y="23.0" width="2" height="2" rx="1"/><rect x="228" y="20.0" width="2" height="8" rx="1"/><rect x="232" y="9.0" width="2" height="30" rx="1"/><rect x="236" y="22.5" width="2" height="3" rx="1"/><rect x="240" y="10.5" width="2" height="27" rx="1"/><rect x="244" y="15.5" width="2" height="17" rx="1"/><rect x="248" y="18.0" width="2" height="12" rx="1"/><rect x="252" y="12.0" width="2" height="24" rx="1"/><rect x="256" y="10.5" width="2" height="27" rx="1"/><rect x="260" y="22.0" width="2" height="4" rx="1"/><rect x="264" y="13.0" width="2" height="22" rx="1"/><rect x="268" y="18.0" width="2" height="12" rx="1"/><rect x="272" y="23.0" width="2" height="2" rx="1"/><rect x="276" y="8.5" width="2" height="31" rx="1"/><rect x="280" y="12.5" width="2" height="23" rx="1"/><rect x="284" y="18.0" width="2" height="12" rx="1"/><rect x="288" y="21.5" width="2" height="5" rx="1"/><rect x="292" y="13.5" width="2" height="21" rx="1"/><rect x="296" y="20.0" width="2" height="8" rx="1"/><rect x="300" y="9.0" width="2" height="30" rx="1"/><rect x="304" y="21.5" width="2" height="5" rx="1"/><rect x="308" y="21.5" width="2" height="5" rx="1"/><rect x="312" y="12.0" width="2" height="24" rx="1"/><rect x="316" y="14.0" width="2" height="20" rx="1"/><rect x="320" y="18.0" width="2" height="12" rx="1"/><rect x="324" y="16.5" width="2" height="15" rx="1"/><rect x="328" y="18.0" width="2" height="12" rx="1"/><rect x="332" y="20.0" width="2" height="8" rx="1"/><rect x="336" y="10.0" width="2" height="28" rx="1"/><rect x="340" y="17.5" width="2" height="13" rx="1"/><rect x="344" y="17.5" width="2" height="13" rx="1"/><rect x="348" y="19.0" width="2" height="10" rx="1"/><rect x="352" y="18.5" width="2" height="11" rx="1"/><rect x="356" y="18.5" width="2" height="11" rx="1"/><rect x="360" y="11.5" width="2" height="25" rx="1"/><rect x="364" y="22.0" width="2" height="4" rx="1"/><rect x="368" y="22.5" width="2" height="3" rx="1"/><rect x="372" y="15.5" width="2" height="17" rx="1"/><rect x="376" y="17.5" width="2" height="13" rx="1"/><rect x="380" y="15.5" width="2" height="17" rx="1"/><rect x="384" y="23.0" width="2" height="2" rx="1"/><rect x="388" y="22.5" width="2" height="3" rx="1"/><rect x="392" y="21.5" width="2" height="5" rx="1"/><rect x="396" y="12.5" width="2" height="23" rx="1"/><rect x="400" y="23.0" width="2" height="2" rx="1"/><rect x="404" y="22.5" width="2" height="3" rx="1"/><rect x="408" y="22.5" width="2" height="3" rx="1"/><rect x="412" y="20.0" width="2" height="8" rx="1"/><rect x="416" y="17.5" width="2" height="13" rx="1"/><rect x="420" y="21.0" width="2" height="6" rx="1"/><rect x="424" y="23.0" width="2" height="2" rx="1"/><rect x="428" y="23.0" width="2" height="2" rx="1"/><rect x="432" y="20.0" width="2" height="8" rx="1"/><rect x="436" y="23.0" width="2" height="2" rx="1"/></svg>
+          <div class="sl-cl__crew">
+            <div class="sl-cl__p">
+              <span class="sl-cl__face"><img src="/assets/img/clientes/pepe-furment.webp" alt="Pepe Furment Tomás" width="216" height="216" loading="lazy" decoding="async"></span>
+              <span>
+                <span class="sl-cl__role">Vídeo · Dirección creativa</span>
+                <span class="sl-cl__name">Pepe Furment Tomás</span>
+                <span class="sl-cl__bio">Cofundador. Dirige la parte visual: animación, motion y postproducción de imagen.</span>
+                <a class="sl-cl__li" href="https://es.linkedin.com/in/pepefurment" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg> LinkedIn</a>
+              </span>
+            </div>
+            <div class="sl-cl__p">
+              <span class="sl-cl__face"><img src="/assets/img/clientes/pablo-martin.webp" alt="Pablo Martín Alonso" width="480" height="480" loading="lazy" decoding="async"></span>
+              <span>
+                <span class="sl-cl__role">Sonido · Postproducción</span>
+                <span class="sl-cl__name">Pablo Martín Alonso</span>
+                <span class="sl-cl__bio">Cofundador. Diseño sonoro, mezcla y música para publicidad, cine y televisión.</span>
+                <a class="sl-cl__li" href="https://www.linkedin.com/in/pablomartinalonso/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg> LinkedIn</a>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="sl-cl__strip">
+          <span class="sl-cl__strip-lab">Producen para</span>
+          <div class="sl-cl__mq"><div class="sl-cl__mq-track" style="--sl-cl-dur:46s"><div class="sl-cl__mq-group"><span class="sl-cl__wm">CaixaBank</span><span class="sl-cl__wm">Coca-Cola</span><span class="sl-cl__wm">PlayStation</span><span class="sl-cl__wm">Telefónica</span><span class="sl-cl__wm">Novartis</span><span class="sl-cl__wm">Cupra</span><span class="sl-cl__wm">TV3</span><span class="sl-cl__wm">Nike</span><span class="sl-cl__wm">Amazon</span><span class="sl-cl__wm">Mediapro</span><span class="sl-cl__wm">La Caixa</span><span class="sl-cl__wm">McCann</span><span class="sl-cl__wm">SUEZ</span><span class="sl-cl__wm">Generalitat</span></div><div class="sl-cl__mq-group"><span class="sl-cl__wm">CaixaBank</span><span class="sl-cl__wm">Coca-Cola</span><span class="sl-cl__wm">PlayStation</span><span class="sl-cl__wm">Telefónica</span><span class="sl-cl__wm">Novartis</span><span class="sl-cl__wm">Cupra</span><span class="sl-cl__wm">TV3</span><span class="sl-cl__wm">Nike</span><span class="sl-cl__wm">Amazon</span><span class="sl-cl__wm">Mediapro</span><span class="sl-cl__wm">La Caixa</span><span class="sl-cl__wm">McCann</span><span class="sl-cl__wm">SUEZ</span><span class="sl-cl__wm">Generalitat</span></div></div></div>
+        </div>
+        <div class="sl-cl__foot">
+          <a href="https://nov25studio.com/es/" target="_blank" rel="noopener">nov25studio.com &#8594;</a>
+          <a href="https://www.linkedin.com/company/nov25studio/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg> Nov25Studio</a>
+        </div>
+      </article>
+    </div>
+    <!-- CLIENTES:END -->
 
     <div class="sl-mq sl-proof__reveal" data-sl-marquee role="group" aria-roledescription="carrusel" aria-label="Reseñas de clientes en Google">
       <div class="sl-mq__viewport" data-mq-viewport>
@@ -1164,22 +1190,6 @@
       <a class="sl-mq__all" href="https://www.google.com/search?kgmid=/g/11njljq3kx&amp;q=SoyLegal360" target="_blank" rel="noopener">Ver las reseñas en Google</a>
     </p>
 
-    <article class="sl-client sl-proof__reveal">
-      <div>
-        <span class="sl-client__tag">Cliente</span>
-        <p class="sl-client__logo"><img src="/assets/img/nov25studio-logo.webp" alt="Nov25Studio" width="440" height="111" loading="lazy" decoding="async"></p>
-        <p class="sl-client__meta">Productora audiovisual<br>Barcelona</p>
-      </div>
-      <div>
-        <p class="sl-client__body">Estudio de producción de vídeo y sonido con más de diez años de trayectoria. Cuando tus clientes son de este tamaño, el cumplimiento deja de ser un trámite: te lo auditan a ti.</p>
-        <div class="sl-client__brands">
-          <p class="sl-client__brands-label">Producen para</p>
-          <p class="sl-client__brands-list">CaixaBank<i>·</i>Coca-Cola<i>·</i>PlayStation</p>
-        </div>
-        <p class="sl-client__claim">Confían su protección de datos a SoyLegal360.</p>
-        <a class="sl-client__link" href="https://nov25studio.com/es/" target="_blank" rel="noopener">Visitar nov25studio.com</a>
-      </div>
-    </article>
   </div>
   <script>
   (function(){

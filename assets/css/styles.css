@@ -1859,3 +1859,94 @@ html.sl-js .sl-reveal.is-in { opacity: 1; transform: none; }
 @media (max-width:900px){.svc-hero__shell{grid-template-columns:1fr;padding-block:64px}.svc-hero__tint{background:linear-gradient(180deg,rgba(6,21,44,.96),rgba(6,21,44,.82))}.svc-hero__glass{width:min(560px,100%);min-height:300px;margin-inline:auto}.svc-hero__svg{width:min(82%,380px)}}
 @media (max-width:560px){.svc-hero__shell{padding:54px 20px}.svc-hero__title{font-size:clamp(44px,14vw,62px)}.svc-hero__actions{flex-direction:column}.svc-hero__primary,.svc-hero__secondary{width:100%}.svc-hero__glass{min-height:228px;border-radius:26px}.svc-hero__svg{width:min(84%,330px)}.svc-hero__seal{right:14px;bottom:14px}}
 @media (prefers-reduced-motion:reduce){.svc-hero__aura{animation:none}.svc-hero__primary,.svc-hero__secondary{transition:none}}
+
+/* ==========================================================================
+   Tarjeta de cliente (.sl-cl) y sección que la envuelve (.sl-clients)
+   El marcado lo genera scripts/build-clientes.mjs desde data/clientes.json.
+   La tarjeta trae su propia paleta en variables --cl-*, así que se ve igual
+   dentro del bloque "Clientes" de la home (que resetea márgenes) que suelta
+   en una página de servicio. No depende de nada del contexto.
+   ========================================================================== */
+.sl-clients{position:relative;overflow:hidden;padding:78px 18px 72px;
+  background:linear-gradient(180deg,#FBF8F2,#F7F3EA 58%,#F4EFE4);
+  font-family:Georgia,"Times New Roman",serif}
+.sl-clients::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.6;
+  background:linear-gradient(90deg,transparent,rgba(201,170,111,.14),transparent),
+    repeating-linear-gradient(90deg,rgba(23,54,97,.035) 0 1px,transparent 1px 104px)}
+.sl-clients__wrap{position:relative;z-index:1;width:min(1120px,100%);margin:0 auto}
+.sl-clients__head{max-width:800px;margin:0 auto 30px;text-align:center}
+.sl-clients__eyebrow{margin:0 0 12px;color:#2E568D;font:800 12px/1.3 Arial,Helvetica,sans-serif;letter-spacing:.22em;text-transform:uppercase}
+.sl-clients__head h2{margin:0;color:#06142E;font-size:clamp(30px,4.4vw,50px);line-height:1.07;text-wrap:balance}
+.sl-clients__head h2 .sl-brand{font-weight:700;font-size:.92em;letter-spacing:-.005em;white-space:nowrap}
+.sl-clients__head h2 .sl-brand span{color:#C9AA6F;font-weight:800}
+
+.sl-cl__list.sl-cl__list{display:flex;flex-direction:column;gap:22px;margin-top:30px}
+.sl-cl__list--grid.sl-cl__list--grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(400px,1fr));align-items:stretch}
+.sl-cl *{margin:0;padding:0;box-sizing:border-box}
+.sl-cl{--cl-navy:#06142E;--cl-navy-2:#112F58;--cl-gold:#C9AA6F;--cl-gold-soft:#D8BE83;
+  position:relative;overflow:hidden;display:flex;flex-direction:column;border-radius:3px;
+  box-sizing:border-box;background:var(--cl-navy);color:#e9eef7;
+  font-family:Georgia,"Times New Roman",serif;box-shadow:0 30px 72px rgba(6,21,44,.30)}
+.sl-cl::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(120% 90% at 82% 0%,rgba(46,86,141,.5),transparent 62%)}
+.sl-cl .sl-cl__in{position:relative;padding:32px 36px 0}
+.sl-cl .sl-cl__top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap}
+.sl-cl .sl-cl__logo img{display:block;width:100%;max-width:184px;height:auto;filter:brightness(0) invert(1);opacity:.94}
+.sl-cl .sl-cl__tag{color:var(--cl-gold);font:800 10px/1.7 Arial,Helvetica,sans-serif;letter-spacing:.18em;text-transform:uppercase;text-align:right}
+.sl-cl .sl-cl__tag span{display:block;color:rgba(233,238,247,.6)}
+.sl-cl .sl-cl__lead{margin-top:24px;max-width:58ch;color:#f2f5fb;font-size:18.5px;line-height:1.5}
+.sl-cl .sl-cl__lead b{color:var(--cl-gold-soft);font-weight:400}
+.sl-cl .sl-cl__wave{display:block;width:100%;height:48px;margin-top:24px;fill:rgba(201,170,111,.5)}
+.sl-cl .sl-cl__crew{position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px;
+  margin-top:14px;padding-top:24px;border-top:1px solid rgba(201,170,111,.34)}
+.sl-cl .sl-cl__p{display:flex;align-items:flex-start;gap:16px;min-width:0}
+.sl-cl .sl-cl__face{position:relative;flex:0 0 auto;width:66px;height:66px;border-radius:50%;overflow:hidden;background:var(--cl-navy-2)}
+.sl-cl .sl-cl__face img{display:block;width:100%;height:100%;object-fit:cover}
+.sl-cl .sl-cl__face::after{content:"";position:absolute;inset:0;border-radius:50%;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.22),0 0 0 3px var(--cl-navy),0 0 0 5px rgba(201,170,111,.75)}
+.sl-cl .sl-cl__role{display:block;color:var(--cl-gold);font:800 9.5px/1.4 Arial,Helvetica,sans-serif;letter-spacing:.18em;text-transform:uppercase}
+.sl-cl .sl-cl__name{display:block;margin-top:5px;color:#fff;font-size:19px;line-height:1.2}
+.sl-cl .sl-cl__bio{display:block;margin-top:6px;color:rgba(233,238,247,.72);font:13.5px/1.5 Arial,Helvetica,sans-serif}
+.sl-cl .sl-cl__li{display:inline-flex;align-items:center;gap:6px;margin-top:9px;min-height:24px;padding-bottom:3px;
+  color:var(--cl-gold-soft);font:800 10.5px/1 Arial,Helvetica,sans-serif;letter-spacing:.1em;text-transform:uppercase;
+  text-decoration:none;border-bottom:1px solid rgba(216,190,131,.3)}
+.sl-cl .sl-cl__li:hover{color:#fff;border-bottom-color:var(--cl-gold)}
+/* El subrayado abraza el texto, pero el área de toque llega a los 44px mínimos
+   con un pseudoelemento, sin despegar la línea ni cambiar la pinta del enlace. */
+.sl-cl .sl-cl__li,.sl-cl .sl-cl__foot a{position:relative}
+.sl-cl .sl-cl__li::after,.sl-cl .sl-cl__foot a::after{content:"";position:absolute;left:0;right:0;top:50%;
+  transform:translateY(-50%);height:44px}
+.sl-cl .sl-cl__li svg,.sl-cl .sl-cl__foot svg{display:block;width:12px;height:12px;flex:0 0 auto;fill:currentColor}
+.sl-cl .sl-cl__strip{display:flex;align-items:center;min-height:50px;margin-top:28px;
+  border-top:1px solid rgba(233,238,247,.14);background:rgba(0,0,0,.24)}
+.sl-cl .sl-cl__strip-lab{flex:0 0 auto;padding:0 18px 0 36px;color:rgba(233,238,247,.5);
+  font:800 9.5px/1.4 Arial,Helvetica,sans-serif;letter-spacing:.18em;text-transform:uppercase}
+.sl-cl .sl-cl__mq{position:relative;flex:1 1 auto;min-width:0;overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 88%,transparent);
+          mask-image:linear-gradient(90deg,transparent,#000 5%,#000 88%,transparent)}
+.sl-cl .sl-cl__mq-track{display:flex;width:max-content;animation:sl-cl-slide var(--sl-cl-dur,46s) linear infinite}
+.sl-cl .sl-cl__mq-group{display:flex;align-items:center;gap:30px;padding-right:30px}
+.sl-cl .sl-cl__wm{color:#fff;opacity:.74;font:700 13.5px/1 Arial,Helvetica,sans-serif;letter-spacing:.04em;white-space:nowrap}
+@keyframes sl-cl-slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.sl-cl:hover .sl-cl__mq-track,.sl-cl:focus-within .sl-cl__mq-track{animation-play-state:paused}
+.sl-cl .sl-cl__foot{position:relative;margin-top:auto;display:flex;align-items:center;gap:12px 24px;flex-wrap:wrap;
+  padding:16px 36px 18px;border-top:1px solid rgba(233,238,247,.14)}
+.sl-cl .sl-cl__foot a{display:inline-flex;align-items:center;gap:8px;min-height:32px;padding-bottom:2px;
+  color:var(--cl-gold-soft);font:800 11.5px/1.3 Arial,Helvetica,sans-serif;letter-spacing:.09em;text-transform:uppercase;
+  text-decoration:none;border-bottom:1px solid rgba(216,190,131,.3)}
+.sl-cl .sl-cl__foot a:hover{color:#fff;border-bottom-color:var(--cl-gold)}
+@media (max-width:900px){
+  .sl-clients{padding:60px 16px}
+  .sl-cl .sl-cl__in{padding:24px 20px 0}
+  .sl-cl .sl-cl__tag{text-align:left}
+  .sl-cl .sl-cl__lead{font-size:17px}
+  .sl-cl .sl-cl__strip{flex-direction:column;align-items:stretch;min-height:0;padding:14px 0 16px}
+  .sl-cl .sl-cl__strip-lab{padding:0 20px 8px}
+  .sl-cl .sl-cl__foot{padding:14px 20px 16px;gap:16px 24px}
+  .sl-cl__list--grid.sl-cl__list--grid{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  .sl-cl .sl-cl__mq-track{animation:none}
+  .sl-cl .sl-cl__mq{overflow-x:auto;-webkit-mask-image:none;mask-image:none}
+  .sl-cl .sl-cl__mq-group:last-child{display:none}
+}

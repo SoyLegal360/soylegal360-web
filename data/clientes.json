@@ -1,0 +1,38 @@
+{
+  "_comment": "Fuente única de las tarjetas de cliente del bloque \"Clientes\" (home + sobre-nosotros). Editar aquí y ejecutar `npm run clientes` para regenerar el bloque en los HTML. Los datos de cada cliente (nombre, cargo, foto, biografía, enlace) se publican con su autorización por escrito; si alguien la retira, se borra su objeto de aquí y se vuelve a ejecutar. En `lead` y `bio`, **texto** sale en negrita dorada.",
+  "clientes": [
+    {
+      "nombre": "Nov25Studio",
+      "etiqueta": "Cliente",
+      "meta": "Barcelona · desde 2014",
+      "logo": { "src": "/assets/img/nov25studio-logo.webp", "ancho": 440, "alto": 111 },
+      "motivo": "onda",
+      "lead": "Productora audiovisual y estudio de sonido. **Motion graphics, animación 2D y 3D, postproducción de vídeo, diseño sonoro y música.** Cuentan historias para marcas que se auditan entre ellas.",
+      "socios": [
+        {
+          "nombre": "Pepe Furment Tomás",
+          "rol": "Vídeo · Dirección creativa",
+          "bio": "Cofundador. Dirige la parte visual: animación, motion y postproducción de imagen.",
+          "foto": { "src": "/assets/img/clientes/pepe-furment.webp", "lado": 216 },
+          "linkedin": "https://es.linkedin.com/in/pepefurment"
+        },
+        {
+          "nombre": "Pablo Martín Alonso",
+          "rol": "Sonido · Postproducción",
+          "bio": "Cofundador. Diseño sonoro, mezcla y música para publicidad, cine y televisión.",
+          "foto": { "src": "/assets/img/clientes/pablo-martin.webp", "lado": 480 },
+          "linkedin": "https://www.linkedin.com/in/pablomartinalonso/"
+        }
+      ],
+      "marcas": {
+        "etiqueta": "Producen para",
+        "duracion": "46s",
+        "items": ["CaixaBank", "Coca-Cola", "PlayStation", "Telefónica", "Novartis", "Cupra", "TV3", "Nike", "Amazon", "Mediapro", "La Caixa", "McCann", "SUEZ", "Generalitat"]
+      },
+      "enlaces": {
+        "web": { "texto": "nov25studio.com", "url": "https://nov25studio.com/es/" },
+        "linkedin": { "texto": "Nov25Studio", "url": "https://www.linkedin.com/company/nov25studio/" }
+      }
+    }
+  ]
+}
