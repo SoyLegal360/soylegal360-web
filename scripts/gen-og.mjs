@@ -237,6 +237,7 @@ const STATIC_PAGES = {
   'sobre-nosotros': ['Quiénes somos y cómo trabajamos', 'NOSOTROS', 'assets/img/despacho/oficina-principal.webp'],
   'contacto': ['Habla con SoyLegal360', 'CONTACTO', 'assets/img/torre-nocturna-banner.webp', 'east'],
   'marcas': ['Registro y defensa de marcas', 'MARCAS', 'assets/img/hero-marcas.webp'],
+  'formacion-proteccion-de-datos-e-ia': ['Formación en protección de datos y uso responsable de IA', 'FORMACIÓN', 'assets/img/hero-ia.webp'],
   'faqs': ['Preguntas frecuentes sobre RGPD e IA', 'FAQS', null],
   'necesito-dpo': ['¿Necesito un DPO? Test orientativo en 1 minuto', 'HERRAMIENTA', null],
 };
