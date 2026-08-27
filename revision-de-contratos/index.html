@@ -97,7 +97,7 @@
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png?v=3">
   <!-- Consentimiento de cookies propio (sl360-cookies.js) + GA4 + Vercel Analytics. La analitica solo se carga si el usuario acepta la categoria de estadistica (Consent Mode v2, modo basico). Al editar el JS, subir el ?v= (cache immutable de /assets). -->
   <script defer src="/assets/js/sl360-cookies.js?v=6"></script>
-  <link rel="stylesheet" href="/assets/css/styles.css?v=43">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=44">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -226,13 +226,6 @@
   .sl-rc-faq{padding:72px 22px;background:#fff}
   .sl-rc-faq__wrap{width:min(800px,100%);margin:0 auto}
   .sl-rc-faq__title{font:700 clamp(24px,3vw,34px)/1.12 Georgia,serif;color:var(--navy,#06152c);text-align:center;margin:0 0 36px}
-  .sl-rc-faq details{border-bottom:1px solid rgba(23,33,58,.12)}
-  .sl-rc-faq details:first-of-type{border-top:1px solid rgba(23,33,58,.12)}
-  .sl-rc-faq details summary{font:700 15px/1.4 Georgia,serif;color:var(--navy,#06152c);padding:17px 36px 17px 0;cursor:pointer;position:relative;list-style:none}
-  .sl-rc-faq details summary::-webkit-details-marker{display:none}
-  .sl-rc-faq details summary::after{content:'+';position:absolute;right:0;top:50%;transform:translateY(-50%);font:700 20px/1 Arial,Helvetica,sans-serif;color:#c9a96e}
-  .sl-rc-faq details[open] summary::after{content:'−'}
-  .sl-rc-faq details p{font:14px/1.6 Arial,Helvetica,sans-serif;color:#3a4a62;padding:0 0 16px;margin:0}
   .sl-rc-xsell{padding:60px 22px;background:var(--soft,#f5f7fb)}
   .sl-rc-xsell__grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:32px}
   .sl-rc-xsell__card{padding:26px;background:#fff;border:1px solid #dfe4ee;border-top:3px solid rgba(201,169,110,.55);border-radius:8px}
@@ -369,7 +362,7 @@
   </section>
 
   <section class="sl-rc-faq">
-    <div class="sl-rc-faq__wrap">
+    <div class="sl-rc-faq__wrap faq">
       <h2 class="sl-rc-faq__title">Preguntas frecuentes</h2>
       <details class="sl-rc-faq">
         <summary>¿Qué tipo de contratos revisáis?</summary>

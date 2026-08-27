@@ -91,7 +91,7 @@
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png?v=3">
   <!-- Consentimiento de cookies propio (sl360-cookies.js) + GA4 + Vercel Analytics. La analitica solo se carga si el usuario acepta la categoria de estadistica (Consent Mode v2, modo basico). Al editar el JS, subir el ?v= (cache immutable de /assets). -->
   <script defer src="/assets/js/sl360-cookies.js?v=6"></script>
-  <link rel="stylesheet" href="/assets/css/styles.css?v=43">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=44">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -1029,55 +1029,6 @@
         margin-top: 34px;
     }
 
-    .sl-audit-faq details {
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        padding: 23px;
-        background: #fff;
-        box-shadow: 0 18px 44px rgba(6, 20, 46, .07);
-        transition: border-color .2s ease, box-shadow .2s ease;
-    }
-
-    .sl-audit-faq details[open] {
-        border-color: rgba(201, 169, 110, .8);
-        box-shadow: 0 25px 56px rgba(6, 20, 46, .12);
-    }
-
-    .sl-audit-faq summary {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 18px;
-        color: var(--navy);
-        cursor: pointer;
-        list-style: none;
-        font-size: clamp(20px, 2vw, 25px);
-        font-weight: 700;
-        line-height: 1.22;
-    }
-
-    .sl-audit-faq summary::-webkit-details-marker {
-        display:none
-    }
-
-    .sl-audit-faq summary::after {
-        display: grid;
-        place-items: center;
-        flex: 0 0 auto;
-        width: 28px;
-        height: 28px;
-        border: 1px solid var(--line);
-        border-radius: 50%;
-        color: var(--blue);
-        background: var(--sky);
-        font: 900 18px/1 Arial, Helvetica, sans-serif;
-        content: "+";
-    }
-
-    .sl-audit-faq details[open] summary::after {
-        content: "-"
-    }
-
     .sl-audit-faq p {
         max-width: 830px;
         margin-top: 14px;
@@ -1619,7 +1570,7 @@
                         .
                     </h2>
                 </div>
-                <div class="sl-audit-faq" id="faq">
+                <div class="sl-audit-faq faq" id="faq">
                     <details class="sl-audit-reveal">
                         <summary>¿En qué se diferencia una auditoría RGPD de una adaptación RGPD?</summary>
                         <p>La auditoría revisa el estado real del cumplimiento y prioriza hallazgos. La adaptación implanta documentación, medidas y cambios concretos cuando el alcance ya está definido.</p>
