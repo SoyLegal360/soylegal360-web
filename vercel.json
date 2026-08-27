@@ -14,6 +14,8 @@
     { "source": "/privacy-policy/", "destination": "/politica-de-privacidad/", "permanent": true },
     { "source": "/solicita-auditoria-web-gratuita", "destination": "/auditoria-web-gratuita/", "permanent": true },
     { "source": "/solicita-auditoria-web-gratuita/", "destination": "/auditoria-web-gratuita/", "permanent": true },
+    { "source": "/delegado-de-ia-publico", "destination": "/adaptacion-ia/", "permanent": true },
+    { "source": "/delegado-de-ia-publico/", "destination": "/adaptacion-ia/", "permanent": true },
     { "source": "/casos-de-exito", "destination": "/sobre-nosotros/", "permanent": false },
     { "source": "/casos-de-exito/", "destination": "/sobre-nosotros/", "permanent": false }
   ],
