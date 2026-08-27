@@ -218,6 +218,7 @@ const STATIC_PAGES = {
   'servicios-proteccion-de-datos': ['Todos los servicios de cumplimiento', 'SERVICIOS', 'assets/img/hero-datos.webp'],
   'auditoria-web-gratuita': ['Auditoría web gratuita: informe en 48 horas', 'GRATIS', 'assets/img/hero-web.webp'],
   'auditoria-rgpd': ['Auditoría RGPD a fondo para tu negocio', 'AUDITORÍA', 'assets/img/hero-datos.webp'],
+  'evaluacion-de-impacto-proteccion-de-datos': ['Evaluación de Impacto antes de tratar datos de alto riesgo', 'EIPD · ART. 35', 'assets/img/hero-datos.webp'],
   'auditoria-ia': ['Auditoría de IA y AI Act', 'AUDITORÍA', 'assets/img/hero-ia.webp'],
   'adaptacion-web-rgpd': ['Adaptación Web RGPD', 'ADAPTACIÓN', 'assets/img/hero-despacho-torre.webp'],
   'adaptacion-empresa-rgpd': ['Adaptación RGPD de empresa completa', 'ADAPTACIÓN', 'assets/img/hero-datos.webp'],
