@@ -14,6 +14,7 @@ Options -Indexes
 # --- Redirects permanentes (301) ---
 Redirect 301 /privacy-policy /politica-de-privacidad/
 Redirect 301 /solicita-auditoria-web-gratuita /auditoria-web-gratuita/
+Redirect 301 /delegado-de-ia-publico /adaptacion-ia/
 
 # --- Redirect temporal (302) hasta tener casos reales ---
 Redirect 302 /casos-de-exito /sobre-nosotros/

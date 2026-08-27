@@ -78,8 +78,7 @@
     "/consultoria-legal/": "consultoría legal",
     "/revision-de-contratos/": "revisión de contratos",
     "/delegado-de-proteccion-de-datos-externalizado/": "DPO externalizado",
-    "/responsable-ia-externalizado/": "responsable de IA externalizado",
-    "/delegado-de-ia-publico/": "delegado de IA público"
+    "/responsable-ia-externalizado/": "responsable de IA externalizado"
   };
 
   // Convierte URLs y rutas del sitio en enlaces clicables SIN innerHTML (a prueba de XSS):
