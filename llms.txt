@@ -6,6 +6,7 @@
 - [Adaptación al RGPD para empresas y autónomos](https://www.soylegal360.es/adaptacion-empresa-rgpd/): documentación, Registro de Actividades de Tratamiento, proveedores, brechas y formación.
 - [Auditoría de IA personalizada (AI Act)](https://www.soylegal360.es/auditoria-ia/): inventario de usos de IA, clasificación de riesgo según el AI Act, RGPD y prioridades.
 - [DPO externalizado — Delegado de Protección de Datos externo](https://www.soylegal360.es/delegado-de-proteccion-de-datos-externalizado/): designación ante la AEPD, supervisión y cumplimiento continuo del RGPD.
+- [Evaluación de Impacto en Protección de Datos (EIPD)](https://www.soylegal360.es/evaluacion-de-impacto-proteccion-de-datos/): análisis previo obligatorio (art. 35 RGPD) para tratamientos de alto riesgo; incluye los cuatro contenidos mínimos del art. 35.7 y, si procede, la consulta previa a la AEPD (art. 36).
 - [Auditoría web RGPD gratuita](https://www.soylegal360.es/auditoria-web-gratuita/): diagnóstico de cumplimiento de una web.
 - [Ejercicio de derechos para particulares](https://www.soylegal360.es/ejercicio-de-derechos/): acceso, rectificación, supresión, etc.
 - [Protección Legal Continua — suscripción legal mensual](https://www.soylegal360.es/proteccion-legal-continua/): packs desde 49 EUR/mes + IVA con consultas de abogado incluidas, alertas normativas y área privada de cliente.
@@ -19,7 +20,7 @@
 - [Mercantil y societario](https://www.soylegal360.es/servicios-proteccion-de-datos/#mercantil): constitución de sociedades, pactos de socios, juntas y compraventa de participaciones.
 - [Derecho deportivo](https://www.soylegal360.es/servicios-proteccion-de-datos/#deportivo): clubes y entidades deportivas, contratos, derechos de imagen y datos de menores.
 - [Herencias](https://www.soylegal360.es/servicios-proteccion-de-datos/#herencias): testamento, sucesión y reparto de bienes.
-- [Formación](https://www.soylegal360.es/servicios-proteccion-de-datos/#formacion): sesiones para equipos en protección de datos y uso responsable de la IA.
+- [Formación en protección de datos y uso de IA](https://www.soylegal360.es/formacion-proteccion-de-datos-e-ia/): sesiones prácticas para equipos en protección de datos y uso responsable de la IA, con la alfabetización en IA que pide el art. 4 del AI Act.
 - [Bolsa de horas](https://www.soylegal360.es/servicios-proteccion-de-datos/#bolsa-de-horas): horas de abogado sin cuota mensual ni permanencia, desde 600 € + IVA.
 
 ## Recursos útiles
