@@ -660,15 +660,6 @@ h3 { font-size: 22px; }
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 900;
 }
-.faq-list { display: grid; gap: 12px; max-width: 940px; }
-.faq-list details {
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  padding: 18px 20px;
-  background: #fff;
-}
-.faq-list summary { cursor: pointer; color: var(--navy); font-weight: 800; font-size: 17px; line-height: 1.5; }
-.faq-list details p { font-size: 16px; line-height: 1.7; }
 .tally-embed {
   margin-top: 18px;
   border: 1px solid var(--line);
@@ -1949,4 +1940,72 @@ html.sl-js .sl-reveal.is-in { opacity: 1; transform: none; }
   .sl-cl .sl-cl__mq-track{animation:none}
   .sl-cl .sl-cl__mq{overflow-x:auto;-webkit-mask-image:none;mask-image:none}
   .sl-cl .sl-cl__mq-group:last-child{display:none}
+}
+
+/* ==========================================================================
+   FAQ (.faq) — componente único de preguntas frecuentes
+   Sustituye a los cinco bloques que cada página llevaba en su <style>: mismos
+   tamaños en todas (pregunta 17px, respuesta 16px) y la forma de lista con
+   filete y acordeón, que es la que ya tenían nueve páginas.
+   .faq-list se mantiene como alias: las cuatro páginas que ya lo usaban no
+   necesitan tocar el marcado.
+   ========================================================================== */
+.faq, .faq-list { display: block; width: min(800px, 100%); max-width: none; margin-inline: auto; }
+.faq details, .faq-list details {
+  border: 0;
+  border-bottom: 1px solid rgba(23,33,58,.12);
+  border-radius: 0;
+  padding: 0;
+  background: none;
+}
+.faq details:first-of-type, .faq-list details:first-of-type { border-top: 1px solid rgba(23,33,58,.12); }
+.faq summary, .faq-list summary {
+  position: relative;
+  display: block;
+  list-style: none;
+  cursor: pointer;
+  margin: 0;
+  padding: 18px 46px 18px 16px;
+  border-left: 3px solid transparent;
+  color: var(--navy, #06152c);
+  font: 700 17px/1.5 Georgia, "Times New Roman", serif;
+  transition: background-color .18s ease, border-left-color .18s ease;
+}
+.faq summary::-webkit-details-marker, .faq-list summary::-webkit-details-marker { display: none; }
+.faq summary::after, .faq-list summary::after {
+  content: "+";
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #c9a96e;
+  font: 700 21px/1 Arial, Helvetica, sans-serif;
+  transition: color .18s ease;
+}
+.faq details[open] summary::after, .faq-list details[open] summary::after { content: "\2212"; }
+/* Hover de marca: se encienden el filete izquierdo y el fondo, y el signo pasa al
+   dorado accesible. El texto de la pregunta se queda en navy a propósito: el dorado
+   de marca sobre blanco da 2,2:1 y no llega al mínimo para texto. */
+.faq summary:hover, .faq-list summary:hover,
+.faq summary:focus-visible, .faq-list summary:focus-visible {
+  background: rgba(201,169,110,.10);
+  border-left-color: #c9a96e;
+}
+.faq summary:hover::after, .faq-list summary:hover::after,
+.faq summary:focus-visible::after, .faq-list summary:focus-visible::after { color: #866932; }
+.faq details[open] summary, .faq-list details[open] summary { border-left-color: #c9a96e; }
+.faq details p, .faq-list details p {
+  margin: 0;
+  padding: 0 18px 18px 19px;
+  color: #3a4a62;
+  font: 16px/1.7 Arial, Helvetica, sans-serif;
+}
+.faq details p + p, .faq-list details p + p { padding-top: 12px; }
+.faq details a, .faq-list details a { color: var(--navy, #06152c); font-weight: 700; }
+@media (max-width: 600px) {
+  .faq summary, .faq-list summary { padding: 16px 40px 16px 13px; font-size: 16.5px; }
+  .faq details p, .faq-list details p { padding: 0 16px 16px 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .faq summary, .faq-list summary, .faq summary::after, .faq-list summary::after { transition: none; }
 }
