@@ -20,6 +20,11 @@ const otros = (await getCollection('blog'))
   .slice(0, 2);
 const { titulo, meta, fecha, actualizado, faq, fuentes, cta, estado_revision, autor, imagen } = post.data;
 
+// Retrato de quien firma. Solo se pinta si hay fichero para esa persona; el resto
+// de autores salen en texto, como hasta ahora.
+const RETRATOS = { 'Samara Nacher': '/assets/img/equipo/samara-nacher-avatar.webp' };
+const retratoAutor = RETRATOS[autor];
+
 const canonical = `https://www.soylegal360.es/blog/${post.id}/`;
 const fechaISO = fecha.toISOString().slice(0, 10);
 const fechaLegible = fecha.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' });
@@ -89,7 +94,12 @@ const articleSchema = {
   // La autoria del contenido juridico es de la firma, no de una persona: el marketing
   // es de marca, sin persona (FUENTE_DE_VERDAD). Ademas evita atribuir contenido YMYL
   // a quien la web presenta en Marketing y Comunicacion. La firma visible no cambia.
-  author: { '@type': 'Organization', name: 'SoyLegal360', url: 'https://www.soylegal360.es/' },
+  author: {
+    '@type': 'Person',
+    name: autor,
+    worksFor: { '@type': 'Organization', name: 'SoyLegal360', url: 'https://www.soylegal360.es/' },
+  },
+  publisher: { '@type': 'Organization', name: 'SoyLegal360', url: 'https://www.soylegal360.es/' },
   publisher: {
     '@type': 'Organization',
     name: 'SoyLegal360',
@@ -157,6 +167,8 @@ const faqSchema = faq.length
     .blog-hero__eyebrow{margin:0;color:var(--gold);font:800 12px/1.35 Arial,Helvetica,sans-serif;letter-spacing:.2em;text-transform:uppercase}
     .blog-hero h1{margin:14px 0 0;font-size:clamp(30px,4.4vw,48px);line-height:1.1;color:#fff;text-wrap:balance;font-family:Georgia,"Times New Roman",serif}
     .blog-hero__meta{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;margin-top:22px;color:#cdd9ec;font:700 13px/1.4 Arial,Helvetica,sans-serif}
+    .blog-hero__autor{display:inline-flex;align-items:center;gap:9px}
+    .blog-hero__autor img{width:34px;height:34px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.85);box-shadow:0 2px 8px rgba(6,20,46,.45)}
     .blog-hero__badge{display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(201,169,110,.45);border-radius:999px;padding:6px 12px;color:var(--gold-soft);background:rgba(201,169,110,.12);font:800 12px/1.2 Arial,Helvetica,sans-serif;letter-spacing:.04em}
     .blog-hero__badge::before{content:"\2713";font-weight:900}
     /* ── Indice "En esta guia" ── */
@@ -265,7 +277,10 @@ const faqSchema = faq.length
         <p class="blog-hero__eyebrow">Blog · SoyLegal360</p>
         <h1>{titulo}</h1>
         <div class="blog-hero__meta">
-          <span>Por {autor}</span>
+          <span class="blog-hero__autor">
+            {retratoAutor && <img src={retratoAutor} alt={autor} width="400" height="400" loading="lazy" decoding="async" />}
+            Por {autor}
+          </span>
           <span>{fechaLegible}</span>
           {hayRevision && <span>Actualizado el {revisadoLegible}</span>}
           <span>{minutos} min de lectura</span>
