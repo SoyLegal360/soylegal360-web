@@ -343,6 +343,11 @@
   .sl-person-tray img { display: block; width: auto; }
   .sl-person-tray img.is-ey { height: 44px; }
   .sl-person-tray img.is-mpa { height: 26px; }
+  /* "Viene de": los dos logos en fila horizontal (no en pila), para igualar la
+     orientacion de las tiras "Formado en" de las otras fichas. */
+  .sl-person-tray-viene { display: flex; align-items: center; justify-content: center; gap: 22px; }
+  .sl-person-tray-viene img.is-ey { height: 32px; }
+  .sl-person-tray-viene img.is-mpa { height: 20px; }
   /* Formacion: los cinco centros en una tira que desliza de derecha a izquierda, en una
      sola tinta, para que lean como un conjunto y no como marcas peleando. La pista se
      pinta dos veces y se anima a translateX(-50%): bucle sin costura. Se para (y se
@@ -980,8 +985,10 @@
           <p class="sl-person-cita"><a href="/formacion-proteccion-de-datos-e-ia/">Formación</a>, comunicación y cultura. Lo que convierte a un grupo de personas en un equipo.</p>
           <div class="sl-person-tray">
             <span class="sl-person-tray-lab">Viene de</span>
-            <img class="is-ey" src="/assets/img/logos/ey.svg" alt="EY" width="261" height="300" loading="lazy" decoding="async">
-            <img class="is-mpa" src="/assets/img/logos/movistar-prosegur-alarmas.svg" alt="Movistar Prosegur Alarmas" width="138" height="29" loading="lazy" decoding="async">
+            <div class="sl-person-tray-viene">
+              <img class="is-ey" src="/assets/img/logos/ey.svg" alt="EY" width="261" height="300" loading="lazy" decoding="async">
+              <img class="is-mpa" src="/assets/img/logos/movistar-prosegur-alarmas.svg" alt="Movistar Prosegur Alarmas" width="138" height="29" loading="lazy" decoding="async">
+            </div>
           </div>
           <a class="sl-person-li" href="https://www.linkedin.com/in/samara-nacher-aznar-14a2ab146/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg> LinkedIn</a>
         </div>
