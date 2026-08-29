@@ -19,7 +19,7 @@ const blog = defineCollection({
     faq: z.array(z.object({ q: z.string(), a: z.string() })).default([]),
     fuentes: z.array(z.string()).default([]),
     estado_revision: z.enum(['pendiente', 'verificado']).default('pendiente'),
-    autor: z.string().default('Samara Nacher'),
+    autor: z.string().default('SoyLegal360'),
     imagen: z.string().optional(), // imagen custom (Codex + marco de marca); si falta, tarjeta programatica de gen-og.mjs
     titulo_tarjeta: z.string().optional(), // titular corto para la imagen; si falta, el titulo antes de ':' o '?'
   }),
