@@ -275,18 +275,22 @@
   }
   .sl-about-team-header svg { width: 26px; height: 26px; flex-shrink: 0; stroke: var(--gold); }
   .sl-about-team-header h3 { font-size: 19px; font-weight: 700; color: var(--ink); margin: 0; }
-  .sl-about-badges { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 18px; }
+  /* Las etiquetas van entre dos filetes de oro, no en pildora: la capsula redondeada
+     con relleno tenue es el adorno mas repetido de la web y no dice nada de la casa.
+     Solo las usan las tres fichas de persona, asi que el cambio no toca nada mas. */
+  .sl-about-badges {
+    display: flex; flex-direction: column; align-items: center; gap: 5px;
+    margin-bottom: 14px; padding: 10px 0;
+    border-top: 1px solid rgba(201,169,110,.55);
+    border-bottom: 1px solid rgba(201,169,110,.55);
+  }
   .sl-about-badge {
-    display: inline-block;
-    padding: 3px 11px;
-    border-radius: 100px;
-    border: 1px solid rgba(201,169,110,.4);
-    background: rgba(201,169,110,.07);
-    color: var(--copper);
+    color: #6F5420;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 10.5px;
+    font-size: 9.5px;
     font-weight: 700;
-    letter-spacing: .06em;
+    line-height: 1.4;
+    letter-spacing: .14em;
     text-transform: uppercase;
   }
   .sl-about-team-col p { font-size: 14.5px; color: var(--muted); line-height: 1.68; margin: 0; }
@@ -295,13 +299,57 @@
   .sl-about-people { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 44px; }
   /* fondo, radio, borde y sombra los define el sistema de tarjeta-documento */
   .sl-person { text-align: center; }
+  /* Ovalo vertical en lugar del circulo: cabe medio cuerpo, se ve la americana, y el
+     monograma de quien aun no tiene foto ocupa exactamente el mismo hueco, para que las
+     tres fichas sigan siendo la misma pieza. */
   .sl-person-avatar {
-    width: 88px; height: 88px; border-radius: 50%; margin: 0 auto 16px;
-    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    width: 140px; height: 187px; border-radius: 50%; margin: 0 auto 16px;
+    display: flex; align-items: center; justify-content: center; overflow: hidden;
     background: linear-gradient(135deg, #1d3055, #2b4a7d);
-    color: #d8be83; font-family: Georgia, serif; font-size: 29px; font-weight: 700; letter-spacing: .02em;
+    color: #d8be83; font-family: Georgia, serif; font-size: 40px; font-weight: 700; letter-spacing: .02em;
     border: 3px solid #fff; box-shadow: 0 3px 15px rgba(23,33,58,.18);
   }
+  .sl-person-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  /* Constelacion sobre la foto. Se mezcla en modo screen, asi que solo ilumina las zonas
+     oscuras y se apaga sola sobre la cara y la ropa clara: no puede taparla. La mascara
+     ademas la aparta del centro. Solo aparece al pasar el raton. */
+  .sl-person-fx {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    pointer-events: none; mix-blend-mode: screen; opacity: 0;
+    transition: opacity .45s ease;
+    -webkit-mask-image: radial-gradient(ellipse 46% 40% at 50% 42%, transparent 40%, #000 100%);
+            mask-image: radial-gradient(ellipse 46% 40% at 50% 42%, transparent 40%, #000 100%);
+  }
+  .sl-person:hover .sl-person-fx, .sl-person:focus-within .sl-person-fx { opacity: 1; }
+  /* Trayectoria: los logos van apilados y cada uno al alto que necesita para leerse.
+     El de EY lleva la coletilla debajo y a menos de 40px se convierte en una mancha. */
+  .sl-person-tray {
+    display: flex; flex-direction: column; align-items: center; gap: 12px;
+    width: 100%; margin-top: 14px; padding-top: 13px; border-top: 1px solid var(--line);
+  }
+  .sl-person-tray-lab {
+    color: var(--muted); font: 700 9px/1.3 Arial, Helvetica, sans-serif;
+    letter-spacing: .16em; text-transform: uppercase;
+  }
+  .sl-person-tray img { display: block; width: auto; }
+  .sl-person-tray img.is-ey { height: 44px; }
+  .sl-person-tray img.is-mpa { height: 26px; }
+  .sl-person-li {
+    position: relative; display: inline-flex; align-items: center; gap: 7px;
+    margin-top: 14px; min-height: 32px; padding-bottom: 2px;
+    color: var(--blue, #2E568D); font: 800 10.5px/1 Arial, Helvetica, sans-serif;
+    letter-spacing: .1em; text-transform: uppercase; text-decoration: none;
+    border-bottom: 1px solid rgba(46,86,141,.3);
+  }
+  /* El subrayado abraza el texto y el area de toque llega a los 44px con un pseudoelemento. */
+  .sl-person-li::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%); height: 44px; }
+  .sl-person-li:hover { color: var(--navy); border-bottom-color: var(--gold); }
+  .sl-person-li svg { display: block; width: 13px; height: 13px; flex: 0 0 auto; fill: currentColor; }
+  .sl-person-cita { display: block; }
+  .sl-person-cita a { color: var(--navy); font-weight: 700; text-decoration: none; border-bottom: 1px solid rgba(201,169,110,.6); }
+  .sl-person-cita a:hover { border-bottom-color: var(--gold); }
+  @media (prefers-reduced-motion: reduce) { .sl-person-fx { transition: none; } }
   .sl-person h3 { font-size: 19px; color: var(--ink); margin: 0 0 3px; font-weight: 700; }
   .sl-person-role {
     font-family: Arial, Helvetica, sans-serif; font-size: 10.5px; font-weight: 700; letter-spacing: .1em;
@@ -832,7 +880,7 @@
           <h3>P. Martín</h3>
           <p class="sl-person-role">Abogada · Dirección Legal</p>
           <div class="sl-about-badges">
-            <span class="sl-about-badge">RGPD · IA</span>
+            <span class="sl-about-badge">Protección de datos</span>
             <span class="sl-about-badge">Colegiada ICAB</span>
           </div>
           <p>Responsable del criterio jurídico. Revisa y aprueba cada documento que sale del despacho.</p>
@@ -842,20 +890,29 @@
           <h3>M. Martín</h3>
           <p class="sl-person-role">Dirección · Estrategia e IA</p>
           <div class="sl-about-badges">
+            <span class="sl-about-badge">Estrategia y datos</span>
             <span class="sl-about-badge">Business Intelligence</span>
-            <span class="sl-about-badge">IA · Big Data</span>
           </div>
           <p>Estrategia, datos e inteligencia artificial. Que el cumplimiento sea un servicio ágil y digital.</p>
         </div>
         <div class="sl-person sl-about-reveal">
-          <div class="sl-person-avatar" aria-hidden="true">SN</div>
-          <h3>S. Nacher</h3>
-          <p class="sl-person-role">Marketing y Comunicación</p>
-          <div class="sl-about-badges">
-            <span class="sl-about-badge">Comunicación</span>
-            <span class="sl-about-badge">Eventos</span>
+          <div class="sl-person-avatar">
+            <img src="/assets/img/equipo/samara-nacher.webp" alt="Samara Nacher" width="480" height="640" loading="lazy" decoding="async">
+            <canvas class="sl-person-fx" data-sl-person-fx aria-hidden="true"></canvas>
           </div>
-          <p>La voz de la marca y el trato cercano. Comunicación, contenidos y eventos.</p>
+          <h3>Samara Nacher</h3>
+          <p class="sl-person-role">Formación y Comunicación</p>
+          <div class="sl-about-badges">
+            <span class="sl-about-badge">Formación de equipos</span>
+            <span class="sl-about-badge">Máster ESIC</span>
+          </div>
+          <p class="sl-person-cita"><a href="/formacion-proteccion-de-datos-e-ia/">Formación</a>, comunicación y cultura. Lo que convierte a un grupo de personas en un equipo.</p>
+          <div class="sl-person-tray">
+            <span class="sl-person-tray-lab">Viene de</span>
+            <img class="is-ey" src="/assets/img/logos/ey.svg" alt="EY" width="261" height="300" loading="lazy" decoding="async">
+            <img class="is-mpa" src="/assets/img/logos/movistar-prosegur-alarmas.svg" alt="Movistar Prosegur Alarmas" width="138" height="29" loading="lazy" decoding="async">
+          </div>
+          <a class="sl-person-li" href="https://www.linkedin.com/in/samara-nacher-aznar-14a2ab146/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg> LinkedIn</a>
         </div>
       </div>
     </div>
@@ -1279,6 +1336,65 @@
         el.setAttribute('aria-hidden','true');
         card.appendChild(el);
       });
+    });
+  })();
+  /* Constelacion sobre la foto del equipo. Los nodos van a la deriva y solo se unen
+     cuando el puntero pasa cerca: conectar personas, que es lo que dice la ficha.
+     Se apaga con "reducir movimiento" y no se arma en tactil, donde no hay hover. */
+  (function(){
+    var rm = window.matchMedia('(prefers-reduced-motion: reduce)');
+    var fino = window.matchMedia('(hover:hover) and (pointer:fine)');
+    document.querySelectorAll('canvas[data-sl-person-fx]').forEach(function(cv){
+      var caja = cv.parentElement, ficha = cv.closest('.sl-person');
+      if(!caja || !ficha) return;
+      var ctx = cv.getContext('2d');
+      var w=0, h=0, nodos=[], raf=0, dentro=false, mx=-999, my=-999;
+      function build(){
+        var r = cv.getBoundingClientRect();
+        w = Math.max(1, r.width); h = Math.max(1, r.height);
+        var dpr = Math.min(window.devicePixelRatio || 1, 2);
+        cv.width = Math.round(w*dpr); cv.height = Math.round(h*dpr);
+        ctx.setTransform(dpr,0,0,dpr,0,0);
+        // reparto determinista, sin aleatorio: dos cargas dan el mismo dibujo
+        nodos = Array.from({length:26}, function(_,i){ return {
+          x:((i*83.7+31)%100)/100*w, y:((i*47.3+17)%100)/100*h,
+          vx:((i%3)-1)*0.05, vy:(((i+1)%3)-1)*0.04, r:1+(i%3)*0.5
+        };});
+      }
+      function draw(quieto){
+        ctx.clearRect(0,0,w,h); ctx.lineWidth = 0.7;
+        if(!quieto) nodos.forEach(function(o){ o.x=(o.x+o.vx+w)%w; o.y=(o.y+o.vy+h)%h; });
+        nodos.forEach(function(o,i){
+          nodos.slice(i+1).forEach(function(b){
+            var d = Math.hypot(o.x-b.x, o.y-b.y); if(d >= 70) return;
+            var dm = Math.min(Math.hypot(o.x-mx,o.y-my), Math.hypot(b.x-mx,b.y-my));
+            var al = (1-d/70)*0.34*(dm<62 ? (1-dm/62) : 0);
+            if(al <= 0.002) return;
+            ctx.strokeStyle = 'rgba(226,198,132,'+al+')';
+            ctx.beginPath(); ctx.moveTo(o.x,o.y); ctx.lineTo(b.x,b.y); ctx.stroke();
+          });
+        });
+        nodos.forEach(function(o){
+          var dm = Math.hypot(o.x-mx, o.y-my);
+          var al = dm<62 ? 0.2+0.6*(1-dm/62) : 0.12;
+          ctx.fillStyle = 'rgba(226,198,132,'+al+')';
+          ctx.beginPath(); ctx.arc(o.x,o.y,o.r,0,6.284); ctx.fill();
+        });
+      }
+      function loop(){
+        cancelAnimationFrame(raf);
+        if(rm.matches || !dentro){ draw(true); return; }
+        draw(false); raf = requestAnimationFrame(loop);
+      }
+      if(fino.matches){
+        ficha.addEventListener('pointerenter', function(){ dentro=true; loop(); });
+        ficha.addEventListener('pointerleave', function(){ dentro=false; mx=my=-999; draw(true); });
+        caja.addEventListener('pointermove', function(e){
+          var r = cv.getBoundingClientRect(); mx = e.clientX-r.left; my = e.clientY-r.top;
+        }, {passive:true});
+      }
+      new ResizeObserver(function(){ build(); draw(true); }).observe(cv);
+      build(); draw(true);
     });
   })();
   /* Luz que sigue al puntero dentro de la tarjeta + linterna de grupo.
