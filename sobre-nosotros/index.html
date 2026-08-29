@@ -298,7 +298,9 @@
   /* Personas del equipo */
   .sl-about-people { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 44px; }
   /* fondo, radio, borde y sombra los define el sistema de tarjeta-documento */
-  .sl-person { text-align: center; }
+  /* min-width:0 = la ficha (item de grid 1fr) puede encoger; sin esto, la tira
+     'width:max-content' arrastra la columna a 850px+ y solo entran 1,5 cards. */
+  .sl-person { text-align: center; min-width: 0; }
   /* Ovalo vertical en lugar del circulo: cabe medio cuerpo, se ve la americana, y el
      monograma de quien aun no tiene foto ocupa exactamente el mismo hueco, para que las
      tres fichas sigan siendo la misma pieza. */
