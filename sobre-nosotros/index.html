@@ -311,6 +311,12 @@
     border: 3px solid #fff; box-shadow: 0 3px 15px rgba(23,33,58,.18);
   }
   .sl-person-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  /* Imagen rota (guiño de marca) de las fichas sin foto: el glifo dorado va centrado
+     en el ovalo, a tamano fijo, no recortado como una foto. */
+  .sl-person-avatar img.sl-person-broken { width: 74px; height: 74px; object-fit: contain; }
+  /* Un solo logo de formacion (de momento uno): centrado, sin cinta que deslice. */
+  .sl-person-tray-edu-solo { display: flex; justify-content: center; }
+  .sl-person-tray-edu-solo img { height: 17px; width: auto; opacity: .88; }
   /* Constelacion sobre la foto. Se mezcla en modo screen, asi que solo ilumina las zonas
      oscuras y se apaga sola sobre la cara y la ropa clara: no puede taparla. La mascara
      ademas la aparta del centro. Solo aparece al pasar el raton. */
@@ -335,6 +341,27 @@
   .sl-person-tray img { display: block; width: auto; }
   .sl-person-tray img.is-ey { height: 44px; }
   .sl-person-tray img.is-mpa { height: 26px; }
+  /* Formacion: los cinco centros en una tira que desliza de derecha a izquierda, en una
+     sola tinta, para que lean como un conjunto y no como marcas peleando. La pista se
+     pinta dos veces y se anima a translateX(-50%): bucle sin costura. Se para (y se
+     apila centrada, ocultando el duplicado) con prefers-reduced-motion. */
+  .sl-person-tray--edu { gap: 12px; }
+  .sl-person-tray-edu-marquee {
+    overflow: hidden; width: 100%;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent);
+  }
+  .sl-person-tray-edu-track {
+    display: flex; align-items: center; gap: 30px; width: max-content;
+    animation: sl-edu-scroll 24s linear infinite;
+  }
+  .sl-person-tray-edu-track img { height: 17px; width: auto; opacity: .88; flex: 0 0 auto; }
+  @keyframes sl-edu-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) {
+    .sl-person-tray-edu-marquee { -webkit-mask-image: none; mask-image: none; }
+    .sl-person-tray-edu-track { animation: none; flex-wrap: wrap; justify-content: center; width: 100%; gap: 14px 22px; }
+    .sl-person-tray-edu-track img[aria-hidden="true"] { display: none; }
+  }
   .sl-person-li {
     position: relative; display: inline-flex; align-items: center; gap: 7px;
     margin-top: 14px; min-height: 32px; padding-bottom: 2px;
@@ -873,27 +900,69 @@
     <div class="sl-about-wrap">
       <p class="eyebrow sl-about-reveal">Nuestro equipo</p>
       <h2 class="sl-about-reveal">Las personas detrás de <span class="sl-about-gold">SoyLegal360</span></h2>
-      <p class="sl-about-reveal" style="max-width:640px">Por encima de la tecnología, siempre hay personas. Rigor jurídico, visión de negocio y trato cercano, con nombre y cara.</p>
+      <p class="sl-about-reveal" style="max-width:640px">Por encima de la tecnología, siempre hay personas. Rigor jurídico, visión de negocio y trato cercano. Detrás de cada entrega, personas que responden.</p>
       <div class="sl-about-people">
         <div class="sl-person sl-about-reveal">
-          <div class="sl-person-avatar" aria-hidden="true">PM</div>
+          <div class="sl-person-avatar">
+            <img class="sl-person-broken" src="/assets/img/equipo/imagen-rota.svg" alt="" width="74" height="74" loading="lazy" decoding="async">
+          </div>
           <h3>P. Martín</h3>
           <p class="sl-person-role">Abogada · Dirección Legal</p>
           <div class="sl-about-badges">
             <span class="sl-about-badge">Protección de datos</span>
-            <span class="sl-about-badge">Colegiada ICAB</span>
+            <span class="sl-about-badge">IA y Derecho Digital</span>
+            <span class="sl-about-badge">DPD certificada</span>
           </div>
-          <p>Responsable del criterio jurídico. Revisa y aprueba cada documento que sale del despacho.</p>
+          <p>Del RGPD al AI Act, del compliance a lo mercantil: responsable del criterio jurídico. Revisa y aprueba cada documento que sale del despacho.</p>
+          <div class="sl-person-tray sl-person-tray--edu">
+            <span class="sl-person-tray-lab">Formado en</span>
+            <div class="sl-person-tray-edu-marquee" data-sl-marquee-edu>
+              <div class="sl-person-tray-edu-track">
+                <img src="/assets/img/logos/universidad-zaragoza.png" alt="Universidad de Zaragoza" width="2769" height="779" loading="lazy" decoding="async">
+                <img src="/assets/img/logos/unir.svg" alt="UNIR · Universidad Internacional de La Rioja" width="613" height="137" loading="lazy" decoding="async">
+                <img src="/assets/img/logos/universidad-isabel-i.png" alt="Universidad Isabel I" width="692" height="219" loading="lazy" decoding="async">
+                <img src="/assets/img/logos/isde.png" alt="ISDE Law & Business School" width="154" height="143" loading="lazy" decoding="async">
+                <img src="/assets/img/logos/universidad-euneiz.svg" alt="Universidad EUNEIZ" width="975" height="204" loading="lazy" decoding="async">
+                <img src="/assets/img/logos/universidad-zaragoza.png" alt="" aria-hidden="true" width="2769" height="779" loading="lazy" decoding="async">
+                <img src="/assets/img/logos/unir.svg" alt="" aria-hidden="true" width="613" height="137" loading="lazy" decoding="async">
+                <img src="/assets/img/logos/universidad-isabel-i.png" alt="" aria-hidden="true" width="692" height="219" loading="lazy" decoding="async">
+                <img src="/assets/img/logos/isde.png" alt="" aria-hidden="true" width="154" height="143" loading="lazy" decoding="async">
+                <img src="/assets/img/logos/universidad-euneiz.svg" alt="" aria-hidden="true" width="975" height="204" loading="lazy" decoding="async">
+              </div>
+            </div>
+          </div>
         </div>
         <div class="sl-person sl-about-reveal">
-          <div class="sl-person-avatar" aria-hidden="true">MM</div>
-          <h3>M. Martín</h3>
-          <p class="sl-person-role">Dirección · Estrategia e IA</p>
-          <div class="sl-about-badges">
-            <span class="sl-about-badge">Estrategia y datos</span>
-            <span class="sl-about-badge">Business Intelligence</span>
+          <div class="sl-person-avatar">
+            <img class="sl-person-broken" src="/assets/img/equipo/imagen-rota.svg" alt="" width="74" height="74" loading="lazy" decoding="async">
           </div>
-          <p>Estrategia, datos e inteligencia artificial. Que el cumplimiento sea un servicio ágil y digital.</p>
+          <h3>M. Martín</h3>
+          <p class="sl-person-role">Tecnología, Estrategia y Operaciones</p>
+          <div class="sl-about-badges">
+            <span class="sl-about-badge">Big Data y Business Intelligence</span>
+            <span class="sl-about-badge">IA empresarial</span>
+            <span class="sl-about-badge">DPD certificado</span>
+          </div>
+          <p>La tecnología del despacho la lleva alguien de dentro. Ninguna herramienta escribe sin que una persona responda de lo que dice.</p>
+          <div class="sl-person-tray sl-person-tray--edu">
+            <span class="sl-person-tray-lab">Formado en</span>
+            <div class="sl-person-tray-edu-marquee" data-sl-marquee-edu>
+              <div class="sl-person-tray-edu-track">
+                <img src="/assets/img/logos/la-salle-url.png" alt="La Salle · Universitat Ramon Llull" width="174" height="60" loading="lazy" decoding="async">
+                <img src="/assets/img/logos/universidad-europea.png" alt="Universidad Europea" width="1685" height="338" loading="lazy" decoding="async">
+                <img src="/assets/img/logos/eae-business-school.png" alt="EAE Business School" width="496" height="106" loading="lazy" decoding="async">
+                <img src="/assets/img/logos/centro-estudios-garrigues.svg" alt="Centro de Estudios Garrigues" width="200" height="40" loading="lazy" decoding="async">
+                <img src="/assets/img/logos/universidad-isabel-i.png" alt="Universidad Isabel I" width="692" height="219" loading="lazy" decoding="async">
+                <img src="/assets/img/logos/universidad-euneiz.svg" alt="Universidad EUNEIZ" width="975" height="204" loading="lazy" decoding="async">
+                <img src="/assets/img/logos/la-salle-url.png" alt="" aria-hidden="true" width="174" height="60" loading="lazy" decoding="async">
+                <img src="/assets/img/logos/universidad-europea.png" alt="" aria-hidden="true" width="1685" height="338" loading="lazy" decoding="async">
+                <img src="/assets/img/logos/eae-business-school.png" alt="" aria-hidden="true" width="496" height="106" loading="lazy" decoding="async">
+                <img src="/assets/img/logos/centro-estudios-garrigues.svg" alt="" aria-hidden="true" width="200" height="40" loading="lazy" decoding="async">
+                <img src="/assets/img/logos/universidad-isabel-i.png" alt="" aria-hidden="true" width="692" height="219" loading="lazy" decoding="async">
+                <img src="/assets/img/logos/universidad-euneiz.svg" alt="" aria-hidden="true" width="975" height="204" loading="lazy" decoding="async">
+              </div>
+            </div>
+          </div>
         </div>
         <div class="sl-person sl-about-reveal">
           <div class="sl-person-avatar">
