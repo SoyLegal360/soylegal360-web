@@ -1,0 +1,148 @@
+---
+import { getCollection } from 'astro:content';
+import HeadCommon from '../../components/HeadCommon.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+
+const AUTOR = 'Samara Nacher';
+const posts = (await getCollection('blog'))
+  .filter((p) => (p.data.autor ?? 'Samara Nacher') === AUTOR)
+  .sort((a, b) => b.data.fecha.getTime() - a.data.fecha.getTime());
+
+const canonical = 'https://www.soylegal360.es/autor/samara-nacher/';
+const linkedin = 'https://www.linkedin.com/in/samara-nacher-aznar-14a2ab146/';
+const fotoAbs = 'https://www.soylegal360.es/assets/img/equipo/samara-nacher.webp';
+
+const minutosDe = (body?: string) =>
+  Math.max(1, Math.round((body ?? '').split(/\s+/).filter(Boolean).length / 200));
+
+// Página de autor: la voz del blog es Samara (Comunicación); el equipo legal revisa.
+const profileSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  mainEntity: {
+    '@type': 'Person',
+    name: 'Samara Nacher',
+    jobTitle: 'Comunicación',
+    worksFor: { '@type': 'Organization', name: 'SoyLegal360', url: 'https://www.soylegal360.es/' },
+    url: canonical,
+    image: fotoAbs,
+    sameAs: [linkedin],
+  },
+};
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://www.soylegal360.es/' },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://www.soylegal360.es/blog/' },
+    { '@type': 'ListItem', position: 3, name: 'Samara Nacher', item: canonical },
+  ],
+};
+---
+<!doctype html>
+<html lang="es">
+<head>
+  <HeadCommon />
+  <title>Samara Nacher — Comunicación en SoyLegal360</title>
+  <meta name="description" content="Samara Nacher, Comunicación en SoyLegal360 y voz del blog. Sus artículos sobre RGPD, inteligencia artificial y cumplimiento, revisados por el equipo jurídico." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href={canonical} />
+  <meta property="og:type" content="profile" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:site_name" content="SoyLegal360" />
+  <meta property="og:title" content="Samara Nacher — Comunicación en SoyLegal360" />
+  <meta property="og:description" content="La voz del blog de SoyLegal360. Artículos sobre RGPD, IA y cumplimiento, revisados por el equipo jurídico." />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={fotoAbs} />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(profileSchema)} />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <style>
+    :root{--navy:#06142e;--navy-2:#102c53;--ink:#17213a;--muted:#5d6980;--soft:#f5f7fb;--gold:#c9a96e;--gold-soft:#e2c684;--line:rgba(23,54,97,.18)}
+    .autor-hero{position:relative;background-color:var(--navy);background-image:linear-gradient(90deg,rgba(6,20,46,.96) 0%,rgba(6,20,46,.8) 46%,rgba(6,20,46,.42) 100%),url("/assets/img/blog-hero-torre.webp");background-size:cover;background-position:center;color:#fff;padding:74px 22px 66px}
+    .autor-hero::after{position:absolute;right:0;bottom:0;left:0;height:6px;content:"";background:linear-gradient(90deg,transparent,var(--gold),var(--gold-soft),var(--gold),transparent)}
+    .autor-hero__wrap{width:min(1020px,100%);margin:0 auto}
+    .blog-crumbs{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 26px;font:700 12px/1.4 Arial,Helvetica,sans-serif;letter-spacing:.06em;text-transform:uppercase}
+    .blog-crumbs a{color:#c3d2e8;text-decoration:none}
+    .blog-crumbs a:hover{color:#fff}
+    .blog-crumbs span{color:var(--gold)}
+    .autor-perfil{display:flex;align-items:center;gap:30px;flex-wrap:wrap}
+    .autor-perfil__foto{width:132px;height:132px;border-radius:50%;object-fit:cover;object-position:center 18%;border:3px solid rgba(255,255,255,.85);box-shadow:0 8px 26px rgba(6,20,46,.5);flex:0 0 auto}
+    .autor-perfil__txt{flex:1;min-width:280px}
+    .autor-perfil__eyebrow{margin:0;color:var(--gold);font:800 12px/1.35 Arial,Helvetica,sans-serif;letter-spacing:.2em;text-transform:uppercase}
+    .autor-perfil h1{margin:9px 0 0;font-size:clamp(30px,4vw,46px);line-height:1.08;color:#fff;font-family:Georgia,"Times New Roman",serif}
+    .autor-perfil__rol{margin:6px 0 0;color:var(--gold-soft);font:700 14px/1.4 Arial,Helvetica,sans-serif;letter-spacing:.04em}
+    .autor-perfil__bio{margin:16px 0 0;color:#cdd9ec;font:400 17px/1.6 Arial,Helvetica,sans-serif;max-width:640px}
+    .autor-perfil__link{display:inline-flex;align-items:center;gap:8px;margin-top:18px;color:#fff;font:800 12px/1 Arial,Helvetica,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border-bottom:2px solid rgba(201,169,110,.6);padding-bottom:4px}
+    .autor-perfil__link:hover{border-bottom-color:var(--gold)}
+    .autor-perfil__link svg{width:15px;height:15px;fill:currentColor}
+    .autor-tit{width:min(1020px,100%);margin:0 auto;padding:44px 22px 0}
+    .autor-tit h2{margin:0;color:var(--navy);font-family:Georgia,"Times New Roman",serif;font-size:26px}
+    .autor-tit p{margin:6px 0 0;color:var(--muted);font:400 15px/1.5 Arial,Helvetica,sans-serif}
+    .blog-list{width:min(1020px,100%);margin:0 auto;padding:24px 22px 76px;display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:24px}
+    .blog-card{display:flex;flex-direction:column;overflow:hidden;border:1px solid var(--line);border-radius:12px;background:#fff;box-shadow:0 16px 50px rgba(6,20,46,.07);text-decoration:none;color:var(--ink);transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
+    .blog-card:hover{transform:translateY(-4px);border-color:rgba(201,169,110,.7);box-shadow:0 26px 68px rgba(6,20,46,.13)}
+    .blog-card img{display:block;width:100%;height:auto;aspect-ratio:1200/630;object-fit:cover;border-bottom:3px solid var(--gold)}
+    .blog-card__body{display:flex;flex-direction:column;flex:1;padding:22px 24px 24px}
+    .blog-card__meta-row{display:flex;flex-wrap:wrap;gap:6px 14px;margin:0;color:var(--muted);font:700 12px/1.4 Arial,Helvetica,sans-serif;letter-spacing:.05em;text-transform:uppercase}
+    .blog-card h3{margin:10px 0 0;color:var(--navy);font-size:22px;line-height:1.24;font-family:Georgia,"Times New Roman",serif}
+    .blog-card__desc{margin:10px 0 0;color:var(--muted);font:400 15px/1.55 Arial,Helvetica,sans-serif}
+    .blog-card__link{display:inline-block;margin-top:auto;padding-top:16px;color:var(--navy-2);font:900 12px/1 Arial,Helvetica,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+    .blog-card:hover .blog-card__link{color:var(--navy)}
+    @media(max-width:720px){.autor-hero{padding:54px 16px 44px}.autor-perfil{gap:20px}.blog-list{padding:20px 16px 56px;grid-template-columns:1fr}}
+    @media(prefers-reduced-motion:reduce){.blog-card{transition:none}}
+  </style>
+</head>
+<body>
+  <SiteHeader />
+  <main id="contenido">
+    <section class="autor-hero">
+      <div class="autor-hero__wrap">
+        <nav class="blog-crumbs" aria-label="Migas de pan">
+          <a href="/">Inicio</a><span aria-hidden="true">·</span><a href="/blog/">Blog</a><span aria-hidden="true">·</span>Samara Nacher
+        </nav>
+        <div class="autor-perfil">
+          <img class="autor-perfil__foto" src="/assets/img/equipo/samara-nacher.webp" alt="Samara Nacher" width="480" height="640" fetchpriority="high" />
+          <div class="autor-perfil__txt">
+            <p class="autor-perfil__eyebrow">Autor</p>
+            <h1>Samara Nacher</h1>
+            <p class="autor-perfil__rol">Comunicación · SoyLegal360</p>
+            <p class="autor-perfil__bio">Samara Nacher dirige la comunicación y la formación de SoyLegal360. Máster por ESIC, con experiencia en EY y Movistar Prosegur, es la voz del blog: traduce la letra pequeña del RGPD y la inteligencia artificial a algo claro y cercano, siempre con la revisión del equipo jurídico.</p>
+            <a class="autor-perfil__link" href={linkedin} target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="autor-tit">
+      <h2>Sus artículos</h2>
+      <p>Todo lo que ha publicado, revisado por el equipo jurídico de SoyLegal360.</p>
+    </div>
+
+    {posts.length === 0 ? (
+      <div class="autor-tit"><p>Aún no hay artículos.</p></div>
+    ) : (
+      <section class="blog-list" aria-label="Artículos de Samara Nacher">
+        {posts.map((post) => (
+          <a class="blog-card" href={`/blog/${post.id}/`}>
+            <img src={post.data.imagen ?? `/blog/${post.id}/og.png`} alt="" loading="lazy" width="1200" height="630" />
+            <div class="blog-card__body">
+              <p class="blog-card__meta-row">
+                <span>{post.data.fecha.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                <span>{minutosDe(post.body)} min</span>
+              </p>
+              <h3>{post.data.titulo}</h3>
+              <p class="blog-card__desc">{post.data.meta}</p>
+              <span class="blog-card__link">Leer artículo &rarr;</span>
+            </div>
+          </a>
+        ))}
+      </section>
+    )}
+  </main>
+  <SiteFooter />
+</body>
+</html>
