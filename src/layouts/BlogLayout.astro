@@ -23,7 +23,7 @@ const { titulo, meta, fecha, actualizado, faq, fuentes, cta, estado_revision, au
 // Por defecto firma la CASA, no una persona: el contenido juridico es de marca y
 // lo revisa el equipo legal (sello "Revisado"), no lo firma quien lleva Comunicacion.
 // Solo si `autor` es una persona conocida (con retrato) se firma como Person.
-const PERSONAS = { 'Samara Nacher': { retrato: '/assets/img/equipo/samara-nacher-avatar.webp', rol: 'Comunicación', linkedin: 'https://www.linkedin.com/in/samara-nacher-aznar-14a2ab146/' } };
+const PERSONAS = { 'Samara Nacher': { retrato: '/assets/img/equipo/samara-nacher-avatar.webp', rol: 'Comunicación', perfil: '/sobre-nosotros/#samara-nacher' } };
 const persona = PERSONAS[autor];
 const retratoAutor = persona?.retrato;
 const firmaCasa = !persona;
@@ -285,8 +285,8 @@ const faqSchema = faq.length
         <h1>{titulo}</h1>
         <div class="blog-hero__meta">
           <span class="blog-hero__autor">
-            {persona?.linkedin
-              ? <a class="blog-hero__autor-link" href={persona.linkedin} target="_blank" rel="author noopener">
+            {persona?.perfil
+              ? <a class="blog-hero__autor-link" href={persona.perfil} rel="author">
                   <img src={retratoAutor} alt={autor} width="400" height="400" loading="lazy" decoding="async" />
                   Por {autor}
                 </a>

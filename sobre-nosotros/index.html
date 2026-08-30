@@ -986,7 +986,7 @@
             </div>
           </div>
         </div>
-        <div class="sl-person sl-about-reveal">
+        <div class="sl-person sl-about-reveal" id="samara-nacher">
           <div class="sl-person-avatar">
             <img src="/assets/img/equipo/samara-nacher.webp" alt="Samara Nacher" width="480" height="640" loading="lazy" decoding="async">
             <canvas class="sl-person-fx" data-sl-person-fx aria-hidden="true"></canvas>
@@ -1700,5 +1700,17 @@
   .sl-about-section:not(.sl-about-section--dark) .sl-about-wrap h2 span.sl-about-gold,
   .sl-about-section:not(.sl-about-section--dark) .sl-about-split h2 span.sl-about-gold{color:#aa853f}
 </style>
+  <script>
+    // Reencuadre al ancla tras la carga: las animaciones de aparicion desplazan el
+    // layout y el salto nativo puede quedarse corto. No hace nada sin hash.
+    addEventListener('load', function () {
+      var h = location.hash;
+      if (!h || h.length < 2) return;
+      try {
+        var el = document.querySelector(h);
+        if (el) setTimeout(function () { el.scrollIntoView({ block: 'start' }); }, 140);
+      } catch (e) {}
+    });
+  </script>
 </body>
 </html>
