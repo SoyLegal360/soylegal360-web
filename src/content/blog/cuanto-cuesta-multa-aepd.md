@@ -1,6 +1,6 @@
 ---
-titulo: "¿Cuánto cuesta una multa de la AEPD? Tramos del RGPD y cifras reales de 2024"
-meta: "¿Cuánto cuesta una multa de la AEPD? El RGPD prevé hasta 20 millones o el 4% de la facturación; en 2024 la AEPD impuso 35,6M€ en multas. Cifras reales."
+titulo: "¿Cuánto cuesta una multa de la AEPD? Tramos del RGPD y cifras reales de 2025"
+meta: "¿Cuánto cuesta una multa de la AEPD? El RGPD prevé hasta 20 millones o el 4% de la facturación; en 2025 la AEPD impuso 48,1M€ en multas. Cifras reales."
 slug: cuanto-cuesta-multa-aepd
 fecha: 2026-07-21
 imagen: /assets/img/blog/cuanto-cuesta-multa-aepd.webp
@@ -17,22 +17,23 @@ enlaces_internos:
 faq:
   - q: "¿Cuál es la multa máxima del RGPD?"
     a: "El RGPD fija dos tramos. El tramo inferior (artículo 83.4) llega hasta 10.000.000 € o el 2% del volumen de negocio anual mundial total del ejercicio anterior, la cuantía que sea mayor. El tramo superior (artículo 83.5) llega hasta 20.000.000 € o el 4%, la que sea mayor. Son los techos que permite la ley, no lo que se paga en un caso normal."
-  - q: "¿Cuánto sancionó de verdad la AEPD en 2024?"
-    a: "Según la Memoria 2024 de la AEPD, se dictaron 281 resoluciones con multa, por un total de 35.592.200 € en sanciones. Ese año se presentaron 18.855 reclamaciones (19.722 contando las transfronterizas y las actuaciones de oficio). Es decir, solo una parte pequeña de las reclamaciones acaba en multa."
+  - q: "¿Cuánto sancionó de verdad la AEPD en 2025?"
+    a: "Según la Memoria 2025 de la AEPD, se dictaron 325 resoluciones con multa, por un total de 48.108.765 € en sanciones. Ese año se presentaron 30.931 reclamaciones, un 64% más que el año anterior y máximo histórico. Es decir, solo una parte pequeña de las reclamaciones acaba en multa."
   - q: "¿Qué es lo que más multa la AEPD?"
-    a: "En 2024 las brechas de seguridad de datos concentraron 13.179.600 € en sanciones, el 37% del total, repartidos en 30 procedimientos: son las multas más grandes. Por número de reclamaciones, las materias que más crecieron fueron videovigilancia (+19%), servicios de internet (+8%), comercio, transporte y hostelería (+7%) y el ámbito laboral (+49%)."
+    a: "Las brechas de seguridad concentran las multas más grandes: en 2025 se notificaron 2.765 brechas de datos, y sanciones como la de Flexicar (680.000 €, de los que 250.000 € fueron por no tener medidas de seguridad adecuadas tras un ciberataque) muestran que el mayor coste llega cuando hay un incidente. Por número de reclamaciones, los sectores con más peso son el comercio, transporte y hostelería, la publicidad, los ficheros de morosidad y el ámbito laboral."
   - q: "¿Pueden multar a un autónomo o a una pyme pequeña?"
     a: "Sí. La AEPD no sanciona solo a grandes empresas. El importe se modula según la gravedad, la intencionalidad, el volumen de negocio y otros factores, así que una sanción a un negocio pequeño no equivale al máximo legal, pero la infracción existe y puede sancionarse igual que en una gran compañía."
   - q: "¿Cómo se reduce una sanción de la AEPD?"
     a: "El importe puede rebajarse por pronto pago y por reconocimiento de responsabilidad, reducciones que en algunos casos se acumulan. En la resolución de SEUR GEOPOST, por ejemplo, la sanción bajó de 205.000 € a 164.000 € por pronto pago. Aun así, reducir una multa siempre sale más caro que no tenerla."
 fuentes:
   - "Reglamento (UE) 2016/679 (RGPD), artículo 83.4 (hasta 10.000.000 € o el 2%) y artículo 83.5 (hasta 20.000.000 € o el 4%, la cuantía que sea mayor) · https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX%3A32016R0679"
-  - "AEPD, nota de prensa Memoria 2024: 18.855 reclamaciones presentadas (19.722 con transfronterizas y actuaciones de oficio), 281 resoluciones con multa, 35.592.200 € en multas; brechas de datos 13.179.600 € (37%) en 30 procedimientos; crecimiento por materia: videovigilancia +19%, servicios de internet +8%, comercio/transporte/hostelería +7%, laborales +49% · https://www.aepd.es/prensa-y-comunicacion/notas-de-prensa/aepd-recibio-19000-reclamaciones-con-ia-espacios-de-datos-y-neurodatos-entre-retos-prioritarios"
+  - "AEPD, Memoria 2025 (tablas oficiales de reclamaciones y multas): 30.931 reclamaciones presentadas (+64%, máximo histórico), 325 resoluciones con multa, 48.108.765 € en multas, 2.765 brechas de datos notificadas; sanción más alta AENA 10.043.002 € · https://www.aepd.es/memorias/memoria-aepd-2025.pdf · nota de prensa: https://www.aepd.es/prensa-y-comunicacion/notas-de-prensa/la-agencia-recibio-mas-de-30.000-reclamaciones-en-2025-un-64-mas"
+  - "AEPD, Resolución Flexicar Internacional, S.L. (PS/00540/2025, EXP202410832): 680.000 € por una brecha de seguridad (400.000 € art. 5.1.f + 250.000 € art. 32 + 30.000 € art. 13) · https://www.aepd.es/documento/ps-00540-2025.pdf"
   - "AEPD, Resolución SEUR GEOPOST, S.L. (PS/EXP202407910): 205.000 € reducidos a 164.000 € por pronto pago · https://www.aepd.es/documento/ps-00248-2024.pdf"
-estado_revision: verificado
+estado_revision: pendiente
 ---
 
-Una multa de la AEPD puede llegar, según el RGPD, hasta 10 millones de euros o el 2% de la facturación anual mundial en las infracciones del tramo inferior, y hasta 20 millones o el 4% en las del tramo superior (siempre la cuantía que sea mayor). Eso es lo que permite la ley como máximo: en la práctica las sanciones son muy inferiores, y en 2024 la AEPD impuso 35.592.200 € repartidos en 281 resoluciones con multa.
+Una multa de la AEPD puede llegar, según el RGPD, hasta 10 millones de euros o el 2% de la facturación anual mundial en las infracciones del tramo inferior, y hasta 20 millones o el 4% en las del tramo superior (siempre la cuantía que sea mayor). Eso es lo que permite la ley como máximo: en la práctica las sanciones son muy inferiores, y en 2025 la AEPD impuso 48.108.765 € repartidos en 325 resoluciones con multa.
 
 Conviene no confundir las dos cosas. Una es lo que el artículo 83 del RGPD prevé como techo, y otra es lo que la Agencia sanciona de verdad. Esta guía separa ambas, repasa qué se multa más (para saber por dónde priorizar) y llega a la conclusión que interesa a cualquier pyme o autónomo: cumplir cuesta menos que no cumplir. Sin alarmismo, con las cifras oficiales.
 
@@ -45,30 +46,30 @@ El RGPD establece dos niveles de multa administrativa. En los dos, la sanción s
 
 La fórmula "la que sea mayor" tiene una consecuencia práctica: para una multinacional el porcentaje puede superar de largo los millones fijos, mientras que para una pyme o un autónomo, cuya facturación es pequeña, el tope de referencia es el importe fijo. Pero esto es solo el techo. Son los máximos que autoriza la norma, no una tarifa ni la cantidad que se paga en un caso corriente.
 
-## Lo que sancionó de verdad la AEPD en 2024
+## Lo que sancionó de verdad la AEPD en 2025
 
-Aquí es donde el número da un vuelco. Según la Memoria 2024 de la AEPD, ese año:
+Aquí es donde el número da un vuelco. Según la Memoria 2025 de la AEPD, ese año:
 
-- Se presentaron **18.855 reclamaciones** (19.722 si se cuentan las transfronterizas y las actuaciones de oficio).
-- Se dictaron **281 resoluciones con multa**.
-- El total sancionado fue de **35.592.200 €**.
+- Se presentaron **30.931 reclamaciones**, un **64% más** que el año anterior y máximo histórico.
+- Se dictaron **325 resoluciones con multa**.
+- El total sancionado fue de **48.108.765 €**.
 
-Lo primero que se ve es que la mayoría de las reclamaciones no acaba en multa. De casi 19.000 reclamaciones, 281 terminaron en sanción económica. Y si se reparte el importe total entre esas resoluciones, la media aritmética supera los 126.000 €, aunque esa media engaña: está inflada por un puñado de sanciones muy grandes a compañías grandes. La foto realista no es "todas las multas son millonarias", sino "unas pocas lo son y el resto quedan muy por debajo del máximo legal".
+Lo primero que se ve es que la mayoría de las reclamaciones no acaba en multa. De casi 31.000 reclamaciones, 325 terminaron en sanción económica. Y si se reparte el importe total entre esas resoluciones, la media aritmética ronda los 148.000 €, aunque esa media engaña: está inflada por un puñado de sanciones muy grandes a compañías grandes (la más alta de 2025, a AENA, superó los 10 millones). La foto realista no es "todas las multas son millonarias", sino "unas pocas lo son y el resto quedan muy por debajo del máximo legal".
 
 Por eso la pregunta útil para un negocio pequeño no es cuál es el máximo teórico, sino qué se sanciona más y por qué.
 
 ## Qué se multa más (y por dónde priorizar)
 
-La Memoria 2024 deja dos pistas claras para ordenar prioridades.
+La Memoria 2025 deja dos pistas claras para ordenar prioridades.
 
-**Las brechas de seguridad son las multas grandes.** Los procedimientos por brechas de datos supusieron **13.179.600 €**, el **37% del total sancionado**, concentrados en apenas **30 procedimientos**. Traducido: cuando la sanción es alta, muchas veces hay detrás una fuga o un incidente de seguridad. Prevenir brechas (con medidas técnicas y organizativas, y con un procedimiento de respuesta) es lo que más dinero evita.
+**Las brechas de seguridad son las multas grandes.** En 2025 se notificaron **2.765 brechas de datos**, y son las que están detrás de las sanciones más altas. El caso de Flexicar lo resume: **680.000 €** por una brecha, de los cuales **250.000 €** fueron precisamente por no tener medidas de seguridad adecuadas (artículo 32) cuando llegó el ciberataque. Es decir, la multa no la provoca el atacante, sino la falta de preparación. Prevenir brechas (con medidas técnicas y organizativas, y con un procedimiento de respuesta) es lo que más dinero evita.
 
-**Por número de reclamaciones, crecen los temas del día a día.** Las materias que más aumentaron fueron:
+**Por número de reclamaciones, mandan los temas del día a día.** Los sectores con más reclamaciones fueron:
 
-- **Videovigilancia (+19%):** cámaras mal señalizadas, que graban vía pública o zonas de terceros.
-- **Servicios de internet (+8%):** webs, apps y plataformas.
-- **Comercio, transporte y hostelería (+7%):** negocios de trato directo con el público.
-- **Ámbito laboral (+49%):** el mayor salto, ligado al control y los datos de empleados.
+- **Comercio, transporte y hostelería:** negocios de trato directo con el público.
+- **Publicidad:** comunicaciones comerciales y perfilado.
+- **Ficheros de morosidad:** inclusiones indebidas en listas de impagados.
+- **Ámbito laboral:** control y datos de empleados.
 
 Y hay un tercer foco que no llega por ninguna fuga masiva: la falta de papeles. La AEPD sanciona la ausencia de garantías formales aunque no haya habido ningún incidente. El caso de [SEUR y CITIBOX](/blog/contrato-encargado-del-tratamiento/), donde el grueso de la multa llegó por no tener el contrato de encargado del tratamiento (artículo 28), lo ilustra bien: el "papeleo" que muchas empresas posponen es justo lo que la Agencia revisa.
 
