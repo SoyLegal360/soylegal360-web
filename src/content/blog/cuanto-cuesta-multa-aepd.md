@@ -20,7 +20,7 @@ faq:
   - q: "¿Cuánto sancionó de verdad la AEPD en 2025?"
     a: "Según la Memoria 2025 de la AEPD, se dictaron 325 resoluciones con multa, por un total de 48.108.765 € en sanciones. Ese año se presentaron 30.931 reclamaciones, un 64% más que el año anterior y máximo histórico. Es decir, solo una parte pequeña de las reclamaciones acaba en multa."
   - q: "¿Qué es lo que más multa la AEPD?"
-    a: "Las brechas de seguridad concentran las multas más grandes: en 2025 se notificaron 2.765 brechas de datos, y sanciones como la de Flexicar (680.000 €, de los que 250.000 € fueron por no tener medidas de seguridad adecuadas tras un ciberataque) muestran que el mayor coste llega cuando hay un incidente. Por número de reclamaciones, los sectores con más peso son el comercio, transporte y hostelería, la publicidad, los ficheros de morosidad y el ámbito laboral."
+    a: "Las brechas de seguridad concentran las multas más grandes: en 2025 se notificaron 2.765 brechas de datos, y sanciones como la de Flexicar (680.000 €, de los que 250.000 € fueron por no tener medidas de seguridad adecuadas tras un ciberataque) muestran que el mayor coste llega cuando hay un incidente. Por número de reclamaciones, los primeros son servicios de internet, videovigilancia y administración pública; y muy cerca, sectores del día a día de una pyme: comercio, transporte y hostelería, publicidad, ficheros de morosidad y ámbito laboral."
   - q: "¿Pueden multar a un autónomo o a una pyme pequeña?"
     a: "Sí. La AEPD no sanciona solo a grandes empresas. El importe se modula según la gravedad, la intencionalidad, el volumen de negocio y otros factores, así que una sanción a un negocio pequeño no equivale al máximo legal, pero la infracción existe y puede sancionarse igual que en una gran compañía."
   - q: "¿Cómo se reduce una sanción de la AEPD?"
@@ -30,7 +30,7 @@ fuentes:
   - "AEPD, Memoria 2025 (tablas oficiales de reclamaciones y multas): 30.931 reclamaciones presentadas (+64%, máximo histórico), 325 resoluciones con multa, 48.108.765 € en multas, 2.765 brechas de datos notificadas; sanción más alta AENA 10.043.002 € · https://www.aepd.es/memorias/memoria-aepd-2025.pdf · nota de prensa: https://www.aepd.es/prensa-y-comunicacion/notas-de-prensa/la-agencia-recibio-mas-de-30.000-reclamaciones-en-2025-un-64-mas"
   - "AEPD, Resolución Flexicar Internacional, S.L. (PS/00540/2025, EXP202410832): 680.000 € por una brecha de seguridad (400.000 € art. 5.1.f + 250.000 € art. 32 + 30.000 € art. 13) · https://www.aepd.es/documento/ps-00540-2025.pdf"
   - "AEPD, Resolución SEUR GEOPOST, S.L. (PS/EXP202407910): 205.000 € reducidos a 164.000 € por pronto pago · https://www.aepd.es/documento/ps-00248-2024.pdf"
-estado_revision: pendiente
+estado_revision: verificado
 ---
 
 Una multa de la AEPD puede llegar, según el RGPD, hasta 10 millones de euros o el 2% de la facturación anual mundial en las infracciones del tramo inferior, y hasta 20 millones o el 4% en las del tramo superior (siempre la cuantía que sea mayor). Eso es lo que permite la ley como máximo: en la práctica las sanciones son muy inferiores, y en 2025 la AEPD impuso 48.108.765 € repartidos en 325 resoluciones con multa.
@@ -64,7 +64,7 @@ La Memoria 2025 deja dos pistas claras para ordenar prioridades.
 
 **Las brechas de seguridad son las multas grandes.** En 2025 se notificaron **2.765 brechas de datos**, y son las que están detrás de las sanciones más altas. El caso de Flexicar lo resume: **680.000 €** por una brecha, de los cuales **250.000 €** fueron precisamente por no tener medidas de seguridad adecuadas (artículo 32) cuando llegó el ciberataque. Es decir, la multa no la provoca el atacante, sino la falta de preparación. Prevenir brechas (con medidas técnicas y organizativas, y con un procedimiento de respuesta) es lo que más dinero evita.
 
-**Por número de reclamaciones, mandan los temas del día a día.** Los sectores con más reclamaciones fueron:
+**Por número de reclamaciones, el grueso lo concentran los servicios de internet, la videovigilancia y la administración pública.** Pero justo detrás aparecen áreas del día a día de cualquier pyme, que son las que aquí interesan:
 
 - **Comercio, transporte y hostelería:** negocios de trato directo con el público.
 - **Publicidad:** comunicaciones comerciales y perfilado.
