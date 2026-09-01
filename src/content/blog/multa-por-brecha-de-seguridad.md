@@ -3,6 +3,7 @@ titulo: "Multa por brecha de seguridad de datos: por qué te sanciona la AEPD (c
 meta: "Una multa por brecha de seguridad de datos no la provoca el hackeo, sino no tener las medidas del art. 32 RGPD antes. El caso Flexicar: 680.000 €."
 slug: multa-por-brecha-de-seguridad
 fecha: 2026-09-01
+autor: "Equipo jurídico"
 publico: pyme
 keyword: "multa por brecha de seguridad de datos"
 cta: auditoria-gratuita
