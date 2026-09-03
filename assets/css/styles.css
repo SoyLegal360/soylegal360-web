@@ -225,10 +225,19 @@ a { color: inherit; }
 }
 /* Links del mega-menu: nombre + descriptor, hover dorado + indent suave */
 .mega-menu a {
-  display: block; margin: 10px 0;
+  display: grid; grid-template-columns: 44px 1fr; column-gap: 10px; align-items: center;
+  margin: 10px 0;
   transition: padding-left .15s ease;
 }
 .mega-menu a:hover { padding-left: 4px; }
+.mega-menu .mega-ico {
+  grid-row: 1 / 3; width: 44px; height: 44px; display: block;
+  filter: drop-shadow(0 3px 4px rgba(6, 21, 44, .12));
+  transition: transform .3s cubic-bezier(.2, .8, .2, 1);
+}
+.mega-menu a:hover .mega-ico { transform: translateY(-2px) scale(1.12) rotate(-4deg); }
+.mega-menu .mega-name, .mega-menu .mega-desc { grid-column: 2; }
+@media (prefers-reduced-motion: reduce) { .mega-menu .mega-ico { transition: none; } .mega-menu a:hover .mega-ico { transform: none; } }
 .mega-menu a:hover .mega-name { color: var(--copper); }
 .mega-menu .mega-name {
   display: block; font-weight: 600; color: var(--navy);
