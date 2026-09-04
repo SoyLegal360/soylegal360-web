@@ -677,7 +677,7 @@ h3 { font-size: 22px; }
 .section-calculator {
   padding-top: 64px;
   padding-bottom: 72px;
-  background: #fff;
+  background: rgba(255, 255, 255, .6);
 }
 .section-calculator .sl360-risk {
   max-width: 1060px;
