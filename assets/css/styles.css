@@ -21,7 +21,9 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0;
   color: var(--ink);
-  background: var(--paper);
+  /* Fondo de marca: papel de despacho (veta navy + hilo dorado), muy suave.
+     En escritorio va fijo y a cubrir; en móvil, en mosaico vertical a 100% de ancho. */
+  background: var(--paper) url(/assets/img/fondos/papel-despacho-m.webp) center top / 100% auto repeat-y;
   font-family: Georgia, "Times New Roman", serif;
   line-height: 1.55;
 }
@@ -364,7 +366,7 @@ h3 { font-size: 22px; }
 .section { padding: 76px max(22px, calc((100vw - 1180px) / 2)); }
 .section[id], .published-embed-section[id] { scroll-margin-top: 104px; }
 .published-embed-section { display: block; }
-.section-soft { background: var(--soft); }
+.section-soft { background: rgba(245, 247, 251, .72); }
 .section-head { max-width: 840px; margin-bottom: 34px; }
 .section-head p { color: var(--muted); font-size: 18px; }
 .source-note {
@@ -675,7 +677,7 @@ h3 { font-size: 22px; }
 .section-calculator {
   padding-top: 64px;
   padding-bottom: 72px;
-  background: #fff;
+  background: rgba(255, 255, 255, .6);
 }
 .section-calculator .sl360-risk {
   max-width: 1060px;
@@ -883,6 +885,9 @@ h3 { font-size: 22px; }
 @media (max-width: 600px) {
   .wa-float { width: 52px; height: 52px; right: 14px; bottom: 14px; }
   .wa-float svg { width: 30px; height: 30px; }
+}
+@media (min-width: 900px) {
+  body { background: var(--paper) url(/assets/img/fondos/papel-despacho.webp) center top / cover fixed; }
 }
 @media (prefers-reduced-motion: reduce) { .wa-float { transition: none; } }
 
