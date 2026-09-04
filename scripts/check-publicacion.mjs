@@ -4,6 +4,9 @@
 //
 //  1. Cache-busting: el mismo asset con dos `?v=` distintos. Paso el 22-ago con
 //     styles.css (28 paginas en v=42 y el blog en v=40) y con site.js.
+//  3. Megamenu coherente: el menu de Servicios se duplica a mano en 30 paginas y
+//     el componente Astro; divergio en silencio (404, Formacion, SiteHeader).
+//     Fuente de verdad: index.html. Arreglo: node scripts/sync-header.mjs
 //  2. Frescura del sitemap: `lastmod` que ya no coincide con la fecha real de
 //     git. Paso durante dos meses, con 24 URLs congeladas en 2026-06-12.
 //
@@ -77,6 +80,13 @@ if (!shallow && existsSync(join(root, 'sitemap.xml'))) {
       `Sitemap desfasado en ${desfasadas.length} URL(s). Ejecuta: npm run sitemap\n     ${desfasadas.slice(0, 5).join('\n     ')}${desfasadas.length > 5 ? `\n     …y ${desfasadas.length - 5} mas` : ''}`,
     );
   }
+}
+
+// --- 3. Megamenu coherente con index.html
+try {
+  execFileSync('node', ['scripts/sync-header.mjs', '--check'], { cwd: root, stdio: 'pipe' });
+} catch (e) {
+  problemas.push(`Megamenu de Servicios distinto en alguna pagina. Ejecuta: node scripts/sync-header.mjs\n     ${String(e.stderr || '').trim().split('\n').slice(1).join('\n     ')}`);
 }
 
 if (problemas.length) {
