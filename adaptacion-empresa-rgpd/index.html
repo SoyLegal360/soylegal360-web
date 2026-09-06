@@ -468,7 +468,7 @@
     gap:22px;
     max-width:1040px;
     margin:0 auto;
-    align-items:start;
+    align-items:stretch;
   }
 
   .sl-tiers .card{
@@ -483,12 +483,15 @@
     animation:trin .6s ease both;
   }
   @keyframes trin{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+  /* La recomendada mantiene una escala de reposo: su keyframe termina en scale(1.03)
+     para que no se pierda al acabar la entrada (animation-fill-mode:both). */
+  @keyframes trinFeat{from{opacity:0;transform:translateY(20px) scale(1.03)}to{opacity:1;transform:scale(1.03)}}
   .sl-tiers .card:nth-child(1){animation-delay:.05s}
   .sl-tiers .card:nth-child(2){animation-delay:.14s}
   .sl-tiers .card:nth-child(3){animation-delay:.23s}
   .sl-tiers .card:hover{transform:translateY(-6px);box-shadow:0 24px 52px -20px rgba(6,20,46,.28);border-color:rgba(201,169,110,.45)}
-  .sl-tiers .card.featured{border-color:var(--gold);box-shadow:0 18px 50px -18px rgba(201,169,110,.45)}
-  .sl-tiers .card.featured:hover{box-shadow:0 28px 60px -18px rgba(201,169,110,.6)}
+  .sl-tiers .card.featured{border-color:var(--gold);box-shadow:0 22px 56px -18px rgba(201,169,110,.5);z-index:2;animation-name:trinFeat}
+  .sl-tiers .card.featured:hover{transform:scale(1.03) translateY(-6px);box-shadow:0 30px 64px -18px rgba(201,169,110,.62)}
 
   /* ---- cabecera visual ---- */
   .sl-tiers .card-top{
@@ -596,6 +599,9 @@
   @media(max-width:900px){
     .sl-tiers .grid{grid-template-columns:1fr 1fr}
     .sl-tiers .card:last-child{grid-column:1/-1;max-width:480px;margin:0 auto;width:100%}
+    /* Apiladas, la recomendada no se escala (quedaría más ancha que el resto). */
+    .sl-tiers .card.featured{animation-name:trin;transform:none}
+    .sl-tiers .card.featured:hover{transform:translateY(-6px)}
   }
   @media(max-width:600px){
     .sl-tiers .grid{grid-template-columns:1fr}
@@ -605,6 +611,11 @@
   }
   @media(prefers-reduced-motion:reduce){
     .sl-tiers .card{animation:none;transition:none}
+    /* Sin animación, la escala de reposo de la recomendada se fija a mano. */
+    .sl-tiers .card.featured{transform:scale(1.03)}
+  }
+  @media(prefers-reduced-motion:reduce) and (max-width:900px){
+    .sl-tiers .card.featured{transform:none}
   }
 </style>
 
@@ -621,8 +632,9 @@
     <div class="card">
       <div class="card-top">
         <span class="ghost-n">1</span>
-        <span class="tier-badge">Nivel 1</span>
+        <span class="tier-badge">Nivel 1 · Autónomo</span>
         <div class="tier-name">Adaptación RGPD <em>Autónomos</em></div>
+        <div class="tier-sub">Sin empleados</div>
         <div class="price-big">
           <span class="price-desde">Desde</span>
           <span class="price-num">490</span>
