@@ -2021,3 +2021,9 @@ html.sl-js .sl-reveal.is-in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   .faq summary, .faq-list summary, .faq summary::after, .faq-list summary::after { transition: none; }
 }
+
+/* Encabezados de seccion centrados (solo cabecera; listas y parrafos siguen legibles). */
+.content-card > h2, .content-card > h2 + p { text-align: center; }
+.content-card > h2 { margin-left: auto; margin-right: auto; }
+.sl-app-eyebrow, .sl-app-h2, .sl-app-sub { text-align: center; }
+.sl-app-h2, .sl-app-sub { margin-left: auto; margin-right: auto; }
