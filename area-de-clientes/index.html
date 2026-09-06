@@ -130,7 +130,7 @@
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png?v=3">
   <!-- Consentimiento de cookies propio (sl360-cookies.js) + GA4 + Vercel Analytics. La analitica solo se carga si el usuario acepta la categoria de estadistica (Consent Mode v2, modo basico). Al editar el JS, subir el ?v= (cache immutable de /assets). -->
   <script defer src="/assets/js/sl360-cookies.js?v=6"></script>
-  <link rel="stylesheet" href="/assets/css/styles.css?v=64">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=74">
   <style>
     /* ══════════ Área de clientes: presentación tipo producto (aire, tipografía grande, medios protagonistas) ══════════ */
     .sl-area { --navy:#06142e; --navy-2:#0b1f3d; --gold:#c9a96e; --gold-soft:#e2c684; --ink:#16213d; --muted:#4c596f; --line:rgba(23,54,97,.14); font-family:Georgia,"Times New Roman",serif; color:var(--ink); }
@@ -192,7 +192,7 @@
     .sl-chips:hover .sl-chips__track{animation-play-state:paused}
     .sl-chips__set{display:flex;gap:14px}
     @keyframes sl-chips-desfile{to{transform:translateX(calc(-50% - 7px))}}
-    .sl-chip{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:11px;padding:9px 20px 9px 11px;border:1px solid rgba(255,255,255,.16);border-radius:999px;background:rgba(255,255,255,.06);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);white-space:nowrap;will-change:transform;transform:translate(var(--dx,0px),var(--dy,0px)) rotate(var(--ra,0deg)) scale(var(--sx,1),var(--sy,1)) rotate(var(--rb,0deg));transition:border-color .25s ease,background .25s ease}
+    .sl-chip{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:11px;padding:9px 20px 9px 11px;border:1px solid rgba(255,255,255,.16);border-radius:6px;background:rgba(255,255,255,.06);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);white-space:nowrap;will-change:transform;transform:translate(var(--dx,0px),var(--dy,0px)) rotate(var(--ra,0deg)) scale(var(--sx,1),var(--sy,1)) rotate(var(--rb,0deg));transition:border-color .25s ease,background .25s ease}
     .sl-chip::before{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(120px circle at var(--gx,50%) var(--gy,50%),rgba(226,200,139,.22),transparent 65%);opacity:var(--gl,0);transition:opacity .2s ease;pointer-events:none}
     .sl-chip:hover{border-color:rgba(226,200,139,.55);background:rgba(255,255,255,.09)}
     .sl-chip .ic{display:grid;place-items:center;width:34px;height:34px;flex:0 0 auto;border-radius:50%;background:rgba(201,169,110,.14);border:1px solid rgba(226,200,139,.4)}
