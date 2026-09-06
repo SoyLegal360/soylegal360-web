@@ -33,7 +33,11 @@
     "web-7-dias": { opt: "Web Legal en 7 días", msg: "Me gustaría una propuesta de Web Legal en 7 días." },
     "consultoria-datos": { opt: "Consultoría Protección de Datos", msg: "Me gustaría una consultoría de protección de datos para mi caso." },
     "consultoria-legal": { opt: "Consultoría Legal", msg: "Me gustaría una consultoría legal para mi caso." },
-    "revision-contratos": { opt: "Revisión de contratos", msg: "Me gustaría una revisión de contratos." }
+    "revision-contratos": { opt: "Revisión de contratos", msg: "Me gustaría una revisión de contratos." },
+    "eipd": { opt: "Evaluación de Impacto (EIPD)", msg: "Me gustaría una Evaluación de Impacto (EIPD) para un tratamiento de mi empresa." },
+    "formacion": { opt: "Formación en Protección de Datos e IA", msg: "Me gustaría formación en protección de datos e IA para mi equipo." },
+    "saas": { opt: "Legal para SaaS y apps", msg: "Me gustaría una revisión legal de mi SaaS o app (contratos, privacidad y roles)." },
+    "marcas": { opt: "Marcas y nombres comerciales", msg: "Me gustaría registrar o proteger mi marca." }
   };
 
   function optionExists(select, value) {
