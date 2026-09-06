@@ -887,7 +887,7 @@ h3 { font-size: 22px; }
   .wa-float svg { width: 30px; height: 30px; }
 }
 @media (min-width: 900px) {
-  body { background: var(--paper) url(/assets/img/fondos/papel-despacho.webp) center top / cover fixed; }
+  body { background: var(--paper) url(/assets/img/fondos/papel-despacho.webp) center top / 100% auto repeat-y; }
 }
 @media (prefers-reduced-motion: reduce) { .wa-float { transition: none; } }
 
