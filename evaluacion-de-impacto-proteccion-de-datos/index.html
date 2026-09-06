@@ -98,7 +98,7 @@
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png?v=3">
   <!-- Consentimiento de cookies propio (sl360-cookies.js) + GA4 + Vercel Analytics. La analitica solo se carga si el usuario acepta la categoria de estadistica (Consent Mode v2, modo basico). Al editar el JS, subir el ?v= (cache immutable de /assets). -->
   <script defer src="/assets/js/sl360-cookies.js?v=6"></script>
-  <link rel="stylesheet" href="/assets/css/styles.css?v=44">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=104">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -357,9 +357,9 @@
         position: relative;
         isolation: isolate;
         display: grid;
-        min-height: 690px;
+        min-height: auto;
         align-items: center;
-        padding: 86px 22px 92px;
+        padding: 34px 22px 48px;
         color: #fff;
         background-color: var(--navy);
         background-image: linear-gradient(90deg, rgba(6, 20, 46, .98), rgba(6, 20, 46, .72), rgba(6, 20, 46, .92)), linear-gradient(180deg, rgba(6, 20, 46, .08), rgba(6, 20, 46, .86)), url("/assets/img/hero-despacho-torre.webp");
@@ -401,7 +401,7 @@
         gap: 10px;
         min-height: 38px;
         border: 1px solid rgba(255, 255, 255, .22);
-        border-radius: 999px;
+        border-radius: 6px;
         padding: 10px 14px;
         color: #f0f4fb;
         background: rgba(255, 255, 255, .08);
@@ -421,9 +421,9 @@
 
     .sl-audit-hero h1 {
         max-width: 790px;
-        margin: 20px 0 0;
+        margin: 10px 0 0;
         color: #fff;
-        font-size: clamp(43px, 6.4vw, 78px);
+        font-size: clamp(30px, 3.2vw, 42px);
         line-height: 1.02;
         letter-spacing: 0;
         text-wrap: balance;
@@ -435,9 +435,9 @@
 
     .sl-audit-lead {
         max-width: 700px;
-        margin-top: 23px;
+        margin-top: 12px;
         color: #e2ebf7;
-        font-size: clamp(18px, 2vw, 24px);
+        font-size: clamp(16px, 1.4vw, 18px);
         text-wrap: pretty;
     }
 
@@ -445,14 +445,14 @@
         display: flex;
         flex-wrap: wrap;
         gap: 12px;
-        margin-top:31px
+        margin-top:18px
     }
 
     .sl-audit-facts {
         display: flex;
         flex-wrap: wrap;
         gap: 9px;
-        margin-top:27px
+        margin-top:16px
     }
 
     .sl-audit-facts span {
@@ -1253,7 +1253,7 @@
                     <p class="sl-audit-kicker">Evaluación de impacto · Art. 35 RGPD</p>
                     <h1>Evaluación de Impacto (EIPD): mide el riesgo <span>antes de poner en marcha</span> el tratamiento.</h1>
                     <p class="sl-audit-lead">Cuando un tratamiento puede entrañar alto riesgo para los derechos de las personas, el RGPD obliga a evaluarlo <strong>antes</strong> de empezar. Analizamos si te aplica, la documentamos con el contenido que exige la ley y, si hace falta, preparamos la consulta previa a la AEPD.</p>
-                    <p class="sl-audit-stat" style="margin:14px 0 18px;padding:14px 18px;background:rgba(201,169,110,.14);border-left:3px solid var(--gold,#c9a96e);border-radius:0 6px 6px 0;font:14px/1.55 Arial,Helvetica,sans-serif;color:#dbe4f2;">Tratar datos sin haber hecho la evaluación de impacto cuando es exigible es <strong style="color:#fff;">infracción grave</strong> con letra propia en la ley española (<a href="https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673" target="_blank" rel="noopener" style="color:var(--gold,#c9a96e);">art. 73.t) LOPDGDD</a>), en el tramo de hasta <strong style="color:#fff;">10 millones € o el 2 %</strong> del volumen de negocio anual global (<a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX%3A02016R0679-20160504" target="_blank" rel="noopener" style="color:var(--gold,#c9a96e);">art. 83.4 RGPD</a>).</p>
+                    <p class="sl-audit-stat" style="margin:10px 0 12px;padding:11px 15px;background:rgba(201,169,110,.14);border-left:3px solid var(--gold,#c9a96e);border-radius:0 6px 6px 0;font:14px/1.55 Arial,Helvetica,sans-serif;color:#dbe4f2;">Tratar datos sin haber hecho la evaluación de impacto cuando es exigible es <strong style="color:#fff;">infracción grave</strong> con letra propia en la ley española (<a href="https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673" target="_blank" rel="noopener" style="color:var(--gold,#c9a96e);">art. 73.t) LOPDGDD</a>), en el tramo de hasta <strong style="color:#fff;">10 millones € o el 2 %</strong> del volumen de negocio anual global (<a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX%3A02016R0679-20160504" target="_blank" rel="noopener" style="color:var(--gold,#c9a96e);">art. 83.4 RGPD</a>).</p>
                     <div class="sl-audit-actions">
                         <a class="sl-audit-btn sl-audit-btn--gold" href="/contacto/" rel="noopener">Consultar si me aplica</a>
                         <a class="sl-audit-btn sl-audit-btn--ghost" href="#cuando">Ver cuándo es obligatoria</a>

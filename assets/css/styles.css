@@ -21,6 +21,8 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0;
   color: var(--ink);
+  /* Fondo de marca: papel de despacho (veta navy + hilo dorado), muy suave.
+     En escritorio va fijo y a cubrir; en móvil, en mosaico vertical a 100% de ancho. */
   background: var(--paper);
   font-family: Georgia, "Times New Roman", serif;
   line-height: 1.55;
@@ -1818,15 +1820,25 @@ html.sl-js .sl-reveal.is-in { opacity: 1; transform: none; }
 /* ── Hero de servicio (sistema E1: foto de marca tratada + ilustración en cristal) ──
    Reutilizable en cualquier página: la foto se pasa por --hero-photo en el <section>
    y el motivo va como <svg class="svc-hero__svg"> dentro de .svc-hero__glass. */
-.svc-hero{position:relative;isolation:isolate;min-height:600px;overflow:hidden;display:flex;align-items:center;color:#f8f4ea;background:#06152c}
+.svc-hero{position:relative;isolation:isolate;min-height:clamp(420px,60vh,540px);overflow:hidden;display:flex;align-items:center;color:#f8f4ea;background:#06152c}
 .svc-hero__photo,.svc-hero__tint,.svc-hero__aura{position:absolute;inset:0;pointer-events:none}
 .svc-hero__nodes{position:absolute;inset:0;z-index:-1;pointer-events:none}
 .svc-hero__photo{z-index:-4;background-image:var(--hero-photo);background-position:center;background-size:cover;filter:grayscale(1) contrast(1.05) brightness(.62);transform:scale(1.025)}
 .svc-hero__tint{z-index:-3;background:linear-gradient(90deg,rgba(6,21,44,.995) 0%,rgba(6,21,44,.98) 42%,rgba(6,21,44,.6) 70%,rgba(6,21,44,.36) 100%),linear-gradient(180deg,rgba(13,36,71,.4),rgba(6,21,44,.72));mix-blend-mode:multiply}
 .svc-hero__aura{z-index:-2;inset:-25%;background:radial-gradient(circle at 77% 36%,rgba(226,198,132,.27),transparent 17%),radial-gradient(ellipse at 63% 11%,rgba(201,169,110,.16),transparent 35%),radial-gradient(ellipse at 92% 84%,rgba(194,123,50,.11),transparent 31%);filter:blur(18px);animation:svc-hero-drift 10s ease-in-out infinite alternate}
-.svc-hero__shell{width:min(1180px,100%);min-height:600px;margin-inline:auto;padding:72px 28px;box-sizing:border-box;display:grid;grid-template-columns:minmax(0,1.03fr) minmax(390px,.97fr);align-items:center;gap:clamp(42px,7vw,92px)}
+.svc-hero__shell{width:min(1180px,100%);min-height:auto;margin-inline:auto;padding:30px 28px;box-sizing:border-box;display:grid;grid-template-columns:minmax(0,1.03fr) minmax(390px,.97fr);align-items:center;gap:clamp(42px,7vw,92px)}
 .svc-hero__copy{position:relative;z-index:2;max-width:650px}
-.svc-hero__kicker{width:fit-content;margin:0 0 24px;padding:10px 15px;border:1px solid rgba(226,198,132,.42);border-radius:999px;color:#ead49e;background:rgba(6,21,44,.43);box-shadow:inset 0 1px 0 rgba(255,255,255,.08);font:700 13px/1.2 Arial,Helvetica,sans-serif;letter-spacing:.11em;text-transform:uppercase;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+/* Hero de servicio unificado: imagen a fondo completo y TODO el texto centrado.
+   Se retira la tarjeta/ilustracion lateral (glass) en todas las paginas svc-hero. */
+.svc-hero__shell{grid-template-columns:1fr;justify-items:center}
+.svc-hero__copy{max-width:860px;margin-inline:auto;text-align:center}
+.svc-hero__title{max-width:none}
+.svc-hero__lead{margin-inline:auto}
+.svc-hero__actions{justify-content:center}
+.svc-hero .svc-hero__glass{display:none!important}
+.svc-hero__copy .page-hero-stat,.svc-hero__copy .svc-hero__stat{margin-inline:auto;text-align:left}
+.svc-hero .sl-quick-analyze{margin-inline:auto}
+.svc-hero__kicker{width:fit-content;margin:0 auto 24px;padding:10px 15px;border:1px solid rgba(226,198,132,.42);border-radius:6px;color:#ead49e;background:rgba(6,21,44,.43);box-shadow:inset 0 1px 0 rgba(255,255,255,.08);font:700 13px/1.2 Arial,Helvetica,sans-serif;letter-spacing:.11em;text-transform:uppercase;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 .svc-hero__title{max-width:680px;margin:0;font:500 clamp(50px,6vw,84px)/.98 Georgia,"Times New Roman",serif;letter-spacing:-.045em;text-wrap:balance;text-shadow:0 8px 28px rgba(0,0,0,.35)}
 .svc-hero__title::after{content:"";display:block;width:108px;height:3px;margin-top:25px;border-radius:99px;background:linear-gradient(90deg,#e2c684,#c27b32);box-shadow:0 0 24px rgba(226,198,132,.38)}
 .svc-hero__lead{max-width:645px;margin:25px 0 0;color:rgba(248,244,234,.84);font:400 clamp(17px,1.7vw,20px)/1.65 Arial,Helvetica,sans-serif}
@@ -2009,3 +2021,9 @@ html.sl-js .sl-reveal.is-in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   .faq summary, .faq-list summary, .faq summary::after, .faq-list summary::after { transition: none; }
 }
+
+/* Encabezados de seccion centrados (solo cabecera; listas y parrafos siguen legibles). */
+.content-card > h2, .content-card > h2 + p { text-align: center; }
+.content-card > h2 { margin-left: auto; margin-right: auto; }
+.sl-app-eyebrow, .sl-app-h2, .sl-app-sub { text-align: center; }
+.sl-app-h2, .sl-app-sub { margin-left: auto; margin-right: auto; }

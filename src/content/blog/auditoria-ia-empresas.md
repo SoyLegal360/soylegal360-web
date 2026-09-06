@@ -1,6 +1,6 @@
 ---
 titulo: "Auditoría de IA para empresas: qué es, a quién obliga y qué revisa"
-meta: "Qué es una auditoría de IA, a qué empresas obliga el Reglamento de IA (AI Act), qué revisa y qué sanciones evita. Guía práctica de SoyLegal360 para España."
+meta: "Qué es una auditoría de IA, a qué empresas obliga el Reglamento de IA (AI Act), qué revisa y qué obligaciones te aplican ya. Guía práctica de SoyLegal360 para España."
 slug: auditoria-ia-empresas
 fecha: 2026-06-30
 imagen: /assets/img/blog/auditoria-ia-empresas.webp
@@ -78,7 +78,7 @@ Una auditoría de IA bien hecha cubre, como mínimo:
 
 El Reglamento de IA no se aplica de golpe, sino de forma escalonada en el tiempo: algunas obligaciones ya son exigibles y otras entran más adelante. Esto importa para la auditoría, porque permite priorizar lo que ya obliga frente a lo que conviene preparar.
 
-Una obligación que ya es exigible y que muchas empresas pasan por alto: desde febrero de 2025, el Reglamento exige un deber de alfabetización en materia de IA, es decir, formación básica del personal que la utiliza, con independencia del nivel de riesgo del sistema (artículo 4).
+Una obligación que ya es exigible y que muchas empresas pasan por alto: desde febrero de 2025, el Reglamento obliga a adoptar medidas para promover la alfabetización en IA del personal que la utiliza, proporcionadas al puesto y al uso, con independencia del nivel de riesgo del sistema (artículo 4). Es una obligación de medios, sin horas ni certificado, y no tiene multa propia.
 
 En España, la supervisión de la inteligencia artificial recae en la AESIA (Agencia Española de Supervisión de la Inteligencia Artificial), mientras que la AEPD mantiene su competencia sobre la protección de datos personales. Cuando una IA trata datos personales, ambos planos conviven.
 

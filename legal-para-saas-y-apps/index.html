@@ -91,7 +91,7 @@
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png?v=3">
   <!-- Consentimiento de cookies propio (sl360-cookies.js) + GA4 + Vercel Analytics. La analitica solo se carga si el usuario acepta la categoria de estadistica (Consent Mode v2, modo basico). Al editar el JS, subir el ?v= (cache immutable de /assets). -->
   <script defer src="/assets/js/sl360-cookies.js?v=6"></script>
-  <link rel="stylesheet" href="/assets/css/styles.css?v=44">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=104">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -224,7 +224,7 @@ button { font: inherit; }
 .sl-ss-hero::after { position: absolute; left: 0; right: 0; bottom: 0; height: 7px; content: ""; background: linear-gradient(90deg, transparent, var(--gold), var(--gold-soft), var(--gold), transparent); }
 .sl-ss-hero__grid { display: grid; grid-template-columns: minmax(0, 1.04fr) minmax(340px, .72fr); gap: 42px; align-items: center; }
 .sl-ss-kicker, .sl-ss-eyebrow { margin: 0 0 16px; color: var(--gold); font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
-.sl-ss-kicker { display: inline-flex; align-items: center; gap: 10px; padding: 10px 14px; border: 1px solid rgba(255, 255, 255, .22); border-radius: 999px; background: rgba(255, 255, 255, .08); color: rgba(255, 255, 255, .9); backdrop-filter: blur(12px); }
+.sl-ss-kicker { display: inline-flex; align-items: center; gap: 10px; padding: 10px 14px; border: 1px solid rgba(255, 255, 255, .22); border-radius: 6px; background: rgba(255, 255, 255, .08); color: rgba(255, 255, 255, .9); backdrop-filter: blur(12px); }
 .sl-ss-kicker::before { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 5px rgba(201, 169, 110, .18); content: ""; }
 h1, h2, h3 { margin: 0; line-height: 1.08; letter-spacing: 0; }
 h1 { max-width: 820px; font-size: clamp(42px, 5.8vw, 64px); text-wrap: balance; }
@@ -289,7 +289,7 @@ p { margin: 0; }
 .sl-ss-role { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; padding: 14px 16px; border: 1px solid rgba(255, 255, 255, .16); border-radius: 8px; background: rgba(255, 255, 255, .06); font-family: Arial, Helvetica, sans-serif; }
 .sl-ss-role strong { display: block; color: #fff; font-size: 14px; }
 .sl-ss-role span { display: block; margin-top: 3px; color: rgba(255, 255, 255, .66); font-size: 12px; line-height: 1.4; }
-.sl-ss-role-pill { min-width: 108px; padding: 8px 11px; border-radius: 999px; text-align: center; font: 700 11px/1.2 Arial, Helvetica, sans-serif; letter-spacing: .05em; text-transform: uppercase; }
+.sl-ss-role-pill { min-width: 108px; padding: 8px 11px; border-radius: 6px; text-align: center; font: 700 11px/1.2 Arial, Helvetica, sans-serif; letter-spacing: .05em; text-transform: uppercase; }
 .sl-ss-role .sl-ss-role-pill--resp, .sl-ss-role-pill--resp { background: #fbf2df; color: #7b5a1e; }
 .sl-ss-role .sl-ss-role-pill--enc, .sl-ss-role-pill--enc { background: #e8f2ed; color: #1f5b43; }
 .sl-ss-role .sl-ss-role-pill--corr, .sl-ss-role-pill--corr { background: #fbecd7; color: #6f470d; }
@@ -310,7 +310,7 @@ p { margin: 0; }
 .sl-ss-matrix__row:last-child { border-bottom: 0; }
 .sl-ss-matrix strong { color: var(--ink); font-size: 14px; }
 .sl-ss-matrix span { display: block; margin-top: 4px; color: var(--muted); font-size: 13px; }
-.sl-ss-pill { min-width: 92px; padding: 7px 10px; border-radius: 999px; text-align: center; font: 700 11px/1 Arial, Helvetica, sans-serif; letter-spacing: .06em; text-transform: uppercase; }
+.sl-ss-pill { min-width: 92px; padding: 7px 10px; border-radius: 6px; text-align: center; font: 700 11px/1 Arial, Helvetica, sans-serif; letter-spacing: .06em; text-transform: uppercase; }
 .sl-ss-pill--green { background: #e8f2ed; color: var(--green); }
 .sl-ss-pill--gold { background: #fbf2df; color: #7b5a1e; }
 .sl-ss-pill--amber { background: #fbecd7; color: var(--amber); }
@@ -349,7 +349,7 @@ p { margin: 0; }
           <div class="sl-ss-hero__grid">
             <div>
               <div class="sl-ss-kicker">SaaS · Apps · Plataformas digitales</div>
-              <h1>La arquitectura legal de tu SaaS, resuelta antes de lanzar</h1>
+              <h1>La arquitectura legal de tu SaaS, resuelta <span style="color:#e2c684">antes de lanzar</span></h1>
               <p class="sl-ss-lead">Contratos con tus clientes, términos y condiciones, privacidad, consentimientos y proveedores tecnológicos. Todo parte de una pregunta que casi nadie se hace a tiempo: ¿quién es responsable de cada dato que trata tu plataforma? Lo resolvemos antes de lanzar o con el producto ya en marcha.</p>
               <div class="sl-ss-actions">
                 <a class="sl-ss-btn sl-ss-btn--primary" href="/contacto/" rel="noopener">Solicitar revisión legal</a>
