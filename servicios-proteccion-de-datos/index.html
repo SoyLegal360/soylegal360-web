@@ -858,6 +858,16 @@
       repeating-linear-gradient(90deg,rgba(255,255,255,.055) 0 1px,transparent 1px 72px);
     text-decoration:none;
   }
+  /* Icono 3D de marca arriba a la derecha, titulo a lo ancho abajo. La cabecera
+     crece si el titulo es largo (min-height, no height fija): nunca recorta. */
+  .sl-services .service-card .visual--ico{display:flex;flex-direction:column;justify-content:flex-end;height:auto;min-height:180px;overflow:visible;padding:16px}
+  .sl-services .service-card .visual--ico::before,.sl-services .service-card .visual--ico::after{display:none}
+  .sl-services .service-card .visual--ico .visual-ico{position:absolute;top:14px;right:14px;width:88px;height:88px;filter:drop-shadow(0 8px 12px rgba(6,21,44,.14));transform-origin:50% 65%;transition:transform .34s cubic-bezier(.2,.8,.2,1),filter .34s ease;will-change:transform}
+  .sl-services .service-card:hover .visual--ico .visual-ico{transform:translateY(-5px) scale(1.08) rotate(-4deg);filter:drop-shadow(0 16px 20px rgba(6,21,44,.2))}
+  .sl-services .service-card .visual--ico .visual-kicker{align-self:flex-start}
+  .sl-services .service-card .visual--ico .visual-title{max-width:none;margin-top:8px}
+  @media (prefers-reduced-motion:reduce){.sl-services .service-card .visual--ico .visual-ico{transition:none}.sl-services .service-card:hover .visual--ico .visual-ico{transform:none}}
+  @media (max-width:520px){.sl-services .service-card .visual--ico{min-height:150px}.sl-services .service-card .visual--ico .visual-ico{width:72px;height:72px;top:12px;right:12px}}
   .sl-services .visual::before{
     position:absolute;
     top:15px;
@@ -2516,12 +2526,3 @@
 </style>
 </body>
 </html>
-      /* Visual de card: objeto de cristal sobre luz (sistema de iconos de marca) */
-      .sl-services .service-card .visual--ico{padding-right:140px}
-      .sl-services .service-card .visual--ico::before,.sl-services .service-card .visual--ico::after{display:none}
-      .sl-services .service-card .visual--ico .visual-ico{position:absolute;top:18px;right:16px;width:112px;height:112px;filter:drop-shadow(0 8px 12px rgba(6,21,44,.14));transform-origin:50% 65%;transition:transform .34s cubic-bezier(.2,.8,.2,1),filter .34s ease;will-change:transform}
-      .sl-services .service-card:hover .visual--ico .visual-ico{transform:translateY(-5px) scale(1.08) rotate(-4deg);filter:drop-shadow(0 16px 20px rgba(6,21,44,.2))}
-      .sl-services .service-card .visual--ico .visual-title{max-width:none}
-      @media (prefers-reduced-motion:reduce){.sl-services .service-card .visual--ico .visual-ico{transition:none}.sl-services .service-card:hover .visual--ico .visual-ico{transform:none}}
-      @media (max-width:520px){.sl-services .service-card .visual--ico{height:150px;padding-right:112px}.sl-services .service-card .visual--ico .visual-ico{width:92px;height:92px;top:18px}}
-
