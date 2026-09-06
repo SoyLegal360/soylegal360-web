@@ -16,6 +16,43 @@
     if (match) select.value = match;
   }
 
+  // Prefijar el servicio y un mensaje de arranque cuando se llega desde el CTA
+  // de una página de servicio (?servicio=…). El desplegable queda pre-seleccionado
+  // y el mensaje trae una frase editable. Los checkboxes de consentimiento y
+  // marketing NUNCA se premarcan: un consentimiento pre-marcado sería nulo (RGPD).
+  var SERVICIOS = {
+    "auditoria-web-gratuita": { opt: "Auditoría web gratuita", msg: "Me gustaría solicitar la auditoría web gratuita." },
+    "auditoria-rgpd": { opt: "Auditoría RGPD", msg: "Me gustaría pedir una propuesta de Auditoría RGPD para mi negocio." },
+    "auditoria-ia": { opt: "Auditoría IA", msg: "Me gustaría pedir una propuesta de Auditoría IA (AI Act) para mi empresa." },
+    "adaptacion-web": { opt: "Adaptación Web RGPD", msg: "Me gustaría una propuesta para poner mi web en regla (Adaptación Web RGPD)." },
+    "adaptacion-empresa": { opt: "Adaptación Empresa RGPD", msg: "Me gustaría una propuesta de Adaptación Empresa RGPD." },
+    "adaptacion-ia": { opt: "Adaptación IA", msg: "Me gustaría una propuesta de Adaptación IA (AI Act) para mi empresa." },
+    "proteccion-continua": { opt: "Protección Legal Continua", msg: "Me gustaría información sobre Protección Legal Continua." },
+    "dpd": { opt: "Delegado de Protección de Datos", msg: "Me gustaría una propuesta de Delegado de Protección de Datos externalizado." },
+    "responsable-ia": { opt: "Responsable de IA", msg: "Me gustaría una propuesta de Responsable de IA externalizado." },
+    "web-7-dias": { opt: "Web Legal en 7 días", msg: "Me gustaría una propuesta de Web Legal en 7 días." },
+    "consultoria-datos": { opt: "Consultoría Protección de Datos", msg: "Me gustaría una consultoría de protección de datos para mi caso." },
+    "consultoria-legal": { opt: "Consultoría Legal", msg: "Me gustaría una consultoría legal para mi caso." },
+    "revision-contratos": { opt: "Revisión de contratos", msg: "Me gustaría una revisión de contratos." }
+  };
+
+  function optionExists(select, value) {
+    return Array.prototype.some.call(select.options, function (o) {
+      return o.value === value;
+    });
+  }
+
+  function prefillServicio(form) {
+    var select = form.querySelector('select[name="servicio"]');
+    if (!select) return;
+    var slug = new URLSearchParams(window.location.search).get("servicio") || "";
+    var data = SERVICIOS[slug];
+    if (!data) return;
+    if (optionExists(select, data.opt)) select.value = data.opt;
+    var msg = form.querySelector('textarea[name="message"]');
+    if (msg && !msg.value) msg.value = data.msg;
+  }
+
   function setStatus(form, kind, text) {
     var el = form.querySelector(".sl-form__status");
     if (!el) return;
@@ -25,6 +62,7 @@
 
   function handle(form) {
     prefillCaso(form);
+    prefillServicio(form);
     form.addEventListener("submit", function (ev) {
       ev.preventDefault();
       var btn = form.querySelector('button[type="submit"]');
