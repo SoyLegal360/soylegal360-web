@@ -1831,6 +1831,14 @@ html.sl-js .sl-reveal.is-in { opacity: 1; transform: none; }
 .svc-hero__aura{z-index:-2;inset:-25%;background:radial-gradient(circle at 77% 36%,rgba(226,198,132,.27),transparent 17%),radial-gradient(ellipse at 63% 11%,rgba(201,169,110,.16),transparent 35%),radial-gradient(ellipse at 92% 84%,rgba(194,123,50,.11),transparent 31%);filter:blur(18px);animation:svc-hero-drift 10s ease-in-out infinite alternate}
 .svc-hero__shell{width:min(1180px,100%);min-height:600px;margin-inline:auto;padding:72px 28px;box-sizing:border-box;display:grid;grid-template-columns:minmax(0,1.03fr) minmax(390px,.97fr);align-items:center;gap:clamp(42px,7vw,92px)}
 .svc-hero__copy{position:relative;z-index:2;max-width:650px}
+/* Hero de servicio: en las paginas donde el visual era una ilustracion SVG plana,
+   se retira la tarjeta y el texto se centra sobre la foto de fondo. Los heros con
+   foto/objeto real (sin svg) no llevan .svc-hero__svg y no cambian. */
+.svc-hero__shell:has(.svc-hero__svg){grid-template-columns:1fr;justify-items:center}
+.svc-hero__shell:has(.svc-hero__svg) .svc-hero__copy{max-width:820px;margin-inline:auto;text-align:center}
+.svc-hero__shell:has(.svc-hero__svg) .svc-hero__title{max-width:none}
+.svc-hero__shell:has(.svc-hero__svg) .svc-hero__actions{justify-content:center}
+.svc-hero__shell:has(.svc-hero__svg) .svc-hero__glass{display:none}
 .svc-hero__kicker{width:fit-content;margin:0 0 24px;padding:10px 15px;border:1px solid rgba(226,198,132,.42);border-radius:999px;color:#ead49e;background:rgba(6,21,44,.43);box-shadow:inset 0 1px 0 rgba(255,255,255,.08);font:700 13px/1.2 Arial,Helvetica,sans-serif;letter-spacing:.11em;text-transform:uppercase;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 .svc-hero__title{max-width:680px;margin:0;font:500 clamp(50px,6vw,84px)/.98 Georgia,"Times New Roman",serif;letter-spacing:-.045em;text-wrap:balance;text-shadow:0 8px 28px rgba(0,0,0,.35)}
 .svc-hero__title::after{content:"";display:block;width:108px;height:3px;margin-top:25px;border-radius:99px;background:linear-gradient(90deg,#e2c684,#c27b32);box-shadow:0 0 24px rgba(226,198,132,.38)}
