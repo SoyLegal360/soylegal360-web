@@ -2,9 +2,29 @@ const toggle = document.querySelector(".nav-toggle");
 const nav = document.querySelector("#site-nav");
 
 if (toggle && nav) {
-  toggle.addEventListener("click", () => {
-    const open = nav.classList.toggle("is-open");
+  const setNav = (open) => {
+    nav.classList.toggle("is-open", open);
     toggle.setAttribute("aria-expanded", String(open));
+  };
+
+  toggle.addEventListener("click", () => {
+    setNav(!nav.classList.contains("is-open"));
+  });
+
+  nav.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") return;
+    const menu = nav.querySelector(".services-menu");
+    if (menu && menu.open) {
+      event.preventDefault();
+      menu.removeAttribute("open");
+      menu.querySelector("summary")?.focus();
+      return;
+    }
+    if (nav.classList.contains("is-open")) {
+      event.preventDefault();
+      setNav(false);
+      toggle.focus();
+    }
   });
 }
 

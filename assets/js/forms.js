@@ -21,6 +21,8 @@
   // y el mensaje trae una frase editable. Los checkboxes de consentimiento y
   // marketing NUNCA se premarcan: un consentimiento pre-marcado sería nulo (RGPD).
   var SERVICIOS = {
+    "diagnostico-rgpd-ia": { opt: "Diagnóstico inicial RGPD e IA", msg: "Me interesa el diagnóstico inicial RGPD e IA desde 190 € + IVA. Quiero confirmar alcance y precio antes de contratar." },
+    "orientacion-inicial": { opt: "Orientación inicial gratuita", msg: "Me gustaría una orientación inicial gratuita de hasta 15 minutos para identificar qué servicio necesita mi negocio." },
     "auditoria-web-gratuita": { opt: "Auditoría web gratuita", msg: "Me gustaría solicitar la auditoría web gratuita." },
     "auditoria-rgpd": { opt: "Auditoría RGPD", msg: "Me gustaría pedir una propuesta de Auditoría RGPD para mi negocio." },
     "auditoria-ia": { opt: "Auditoría IA", msg: "Me gustaría pedir una propuesta de Auditoría IA (AI Act) para mi empresa." },
@@ -54,7 +56,7 @@
     if (!data) return;
     if (optionExists(select, data.opt)) select.value = data.opt;
     var msg = form.querySelector('textarea[name="message"]');
-    if (msg && !msg.value) msg.value = data.msg;
+    if (msg && !msg.value && !form.dataset.requestContext) msg.value = data.msg;
   }
 
   function setStatus(form, kind, text) {
@@ -69,6 +71,7 @@
     prefillServicio(form);
     form.addEventListener("submit", function (ev) {
       ev.preventDefault();
+      if (form.dataset.requestContext && !form.reportValidity()) return;
       var btn = form.querySelector('button[type="submit"]');
       var data = {
         formType: form.getAttribute("data-sl-form") || "contacto",
@@ -83,6 +86,10 @@
         marketing: !!(form.elements.marketing && form.elements.marketing.checked),
         website: (form.elements.website && form.elements.website.value) || ""
       };
+
+      if (form.dataset.requestContext) {
+        data.message = form.dataset.requestContext + '\nEmpresa: ' + form.elements.company.value.trim() + '\n\n' + data.message;
+      }
 
       if (!data.consent) {
         setStatus(form, "error", "Debes aceptar la política de privacidad.");

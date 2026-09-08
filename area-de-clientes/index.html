@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Área privada: asistente legal y abogado 24/7 | SoyLegal360</title>
+  <title>Área privada: asistente RGPD y consultas con abogado | SoyLegal360</title>
   <meta name="description" content="Tu área privada: asistente de IA con normativa verificada, consultas con abogado, documentación al día y alertas. Incluida en Protección Legal Continua.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.soylegal360.es/area-de-clientes/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_ES">
   <meta property="og:site_name" content="SoyLegal360">
-  <meta property="og:title" content="Área privada: asistente legal y abogado 24/7 | SoyLegal360">
+  <meta property="og:title" content="Área privada: asistente RGPD y consultas con abogado | SoyLegal360">
   <meta property="og:description" content="Asistente de IA que responde a partir de normativa verificada, consultas con abogado y tu documentación al día. Incluida en Protección Legal Continua.">
   <meta property="og:url" content="https://www.soylegal360.es/area-de-clientes/">
   <meta property="og:image" content="https://www.soylegal360.es/og/area-de-clientes.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Área privada: asistente legal y abogado 24/7 | SoyLegal360">
+  <meta name="twitter:title" content="Área privada: asistente RGPD y consultas con abogado | SoyLegal360">
   <meta name="twitter:description" content="Asistente de IA que responde a partir de normativa verificada, consultas con abogado y tu documentación al día. Incluida en Protección Legal Continua.">
   <meta name="twitter:image" content="https://www.soylegal360.es/og/area-de-clientes.png">
   <script type="application/ld+json">
@@ -102,7 +102,7 @@
    "name": "¿Puedo conectar ChatGPT o Claude a mi área?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Sí. Desde Ajustes, en un clic, generas una conexión segura para Claude, ChatGPT, Copilot o Gemini. Tu IA podrá consultar tu ficha, tus documentos y tus consultas para responderte con tu contexto real. La conexión es de solo lectura y la puedes revocar en cualquier momento desde tu área."
+    "text": "Puedes conectar una herramienta compatible mediante MCP para consultar tu ficha, documentos y consultas en solo lectura. La configuración depende de la herramienta y de su plan. Puedes revocar la conexión desde tu área privada. Las respuestas de la IA externa no pasan por los controles de citas del asistente de SoyLegal360."
    }
   },
   {
@@ -130,7 +130,7 @@
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png?v=4">
   <!-- Consentimiento de cookies propio (sl360-cookies.js) + GA4 + Vercel Analytics. La analitica solo se carga si el usuario acepta la categoria de estadistica (Consent Mode v2, modo basico). Al editar el JS, subir el ?v= (cache immutable de /assets). -->
   <script defer src="/assets/js/sl360-cookies.js?v=6"></script>
-  <link rel="stylesheet" href="/assets/css/styles.css?v=104">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=106">
   <style>
     /* ══════════ Área de clientes: presentación tipo producto (aire, tipografía grande, medios protagonistas) ══════════ */
     .sl-area { --navy:#06142e; --navy-2:#0b1f3d; --gold:#c9a96e; --gold-soft:#e2c684; --ink:#16213d; --muted:#4c596f; --line:rgba(23,54,97,.14); font-family:Georgia,"Times New Roman",serif; color:var(--ink); }
@@ -186,10 +186,13 @@
     .sl-area-row__media:hover img { transform:scale(1.025); box-shadow:0 40px 90px -28px rgba(6,20,46,.5); }
     .sl-vid-ai { margin:10px auto 0; width:min(1000px,100%); text-align:right; color:rgba(90,106,132,.75); font:400 11px/1.4 Arial,Helvetica,sans-serif; }
     .sl-lightbox { position:fixed; inset:0; z-index:1200; display:grid; place-items:center; padding:4vh 4vw; background:rgba(3,8,20,.9); backdrop-filter:blur(7px); -webkit-backdrop-filter:blur(7px); opacity:0; visibility:hidden; transition:opacity .25s ease, visibility .25s ease; cursor:zoom-out; }
+    .sl-lightbox[hidden] { display:none; }
     .sl-lightbox.on { opacity:1; visibility:visible; }
     .sl-lightbox img { max-width:min(1100px,92vw); max-height:86vh; width:auto; height:auto; border-radius:12px; box-shadow:0 50px 140px -30px rgba(0,0,0,.9); transform:scale(.96); transition:transform .25s ease; }
     .sl-lightbox.on img { transform:scale(1); }
     .sl-lightbox figcaption { margin-top:12px; color:rgba(244,236,217,.75); font:600 13px/1.5 Arial,Helvetica,sans-serif; text-align:center; }
+    .sl-lightbox__close { position:fixed; top:18px; right:18px; min-width:44px; min-height:44px; border:1px solid rgba(255,255,255,.5); border-radius:50%; color:#fff; background:rgba(6,20,46,.82); font-size:26px; cursor:pointer; }
+    .sl-area-row__media[role="button"] { cursor:zoom-in; }
 
     /* Banda de seguridad (glass interactivo) */
     .sl-area-sec { padding:84px 0 90px; background:linear-gradient(160deg,#0a1e3d 0%,#06142e 60%,#050f22 100%); color:#fff; }
@@ -218,6 +221,12 @@
     .sl-area-row h2 { margin:0 0 14px; color:var(--navy); font-size:clamp(26px,3.4vw,40px); line-height:1.1; }
     .sl-area-row p { margin:0; color:var(--muted); font:400 16.5px/1.7 Arial,Helvetica,sans-serif; }
     .sl-area-row p strong { color:var(--ink); }
+    .sl-area-use-cases { display:grid; gap:12px; padding:0; margin:20px 0; list-style:none; }
+    .sl-area-use-cases li { padding:16px; border:1px solid var(--line); border-radius:12px; background:#fbfaf7; color:var(--muted); font:400 16px/1.6 Arial,Helvetica,sans-serif; }
+    .sl-area-use-cases strong { display:block; color:var(--ink); }
+    .sl-area-connection-help { margin:20px 0; color:var(--muted); font:400 16px/1.6 Arial,Helvetica,sans-serif; }
+    .sl-area-connection-help summary { cursor:pointer; color:var(--ink); font-weight:700; padding:12px 0; }
+    .sl-area-connection-help summary:focus-visible { outline:2px solid var(--navy); outline-offset:4px; }
     .sl-area-row__media { position:relative; }
     .sl-area-row__media::before { content:""; position:absolute; inset:8% -6% -10% -6%; border-radius:24px; background:radial-gradient(closest-side,rgba(201,169,110,.16),transparent 74%); }
     .sl-area-row__media img { position:relative; display:block; width:100%; height:auto; border-radius:12px; border:1px solid var(--line); box-shadow:0 34px 80px -30px rgba(6,20,46,.4); }
@@ -390,7 +399,7 @@
         <h1>Tu departamento legal, <span>siempre encendido</span>.</h1>
         <p class="lead">Un asistente con IA que responde al momento tus dudas de protección de datos y de IA (RGPD y AI Act) desde normativa verificada por nuestros abogados, consultas con abogado incluidas cada mes y tu documentación de cumplimiento al día. Todo en un mismo sitio.</p>
         <div class="actions">
-          <a class="button gold" href="/proteccion-legal-continua/">Conseguir mi acceso</a>
+          <a class="button gold" href="/contacto/?servicio=proteccion-continua&amp;solicitud=demo&amp;origen=area-de-clientes">Solicitar una demostración</a>
           <a class="button secondary" href="https://clientes.soylegal360.es" rel="noopener">Ya soy cliente: entrar</a>
         </div>
         <p class="sl-area-included">No se compra aparte: viene incluida en todos los packs de <a href="/proteccion-legal-continua/">Protección Legal Continua</a>, desde 49€/mes + IVA.</p>
@@ -462,21 +471,27 @@
           </div>
         </article>
 
-        <article class="sl-area-row">
+        <article class="sl-area-row" id="conectar-ia">
           <div>
             <p class="eyebrow">Tu IA, conectada</p>
-            <h2>Pregunta desde la IA que ya usas.</h2>
-            <p>Conecta <strong>Claude, ChatGPT, Copilot o Gemini</strong> a tu área en un clic. Tu IA deja de responder en abstracto: consulta <strong>tu ficha, tus documentos y tus consultas reales</strong> para darte respuestas sobre tu empresa, no sobre una empresa cualquiera.</p>
+            <h2>Tu contexto legal, también en la IA con la que trabajas.</h2>
+            <p>Conecta una herramienta compatible para consultar <strong>tu ficha, tus documentos y tus consultas</strong>. Tu IA podrá utilizar el contexto de tu empresa sin modificar la información de tu área.</p>
             <p class="sl-area-quote">Con tres garantías: <b>solo lectura</b>, solo tus datos, y <b>se desconecta en un clic</b> desde tu área.</p>
-            <p class="sl-area-ia-logos" aria-label="IA compatibles">
-              <img src="/assets/img/ia/claude.svg" width="22" height="22" alt="" loading="lazy"> Claude&nbsp;&nbsp;
-              <img src="/assets/img/ia/openai.svg" width="22" height="22" alt="" loading="lazy"> ChatGPT&nbsp;&nbsp;
-              <img src="/assets/img/ia/githubcopilot.svg" width="22" height="22" alt="" loading="lazy"> Copilot&nbsp;&nbsp;
-              <img src="/assets/img/ia/googlegemini.svg" width="22" height="22" alt="" loading="lazy"> Gemini
-            </p>
+            <ul class="sl-area-use-cases" aria-label="Ejemplos de uso con una IA compatible">
+              <li><strong>Prepara una reunión.</strong> Pide un resumen de las consultas disponibles y una propuesta de asuntos que conviene revisar.</li>
+              <li><strong>Entiende un documento.</strong> Solicita un resumen y una lista de preguntas para tu abogado.</li>
+              <li><strong>Organiza el trabajo interno.</strong> Elabora un borrador de checklist a partir de la documentación disponible.</li>
+            </ul>
+            <p><strong>Menos búsquedas y menos contexto repetido.</strong> Tu área reúne la información; la conexión permite consultarla desde una herramienta compatible. Los resultados son borradores y no equivalen a una revisión jurídica.</p>
+            <details class="sl-area-connection-help">
+              <summary>Cómo funciona la conexión (MCP)</summary>
+              <ol><li>Revisa qué información vas a compartir: ficha, documentos y consultas pueden contener datos personales.</li><li>Genera la conexión desde tu área y configúrala en una herramienta compatible con MCP. Los pasos y la disponibilidad dependen de la herramienta y de su plan; consulta con nuestro equipo antes de activarla.</li><li>Revoca la conexión desde tu área cuando dejes de necesitarla.</li></ol>
+            </details>
+            <p>Revocar impide nuevos accesos, pero no elimina información ya compartida con el proveedor externo.</p>
+            <p><strong>Importante:</strong> la IA externa procesa la información según sus propias condiciones. Sus respuestas no pasan por los controles de citas del asistente de SoyLegal360. Para solicitar revisión jurídica, utiliza las consultas de tu área privada.</p>
           </div>
           <div class="sl-area-row__media">
-            <img src="/assets/img/sl-app-conexiones.webp" width="1000" height="625" alt="Pantalla de Conexiones del área: conectar Claude, ChatGPT, Copilot o Gemini con un clic" loading="lazy">
+            <img src="/assets/img/sl-app-conexiones.webp" width="1000" height="625" alt="Pantalla de gestión de conexiones de IA del área privada" loading="lazy">
           </div>
         </article>
 
@@ -722,7 +737,7 @@
           </details>
           <details>
             <summary>¿Puedo conectar ChatGPT o Claude a mi área?</summary>
-            <p>Sí. Desde Ajustes, en un clic, generas una conexión segura para Claude, ChatGPT, Copilot o Gemini. Tu IA podrá consultar tu ficha, tus documentos y tus consultas para responderte con tu contexto real. La conexión es de solo lectura y la puedes revocar en cualquier momento desde tu área.</p>
+            <p>Puedes conectar una herramienta compatible mediante MCP para consultar tu ficha, documentos y consultas en solo lectura. La configuración depende de la herramienta y de su plan. Puedes revocar la conexión desde tu área privada. Las respuestas de la IA externa no pasan por los controles de citas del asistente de SoyLegal360.</p>
           </details>
           <details>
             <summary>¿Qué ve exactamente mi IA cuando la conecto?</summary>
@@ -805,7 +820,7 @@
     </div>
     <div class="footer-bottom">© 2026 <span class="sl-brand">SoyLegal<span>360</span></span>. Todos los derechos reservados.</div>
   </footer>
-  <script src="/assets/js/site.js?v=10" defer></script>
+  <script src="/assets/js/site.js?v=11" defer></script>
   <script>
   (function(){
     var fine=window.matchMedia('(hover:hover) and (pointer:fine)').matches;
@@ -875,17 +890,20 @@
     });
   })();
   (function(){
-    var box=document.createElement('div');box.className='sl-lightbox';box.setAttribute('role','dialog');box.setAttribute('aria-modal','true');box.setAttribute('aria-label','Imagen ampliada');
+    var box=document.createElement('div');box.className='sl-lightbox';box.hidden=true;box.setAttribute('role','dialog');box.setAttribute('aria-modal','true');box.setAttribute('aria-label','Imagen ampliada');
+    var closeButton=document.createElement('button');closeButton.type='button';closeButton.className='sl-lightbox__close';closeButton.setAttribute('aria-label','Cerrar imagen ampliada');closeButton.textContent='×';
     var fig=document.createElement('figure');fig.style.margin='0';var im=document.createElement('img');var cap=document.createElement('figcaption');
-    fig.appendChild(im);fig.appendChild(cap);box.appendChild(fig);document.body.appendChild(box);
-    function close(){box.classList.remove('on');}
-    box.addEventListener('click',close);
-    document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+    fig.appendChild(im);fig.appendChild(cap);box.appendChild(closeButton);box.appendChild(fig);document.body.appendChild(box);
+    var trigger=null;
+    function close(){if(box.hidden)return;box.classList.remove('on');box.hidden=true;if(trigger)trigger.focus();}
+    function open(el,img){trigger=el;im.src=img.currentSrc||img.src;im.alt=img.alt;cap.textContent=img.alt||'';box.hidden=false;box.classList.add('on');closeButton.focus();}
+    closeButton.addEventListener('click',close);
+    box.addEventListener('click',function(e){if(e.target===box)close();});
+    box.addEventListener('keydown',function(e){if(e.key==='Escape'){e.preventDefault();close();}if(e.key==='Tab'){e.preventDefault();closeButton.focus();}});
     document.querySelectorAll('.sl-area-row__media img').forEach(function(img){
-      img.parentElement.addEventListener('click',function(){
-        im.src=img.currentSrc||img.src;im.alt=img.alt;cap.textContent=img.alt||'';
-        box.classList.add('on');
-      });
+      var el=img.parentElement;el.setAttribute('role','button');el.setAttribute('tabindex','0');el.setAttribute('aria-label','Ampliar imagen: '+img.alt);
+      el.addEventListener('click',function(){open(el,img);});
+      el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open(el,img);}});
     });
   })();
   (function(){

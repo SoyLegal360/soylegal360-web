@@ -1716,8 +1716,11 @@ html.sl-js .sl-reveal.is-in { opacity: 1; transform: none; }
 
 /* Anillo de foco coherente en toda la casa */
 :where(a, button, input, select, textarea, summary):focus-visible {
-  outline: 3px solid rgba(201, 169, 110, .6);
+  /* El borde azul distingue controles claros y dorados; el halo blanco sigue
+     viéndose sobre fondos oscuros. Así el foco no depende del contraste del oro. */
+  outline: 2px solid #06142e;
   outline-offset: 2px;
+  box-shadow: 0 0 0 4px #fff;
   border-radius: 6px;
 }
 
@@ -1790,6 +1793,25 @@ html.sl-js .sl-reveal.is-in { opacity: 1; transform: none; }
   .wa-float { bottom: calc(16px + env(safe-area-inset-bottom, 0px)); }
 }
 
+/* En contacto, los accesos de ayuda siguen disponibles pero no invaden los
+   campos al recorrer el formulario. El nombre accesible del botón se conserva. */
+body.sl-page-contact .sl-chat-launcher {
+  right: 20px;
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  justify-content: center;
+}
+body.sl-page-contact .sl-chat-launcher__label,
+body.sl-page-contact .sl-chat-teaser { display: none; }
+body.sl-page-contact .sl-chat-launcher__icon {
+  width: 52px;
+  height: 52px;
+  background: transparent;
+  color: var(--navy, #06142e);
+}
+body.sl-page-contact .sl-chat-launcher__icon svg { width: 28px; height: 28px; }
+
 /* ── Miga de pan de páginas interiores ── */
 .sl-crumbs {
   width: min(1120px, 100%);
@@ -1850,7 +1872,7 @@ html.sl-js .sl-reveal.is-in { opacity: 1; transform: none; }
 .svc-hero__primary:hover,.svc-hero__secondary:hover{transform:translateY(-2px)}
 .svc-hero__primary:hover{box-shadow:0 18px 38px rgba(2,10,23,.4),0 0 30px rgba(226,198,132,.24)}
 .svc-hero__secondary:hover{border-color:rgba(226,198,132,.75);background:rgba(13,36,71,.55)}
-.svc-hero__primary:focus-visible,.svc-hero__secondary:focus-visible{outline:3px solid rgba(226,198,132,.9);outline-offset:4px}
+.svc-hero__primary:focus-visible,.svc-hero__secondary:focus-visible{outline:2px solid #06142e;outline-offset:2px;box-shadow:0 0 0 4px #fff}
 .svc-hero__glass{position:relative;min-height:490px;border:1px solid rgba(255,255,255,.24);border-radius:36px;overflow:hidden;display:grid;place-items:center;background:linear-gradient(145deg,rgba(255,255,255,.18),rgba(255,255,255,.04) 58%),rgba(13,36,71,.22);box-shadow:0 34px 90px rgba(2,10,23,.55),0 0 70px rgba(201,169,110,.17),inset 0 1px 0 rgba(255,255,255,.32);backdrop-filter:blur(17px) saturate(1.2);-webkit-backdrop-filter:blur(17px) saturate(1.2)}
 .svc-hero__glass::before{content:"";position:absolute;width:280px;height:280px;top:-120px;right:-80px;border-radius:50%;background:rgba(226,198,132,.2);filter:blur(44px)}
 .svc-hero__shine{position:absolute;inset:0;background:linear-gradient(122deg,rgba(255,255,255,.17),transparent 30%,transparent 68%,rgba(226,198,132,.08));pointer-events:none}

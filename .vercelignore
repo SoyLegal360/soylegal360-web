@@ -1,0 +1,25 @@
+# Solo se sube al preview el código y los activos necesarios para construir la web.
+# Documentación, herramientas y configuración local no forman parte del despliegue.
+
+.DS_Store
+.claude/
+.astro/
+.idea/
+.vscode/
+.vercel/
+dist/
+node_modules/
+
+.soylegal360-deploy.env
+*.env
+.env*
+.mcp.json
+
+docs/
+tools/
+published-embeds/
+files-mentioned-by-the-user-brief/
+https-www-soylegal360-es-analiza-en/
+serve.py
+deploy.sh
+assets/img/hero-diagnostico-rgpd-ia.png
