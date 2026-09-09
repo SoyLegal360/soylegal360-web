@@ -2054,5 +2054,7 @@ body.sl-page-contact .sl-chat-launcher__icon svg { width: 28px; height: 28px; }
 /* Submenú Para particulares (compacto, anclado al ítem) */
 @media (min-width: 981px) {
   .services-menu--sub { position: relative; }
-  .services-menu--sub .mega-menu { left: auto; right: 0; transform: none; width: min(320px, calc(100vw - 32px)); grid-template-columns: 1fr; }
+  .services-menu--sub .mega-menu,
+  .services-menu--sub:hover .mega-menu,
+  .services-menu--sub[open] .mega-menu { left: auto; right: 0; transform: none; width: min(320px, calc(100vw - 32px)); grid-template-columns: 1fr; }
 }

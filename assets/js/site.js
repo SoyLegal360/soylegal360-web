@@ -13,7 +13,7 @@ if (toggle && nav) {
 
   nav.addEventListener("keydown", (event) => {
     if (event.key !== "Escape") return;
-    const menu = nav.querySelector(".services-menu");
+    const menu = nav.querySelector(".services-menu[open]");
     if (menu && menu.open) {
       event.preventDefault();
       menu.removeAttribute("open");
@@ -30,20 +30,18 @@ if (toggle && nav) {
 
 // Mega-menu: abrir al hover con tolerancia al gap entre summary y menú
 (function () {
-  const sm = document.querySelector(".services-menu");
-  if (!sm) return;
-  let closeTimer;
-
-  sm.addEventListener("mouseover", () => {
-    clearTimeout(closeTimer);
-    sm.setAttribute("open", "");
-  });
-
-  sm.addEventListener("mouseout", (e) => {
-    if (!sm.contains(e.relatedTarget)) {
+  document.querySelectorAll(".services-menu").forEach((sm) => {
+    let closeTimer;
+    sm.addEventListener("mouseover", () => {
       clearTimeout(closeTimer);
-      closeTimer = setTimeout(() => sm.removeAttribute("open"), 150);
-    }
+      sm.setAttribute("open", "");
+    });
+    sm.addEventListener("mouseout", (e) => {
+      if (!sm.contains(e.relatedTarget)) {
+        clearTimeout(closeTimer);
+        closeTimer = setTimeout(() => sm.removeAttribute("open"), 150);
+      }
+    });
   });
 })();
 
