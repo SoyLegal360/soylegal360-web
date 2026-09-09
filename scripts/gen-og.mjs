@@ -27,6 +27,13 @@ const logoPng = new Resvg(logoSvg, { fitTo: { mode: 'height', value: LOGO_H * 2 
 const logoUri = `data:image/png;base64,${logoPng.asPng().toString('base64')}`;
 const LOGO_W = Math.round((logoPng.width / logoPng.height) * LOGO_H);
 
+// Logo de color de marca (sobre pastilla cristal clara, para cards con foto).
+const logoColorSvg = readFileSync(join(root, 'assets/img/soylegal360_logo_color.svg'), 'utf8');
+function logoColorAt(hpx) {
+  const png = new Resvg(logoColorSvg, { fitTo: { mode: 'height', value: hpx * 2 } }).render();
+  return { uri: `data:image/png;base64,${png.asPng().toString('base64')}`, w: Math.round((png.width / png.height) * hpx), h: hpx };
+}
+
 // mini-hiperscript para satori (sin JSX)
 const h = (type, style, children) => ({ type, props: { style, children } });
 const img = (src, width, height) => ({ type: 'img', props: { src, width, height } });
@@ -127,15 +134,16 @@ async function renderFrame(frame) {
   return new Resvg(svg, { fitTo: { mode: 'width', value: 1200 } }).render().asPng();
 }
 
-// Marco para cards CON foto: logo en pastilla navy + chip + titular abajo + dominio
+// Marco para cards CON foto: logo de color en pastilla cristal clara + filo
+// dorado (lenguaje de marca, legible sobre cualquier foto) + chip + titular + dominio
 async function photoCard(bgPath, title, chip, gravity = 'centre') {
   const W = 1200, H = 630;
-  const logo = logoAt(150);
+  const logo = logoColorAt(118);
   const size = title.length > 42 ? 56 : 66;
   const frame = h('div', { width: W, height: H, display: 'flex', flexDirection: 'column', fontFamily: 'PT Serif' }, [
     h('div', { display: 'flex', flexDirection: 'column', justifyContent: 'space-between', flex: 1, padding: '48px 64px 42px' }, [
       h('div', { display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }, [
-        h('div', { display: 'flex', backgroundColor: 'rgba(6,21,44,.8)', borderRadius: 18, padding: '14px 22px' }, [img(logo.uri, logo.w, logo.h)]),
+        h('div', { display: 'flex', alignItems: 'center', backgroundColor: 'rgba(255,255,255,.94)', border: `1px solid rgba(201,169,110,.55)`, borderRadius: 20, padding: '18px 26px', boxShadow: '0 10px 30px rgba(2,10,23,.35)' }, [img(logo.uri, logo.w, logo.h)]),
         chip
           ? h('div', { display: 'flex', border: `2px solid ${GOLD}`, borderRadius: 999, padding: '10px 24px', color: GOLD_SOFT, fontSize: 25, fontWeight: 700, letterSpacing: 4, backgroundColor: 'rgba(6,21,44,.62)' }, chip)
           : h('div', { display: 'flex' }, ''),
