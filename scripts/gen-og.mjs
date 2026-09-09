@@ -233,6 +233,7 @@ const STATIC_PAGES = {
   'consultoria-legal': ['Consultoría legal', 'CONSULTORÍA', 'assets/img/despacho/oficina-sala-reunion.webp'],
   'revision-de-contratos': ['Revisión de contratos', 'CONTRATOS', 'assets/img/despacho/oficina-consulta.webp'],
   'ejercicio-de-derechos': ['Ejerce tus derechos RGPD: te representamos', 'PARTICULARES', 'assets/img/despacho/oficina-consulta.webp'],
+  'retirar-contenido-redes-sociales': ['Retirada de contenido: vídeos y fotos sin tu permiso', 'PARTICULARES', 'assets/img/despacho/oficina-consulta.webp'],
   'como-funciona': ['Cómo trabajamos contigo, paso a paso', 'MÉTODO', 'assets/video/cf-abogado-poster.webp'],
   'sobre-nosotros': ['Quiénes somos y cómo trabajamos', 'NOSOTROS', 'assets/img/despacho/oficina-principal.webp'],
   'contacto': ['Habla con SoyLegal360', 'CONTACTO', 'assets/img/torre-nocturna-banner.webp', 'east'],
