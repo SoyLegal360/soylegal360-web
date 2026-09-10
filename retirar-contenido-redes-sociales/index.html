@@ -119,6 +119,14 @@
     },
     {
       "@type": "Question",
+      "name": "Me reí o seguí la broma en el vídeo, ¿aún puedo pedir que lo quiten?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Reírte o seguir el juego en el momento no autoriza a publicarte, y en cualquier caso puedes revocar tu consentimiento en cualquier momento (art. 2.3 de la Ley Orgánica 1/1982). Lo valoramos sin compromiso."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "¿Cuánto tarda en retirarse el vídeo?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -336,6 +344,19 @@
     .sl-rc-prose-close strong { color: var(--edd-navy); }
     @media (max-width: 680px) { .sl-rc-ways { grid-template-columns: 1fr; } .sl-rc-reassure { font-size: 18px; } }
 
+    /* ===== Bromas y cámaras ocultas ===== */
+    .sl-rc-hidden { padding: 76px 22px; background: #fff; }
+    .sl-rc-hidden__inner { max-width: 1040px; margin: 0 auto; display: grid; grid-template-columns: 1.05fr .95fr; gap: 44px; align-items: center; }
+    .sl-rc-hidden__media { margin: 0; }
+    .sl-rc-hidden__media img { width: 100%; height: auto; border-radius: 16px; box-shadow: 0 22px 54px rgba(6,20,46,.24); display: block; }
+    .sl-rc-hidden__body .eyebrow { color: var(--edd-gold); font: 800 11px/1.3 Arial, Helvetica, sans-serif; letter-spacing: .14em; text-transform: uppercase; margin: 0 0 10px; }
+    .sl-rc-hidden__body h2 { font: 700 clamp(25px, 3.6vw, 34px)/1.2 Georgia, serif; color: var(--edd-navy); margin: 0 0 16px; }
+    .sl-rc-hidden__body p { font: 400 15.5px/1.7 Arial, Helvetica, sans-serif; color: var(--edd-ink); margin: 0 0 18px; }
+    .sl-rc-hidden__revoke { padding: 18px 20px; background: var(--edd-soft); border-left: 4px solid var(--edd-gold); border-radius: 0 12px 12px 0; }
+    .sl-rc-hidden__revoke p { font: 400 14.5px/1.65 Arial, Helvetica, sans-serif; color: var(--edd-ink); margin: 0; }
+    .sl-rc-hidden__revoke strong { color: var(--edd-navy); }
+    @media (max-width: 820px) { .sl-rc-hidden__inner { grid-template-columns: 1fr; gap: 26px; } }
+
     /* ===== Tarjetas / situaciones ===== */
     .sl-edd-cases { padding: 72px 22px; background: #fff; }
     .sl-edd-cases__inner { max-width: 1000px; margin: 0 auto; }
@@ -498,6 +519,24 @@
       </div>
     </section>
 
+    <!-- ===== Bromas y cámaras ocultas ===== -->
+    <section class="sl-rc-hidden">
+      <div class="sl-rc-hidden__inner">
+        <figure class="sl-rc-hidden__media">
+          <img src="/assets/img/retirada-camara-oculta.webp" width="1800" height="1200" loading="lazy" decoding="async" alt="Gafas con cámara integrada grabando de forma oculta, con un piloto rojo de grabación encendido">
+        </figure>
+        <div class="sl-rc-hidden__body">
+          <p class="eyebrow">Bromas y cámaras ocultas</p>
+          <h2>¿Te grabaron para una "broma" sin que lo supieras?</h2>
+          <p>Los vídeos de cámara oculta se graban a propósito para que no te des cuenta: con el móvil disimulado o con gafas con cámara integrada, como las Ray-Ban Meta. Si no sabías que te grababan, no diste tu consentimiento, y difundir ese vídeo es una intromisión en tu derecho a la propia imagen.</p>
+          <!-- CITA revisor-juridico: art. 2.3 LO 1/1982 (consentimiento revocable en cualquier momento) verificado literal contra el corpus el 10-sep-2026. -->
+          <div class="sl-rc-hidden__revoke">
+            <p><strong>¿Seguiste la broma o dijiste que sí en el momento?</strong> Puedes cambiar de opinión: la ley te permite revocar tu consentimiento en cualquier momento (art. 2.3 de la Ley Orgánica 1/1982). Lo valoramos contigo, sin compromiso.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ===== Plataformas ===== -->
     <section class="sl-edd-cases" style="background:var(--edd-soft)">
       <div class="sl-edd-cases__inner">
@@ -616,6 +655,10 @@
         <details class="sl-edd-faq__item">
           <summary>¿Pueden grabarme en la calle o en un centro comercial y publicarlo?</summary>
           <p>No sin tu consentimiento. Tu derecho a la propia imagen te protege también en lugares públicos: estar en la calle o en un centro comercial no autoriza a nadie a difundir tu imagen en redes sociales.</p>
+        </details>
+        <details class="sl-edd-faq__item">
+          <summary>Me reí o seguí la broma en el vídeo, ¿aún puedo pedir que lo quiten?</summary>
+          <p>Sí. Reírte o seguir el juego en el momento no autoriza a publicarte, y en cualquier caso puedes revocar tu consentimiento en cualquier momento (art. 2.3 de la Ley Orgánica 1/1982). Lo valoramos sin compromiso.</p>
         </details>
         <details class="sl-edd-faq__item">
           <summary>¿Cuánto tarda en retirarse el vídeo?</summary>
