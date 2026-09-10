@@ -127,15 +127,16 @@ async function renderFrame(frame) {
   return new Resvg(svg, { fitTo: { mode: 'width', value: 1200 } }).render().asPng();
 }
 
-// Marco para cards CON foto: logo en pastilla navy + chip + titular abajo + dominio
+// Marco para cards CON foto: logo blanco sin caja (velo superior reforzado para
+// que se lea sobre cualquier foto) + chip + titular abajo + dominio
 async function photoCard(bgPath, title, chip, gravity = 'centre') {
   const W = 1200, H = 630;
-  const logo = logoAt(150);
+  const logo = logoAt(132);
   const size = title.length > 42 ? 56 : 66;
   const frame = h('div', { width: W, height: H, display: 'flex', flexDirection: 'column', fontFamily: 'PT Serif' }, [
     h('div', { display: 'flex', flexDirection: 'column', justifyContent: 'space-between', flex: 1, padding: '48px 64px 42px' }, [
       h('div', { display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }, [
-        h('div', { display: 'flex', backgroundColor: 'rgba(6,21,44,.8)', borderRadius: 18, padding: '14px 22px' }, [img(logo.uri, logo.w, logo.h)]),
+        h('div', { display: 'flex' }, [img(logo.uri, logo.w, logo.h)]),
         chip
           ? h('div', { display: 'flex', border: `2px solid ${GOLD}`, borderRadius: 999, padding: '10px 24px', color: GOLD_SOFT, fontSize: 25, fontWeight: 700, letterSpacing: 4, backgroundColor: 'rgba(6,21,44,.62)' }, chip)
           : h('div', { display: 'flex' }, ''),
@@ -151,8 +152,9 @@ async function photoCard(bgPath, title, chip, gravity = 'centre') {
   const grad = Buffer.from(
     `<svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg"><defs>` +
     `<linearGradient id="b" x1="0" y1="0" x2="0" y2="1">` +
-    `<stop offset="0.35" stop-color="${NAVY_SOLID}" stop-opacity="0"/>` +
-    `<stop offset="0.65" stop-color="${NAVY_SOLID}" stop-opacity="0.4"/>` +
+    `<stop offset="0" stop-color="${NAVY_SOLID}" stop-opacity="0.62"/>` +
+    `<stop offset="0.3" stop-color="${NAVY_SOLID}" stop-opacity="0.14"/>` +
+    `<stop offset="0.62" stop-color="${NAVY_SOLID}" stop-opacity="0.42"/>` +
     `<stop offset="1" stop-color="${NAVY_SOLID}" stop-opacity="0.95"/></linearGradient></defs>` +
     `<rect width="${W}" height="${H}" fill="${NAVY_SOLID}" fill-opacity="0.2"/>` +
     `<rect width="${W}" height="${H}" fill="url(#b)"/></svg>`);
