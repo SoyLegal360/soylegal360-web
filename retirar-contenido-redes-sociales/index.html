@@ -162,7 +162,7 @@
       "name": "¿Cuánto cuesta?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "La retirada urgente son 90 € + IVA, deducible si eres autónomo o empresa. Ese importe se descuenta si sigues con la reclamación."
+        "text": "La retirada urgente es desde 90 € + IVA, deducible si eres autónomo o empresa. Ese importe se descuenta si sigues con la reclamación."
       }
     }
   ]
@@ -317,6 +317,24 @@
     .sl-rc-prose { font: 400 16px/1.7 Arial, Helvetica, sans-serif; color: var(--edd-ink); margin: 0 0 18px; }
     .sl-rc-prose strong { color: var(--edd-navy); }
     .sl-rc-link { color: #aa853f; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+    .sl-rc-prose-lead { font: 400 17px/1.7 Arial, Helvetica, sans-serif; color: var(--edd-ink); max-width: 680px; margin: 0 auto 30px; text-align: center; }
+    .sl-rc-prose-lead strong { color: var(--edd-navy); }
+    .sl-rc-reassure {
+      position: relative; max-width: 720px; margin: 0 auto 44px;
+      padding: 24px 28px 24px 30px; background: var(--edd-soft);
+      border-left: 4px solid var(--edd-gold); border-radius: 0 12px 12px 0;
+      font: 600 clamp(19px, 2.6vw, 23px)/1.4 Georgia, serif; color: var(--edd-navy);
+    }
+    .sl-rc-reassure span { color: var(--edd-gold); }
+    .sl-rc-ways { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; max-width: 860px; margin: 0 auto; }
+    .sl-rc-way { border: 1px solid var(--edd-line); border-top: 3px solid var(--edd-gold); border-radius: 14px; padding: 28px 26px; background: #fff; box-shadow: 0 8px 28px rgba(6,21,44,.05); }
+    .sl-rc-way__icon { width: 40px; height: 40px; color: var(--edd-gold); margin-bottom: 14px; }
+    .sl-rc-way h3 { font: 700 20px/1.25 Georgia, serif; color: var(--edd-navy); margin: 0 0 4px; }
+    .sl-rc-way__law { font: 700 11px/1.3 Arial, Helvetica, sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--edd-gold); margin: 0 0 12px; }
+    .sl-rc-way p { font: 400 14.5px/1.65 Arial, Helvetica, sans-serif; color: var(--edd-muted); margin: 0; }
+    .sl-rc-prose-close { max-width: 680px; margin: 36px auto 0; font: 400 15px/1.7 Arial, Helvetica, sans-serif; color: var(--edd-muted); text-align: center; }
+    .sl-rc-prose-close strong { color: var(--edd-navy); }
+    @media (max-width: 680px) { .sl-rc-ways { grid-template-columns: 1fr; } .sl-rc-reassure { font-size: 18px; } }
 
     /* ===== Tarjetas / situaciones ===== */
     .sl-edd-cases { padding: 72px 22px; background: #fff; }
@@ -458,13 +476,25 @@
       <div class="sl-rc-prose-inner">
         <p class="eyebrow">Tu derecho</p>
         <h2>Aunque te grabaran en un sitio público, tu imagen es tuya</h2>
-        <p class="sl-rc-prose">Uno de los mayores miedos es pensar que, si te grabaron en la calle o en un centro comercial, ya no puedes hacer nada. No es así. <strong>El derecho a la propia imagen te protege también en lugares públicos.</strong> Que estuvieras en un sitio abierto al público no autoriza a nadie a difundir tu imagen en redes sociales.</p>
-        <p class="sl-rc-prose">Ese derecho solo decae si tú diste tu consentimiento expreso para esa publicación. Si no lo diste, la difusión no está amparada por el simple hecho de haberte grabado en público.</p>
-        <p class="sl-rc-prose">Además, difundir tu imagen sin base legal es un <strong>tratamiento ilícito de tus datos personales</strong>, y tienes derecho a que se supriman. Sobre esas dos vías, la de imagen y la de protección de datos, construimos la retirada.</p>
+        <p class="sl-rc-prose-lead">Uno de los mayores miedos es pensar que, si te grabaron en la calle o en un centro comercial, ya no puedes hacer nada. <strong>No es así.</strong> Ese derecho solo decae si tú diste tu consentimiento expreso para esa publicación.</p>
+        <p class="sl-rc-reassure">Estar en un sitio abierto al público <span>no autoriza a nadie</span> a difundir tu imagen en redes sociales.</p>
         <!-- CITA PENDIENTE revisor-juridico: art. 7.5 LO 1/1982 (derecho a la propia imagen; el lugar público no exime). Verificar literal contra dev/soylegal360-derecho antes de publicar. -->
         <!-- CITA PENDIENTE revisor-juridico: art. 17 RGPD (derecho de supresión). Verificar literal contra dev/soylegal360-derecho antes de publicar. -->
-        <p class="sl-rc-prose">La base sobre la que trabajamos es el derecho a la propia imagen (art. 7.5 de la Ley Orgánica 1/1982) y el derecho de supresión (art. 17 del RGPD). Si además el autor ha cometido un delito, lo valoramos aparte, pero no basamos el servicio en la vía penal.</p>
-        <p class="sl-rc-prose">¿Tu problema es que apareces en Google o te llaman para venderte? Es otra situación distinta: mira cómo <a class="sl-rc-link" href="/ejercicio-de-derechos/">ejercemos tus derechos de protección de datos</a>.</p>
+        <div class="sl-rc-ways">
+          <div class="sl-rc-way">
+            <svg class="sl-rc-way__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+            <h3>Derecho a la propia imagen</h3>
+            <p class="sl-rc-way__law">Art. 7.5 · Ley Orgánica 1/1982</p>
+            <p>Protege tu imagen también en lugares públicos. Que te grabaran en la calle o en un centro comercial no ampara que difundan el vídeo sin tu consentimiento.</p>
+          </div>
+          <div class="sl-rc-way">
+            <svg class="sl-rc-way__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+            <h3>Protección de datos</h3>
+            <p class="sl-rc-way__law">Art. 17 · RGPD</p>
+            <p>Difundir tu imagen sin base legal es un tratamiento ilícito de tus datos personales, y tienes derecho a que se supriman, del autor y de cada plataforma.</p>
+          </div>
+        </div>
+        <p class="sl-rc-prose-close">Sobre esas <strong>dos vías</strong> construimos la retirada. Si además el autor ha cometido un delito, lo valoramos aparte, pero no basamos el servicio en la vía penal. ¿Tu problema es que apareces en Google o te llaman para venderte? Es otra situación: mira cómo <a class="sl-rc-link" href="/ejercicio-de-derechos/">ejercemos tus derechos de protección de datos</a>.</p>
       </div>
     </section>
 
@@ -543,7 +573,7 @@
         <div class="sl-edd-pricing__grid">
           <div class="sl-edd-pcard sl-edd-pcard--lead">
             <p class="sl-edd-pcard__name">Fase 1 · Retirada urgente</p>
-            <p class="sl-edd-pcard__price">90€<small> + IVA</small></p>
+            <p class="sl-edd-pcard__price">desde 90€<small> + IVA</small></p>
             <p class="sl-edd-pcard__iva">deducible · empieza aquí</p>
             <p class="sl-edd-pcard__desc">Fijamos la prueba, requerimos al autor y presentamos la retirada en todas las plataformas. Este importe se descuenta si sigues con la Fase 2.</p>
           </div>
@@ -561,7 +591,7 @@
           </div>
         </div>
         <div class="sl-rc-cta-wrap">
-          <a href="/contacto/" class="sl-edd-hero__cta">Empezar por la retirada urgente (90 € + IVA) →</a>
+          <a href="/contacto/" class="sl-edd-hero__cta">Empezar por la retirada urgente (desde 90 € + IVA) →</a>
         </div>
       </div>
     </section>
@@ -609,7 +639,7 @@
         </details>
         <details class="sl-edd-faq__item">
           <summary>¿Cuánto cuesta?</summary>
-          <p>La retirada urgente son 90 € + IVA, deducible si eres autónomo o empresa. Ese importe se descuenta si sigues con la reclamación.</p>
+          <p>La retirada urgente es desde 90 € + IVA, deducible si eres autónomo o empresa. Ese importe se descuenta si sigues con la reclamación.</p>
         </details>
       </div>
     </section>
