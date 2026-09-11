@@ -24,11 +24,14 @@ faq:
     a: "El embarazo es un dato de salud, categoría especial del artículo 9 del RGPD, con protección reforzada. Si en la gestión del caso ese dato se trató de forma indebida (comunicaciones internas innecesarias, exposición del estado sin base legal), se abre una vía de protección de datos paralela a la laboral. En el precedente europeo Göthberg contra Lazio, el laudo se pronunció también sobre la confidencialidad de los datos médicos del embarazo."
   - q: "¿Sobre qué se decide el caso Maica García?"
     a: "Su contrato, renovado en 2024, expiraba el 31 de agosto de 2026 (Mundo Deportivo, 24-jul-2024), así que su último año coincidió con el embarazo: dio a luz el 25 de septiembre de 2025, con la temporada ya iniciada. Sobre ese hecho, la prórroga automática del artículo 6 bis habría llevado el contrato hasta 2027, de modo que la baja en 2026 extinguiría un contrato vivo. Lo que quedaría por decidir en los tribunales no es esa fecha, sino si el club logra probar que su decisión fue ajena por completo a la maternidad."
+  - q: "¿Y si el club la despidió y pagó una indemnización?"
+    a: "Pagar una indemnización no convierte un despido nulo en improcedente. Si se acredita que la decisión se vinculó a la maternidad, el despido es nulo y procede la readmisión, que no se sustituye por dinero. Solo si no se aprecia la nulidad entra en juego el artículo 15.1 del RD 1006/1985: indemnización fijada por el juez a falta de pacto, con un mínimo de dos mensualidades por año de servicio y ponderando lo que la deportista dejó de cobrar por la extinción anticipada del contrato."
 fuentes:
   - "Real Decreto 1006/1985, de 26 de junio, relación laboral especial de deportistas profesionales, art. 6 bis (añadido por la disp. final 3.1 de la LO 2/2024, de 1 de agosto; en vigor desde 22-ago-2024) · https://www.boe.es/buscar/act.php?id=BOE-A-1985-12313"
   - "Ley Orgánica 2/2024, de 1 de agosto, de representación paritaria y presencia equilibrada de mujeres y hombres (disp. final 3.1, que introduce el art. 6 bis del RD 1006/1985) · https://www.boe.es/buscar/act.php?id=BOE-A-2024-15936"
   - "Real Decreto Legislativo 2/2015, Estatuto de los Trabajadores, art. 55.5 (nulidad del despido discriminatorio) · https://www.boe.es/buscar/act.php?id=BOE-A-2015-11430"
   - "Real Decreto 1006/1985, art. 21 (Derecho supletorio: remisión al Estatuto de los Trabajadores y demás normas laborales de general aplicación) · https://www.boe.es/buscar/act.php?id=BOE-A-1985-12313"
+  - "Real Decreto 1006/1985, art. 15.1 (despido improcedente en el deporte: indemnización judicial a falta de pacto, mínimo dos mensualidades por año de servicio, ponderando la remuneración dejada de percibir por la extinción anticipada del contrato) · https://www.boe.es/buscar/act.php?id=BOE-A-1985-12313"
   - "Ley 36/2011, reguladora de la jurisdicción social (LRJS), art. 96.1 y art. 181.2 (inversión de la carga de la prueba ante indicios de discriminación) · https://www.boe.es/buscar/act.php?id=BOE-A-2011-15936"
   - "Constitución Española, art. 14 (igualdad y no discriminación) · https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229"
   - "Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, art. 8 (discriminación directa por embarazo o maternidad) · https://www.boe.es/buscar/act.php?id=BOE-A-2007-6115"
@@ -70,6 +73,14 @@ El RD 1006/1985 no regula el despido nulo, así que por remisión al Derecho lab
 Además, la carga de la prueba se invierte. Conforme a los artículos 96.1 y 181.2 de la Ley reguladora de la jurisdicción social, basta con que la trabajadora aporte un **indicio** de discriminación para que sea el club quien deba probar que su decisión fue real, objetiva y **por completo ajena** a la maternidad. No basta con invocar "criterios deportivos": hay que acreditarlos y demostrar que habrían llevado a la misma decisión con independencia del embarazo. Por eso el club sostiene, con toda lealtad a su posición, que la decisión responde a un proyecto deportivo. Ese es exactamente el terreno probatorio donde se resolvería.
 
 Si un juez apreciara la nulidad, las consecuencias son tasadas: **readmisión obligatoria** (la nulidad no admite la opción de indemnizar en lugar de readmitir), abono de los **salarios de tramitación** y una posible **indemnización adicional por daño moral**.
+
+## Y si no se aprecia la nulidad: la indemnización del artículo 15
+
+Conviene ser honesto con la otra rama, porque la nulidad no es automática. Si la deportista no logra sostener el indicio de discriminación, o el club lo desvirtúa acreditando que su decisión fue real y ajena a la maternidad, el despido no sería nulo sino improcedente. Y el régimen entonces es distinto.
+
+En la relación laboral especial del deporte, el despido improcedente no se rige por la indemnización común del Estatuto, sino por el artículo 15.1 del RD 1006/1985: a falta de pacto la fija el juez, con un suelo de dos mensualidades por año de servicio y ponderando "especialmente la relativa a la remuneración dejada de percibir por el deportista a causa de la extinción anticipada de su contrato". No es, por tanto, una cifra pequeña y cerrada: el juez pesa, entre otras cosas, lo que la deportista habría cobrado hasta el final del contrato prorrogado.
+
+Dos ideas ordenan el cuadro. Primera: pagar esa indemnización no convierte un despido nulo en improcedente. Si la discriminación se acredita, la nulidad prevalece, y con ella la readmisión, que no admite sustituirse por dinero. Segunda: lo que reduce el margen de la trabajadora no es que el club pague, sino que la nulidad no llegue a apreciarse. Ahí está la verdadera batalla probatoria.
 
 ## El ángulo que casi nadie da: el embarazo es dato de salud (art. 9 RGPD)
 
