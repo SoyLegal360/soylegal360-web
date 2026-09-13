@@ -59,7 +59,7 @@ const toc = headings.filter((h) => h.depth === 2);
 const fuentesParsed = (fuentes ?? []).map((f) => {
   const i = f.indexOf('http');
   const url = i >= 0 ? f.slice(i).trim() : '';
-  const nombre = (i >= 0 ? f.slice(0, i) : f).replace(/[—–\-\s]+$/g, '').trim();
+  const nombre = (i >= 0 ? f.slice(0, i) : f).replace(/[—–·\-\s]+$/g, '').trim();
   return { nombre, url };
 });
 
