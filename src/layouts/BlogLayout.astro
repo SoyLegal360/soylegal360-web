@@ -197,6 +197,12 @@ const faqSchema = faq.length
     .blog-article :global(a){color:var(--navy-2);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--gold);text-decoration-thickness:2px}
     .blog-article :global(a:hover){color:var(--navy)}
     .blog-article :global(strong){color:var(--navy)}
+    /* Tablas del cuerpo (markdown): bordes, cabecera navy, filas alternas y scroll horizontal en móvil */
+    .blog-article :global(table){display:block;width:100%;overflow-x:auto;margin:22px 0 0;border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.45}
+    .blog-article :global(thead th){background:var(--navy);color:#fff;text-align:left;padding:12px 14px;font-size:14px;letter-spacing:.2px;border:1px solid var(--navy)}
+    .blog-article :global(tbody td){padding:12px 14px;border:1px solid var(--line);vertical-align:top}
+    .blog-article :global(tbody td:first-child){color:var(--navy);font-weight:700;white-space:nowrap;background:var(--soft)}
+    .blog-article :global(tbody tr:nth-child(even) td:not(:first-child)){background:#fafaf7}
     /* ── FAQ visible ── */
     /* Compartir: al terminar de leer, que sea un clic */
     .blog-compartir{display:flex;flex-wrap:wrap;align-items:center;gap:14px 18px;width:min(760px,100%);margin:34px auto 0;padding:18px 22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
