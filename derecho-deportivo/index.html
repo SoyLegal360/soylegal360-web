@@ -131,10 +131,10 @@
     },
     {
       "@type": "Question",
-      "name": "¿Puede un estadio usar reconocimiento facial en los accesos?",
+      "name": "¿Puede un estadio o un gimnasio usar reconocimiento facial o huella en los accesos?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Es un terreno delicado. Un sistema que identifica a personas por su rostro contra una lista es un sistema de identificación biométrica remota, clasificado como alto riesgo por el AI Act, y además trata datos biométricos de categoría especial (art. 9 RGPD), cuyo tratamiento está prohibido salvo excepción difícil de encontrar cuando condiciona el acceso. La verificación uno a uno de un abono nominativo es un caso distinto. Ningún proyecto así debería lanzarse sin un análisis jurídico específico."
+        "text": "Es un terreno delicado, y hoy la barrera principal es el RGPD, no el AI Act. La biometría dirigida a identificar es dato de categoría especial (art. 9 RGPD): la AEPD solo la admite tras un juicio de proporcionalidad, comprobando que no hay una medida menos invasiva y con una evaluación de impacto previa. La verificación uno a uno de un abono o un socio nominativo es un caso distinto de identificar a alguien contra una lista. El AI Act, además, clasifica la identificación biométrica como alto riesgo, con obligaciones que se aplican de forma plena desde diciembre de 2027. Ningún acceso así debería lanzarse sin un análisis jurídico específico."
       }
     },
     {
@@ -158,7 +158,7 @@
       "name": "¿La analítica con IA de jugadores tiene reglas legales?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Sí. Si un sistema de IA sirve para fichar, seleccionar o evaluar el rendimiento de deportistas con efecto en su relación laboral, el AI Act lo trata como alto riesgo (Anexo III), con obligaciones reforzadas que se aplican de forma escalonada. La analítica puramente táctica no cae ahí. En todo caso, el personal que use IA debe recibir formación en alfabetización en IA (art. 4 del AI Act), que es una obligación de medios."
+        "text": "Sí. Si un sistema de IA sirve para fichar, seleccionar o evaluar el rendimiento de deportistas con efecto en su relación laboral, el AI Act lo trata como alto riesgo (Anexo III), con obligaciones reforzadas cuyo régimen pleno se aplica desde diciembre de 2027. La analítica puramente táctica no cae ahí. En todo caso, el personal que use IA debe recibir formación en alfabetización en IA (art. 4 del AI Act), que es una obligación de medios."
       }
     }
   ]
@@ -366,7 +366,7 @@ p { margin: 0; }
         <div class="sl-ss-wrap">
           <div class="sl-ss-hero__grid">
             <div>
-              <div class="sl-ss-kicker">Deportistas · Clubes · Entidades · SaaS deportivo</div>
+              <div class="sl-ss-kicker">Deportistas · Clubes y gimnasios · Entidades · SaaS deportivo</div>
               <h1>Derecho deportivo, <span style="color:#e2c684">del contrato al dato</span></h1>
               <p class="sl-ss-lead">Contratos, derechos de imagen, disciplina y federativo, con el rigor de siempre. Y algo que casi ningún despacho deportivo cubre: el blindaje de los datos y la IA que hoy mueven el deporte. Menores, fichas médicas, imagen y rendimiento, cubiertos al 360.</p>
               <div class="sl-ss-actions">
@@ -460,6 +460,7 @@ p { margin: 0; }
                   <select id="ss-profile" name="ssProfile">
                     <option value="deportista">Deportista o profesional del deporte</option>
                     <option value="club" selected>Club, entidad o federación deportiva</option>
+                    <option value="gimnasio">Gimnasio, centro o cadena deportiva</option>
                     <option value="saas">SaaS, app o tecnología deportiva</option>
                     <option value="evento">Organizador de eventos o pruebas</option>
                   </select>
@@ -566,8 +567,8 @@ p { margin: 0; }
                 <span class="sl-ss-pill sl-ss-pill--green">Según revelen salud</span>
               </div>
               <div class="sl-ss-matrix__row">
-                <div><strong>Reconocimiento facial en el acceso</strong><span>Control de aforo o listas de exclusión.</span></div>
-                <span class="sl-ss-pill sl-ss-pill--red">Alto riesgo + art. 9</span>
+                <div><strong>Reconocimiento facial o huella en el acceso</strong><span>Estadios y gimnasios: acceso, aforo o listas.</span></div>
+                <span class="sl-ss-pill sl-ss-pill--red">Art. 9 + proporcionalidad</span>
               </div>
               <div class="sl-ss-matrix__row">
                 <div><strong>Analítica con IA que decide fichajes</strong><span>Scouting predictivo y evaluación del rendimiento.</span></div>
@@ -581,7 +582,7 @@ p { margin: 0; }
         <div class="sl-ss-wrap">
           <p class="sl-ss-eyebrow">A quién ayudamos</p>
           <h2>Un mismo perímetro, cuatro puntos de vista</h2>
-          <p class="sl-ss-copy">Deportistas, clubes y entidades, plataformas tecnológicas y organizadores. Cada uno mira el deporte desde un sitio, y a cada uno le duele algo distinto.</p>
+          <p class="sl-ss-copy">Deportistas, clubes y gimnasios, entidades y federaciones, plataformas tecnológicas y organizadores. Cada uno mira el deporte desde un sitio, y a cada uno le duele algo distinto.</p>
           <div class="sl-ss-aud-grid">
             <article class="sl-ss-aud-card sl-ss-reveal">
               <img class="sl-ss-aud-icon" src="/assets/img/deportivo/card-deportista.webp" width="62" height="62" alt="" loading="lazy">
@@ -590,8 +591,8 @@ p { margin: 0; }
             </article>
             <article class="sl-ss-aud-card sl-ss-reveal">
               <img class="sl-ss-aud-icon" src="/assets/img/deportivo/card-club.webp" width="62" height="62" alt="" loading="lazy">
-              <h3>Club, entidad y federación</h3>
-              <p>El club en regla, del vestuario a la nube. Contratos con plantilla y staff, menores (consentimiento, imágenes y Delegado de protección de la LOPIVI), fichas médicas, gobernanza, disciplina y RGPD del club.</p>
+              <h3>Club, gimnasio y entidad</h3>
+              <p>Del vestuario a la nube: clubes, gimnasios, centros, cadenas, asociaciones y federaciones. Contratos con plantilla, staff y socios, menores (consentimiento, imágenes y Delegado de protección de la LOPIVI), fichas médicas, acceso biométrico, gobernanza y RGPD.</p>
             </article>
             <article class="sl-ss-aud-card sl-ss-reveal">
               <img class="sl-ss-aud-icon" src="/assets/img/deportivo/card-saas.webp" width="62" height="62" alt="" loading="lazy">
@@ -719,8 +720,8 @@ p { margin: 0; }
               <p>Depende de lo que revelen. Los datos de un wearable (frecuencia cardiaca, variabilidad, carga) son datos de salud del art. 9 RGPD cuando revelan información sobre el estado de salud de la persona. La simple posición por GPS o la distancia recorrida normalmente no lo son. Y ojo con confundir conceptos: un dato solo es biométrico del art. 9 cuando está dirigido a identificar a la persona de manera única, como el reconocimiento facial de acceso, no por medir el rendimiento.</p>
             </details>
             <details class="sl-ss-faq-item sl-ss-reveal">
-              <summary>¿Puede un estadio usar reconocimiento facial en los accesos?</summary>
-              <p>Es un terreno delicado. Un sistema que identifica a personas por su rostro contra una lista es un sistema de identificación biométrica remota, clasificado como alto riesgo por el AI Act, y además trata datos biométricos de categoría especial (art. 9 RGPD), cuyo tratamiento está prohibido salvo excepción difícil de encontrar cuando condiciona el acceso. La verificación uno a uno de un abono nominativo es un caso distinto. Ningún proyecto así debería lanzarse sin un análisis jurídico específico.</p>
+              <summary>¿Puede un estadio o un gimnasio usar reconocimiento facial o huella en los accesos?</summary>
+              <p>Es un terreno delicado, y hoy la barrera principal es el RGPD, no el AI Act. La biometría dirigida a identificar es dato de categoría especial (art. 9 RGPD): la AEPD solo la admite tras un juicio de proporcionalidad, comprobando que no hay una medida menos invasiva y con una evaluación de impacto previa. La verificación uno a uno de un abono o un socio nominativo es un caso distinto de identificar a alguien contra una lista. El AI Act, además, clasifica la identificación biométrica como alto riesgo, con obligaciones que se aplican de forma plena desde diciembre de 2027. Ningún acceso así debería lanzarse sin un análisis jurídico específico.</p>
             </details>
             <details class="sl-ss-faq-item sl-ss-reveal">
               <summary>¿Qué es la cláusula de rescisión de un deportista?</summary>
@@ -732,7 +733,7 @@ p { margin: 0; }
             </details>
             <details class="sl-ss-faq-item sl-ss-reveal">
               <summary>¿La analítica con IA de jugadores tiene reglas legales?</summary>
-              <p>Sí. Si un sistema de IA sirve para fichar, seleccionar o evaluar el rendimiento de deportistas con efecto en su relación laboral, el AI Act lo trata como alto riesgo (Anexo III), con obligaciones reforzadas que se aplican de forma escalonada. La analítica puramente táctica no cae ahí. En todo caso, el personal que use IA debe recibir formación en alfabetización en IA (art. 4 del AI Act), que es una obligación de medios.</p>
+              <p>Sí. Si un sistema de IA sirve para fichar, seleccionar o evaluar el rendimiento de deportistas con efecto en su relación laboral, el AI Act lo trata como alto riesgo (Anexo III), con obligaciones reforzadas cuyo régimen pleno se aplica desde diciembre de 2027. La analítica puramente táctica no cae ahí. En todo caso, el personal que use IA debe recibir formación en alfabetización en IA (art. 4 del AI Act), que es una obligación de medios.</p>
             </details>
           </div>
         </div>
@@ -745,7 +746,7 @@ p { margin: 0; }
               <a class="sl-ss-btn sl-ss-btn--primary" href="/contacto/?servicio=deportivo" rel="noopener">Hablar con un abogado</a>
               <a class="sl-ss-btn sl-ss-btn--ghost" href="/revision-de-contratos/" rel="noopener">Ver revisión de contratos</a>
             </div>
-            <p class="sl-ss-source">Referencias normativas: <a href="https://www.boe.es/buscar/act.php?id=BOE-A-1985-12313" target="_blank" rel="noopener">RD 1006/1985</a>, <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2022-24430" target="_blank" rel="noopener">Ley 39/2022 del Deporte</a>, <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2021-21650" target="_blank" rel="noopener">LO 11/2021 antidopaje</a>, <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2021-9347" target="_blank" rel="noopener">LO 8/2021 (LOPIVI)</a>, <a href="https://www.boe.es/buscar/act.php?id=BOE-A-1982-11196" target="_blank" rel="noopener">LO 1/1982</a>, <a href="https://www.boe.es/doue/2016/119/L00001-00088.pdf" target="_blank" rel="noopener">RGPD</a> y <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32024R1689" target="_blank" rel="noopener">AI Act (Reglamento UE 2024/1689)</a>. Servicio orientativo sujeto al análisis concreto de cada caso.</p>
+            <p class="sl-ss-source">Referencias normativas: <a href="https://www.boe.es/buscar/act.php?id=BOE-A-1985-12313" target="_blank" rel="noopener">RD 1006/1985</a>, <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2022-24430" target="_blank" rel="noopener">Ley 39/2022 del Deporte</a>, <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2021-21650" target="_blank" rel="noopener">LO 11/2021 antidopaje</a>, <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2021-9347" target="_blank" rel="noopener">LO 8/2021 (LOPIVI)</a>, <a href="https://www.boe.es/buscar/act.php?id=BOE-A-1982-11196" target="_blank" rel="noopener">LO 1/1982</a>, <a href="https://www.boe.es/doue/2016/119/L00001-00088.pdf" target="_blank" rel="noopener">RGPD</a> y <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32024R1689" target="_blank" rel="noopener">AI Act (Reglamento UE 2024/1689)</a>, con el <a href="https://www.aepd.es/informes-y-resoluciones/criterios-juridicos-aepd/adecuacion-y-proporcionalidad-sistemas-biometricos-para-autenticacion" target="_blank" rel="noopener">criterio de la AEPD sobre biometría</a>. Servicio orientativo sujeto al análisis concreto de cada caso.</p>
           </div>
         </div>
       </section>
@@ -768,7 +769,8 @@ p { margin: 0; }
     datos: '<span class="sl-ss-role-pill sl-ss-role-pill--enc">Datos</span>',
     menores: '<span class="sl-ss-role-pill sl-ss-role-pill--warn">Menores</span>',
     ia: '<span class="sl-ss-role-pill sl-ss-role-pill--warn">IA</span>',
-    gobernanza: '<span class="sl-ss-role-pill sl-ss-role-pill--resp">Gobernanza</span>'
+    gobernanza: '<span class="sl-ss-role-pill sl-ss-role-pill--resp">Gobernanza</span>',
+    acceso: '<span class="sl-ss-role-pill sl-ss-role-pill--warn">Biometría</span>'
   };
   function role(title, desc, pill) {
     return '<div class="sl-ss-role"><div><strong>' + title + '</strong><span>' + desc + '</span></div>' + pill + '</div>';
@@ -796,6 +798,12 @@ p { margin: 0; }
       roles.push(role("RGPD del club", "Bases jurídicas, información y registro de tratamientos.", PILL.datos));
       docs.push("Contratos de deportistas, técnicos y patrocinadores");
       docs.push("Paquete RGPD del club (información, bases y registro)");
+    } else if (profile === "gimnasio") {
+      summary = "Como gimnasio, centro o cadena, tu prioridad es el cumplimiento de datos de tus socios: acceso, salud y menores, más los contratos con socios y con el personal.";
+      roles.push(role("Datos y contratos de socios", "Alta de socios, información RGPD y contratos con consumidores.", PILL.datos));
+      roles.push(role("Acceso biométrico", "Huella o rostro solo con juicio de proporcionalidad (art. 9 RGPD, criterio AEPD).", PILL.acceso));
+      docs.push("Paquete RGPD del centro (socios, acceso y videovigilancia)");
+      docs.push("Análisis de proporcionalidad del acceso biométrico (art. 9 RGPD)");
     } else if (profile === "saas") {
       summary = "Como plataforma o tecnología deportiva, tu punto de partida es el mapa de roles RGPD y, si usas IA, su clasificación por riesgo.";
       roles.push(role("Mapa de roles RGPD", "Responsable, encargado o corresponsables por cada tratamiento.", PILL.datos));
