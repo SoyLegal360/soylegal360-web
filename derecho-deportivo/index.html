@@ -327,8 +327,7 @@ p { margin: 0; }
 .sl-ss-aud-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; margin-top: 42px; }
 .sl-ss-aud-card { display: flex; flex-direction: column; padding: 26px; border: 1px solid var(--line); border-top: 3px solid rgba(201, 169, 110, .4); border-radius: 8px; background: #fff; box-shadow: var(--shadow); transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
 .sl-ss-aud-card:hover { transform: translateY(-5px); border-color: rgba(201, 169, 110, .65); border-top-color: var(--gold); box-shadow: 0 28px 74px rgba(6, 20, 46, .16); }
-.sl-ss-aud-icon { display: inline-grid; place-items: center; width: 52px; height: 52px; margin-bottom: 18px; border-radius: 12px; background: linear-gradient(160deg, #0d2447, #06142e); border: 1px solid rgba(201, 169, 110, .5); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .12), 0 12px 26px rgba(6, 20, 46, .18); }
-.sl-ss-aud-icon svg { width: 26px; height: 26px; color: var(--gold-soft); }
+.sl-ss-aud-icon { display: block; width: 62px; height: 62px; margin-bottom: 18px; border-radius: 14px; box-shadow: 0 12px 26px rgba(6, 20, 46, .18); }
 .sl-ss-aud-card h3 { font-size: 21px; }
 .sl-ss-aud-card p { margin-top: 12px; color: var(--muted); font-size: 16px; }
 .sl-ss-aud-card .card-links { margin-top: auto; padding-top: 16px; }
@@ -585,37 +584,17 @@ p { margin: 0; }
           <p class="sl-ss-copy">Deportistas, clubes y entidades, plataformas tecnológicas y organizadores. Cada uno mira el deporte desde un sitio, y a cada uno le duele algo distinto.</p>
           <div class="sl-ss-aud-grid">
             <article class="sl-ss-aud-card sl-ss-reveal">
-              <span class="sl-ss-aud-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="14.5" cy="4.6" r="2"/>
-                  <path d="M13.4 8.1 9.6 10.2l2.3 2.4-1 5.1"/>
-                  <path d="M11.9 12.6 15 14l1.4 3.4"/>
-                  <path d="m9.6 10.2-2.7.5-1.5 2.3"/>
-                  <path d="m6.3 18.9 2.1-3 2.4.7"/>
-                </svg>
-              </span>
+              <img class="sl-ss-aud-icon" src="/assets/img/deportivo/card-deportista.webp" width="62" height="62" alt="" loading="lazy">
               <h3>Deportista y profesional</h3>
               <p>Tu contrato, tu imagen y tus datos, defendidos. Revisamos y negociamos el contrato, ordenamos la cesión de imagen y el patrocinio, y protegemos tus datos de salud.</p>
             </article>
             <article class="sl-ss-aud-card sl-ss-reveal">
-              <span class="sl-ss-aud-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 3.2 19 5.6v5.2c0 4.4-3 7.6-7 9.2-4-1.6-7-4.8-7-9.2V5.6Z"/>
-                  <path d="m9.4 11.6 1.9 1.9 3.4-3.8"/>
-                </svg>
-              </span>
+              <img class="sl-ss-aud-icon" src="/assets/img/deportivo/card-club.webp" width="62" height="62" alt="" loading="lazy">
               <h3>Club, entidad y federación</h3>
               <p>El club en regla, del vestuario a la nube. Contratos con plantilla y staff, menores (consentimiento, imágenes y Delegado de protección de la LOPIVI), fichas médicas, gobernanza, disciplina y RGPD del club.</p>
             </article>
             <article class="sl-ss-aud-card sl-ss-reveal">
-              <span class="sl-ss-aud-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="4" y="3.2" width="16" height="17.6" rx="2.4"/>
-                  <path d="M8 7.5h8"/>
-                  <path d="M8 12h2l1.4-2.2 1.6 4L15.4 12H16"/>
-                  <path d="M9.5 17.2h5"/>
-                </svg>
-              </span>
+              <img class="sl-ss-aud-icon" src="/assets/img/deportivo/card-saas.webp" width="62" height="62" alt="" loading="lazy">
               <h3>SaaS y tech deportivo</h3>
               <p>Tu producto deportivo, blindado. Mapa de roles RGPD, datos de wearables y biometría, e IA conforme al AI Act. Se apoya en nuestra revisión legal de plataformas.</p>
               <div class="card-links">
@@ -623,13 +602,7 @@ p { margin: 0; }
               </div>
             </article>
             <article class="sl-ss-aud-card sl-ss-reveal">
-              <span class="sl-ss-aud-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M6 3.5v17"/>
-                  <path d="M6 4.4h10.5l-1.7 3 1.7 3H6"/>
-                  <circle cx="18.2" cy="18.5" r="1.6"/>
-                </svg>
-              </span>
+              <img class="sl-ss-aud-icon" src="/assets/img/deportivo/card-evento.webp" width="62" height="62" alt="" loading="lazy">
               <h3>Evento y organizador</h3>
               <p>Tu prueba, sin sustos legales. Inscripciones y datos de participantes, cesión de imagen, certificados médicos, seguros y comunicaciones comerciales (LSSICE).</p>
             </article>
