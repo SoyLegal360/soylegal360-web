@@ -39,7 +39,8 @@
     "eipd": { opt: "Evaluación de Impacto (EIPD)", msg: "Me gustaría una Evaluación de Impacto (EIPD) para un tratamiento de mi empresa." },
     "formacion": { opt: "Formación en Protección de Datos e IA", msg: "Me gustaría formación en protección de datos e IA para mi equipo." },
     "saas": { opt: "Legal para SaaS y apps", msg: "Me gustaría una revisión legal de mi SaaS o app (contratos, privacidad y roles)." },
-    "marcas": { opt: "Marcas y nombres comerciales", msg: "Me gustaría registrar o proteger mi marca." }
+    "marcas": { opt: "Marcas y nombres comerciales", msg: "Me gustaría registrar o proteger mi marca." },
+    "deportivo": { opt: "Derecho deportivo", msg: "Me gustaría asesoramiento en derecho deportivo (contratos, imagen o datos en el deporte)." }
   };
 
   function optionExists(select, value) {
