@@ -510,7 +510,7 @@
     <div class="hero-copy hero-copy-centered">
       <p class="eyebrow">Abogados especializados en protección de datos e IA<br><span>RGPD · LOPDGDD · LSSICE · AI Act</span></p>
       <h1>Tu negocio, en regla con la protección de datos y la IA.<br><span class="hero-highlight">Cubierto al 360.</span></h1>
-      <p class="lead">Abogados que dejan en regla tu web, tu empresa y tu IA, con precios visibles. Tu área de clientes es <strong>tu equipo jurídico a un clic</strong>: un asistente resuelve lo del día a día con los abogados detrás, y tu documentación queda organizada y centralizada. Empieza por tu web: la analizamos gratis.</p>
+      <p class="lead">Abogados que dejan en regla tu web, tu empresa y tu IA, con precios visibles. Tu área de clientes es <a class="sl-lead-link" href="/area-de-clientes/#sl-area-film">tu equipo jurídico a un clic</a>: un asistente resuelve lo del día a día con los abogados detrás, y tu documentación queda organizada y centralizada. Empieza por tu web: la analizamos gratis.</p>
       <div class="actions center-actions">
         <form class="sl-quick-analyze" data-quick-analyze action="https://app.soylegal360.es" method="get" aria-label="Analiza tu web gratis">
           <input type="text" name="url" placeholder="tuweb.es" autocomplete="url" inputmode="url" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Dirección de tu web">
@@ -528,8 +528,11 @@
       /* Hero de marca (sep-2026): el titular presenta el despacho; la auditoría gratuita sigue
          siendo el CTA y las cifras de la AEPD bajan a apoyo, más pequeñas. */
       .published-hero .lead{margin:22px auto 26px;max-width:880px}
-      /* Destaca el concepto de marca del lead por PESO, sin sumar un tercer dorado */
-      .published-hero .lead strong{color:inherit;font-weight:700}
+      /* Concepto de marca del lead: enlace al área de clientes, en negrita, con subrayado dorado sutil que se anima (destello deslizante) al pasar el cursor. Sin tercer foco de color: el texto sigue claro. */
+      .published-hero .lead a.sl-lead-link{color:inherit;font-weight:700;text-decoration:none;background-image:linear-gradient(90deg,rgba(201,169,110,.6),rgba(201,169,110,.6));background-repeat:no-repeat;background-position:0 100%;background-size:100% 1.5px;padding-bottom:2px;transition:background-size .25s ease,filter .25s ease}
+      .published-hero .lead a.sl-lead-link:hover,.published-hero .lead a.sl-lead-link:focus-visible{background-image:linear-gradient(90deg,transparent,rgba(255,241,204,.95),transparent),linear-gradient(90deg,#e2c684,#c9a96e);background-size:45% 2px,100% 2px;background-position:-45% 100%,0 100%;filter:drop-shadow(0 1px 5px rgba(226,198,132,.5));animation:sl-lead-sheen 1.15s linear infinite}
+      @keyframes sl-lead-sheen{to{background-position:145% 100%,0 100%}}
+      @media(prefers-reduced-motion:reduce){.published-hero .lead a.sl-lead-link:hover,.published-hero .lead a.sl-lead-link:focus-visible{animation:none;background-image:linear-gradient(90deg,#e2c684,#c9a96e);background-size:100% 2px;background-position:0 100%}}
       /* Jerarquia de peso: el titular en regular y «Cubierto al 360» en negrita dorada,
          para que el remate de marca destaque en vez de competir. */
       .published-hero h1{font-weight:400}
