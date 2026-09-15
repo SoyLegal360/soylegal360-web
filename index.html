@@ -517,14 +517,19 @@
           <button type="submit" class="button gold">Analiza tu web gratis</button>
         </form>
       </div>
-      <p class="hero-esp" aria-label="Otras especialidades">No solo protección de datos e IA. También <a class="sl-lead-link" href="/marcas/">Marcas</a> · <a class="sl-lead-link" href="/derecho-deportivo/">Derecho deportivo</a> · <a class="sl-lead-link" href="/legal-para-saas-y-apps/">SaaS y apps</a> · <a class="sl-lead-link" href="#especialidades">y más</a>.</p>
+      <div class="hero-facts hero-esp-panel" aria-label="Otras especialidades">
+        <p class="hero-esp-panel__lead">No solo protección de datos e IA. También:</p>
+        <p class="hero-esp-panel__list"><a class="sl-lead-link" href="/marcas/">Marcas</a> · <a class="sl-lead-link" href="/derecho-deportivo/">Derecho deportivo</a> · <a class="sl-lead-link" href="/legal-para-saas-y-apps/">SaaS y apps</a> · <a class="sl-lead-link" href="#especialidades">y más</a></p>
+      </div>
     </div>
     <style>
       /* Hero de marca (sep-2026): el titular presenta el despacho; la auditoría gratuita sigue
          siendo el CTA y las cifras de la AEPD bajan a apoyo, más pequeñas. */
       .published-hero .lead{margin:22px auto 26px;max-width:880px}
-      /* Teaser de especialidades (sustituye a las cifras AEPD): línea sobria, texto claro, con la misma técnica de subrayado dorado animado en los enlaces */
-      .published-hero .hero-esp{margin:28px auto 0;max-width:820px;color:rgba(255,255,255,.9);font-size:clamp(14px,1.35vw,17px);line-height:1.7}
+      /* Especialidades dentro de la chapa interactiva del hero (reutiliza .hero-facts: cristal + glow que sigue al cursor + inclinación 3D). Contenido ordenado. */
+      .published-hero .hero-facts.hero-esp-panel{margin-top:28px;text-align:center}
+      .published-hero .hero-facts .hero-esp-panel__lead{color:rgba(255,255,255,.72);font-size:clamp(13px,1.15vw,15px);line-height:1.5;margin:0 0 8px}
+      .published-hero .hero-facts .hero-esp-panel__list{color:rgba(255,255,255,.94);font-size:clamp(15px,1.35vw,18px);line-height:1.85;margin:0}
       /* Concepto de marca del lead: enlace al área de clientes, en negrita, con subrayado dorado sutil que se anima (destello deslizante) al pasar el cursor. Sin tercer foco de color: el texto sigue claro. */
       .published-hero a.sl-lead-link{color:inherit;font-weight:700;text-decoration:none;background-image:linear-gradient(90deg,rgba(201,169,110,.6),rgba(201,169,110,.6));background-repeat:no-repeat;background-position:0 100%;background-size:100% 1.5px;padding-bottom:2px;transition:background-size .25s ease,filter .25s ease}
       .published-hero a.sl-lead-link:hover,.published-hero a.sl-lead-link:focus-visible{background-image:linear-gradient(90deg,transparent,rgba(255,241,204,.95),transparent),linear-gradient(90deg,#e2c684,#c9a96e);background-size:45% 2px,100% 2px;background-position:-45% 100%,0 100%;filter:drop-shadow(0 1px 5px rgba(226,198,132,.5));animation:sl-lead-sheen 1.15s linear infinite}
