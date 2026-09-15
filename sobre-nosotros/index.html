@@ -114,9 +114,8 @@
   </header>
   <main id="contenido">
   <nav class="sl-crumbs" aria-label="Ruta de navegación"><a href="/">Inicio</a><span class="sep">/</span><span aria-current="page">Sobre nosotros</span></nav>
-    <section class="svc-hero" style="--hero-photo: url('/assets/img/despacho/oficina-principal.webp');">
+    <section class="svc-hero" style="--hero-photo: url('/assets/img/sobre-quienes-somos.webp');">
     <div class="svc-hero__photo" aria-hidden="true"></div>
-    <video id="sl-sobre-bg" class="sl-sobre-bg" src="/assets/video/sobre-hero.mp4" autoplay playsinline preload="metadata" poster="/assets/video/sobre-hero-poster.webp" aria-hidden="true"></video>
     <div class="svc-hero__tint" aria-hidden="true"></div>
     <div class="svc-hero__aura" aria-hidden="true"></div>
     <div class="sl-hero-aurora" id="sl-hero-aurora" aria-hidden="true"></div>
@@ -132,10 +131,6 @@
       </div>
       
     </div>
-    <button type="button" class="sl-vid-sound" id="sl-sobre-sound" hidden aria-pressed="false" aria-label="Activar sonido del vídeo">
-      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="currentColor" stroke="none"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
-      <span>Activar sonido</span>
-    </button>
   </section>
   <!-- ===== SOBRE NOSOTROS - estilos embebidos ===== -->
   <style>
@@ -926,7 +921,7 @@
           <p>Leemos las normas el día que salen, no cuando llega el problema. Discutimos cómo se aplican a un negocio concreto, no en abstracto. Eso se nota en lo que recibes.</p>
         </article>
         <article class="sl-about-reveal">
-          <h3>La tecnología no nos ahorra trabajo: nos deja hacer más</h3>
+          <h3>La tecnología no nos ahorra trabajo: mejora lo que podemos hacer por ti</h3>
           <p>Nos permite seguir cada norma que cambia y bajar a un detalle que antes solo estaba al alcance de las grandes firmas. El tiempo que ganamos no se lo descontamos al servicio: lo dedicamos a pensar tu caso. Ninguna herramienta se hace cargo de un encargo, y hacerse cargo es justo lo que compromete a un profesional.</p>
         </article>
       </div>
@@ -1696,34 +1691,6 @@
   </a>
   <script src="/assets/js/chat.js?v=14" defer></script>
 <script>
-(function(){
-  var v=document.getElementById('sl-sobre-bg'),b=document.getElementById('sl-sobre-sound');
-  if(!v)return;
-  v.addEventListener('ended',function(){ try{this.pause();}catch(e){} });
-  v.muted=false; v.volume=1;
-  var p=v.play();
-  if(p&&p.catch){
-    p.catch(function(){
-      v.muted=true;
-      v.play().catch(function(){});
-      if(b){
-        b.hidden=false;
-        var t=b.querySelector('span');
-        b.addEventListener('click',function(){
-          if(v.muted){
-            v.muted=false;v.volume=1;
-            if(v.currentTime>2){try{v.currentTime=0;}catch(e){}}
-            v.play().catch(function(){});
-            b.setAttribute('aria-pressed','true');t.textContent='Silenciar';
-          }else{
-            v.muted=true;
-            b.setAttribute('aria-pressed','false');t.textContent='Activar sonido';
-          }
-        });
-      }
-    });
-  }
-})();
 (function(){
   if(!window.matchMedia('(hover:hover) and (pointer:fine)').matches)return;
   if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
