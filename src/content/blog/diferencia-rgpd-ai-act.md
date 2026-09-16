@@ -3,6 +3,7 @@ titulo: "RGPD y AI Act: diferencias y cómo conviven en tu empresa"
 meta: "Diferencia entre el RGPD y el AI Act, explicada claro: qué regula cada norma, a quién obliga, sanciones y cuándo tienes que cumplir las dos a la vez."
 slug: diferencia-rgpd-ai-act
 fecha: 2026-09-16
+imagen: /assets/img/blog/diferencia-rgpd-ai-act.webp
 publico: empresa
 keyword: "diferencia rgpd y ai act"
 cta: auditoria-ia
