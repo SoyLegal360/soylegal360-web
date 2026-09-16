@@ -224,6 +224,7 @@ const STATIC_PAGES = {
   'auditoria-ia': ['Auditoría de IA y AI Act', 'AUDITORÍA', 'assets/img/hero-ia.webp'],
   'adaptacion-web-rgpd': ['Adaptación Web RGPD', 'ADAPTACIÓN', 'assets/img/hero-despacho-torre.webp'],
   'adaptacion-empresa-rgpd': ['Adaptación RGPD de empresa completa', 'ADAPTACIÓN', 'assets/img/hero-datos.webp'],
+  'adaptacion-rgpd-autonomos': ['Adaptación RGPD para autónomos', 'ADAPTACIÓN', 'assets/img/hero-autonomos.webp'],
   'adaptacion-ia': ['Adapta tu negocio al AI Act', 'ADAPTACIÓN', 'assets/img/hero-ia.webp'],
   'proteccion-legal-continua': ['Protección Legal Continua', 'PACKS', 'assets/img/plc-hero-anillo.webp', 'east'],
   'area-de-clientes': ['Tu departamento legal, siempre encendido', 'ÁREA CLIENTES', 'assets/img/sl-app-dashboard.webp'],
