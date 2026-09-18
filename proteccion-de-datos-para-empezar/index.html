@@ -251,12 +251,22 @@
   .sl-awr-xsell__link:hover{color:#c9a96e}
   @media(max-width:640px){.sl-awr-grid,.sl-awr-steps,.sl-awr-xsell__grid{grid-template-columns:1fr}}
   @media(max-width:760px){.sl-awr-grid{grid-template-columns:1fr 1fr}}
+  /* Hero a medida: foto de la llave a color (sin grayscale), velo navy fuerte a la izquierda para el texto y ligero a la derecha para revelar la llave. Sin SVG. */
+  .svc-hero--emp{min-height:clamp(470px,64vh,580px)}
+  .svc-hero--emp .svc-hero__photo{filter:none;transform:scale(1.03)}
+  .svc-hero--emp .svc-hero__tint{background:linear-gradient(90deg,rgba(6,21,44,.97) 0%,rgba(6,21,44,.92) 30%,rgba(6,21,44,.6) 56%,rgba(6,21,44,.16) 100%),linear-gradient(180deg,rgba(6,21,44,.28),rgba(6,21,44,.5));mix-blend-mode:normal}
+  .svc-hero--emp .svc-hero__shell{grid-template-columns:1fr}
+  .svc-hero--emp .svc-hero__copy{max-width:660px}
+  @media(max-width:760px){.svc-hero--emp .svc-hero__tint{background:linear-gradient(180deg,rgba(6,21,44,.84),rgba(6,21,44,.93))}}
+  /* Iconos de cristal en las cards de fases (mismo sistema que el resto de la web: objeto flotante, sin pastilla) */
+  .sl-awr-card .sl-awr-ico{width:60px;height:60px;margin:0 0 14px;display:block;filter:drop-shadow(0 12px 20px rgba(2,10,23,.45))}
+  /* Fondo con velo (reutiliza la propuesta abstracta), muy suave bajo el degradado navy */
+  .sl-awr-includes{background:linear-gradient(160deg,rgba(13,32,64,.94) 0%,rgba(21,45,82,.9) 100%),url('/assets/img/fondos/empezando-arranque.webp') center/cover no-repeat}
   </style>
 
-    <section class="svc-hero" style="--hero-photo: url('/assets/img/hero-autonomos.webp');">
+    <section class="svc-hero svc-hero--emp" style="--hero-photo: url('/assets/img/hero-empezando.webp?v=1');">
     <div class="svc-hero__photo" aria-hidden="true"></div>
     <div class="svc-hero__tint" aria-hidden="true"></div>
-    <div class="svc-hero__aura" aria-hidden="true"></div>
     <div class="svc-hero__shell">
       <div class="svc-hero__copy">
         <p class="svc-hero__kicker">Autónomos y empresas que arrancan · Orientación inicial gratuita</p>
@@ -267,36 +277,6 @@
           <a class="svc-hero__secondary" href="#te-acompanamos">Ver por dónde empezar</a>
         </div>
         <p style="margin:14px 0 0;font:13px/1.5 Arial,Helvetica,sans-serif;color:#cfd6e4;">Toma de contacto de hasta 15 minutos, sin compromiso. No activa ninguna contratación.</p>
-      </div>
-      <div class="svc-hero__glass" aria-hidden="true">
-        <span class="svc-hero__shine"></span>
-        <svg class="svc-hero__svg" viewBox="0 0 620 560" role="presentation">
-          <defs>
-            <linearGradient id="gold-emp" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e2c684"/><stop offset="1" stop-color="#c9a96e"/></linearGradient>
-            <linearGradient id="glass-emp" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".27"/><stop offset="1" stop-color="#ffffff" stop-opacity=".07"/></linearGradient>
-            <filter id="sh-emp" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#020a17" flood-opacity=".55"/></filter>
-          </defs>
-          <g filter="url(#sh-emp)">
-            <rect x="55" y="72" width="510" height="362" rx="28" fill="url(#glass-emp)" stroke="#ffffff" stroke-opacity=".52" stroke-width="2"/>
-            <path d="M55 137H565" fill="none" stroke="#ffffff" stroke-opacity=".42" stroke-width="2"/>
-            <circle cx="91" cy="105" r="8" fill="#e2c684"/>
-            <circle cx="119" cy="105" r="8" fill="#ffffff" fill-opacity=".38"/>
-            <circle cx="147" cy="105" r="8" fill="#ffffff" fill-opacity=".22"/>
-            <rect x="184" y="94" width="321" height="23" rx="11.5" fill="#ffffff" fill-opacity=".12" stroke="#ffffff" stroke-opacity=".2"/>
-            <path d="M95 185H277M95 219H236M95 253H320" fill="none" stroke="#ffffff" stroke-opacity=".5" stroke-linecap="round" stroke-width="14"/>
-            <rect x="95" y="298" width="167" height="90" rx="14" fill="#ffffff" fill-opacity=".09" stroke="#ffffff" stroke-opacity=".22"/>
-            <path d="M118 327H226M118 351H196" fill="none" stroke="#ffffff" stroke-opacity=".36" stroke-linecap="round" stroke-width="9"/>
-          </g>
-          <g filter="url(#sh-emp)">
-            <path d="M407 187C448 214 484 218 515 220V313C515 386 469 435 407 466C345 435 299 386 299 313V220C330 218 366 214 407 187Z" fill="#06152c" fill-opacity=".86" stroke="url(#gold-emp)" stroke-width="10" stroke-linejoin="round"/>
-            <path d="M351 322L390 361L466 278" fill="none" stroke="url(#gold-emp)" stroke-linecap="round" stroke-linejoin="round" stroke-width="17"/>
-            <path d="M407 207C443 229 471 235 493 237" fill="none" stroke="#ffffff" stroke-opacity=".18" stroke-linecap="round" stroke-width="4"/>
-          </g>
-          <circle cx="520" cy="166" r="7" fill="#e2c684"/>
-          <circle cx="280" cy="428" r="5" fill="#c27b32"/>
-          <path d="M510 188C538 215 550 250 548 285" fill="none" stroke="#e2c684" stroke-dasharray="4 15" stroke-linecap="round" stroke-opacity=".48" stroke-width="4"/>
-        </svg>
-        <div class="svc-hero__seal"><span class="svc-hero__seal-mark">✓</span><span class="svc-hero__seal-copy">Desde el<br>día uno</span></div>
       </div>
     </div>
   </section>
@@ -334,26 +314,32 @@
       <p style="color:#cbd5e7;font:16px/1.6 Arial,Helvetica,sans-serif;margin:0 0 36px;max-width:720px">Tanto si empiezas como <strong style="color:#fff">autónomo</strong> (B2C) como si montas una <strong style="color:#fff">empresa o startup</strong> (B2B), te decimos qué te aplica en tu caso.</p>
       <div class="sl-awr-grid">
         <div class="sl-awr-card">
+          <img class="sl-awr-ico" src="/assets/img/servicios/adaptacion-web.webp" width="60" height="60" alt="" loading="lazy" decoding="async">
           <h3>Tienes web o tienda</h3>
           <p>Aviso legal, política de privacidad, cookies y formularios en regla desde el lanzamiento. <a href="/adaptacion-web-rgpd/" style="color:#e2c684">Adaptación Web RGPD</a>, desde 390 € + IVA.</p>
         </div>
         <div class="sl-awr-card">
+          <img class="sl-awr-ico" src="/assets/img/servicios/adaptacion-empresa.webp" width="60" height="60" alt="" loading="lazy" decoding="async">
           <h3>Tienes clientes o proveedores</h3>
           <p>Registro de actividades, cláusulas y contratos de encargo con quien trata datos por ti. <a href="/adaptacion-rgpd-autonomos/" style="color:#e2c684">Autónomos</a> o <a href="/adaptacion-empresa-rgpd/" style="color:#e2c684">empresa</a>, desde 490 € + IVA.</p>
         </div>
         <div class="sl-awr-card">
+          <img class="sl-awr-ico" src="/assets/img/servicios/auditoria-ia.webp" width="60" height="60" alt="" loading="lazy" decoding="async">
           <h3>Usas IA desde el principio</h3>
           <p>Clasificamos tus usos de IA y te decimos qué te obliga el AI Act (EU AI Act). Empieza por la <a href="/auditoria-ia/" style="color:#e2c684">Auditoría IA</a>.</p>
         </div>
         <div class="sl-awr-card">
+          <img class="sl-awr-ico" src="/assets/img/servicios/legal-saas-apps.webp" width="60" height="60" alt="" loading="lazy" decoding="async">
           <h3>Lanzas un SaaS o una app</h3>
           <p>Roles RGPD, términos y condiciones, consentimientos y encargos con proveedores. <a href="/legal-para-saas-y-apps/" style="color:#e2c684">Legal para SaaS y apps</a>.</p>
         </div>
         <div class="sl-awr-card">
+          <img class="sl-awr-ico" src="/assets/img/servicios/consultoria-proteccion-de-datos.webp" width="60" height="60" alt="" loading="lazy" decoding="async">
           <h3>Solo tienes dudas</h3>
           <p>Ni sabes por dónde empezar. Te orientamos primero sin coste y, si quieres ir al detalle, tienes la <a href="/consultoria-proteccion-de-datos/" style="color:#e2c684">consultoría</a>.</p>
         </div>
         <div class="sl-awr-card">
+          <img class="sl-awr-ico" src="/assets/img/servicios/proteccion-legal-continua.webp" width="60" height="60" alt="" loading="lazy" decoding="async">
           <h3>Y cuando creces</h3>
           <p>Seguimos a tu lado: documentación al día, consultas con abogado y alertas. <a href="/proteccion-legal-continua/" style="color:#e2c684">Protección Legal Continua</a>, desde 49 €/mes.</p>
         </div>
