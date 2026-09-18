@@ -46,6 +46,7 @@
     ".sl-aud__done{display:flex;gap:12px;align-items:flex-start;font:15px/1.5 Arial,Helvetica,sans-serif}" +
     ".sl-aud__done b{font:italic 700 20px/1.2 Georgia,serif;color:#e2c88b}" +
     ".published-hero.sl-aud-active .lead,.published-hero.sl-aud-active .eyebrow,.published-hero.sl-aud-active .hero-highlight,.published-hero.sl-aud-active .hero-facts{display:none}" +
+    ".published-hero.sl-aud-active{scroll-margin-top:130px}" +
     ".published-hero.sl-aud-active h1{font-size:clamp(24px,3vw,34px);margin-bottom:22px}" +
     "@media (max-width:560px){.sl-aud__fields{grid-template-columns:1fr}.sl-aud__glass{padding:20px 18px}.sl-aud__grade{width:56px;height:56px;font-size:32px}}" +
     "@media (prefers-reduced-motion:reduce){.sl-aud,.sl-aud__bar i{transition:none}}";
@@ -166,8 +167,10 @@
       var grade = audit.preliminaryGrade || audit.grade;
       var items = (audit.plain.risks || [])
         .map(function (r) {
+          // La seguridad técnica es una recomendación, no un fallo: va sin punto dorado.
+          var soft = r.id === "seguridad-art32";
           return (
-            '<li><span class="sl-aud__dot' + (r.confirmed ? "" : " is-open") + '"></span><span>' + esc(r.text) +
+            '<li><span class="sl-aud__dot' + (r.confirmed && !soft ? "" : " is-open") + '"></span><span>' + esc(r.text) +
             (r.confirmed ? "" : "<small>No lo hemos podido comprobar desde fuera.</small>") + "</span></li>"
           );
         })
