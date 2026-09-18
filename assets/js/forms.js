@@ -129,7 +129,7 @@
             form,
             "error",
             (err && err.message) ||
-              "No se pudo enviar. Inténtalo de nuevo o escríbenos a hola@soylegal360.es."
+              "No se pudo enviar. Inténtalo de nuevo o escríbenos a contacto@soylegal360.es."
           );
           btn.disabled = false;
           btn.textContent = label;
