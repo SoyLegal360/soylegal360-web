@@ -266,7 +266,7 @@
         })
         .catch(function () {
           submit.disabled = false;
-          status.textContent = "No se pudo enviar. Escríbenos por WhatsApp o a hola@soylegal360.es.";
+          status.textContent = "No se pudo enviar. Escríbenos por WhatsApp o a contacto@soylegal360.es.";
         });
     });
   }
