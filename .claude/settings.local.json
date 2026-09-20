@@ -44,7 +44,8 @@
       "Bash(sips -s format webp /tmp/zyro/roboto21.bin --out assets/img/hero-ia-robot.webp)",
       "Bash(ls -la assets/img/hero-ia-robot.webp)",
       "Bash(rm -f assets/img/hero-ia-robot.webp)",
-      "Bash(cp /tmp/zyro/roboto21.bin assets/img/hero-ia-robot.jpg)"
+      "Bash(cp /tmp/zyro/roboto21.bin assets/img/hero-ia-robot.jpg)",
+      "Bash(git fetch *)"
     ]
   }
 }
