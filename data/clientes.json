@@ -40,11 +40,16 @@
       "meta": "Somo · Cantabria",
       "logo": { "src": "/assets/img/spotshot-logo.webp", "ancho": 856, "alto": 200 },
       "motivo": "ola",
-      "lead": "Marketplace de fotografía de surf. **Los fotógrafos publican sus sesiones y cada surfista encuentra y compra sus fotos.**",
+      "lead": "Marketplace de fotografía de surf que conecta surfistas y fotógrafos. **Después de la sesión, cada surfista busca sus fotos por playa, fecha o escuela, elige las mejores y las descarga al instante en alta resolución.** Los fotógrafos publican gratis y se quedan el 80 % de cada venta.",
       "socios": [
         { "nombre": "Stefano Capra", "rol": "Cofundador" },
         { "nombre": "Camila Montanari", "rol": "Cofundadora" }
       ],
+      "marcas": {
+        "etiqueta": "Así funciona",
+        "duracion": "40s",
+        "items": ["Busca tu sesión", "Elige tus fotos", "Descarga al instante", "Alta resolución", "Compra sin registro", "Pago seguro con Stripe", "Publicar es gratis", "80 % para el fotógrafo"]
+      },
       "enlaces": {
         "web": { "texto": "spotshot.app", "url": "https://www.spotshot.app/" },
         "instagram": { "texto": "@spotshot.app", "url": "https://www.instagram.com/spotshot.app/" }

@@ -22,6 +22,7 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const TARGETS = [
   "index.html",
   "sobre-nosotros/index.html",
+  "clientes/index.html",
   "revision-de-contratos/index.html",
   "consultoria-legal/index.html",
   "consultoria-proteccion-de-datos/index.html",
@@ -60,22 +61,31 @@ function onda() {
   return `<svg class="sl-cl__wave" viewBox="0 0 440 48" preserveAspectRatio="none" aria-hidden="true">${bars}</svg>`;
 }
 
-// Ola de mar: motivo de los clientes del mundo del surf y el mar. Dos líneas de ola que
-// crecen hacia el centro y rompen desfasadas. Determinista, como la onda.
+// Ola de mar: motivo de los clientes del mundo del surf y el mar. Tres líneas de ola
+// periódicas que se desplazan a distinto ritmo (unas hacia un lado, otras hacia el
+// otro), como el mar. Cada línea mide un periodo más que el lienzo y se traslada
+// exactamente un periodo, así el bucle no tiene salto. La animación y el
+// desvanecido de los bordes viven en styles.css (.sl-cl__wave--ola); con
+// "reducir movimiento" se quedan quietas. Determinista, como la onda.
 function ola() {
-  const linea = (fase, amp, alpha) => {
+  const linea = (periodo, amp, y0, alpha, ancho, dur, sentido) => {
     let d = "";
-    for (let x = 0; x <= 440; x += 4) {
-      const t = x / 440;
-      const env = 0.35 + 0.65 * Math.sin(Math.PI * t) ** 0.8;
-      const y = 26 + Math.sin(x / 22 + fase) * amp * env + Math.sin(x / 9 + fase * 2) * 1.2 * env;
+    for (let x = 0; x <= 440 + periodo; x += 4) {
+      const y = y0 + Math.sin((x / periodo) * 2 * Math.PI) * amp +
+        Math.sin((x / periodo) * 6 * Math.PI) * amp * 0.12;
       d += (x ? "L" : "M") + x + " " + y.toFixed(1);
     }
-    return `<path d="${d}" fill="none" stroke="rgba(201,170,111,${alpha})" stroke-width="2" stroke-linecap="round"/>`;
+    return (
+      `<path d="${d}" fill="none" stroke="rgba(201,170,111,${alpha})" stroke-width="${ancho}" ` +
+      `stroke-linecap="round" vector-effect="non-scaling-stroke" ` +
+      `style="--p:${periodo}px;--d:${dur}s;animation-direction:${sentido}"/>`
+    );
   };
   return (
-    '<svg class="sl-cl__wave" viewBox="0 0 440 48" preserveAspectRatio="none" aria-hidden="true">' +
-    linea(0, 12, 0.55) + linea(1.9, 8, 0.3) +
+    '<svg class="sl-cl__wave sl-cl__wave--ola" viewBox="0 0 440 48" preserveAspectRatio="none" aria-hidden="true">' +
+    linea(110, 9, 24, 0.6, 2, 9, "normal") +
+    linea(146, 6, 27, 0.32, 1.5, 14, "reverse") +
+    linea(80, 3.5, 21, 0.2, 1, 7, "normal") +
     "</svg>"
   );
 }
@@ -142,8 +152,15 @@ function marcas(m) {
   ].join("\n");
 }
 
-function tarjeta(c) {
+function tarjeta(c, i, total) {
   const l = c.logo;
+  // El logo lleva a la web del cliente, igual que el enlace del pie.
+  const img = '<img src="' + esc(l.src) + '" alt="' + esc(c.nombre) + '" width="' + l.ancho +
+    '" height="' + l.alto + '" loading="lazy" decoding="async">';
+  const logo = c.enlaces?.web
+    ? '<a href="' + esc(c.enlaces.web.url) + '" target="_blank" rel="noopener" aria-label="' +
+      esc(c.nombre) + ' (web)">' + img + "</a>"
+    : img;
   const enlaces = [];
   if (c.enlaces?.web) {
     enlaces.push(
@@ -164,13 +181,13 @@ function tarjeta(c) {
     );
   }
   return [
-    '      <article class="sl-cl sl-proof__reveal">',
+    '      <article class="sl-cl" role="group" aria-roledescription="diapositiva" aria-label="' +
+      esc(c.nombre) + ", " + (i + 1) + " de " + total + '">',
     // Sin banda de marcas, los socios caerían pegados al pie: se les da el aire que
     // la banda daba con su margen. En línea para no tener que subir el ?v= del CSS.
     '        <div class="sl-cl__in"' + (tieneMarcas(c.marcas) ? "" : ' style="padding-bottom:28px"') + ">",
     '          <header class="sl-cl__top">',
-    '            <p class="sl-cl__logo"><img src="' + esc(l.src) + '" alt="' + esc(c.nombre) +
-      '" width="' + l.ancho + '" height="' + l.alto + '" loading="lazy" decoding="async"></p>',
+    '            <p class="sl-cl__logo">' + logo + "</p>",
     '            <p class="sl-cl__tag">' + esc(c.etiqueta) + "<span>" + esc(c.meta) + "</span></p>",
     "          </header>",
     '          <p class="sl-cl__lead">' + rich(c.lead) + "</p>",
@@ -189,6 +206,73 @@ function tarjeta(c) {
     .join("\n");
 }
 
+const FLECHA = (d) =>
+  '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="' +
+  (d === "prev" ? "M15 5l-7 7 7 7" : "M9 5l7 7-7 7") +
+  '" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+// Carrusel: las tarjetas van una al lado de otra en una pista con scroll-snap (el
+// dedo la arrastra sin JS). El script añade las flechas laterales, los puntos y el
+// avance automático, que se para al pasar el ratón, al enfocar dentro, con la
+// pestaña oculta, fuera de pantalla y con "reducir movimiento". Da la vuelta al
+// llegar al final. Va en línea y una sola vez por página (se marca al montarse).
+const SCRIPT = `<script>
+(function(){
+  document.querySelectorAll('[data-sl-cl]').forEach(function(root){
+    if(root.getAttribute('data-sl-cl-on')) return;
+    root.setAttribute('data-sl-cl-on','1');
+    var vp = root.querySelector('[data-sl-cl-viewport]');
+    var slides = [].slice.call(vp.querySelectorAll('.sl-cl'));
+    var dots = [].slice.call(root.querySelectorAll('[data-sl-cl-dot]'));
+    var n = slides.length; if(n < 2) return;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+    var cur = 0, hover = false, visible = true, timer = null, raf = 0;
+    function pos(i){ return slides[i].offsetLeft - slides[0].offsetLeft; }
+    function actual(){
+      var max = vp.scrollWidth - vp.clientWidth;
+      if(vp.scrollLeft >= max - 4) return n - 1;
+      var best = 0, bd = Infinity;
+      slides.forEach(function(s, i){ var d = Math.abs(pos(i) - vp.scrollLeft); if(d < bd){ bd = d; best = i; } });
+      return best;
+    }
+    function pintar(){
+      cur = actual();
+      dots.forEach(function(d, i){ if(i === cur) d.setAttribute('aria-current','true'); else d.removeAttribute('aria-current'); });
+    }
+    function ir(i){
+      i = (i + n) % n;
+      vp.scrollTo({ left: pos(i), behavior: reduce.matches ? 'auto' : 'smooth' });
+    }
+    function parar(){ clearInterval(timer); timer = null; }
+    function arrancar(){
+      parar();
+      if(reduce.matches) return;
+      timer = setInterval(function(){
+        if(hover || !visible || document.hidden || root.contains(document.activeElement)) return;
+        ir(actual() + 1);
+      }, 7000);
+    }
+    root.querySelector('[data-sl-cl-prev]').addEventListener('click', function(){ ir(actual() - 1); arrancar(); });
+    root.querySelector('[data-sl-cl-next]').addEventListener('click', function(){ ir(actual() + 1); arrancar(); });
+    dots.forEach(function(d, i){ d.addEventListener('click', function(){ ir(i); arrancar(); }); });
+    vp.addEventListener('scroll', function(){ cancelAnimationFrame(raf); raf = requestAnimationFrame(pintar); }, { passive: true });
+    vp.addEventListener('pointerdown', arrancar, { passive: true });
+    root.addEventListener('mouseenter', function(){ hover = true; });
+    root.addEventListener('mouseleave', function(){ hover = false; });
+    root.addEventListener('keydown', function(e){
+      if(e.key === 'ArrowLeft'){ e.preventDefault(); ir(actual() - 1); arrancar(); }
+      if(e.key === 'ArrowRight'){ e.preventDefault(); ir(actual() + 1); arrancar(); }
+    });
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(en){ visible = en[0].isIntersecting; }, { threshold: .25 }).observe(root);
+    }
+    if(reduce.addEventListener) reduce.addEventListener('change', arrancar);
+    root.classList.add('is-on');
+    pintar(); arrancar();
+  });
+})();
+</script>`;
+
 function main() {
   const data = JSON.parse(readFileSync(resolve(ROOT, "data/clientes.json"), "utf8"));
   const clientes = Array.isArray(data.clientes) ? data.clientes : [];
@@ -196,13 +280,32 @@ function main() {
     console.error("build-clientes: data/clientes.json no tiene clientes; abortando.");
     process.exit(1);
   }
-  // A partir de cuatro clientes la lista pasa a rejilla de dos columnas: apiladas
-  // ocuparían media página de scroll.
-  const modo = clientes.length >= 4 ? " sl-cl__list--grid" : "";
+  const varios = clientes.length > 1;
+  const controles = varios
+    ? [
+        '      <button class="sl-cl__arrow sl-cl__arrow--prev" type="button" data-sl-cl-prev aria-label="Cliente anterior">' +
+          FLECHA("prev") + "</button>",
+        '      <button class="sl-cl__arrow sl-cl__arrow--next" type="button" data-sl-cl-next aria-label="Cliente siguiente">' +
+          FLECHA("next") + "</button>",
+        '      <div class="sl-cl__dots">' +
+          clientes
+            .map((c, i) => '<button type="button" data-sl-cl-dot aria-label="Ver ' + esc(c.nombre) + '"' +
+              (i === 0 ? ' aria-current="true"' : "") + "></button>")
+            .join("") +
+          "</div>",
+      ].join("\n")
+    : "";
   const block =
-    '\n    <div class="sl-cl__list' + modo + '">\n' +
-    clientes.map(tarjeta).join("\n") +
-    "\n    </div>\n    ";
+    '\n    <div class="sl-cl__carousel' + (varios ? "" : " sl-cl__carousel--solo") +
+    ' sl-proof__reveal" data-sl-cl role="region" aria-roledescription="carrusel" aria-label="Clientes de SoyLegal360">\n' +
+    '      <div class="sl-cl__viewport" data-sl-cl-viewport>\n' +
+    '        <div class="sl-cl__track">\n' +
+    clientes.map((c, i) => tarjeta(c, i, clientes.length)).join("\n") +
+    "\n        </div>\n      </div>\n" +
+    (controles ? controles + "\n" : "") +
+    "    </div>\n" +
+    (varios ? "    " + SCRIPT + "\n" : "") +
+    "    ";
 
   let changed = 0;
   for (const rel of TARGETS) {
