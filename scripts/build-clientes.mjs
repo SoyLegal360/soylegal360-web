@@ -61,9 +61,9 @@ function onda() {
   return `<svg class="sl-cl__wave" viewBox="0 0 440 48" preserveAspectRatio="none" aria-hidden="true">${bars}</svg>`;
 }
 
-// Ola de mar: motivo de los clientes del mundo del surf y el mar. Tres líneas de ola
-// periódicas que se desplazan a distinto ritmo (unas hacia un lado, otras hacia el
-// otro), como el mar. Cada línea mide un periodo más que el lienzo y se traslada
+// Ola de mar: motivo de los clientes del mundo del surf y el mar. Dos líneas de ola
+// periódicas que se desplazan a distinto ritmo y en sentidos opuestos, como el mar.
+// (Una tercera línea fina y casi plana se quitó: se movía, pero parecía fija.) Cada línea mide un periodo más que el lienzo y se traslada
 // exactamente un periodo, así el bucle no tiene salto. La animación y el
 // desvanecido de los bordes viven en styles.css (.sl-cl__wave--ola); con
 // "reducir movimiento" se quedan quietas. Determinista, como la onda.
@@ -83,9 +83,8 @@ function ola() {
   };
   return (
     '<svg class="sl-cl__wave sl-cl__wave--ola" viewBox="0 0 440 48" preserveAspectRatio="none" aria-hidden="true">' +
-    linea(110, 9, 24, 0.6, 2, 9, "normal") +
-    linea(146, 6, 27, 0.32, 1.5, 14, "reverse") +
-    linea(80, 3.5, 21, 0.2, 1, 7, "normal") +
+    linea(110, 9, 24, 0.62, 2, 8, "normal") +
+    linea(150, 7, 25, 0.38, 1.6, 11, "reverse") +
     "</svg>"
   );
 }
