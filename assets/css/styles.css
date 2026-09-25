@@ -1905,8 +1905,6 @@ body.sl-page-contact .sl-chat-launcher__icon svg { width: 28px; height: 28px; }
 .sl-clients__head h2 .sl-brand{font-weight:700;font-size:.92em;letter-spacing:-.005em;white-space:nowrap}
 .sl-clients__head h2 .sl-brand span{color:#C9AA6F;font-weight:800}
 
-.sl-cl__list.sl-cl__list{display:flex;flex-direction:column;gap:22px;margin-top:30px}
-.sl-cl__list--grid.sl-cl__list--grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(400px,1fr));align-items:stretch}
 .sl-cl *{margin:0;padding:0;box-sizing:border-box}
 .sl-cl{--cl-navy:#06142E;--cl-navy-2:#112F58;--cl-gold:#C9AA6F;--cl-gold-soft:#D8BE83;
   position:relative;overflow:hidden;display:flex;flex-direction:column;border-radius:3px;
@@ -1968,10 +1966,56 @@ body.sl-page-contact .sl-chat-launcher__icon svg { width: 28px; height: 28px; }
   .sl-cl .sl-cl__strip{flex-direction:column;align-items:stretch;min-height:0;padding:14px 0 16px}
   .sl-cl .sl-cl__strip-lab{padding:0 20px 8px}
   .sl-cl .sl-cl__foot{padding:14px 20px 16px;gap:16px 24px}
-  .sl-cl__list--grid.sl-cl__list--grid{grid-template-columns:1fr}
+}
+/* Carrusel de clientes: tarjetas una al lado de otra, la siguiente asoma por la
+   derecha. La pista se arrastra con el dedo (scroll-snap); el script generado por
+   build-clientes.mjs añade flechas, puntos y avance automático. */
+.sl-cl__carousel{position:relative;margin-top:30px}
+.sl-cl__viewport{overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;
+  overscroll-behavior-x:contain;padding:6px 0 44px;margin-bottom:-44px}
+.sl-cl__viewport::-webkit-scrollbar{display:none}
+.sl-cl__track{display:flex;gap:22px;align-items:stretch}
+.sl-cl__track > .sl-cl{flex:0 0 88%;min-width:0;scroll-snap-align:start}
+.sl-cl__carousel--solo .sl-cl__track > .sl-cl{flex-basis:100%}
+/* Tarjetas de distinta altura: el hueco sobrante va bajo los socios, y la banda y el pie quedan abajo. */
+.sl-cl__track > .sl-cl > .sl-cl__in{flex:1 0 auto}
+.sl-cl .sl-cl__logo a{display:block;border-radius:2px}
+.sl-cl .sl-cl__logo a:focus-visible{outline:2px solid var(--cl-gold);outline-offset:4px}
+.sl-cl__arrow{position:absolute;top:calc(50% - 26px);z-index:3;display:none;place-items:center;width:52px;height:52px;
+  border:1px solid rgba(201,170,111,.75);border-radius:50%;background:#06142E;color:#D8BE83;cursor:pointer;
+  box-shadow:0 14px 34px rgba(6,21,44,.35);transition:background .2s ease,color .2s ease,transform .2s ease}
+.sl-cl__carousel.is-on .sl-cl__arrow{display:grid}
+.sl-cl__arrow svg{width:22px;height:22px}
+.sl-cl__arrow:hover{background:#C9AA6F;color:#06142E;transform:scale(1.05)}
+.sl-cl__arrow:focus-visible{outline:2px solid #C9AA6F;outline-offset:3px}
+.sl-cl__arrow--prev{left:-26px}
+.sl-cl__arrow--next{right:-26px}
+.sl-cl__dots{display:none;justify-content:center;gap:10px;margin-top:28px}
+.sl-cl__carousel.is-on .sl-cl__dots{display:flex}
+.sl-cl__dots button{width:9px;height:9px;padding:0;border:0;border-radius:99px;background:rgba(23,54,97,.28);cursor:pointer;
+  transition:width .3s ease,background .3s ease}
+.sl-cl__dots button[aria-current="true"]{width:28px;background:#C9AA6F}
+.sl-cl__dots button:focus-visible{outline:2px solid #C9AA6F;outline-offset:3px}
+/* Ola animada: cada línea se traslada un periodo (--p) en --d segundos. */
+.sl-cl .sl-cl__wave--ola{fill:none;-webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
+.sl-cl .sl-cl__wave--ola path{animation:sl-cl-ola var(--d,10s) linear infinite}
+@keyframes sl-cl-ola{from{transform:translateX(0)}to{transform:translateX(calc(-1 * var(--p,110px)))}}
+@media (max-width:900px){
+  .sl-cl__track{gap:14px}
+  .sl-cl__track > .sl-cl{flex-basis:92%}
+}
+/* Hasta 1200px no hay margen a los lados para las flechas: bajan junto a los puntos. */
+@media (max-width:1199px){
+  .sl-cl__arrow{top:auto;bottom:-8px;width:44px;height:44px}
+  .sl-cl__arrow--prev{left:0}
+  .sl-cl__arrow--next{right:0}
+  .sl-cl__dots{min-height:44px;align-items:center;margin-top:10px}
 }
 @media (prefers-reduced-motion:reduce){
   .sl-cl .sl-cl__mq-track{animation:none}
+  .sl-cl .sl-cl__wave--ola path{animation:none}
+  .sl-cl__arrow,.sl-cl__dots button{transition:none}
   .sl-cl .sl-cl__mq{overflow-x:auto;-webkit-mask-image:none;mask-image:none}
   .sl-cl .sl-cl__mq-group:last-child{display:none}
 }

@@ -97,7 +97,7 @@
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png?v=4">
   <!-- Consentimiento de cookies propio (sl360-cookies.js) + GA4 + Vercel Analytics. La analitica solo se carga si el usuario acepta la categoria de estadistica (Consent Mode v2, modo basico). Al editar el JS, subir el ?v= (cache immutable de /assets). -->
   <script defer src="/assets/js/sl360-cookies.js?v=6"></script>
-  <link rel="stylesheet" href="/assets/css/styles.css?v=108">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=109">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -418,11 +418,13 @@
       </header>
 
       <!-- CLIENTES:START -->
-    <div class="sl-cl__list">
-      <article class="sl-cl sl-proof__reveal">
+    <div class="sl-cl__carousel sl-proof__reveal" data-sl-cl role="region" aria-roledescription="carrusel" aria-label="Clientes de SoyLegal360">
+      <div class="sl-cl__viewport" data-sl-cl-viewport>
+        <div class="sl-cl__track">
+      <article class="sl-cl" role="group" aria-roledescription="diapositiva" aria-label="Nov25Studio, 1 de 2">
         <div class="sl-cl__in">
           <header class="sl-cl__top">
-            <p class="sl-cl__logo"><img src="/assets/img/nov25studio-logo.webp" alt="Nov25Studio" width="440" height="111" loading="lazy" decoding="async"></p>
+            <p class="sl-cl__logo"><a href="https://nov25studio.com/es/" target="_blank" rel="noopener" aria-label="Nov25Studio (web)"><img src="/assets/img/nov25studio-logo.webp" alt="Nov25Studio" width="440" height="111" loading="lazy" decoding="async"></a></p>
             <p class="sl-cl__tag">Cliente<span>Barcelona · desde 2014</span></p>
           </header>
           <p class="sl-cl__lead">Productora audiovisual y estudio de sonido. <b>Motion graphics, animación 2D y 3D, postproducción de vídeo, diseño sonoro y música.</b> Cuentan historias para marcas que se auditan entre ellas.</p>
@@ -457,14 +459,14 @@
           <a href="https://www.linkedin.com/company/nov25studio/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg> Nov25Studio</a>
         </div>
       </article>
-      <article class="sl-cl sl-proof__reveal">
-        <div class="sl-cl__in" style="padding-bottom:28px">
+      <article class="sl-cl" role="group" aria-roledescription="diapositiva" aria-label="SpotShot, 2 de 2">
+        <div class="sl-cl__in">
           <header class="sl-cl__top">
-            <p class="sl-cl__logo"><img src="/assets/img/spotshot-logo.webp" alt="SpotShot" width="856" height="200" loading="lazy" decoding="async"></p>
+            <p class="sl-cl__logo"><a href="https://www.spotshot.app/" target="_blank" rel="noopener" aria-label="SpotShot (web)"><img src="/assets/img/spotshot-logo.webp" alt="SpotShot" width="856" height="200" loading="lazy" decoding="async"></a></p>
             <p class="sl-cl__tag">Cliente<span>Somo · Cantabria</span></p>
           </header>
-          <p class="sl-cl__lead">Marketplace de fotografía de surf. <b>Los fotógrafos publican sus sesiones y cada surfista encuentra y compra sus fotos.</b></p>
-          <svg class="sl-cl__wave" viewBox="0 0 440 48" preserveAspectRatio="none" aria-hidden="true"><path d="M0 26.0L4 27.0L8 28.2L12 29.3L16 30.3L20 31.1L24 31.7L28 32.1L32 32.3L36 32.3L40 32.1L44 31.9L48 31.5L52 31.0L56 30.4L60 29.5L64 28.5L68 27.2L72 25.7L76 24.0L80 22.2L84 20.4L88 18.6L92 17.2L96 16.1L100 15.4L104 15.3L108 15.6L112 16.4L116 17.6L120 19.0L124 20.6L128 22.3L132 23.9L136 25.5L140 27.1L144 28.6L148 30.1L152 31.6L156 33.1L160 34.5L164 35.9L168 37.1L172 37.9L176 38.3L180 38.2L184 37.5L188 36.2L192 34.4L196 32.1L200 29.6L204 27.1L208 24.6L212 22.3L216 20.3L220 18.7L224 17.5L228 16.6L232 15.9L236 15.5L240 15.3L244 15.2L248 15.4L252 15.7L256 16.3L260 17.3L264 18.7L268 20.5L272 22.6L276 25.0L280 27.5L284 30.0L288 32.3L292 34.2L296 35.7L300 36.7L304 37.1L308 37.0L312 36.5L316 35.7L320 34.7L324 33.5L328 32.3L332 31.1L336 29.8L340 28.5L344 27.2L348 25.7L352 24.2L356 22.7L360 21.2L364 19.8L368 18.6L372 17.7L376 17.2L380 17.1L384 17.5L388 18.2L392 19.3L396 20.6L400 22.0L404 23.4L408 24.7L412 25.8L416 26.8L420 27.7L424 28.3L428 28.8L432 29.1L436 29.4L440 29.4" fill="none" stroke="rgba(201,170,111,0.55)" stroke-width="2" stroke-linecap="round"/><path d="M0 28.4L4 28.3L8 28.1L12 27.8L16 27.5L20 27.1L24 26.7L28 26.2L32 25.7L36 24.9L40 24.1L44 23.2L48 22.2L52 21.3L56 20.5L60 19.9L64 19.7L68 19.8L72 20.3L76 21.0L80 22.0L84 23.2L88 24.5L92 25.7L96 26.8L100 27.7L104 28.6L108 29.3L112 29.9L116 30.5L120 31.1L124 31.7L128 32.3L132 32.8L136 33.1L140 33.3L144 33.0L148 32.4L152 31.4L156 30.0L160 28.4L164 26.5L168 24.6L172 22.8L176 21.3L180 20.1L184 19.2L188 18.8L192 18.6L196 18.7L200 19.0L204 19.3L208 19.7L212 20.1L216 20.5L220 21.1L224 21.8L228 22.7L232 23.9L236 25.3L240 26.9L244 28.7L248 30.4L252 32.0L256 33.4L260 34.3L264 34.7L268 34.7L272 34.2L276 33.4L280 32.3L284 31.1L288 29.9L292 28.7L296 27.6L300 26.7L304 25.8L308 25.0L312 24.1L316 23.3L320 22.4L324 21.4L328 20.5L332 19.7L336 19.1L340 18.9L344 18.9L348 19.4L352 20.1L356 21.2L360 22.5L364 23.9L368 25.3L372 26.5L376 27.6L380 28.4L384 29.0L388 29.4L392 29.6L396 29.7L400 29.8L404 29.8L408 29.8L412 29.7L416 29.6L420 29.4L424 29.0L428 28.6L432 28.0L436 27.3L440 26.5" fill="none" stroke="rgba(201,170,111,0.3)" stroke-width="2" stroke-linecap="round"/></svg>
+          <p class="sl-cl__lead">Marketplace de fotografía de surf que conecta surfistas y fotógrafos. <b>Después de la sesión, cada surfista busca sus fotos por playa, fecha o escuela, elige las mejores y las descarga al instante en alta resolución.</b> Los fotógrafos publican gratis y se quedan el 80 % de cada venta.</p>
+          <svg class="sl-cl__wave sl-cl__wave--ola" viewBox="0 0 440 48" preserveAspectRatio="none" aria-hidden="true"><path d="M0 24.0L4 26.7L8 29.0L12 30.7L16 31.5L20 31.9L24 31.9L28 31.9L32 31.9L36 31.8L40 31.4L44 30.3L48 28.5L52 26.1L56 23.3L60 20.6L64 18.5L68 17.1L72 16.3L76 16.1L80 16.1L84 16.1L88 16.1L92 16.2L96 16.8L100 18.1L104 20.1L108 22.6L112 25.4L116 27.9L120 29.9L124 31.2L128 31.8L132 31.9L136 31.9L140 31.9L144 31.9L148 31.7L152 30.9L156 29.5L160 27.4L164 24.7L168 21.9L172 19.5L176 17.7L180 16.6L184 16.2L188 16.1L192 16.1L196 16.1L200 16.1L204 16.5L208 17.3L212 19.0L216 21.3L220 24.0L224 26.7L228 29.0L232 30.7L236 31.5L240 31.9L244 31.9L248 31.9L252 31.9L256 31.8L260 31.4L264 30.3L268 28.5L272 26.1L276 23.3L280 20.6L284 18.5L288 17.1L292 16.3L296 16.1L300 16.1L304 16.1L308 16.1L312 16.2L316 16.8L320 18.1L324 20.1L328 22.6L332 25.4L336 27.9L340 29.9L344 31.2L348 31.8L352 31.9L356 31.9L360 31.9L364 31.9L368 31.7L372 30.9L376 29.5L380 27.4L384 24.7L388 21.9L392 19.5L396 17.7L400 16.6L404 16.2L408 16.1L412 16.1L416 16.1L420 16.1L424 16.5L428 17.3L432 19.0L436 21.3L440 24.0L444 26.7L448 29.0L452 30.7L456 31.5L460 31.9L464 31.9L468 31.9L472 31.9L476 31.8L480 31.4L484 30.3L488 28.5L492 26.1L496 23.3L500 20.6L504 18.5L508 17.1L512 16.3L516 16.1L520 16.1L524 16.1L528 16.1L532 16.2L536 16.8L540 18.1L544 20.1L548 22.6" fill="none" stroke="rgba(201,170,111,0.6)" stroke-width="2" stroke-linecap="round" vector-effect="non-scaling-stroke" style="--p:110px;--d:9s;animation-direction:normal"/><path d="M0 27.0L4 28.4L8 29.6L12 30.7L16 31.4L20 31.9L24 32.2L28 32.3L32 32.3L36 32.3L40 32.3L44 32.3L48 32.2L52 32.0L56 31.6L60 30.9L64 29.9L68 28.7L72 27.4L76 26.0L80 24.7L84 23.6L88 22.7L92 22.2L96 21.9L100 21.7L104 21.7L108 21.7L112 21.7L116 21.7L120 21.8L124 21.9L128 22.3L132 22.9L136 23.8L140 25.0L144 26.3L148 27.7L152 29.0L156 30.2L160 31.1L164 31.7L168 32.1L172 32.2L176 32.3L180 32.3L184 32.3L188 32.3L192 32.3L196 32.1L200 31.8L204 31.3L208 30.4L212 29.3L216 28.0L220 26.6L224 25.3L228 24.1L232 23.1L236 22.4L240 22.0L244 21.8L248 21.7L252 21.7L256 21.7L260 21.7L264 21.7L268 21.8L272 22.1L276 22.6L280 23.3L284 24.4L288 25.6L292 27.0L296 28.4L300 29.6L304 30.7L308 31.4L312 31.9L316 32.2L320 32.3L324 32.3L328 32.3L332 32.3L336 32.3L340 32.2L344 32.0L348 31.6L352 30.9L356 29.9L360 28.7L364 27.4L368 26.0L372 24.7L376 23.6L380 22.7L384 22.2L388 21.9L392 21.7L396 21.7L400 21.7L404 21.7L408 21.7L412 21.8L416 21.9L420 22.3L424 22.9L428 23.8L432 25.0L436 26.3L440 27.7L444 29.0L448 30.2L452 31.1L456 31.7L460 32.1L464 32.2L468 32.3L472 32.3L476 32.3L480 32.3L484 32.3L488 32.1L492 31.8L496 31.3L500 30.4L504 29.3L508 28.0L512 26.6L516 25.3L520 24.1L524 23.1L528 22.4L532 22.0L536 21.8L540 21.7L544 21.7L548 21.7L552 21.7L556 21.7L560 21.8L564 22.1L568 22.6L572 23.3L576 24.4L580 25.6L584 27.0" fill="none" stroke="rgba(201,170,111,0.32)" stroke-width="1.5" stroke-linecap="round" vector-effect="non-scaling-stroke" style="--p:146px;--d:14s;animation-direction:reverse"/><path d="M0 21.0L4 22.4L8 23.5L12 24.0L16 24.1L20 24.1L24 24.1L28 24.0L32 23.5L36 22.4L40 21.0L44 19.6L48 18.5L52 18.0L56 17.9L60 17.9L64 17.9L68 18.0L72 18.5L76 19.6L80 21.0L84 22.4L88 23.5L92 24.0L96 24.1L100 24.1L104 24.1L108 24.0L112 23.5L116 22.4L120 21.0L124 19.6L128 18.5L132 18.0L136 17.9L140 17.9L144 17.9L148 18.0L152 18.5L156 19.6L160 21.0L164 22.4L168 23.5L172 24.0L176 24.1L180 24.1L184 24.1L188 24.0L192 23.5L196 22.4L200 21.0L204 19.6L208 18.5L212 18.0L216 17.9L220 17.9L224 17.9L228 18.0L232 18.5L236 19.6L240 21.0L244 22.4L248 23.5L252 24.0L256 24.1L260 24.1L264 24.1L268 24.0L272 23.5L276 22.4L280 21.0L284 19.6L288 18.5L292 18.0L296 17.9L300 17.9L304 17.9L308 18.0L312 18.5L316 19.6L320 21.0L324 22.4L328 23.5L332 24.0L336 24.1L340 24.1L344 24.1L348 24.0L352 23.5L356 22.4L360 21.0L364 19.6L368 18.5L372 18.0L376 17.9L380 17.9L384 17.9L388 18.0L392 18.5L396 19.6L400 21.0L404 22.4L408 23.5L412 24.0L416 24.1L420 24.1L424 24.1L428 24.0L432 23.5L436 22.4L440 21.0L444 19.6L448 18.5L452 18.0L456 17.9L460 17.9L464 17.9L468 18.0L472 18.5L476 19.6L480 21.0L484 22.4L488 23.5L492 24.0L496 24.1L500 24.1L504 24.1L508 24.0L512 23.5L516 22.4L520 21.0" fill="none" stroke="rgba(201,170,111,0.2)" stroke-width="1" stroke-linecap="round" vector-effect="non-scaling-stroke" style="--p:80px;--d:7s;animation-direction:normal"/></svg>
           <div class="sl-cl__crew">
             <div class="sl-cl__p">
               <span class="sl-cl__face"><svg viewBox="0 0 66 66" width="66" height="66" style="display:block" aria-hidden="true"><text x="33" y="33" dy=".35em" text-anchor="middle" fill="#D8BE83" font-family="Georgia,'Times New Roman',serif" font-size="23" letter-spacing="1">SC</text></svg></span>
@@ -482,12 +484,77 @@
             </div>
           </div>
         </div>
+        <div class="sl-cl__strip">
+          <span class="sl-cl__strip-lab">Así funciona</span>
+          <div class="sl-cl__mq"><div class="sl-cl__mq-track" style="--sl-cl-dur:40s"><div class="sl-cl__mq-group"><span class="sl-cl__wm">Busca tu sesión</span><span class="sl-cl__wm">Elige tus fotos</span><span class="sl-cl__wm">Descarga al instante</span><span class="sl-cl__wm">Alta resolución</span><span class="sl-cl__wm">Compra sin registro</span><span class="sl-cl__wm">Pago seguro con Stripe</span><span class="sl-cl__wm">Publicar es gratis</span><span class="sl-cl__wm">80 % para el fotógrafo</span></div><div class="sl-cl__mq-group"><span class="sl-cl__wm">Busca tu sesión</span><span class="sl-cl__wm">Elige tus fotos</span><span class="sl-cl__wm">Descarga al instante</span><span class="sl-cl__wm">Alta resolución</span><span class="sl-cl__wm">Compra sin registro</span><span class="sl-cl__wm">Pago seguro con Stripe</span><span class="sl-cl__wm">Publicar es gratis</span><span class="sl-cl__wm">80 % para el fotógrafo</span></div></div></div>
+        </div>
         <div class="sl-cl__foot">
           <a href="https://www.spotshot.app/" target="_blank" rel="noopener">spotshot.app &#8594;</a>
           <a href="https://www.instagram.com/spotshot.app/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.13 1.38A5.88 5.88 0 0 0 .63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.13a5.88 5.88 0 0 0 2.13 1.38c.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.88 5.88 0 0 0 2.13-1.38 5.88 5.88 0 0 0 1.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.88 5.88 0 0 0-1.38-2.13A5.88 5.88 0 0 0 19.86.63C19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg> @spotshot.app</a>
         </div>
       </article>
+        </div>
+      </div>
+      <button class="sl-cl__arrow sl-cl__arrow--prev" type="button" data-sl-cl-prev aria-label="Cliente anterior"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button class="sl-cl__arrow sl-cl__arrow--next" type="button" data-sl-cl-next aria-label="Cliente siguiente"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="sl-cl__dots"><button type="button" data-sl-cl-dot aria-label="Ver Nov25Studio" aria-current="true"></button><button type="button" data-sl-cl-dot aria-label="Ver SpotShot"></button></div>
     </div>
+    <script>
+(function(){
+  document.querySelectorAll('[data-sl-cl]').forEach(function(root){
+    if(root.getAttribute('data-sl-cl-on')) return;
+    root.setAttribute('data-sl-cl-on','1');
+    var vp = root.querySelector('[data-sl-cl-viewport]');
+    var slides = [].slice.call(vp.querySelectorAll('.sl-cl'));
+    var dots = [].slice.call(root.querySelectorAll('[data-sl-cl-dot]'));
+    var n = slides.length; if(n < 2) return;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+    var cur = 0, hover = false, visible = true, timer = null, raf = 0;
+    function pos(i){ return slides[i].offsetLeft - slides[0].offsetLeft; }
+    function actual(){
+      var max = vp.scrollWidth - vp.clientWidth;
+      if(vp.scrollLeft >= max - 4) return n - 1;
+      var best = 0, bd = Infinity;
+      slides.forEach(function(s, i){ var d = Math.abs(pos(i) - vp.scrollLeft); if(d < bd){ bd = d; best = i; } });
+      return best;
+    }
+    function pintar(){
+      cur = actual();
+      dots.forEach(function(d, i){ if(i === cur) d.setAttribute('aria-current','true'); else d.removeAttribute('aria-current'); });
+    }
+    function ir(i){
+      i = (i + n) % n;
+      vp.scrollTo({ left: pos(i), behavior: reduce.matches ? 'auto' : 'smooth' });
+    }
+    function parar(){ clearInterval(timer); timer = null; }
+    function arrancar(){
+      parar();
+      if(reduce.matches) return;
+      timer = setInterval(function(){
+        if(hover || !visible || document.hidden || root.contains(document.activeElement)) return;
+        ir(actual() + 1);
+      }, 7000);
+    }
+    root.querySelector('[data-sl-cl-prev]').addEventListener('click', function(){ ir(actual() - 1); arrancar(); });
+    root.querySelector('[data-sl-cl-next]').addEventListener('click', function(){ ir(actual() + 1); arrancar(); });
+    dots.forEach(function(d, i){ d.addEventListener('click', function(){ ir(i); arrancar(); }); });
+    vp.addEventListener('scroll', function(){ cancelAnimationFrame(raf); raf = requestAnimationFrame(pintar); }, { passive: true });
+    vp.addEventListener('pointerdown', arrancar, { passive: true });
+    root.addEventListener('mouseenter', function(){ hover = true; });
+    root.addEventListener('mouseleave', function(){ hover = false; });
+    root.addEventListener('keydown', function(e){
+      if(e.key === 'ArrowLeft'){ e.preventDefault(); ir(actual() - 1); arrancar(); }
+      if(e.key === 'ArrowRight'){ e.preventDefault(); ir(actual() + 1); arrancar(); }
+    });
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(en){ visible = en[0].isIntersecting; }, { threshold: .25 }).observe(root);
+    }
+    if(reduce.addEventListener) reduce.addEventListener('change', arrancar);
+    root.classList.add('is-on');
+    pintar(); arrancar();
+  });
+})();
+</script>
     <!-- CLIENTES:END -->
     </div>
   </section>
@@ -556,7 +623,7 @@
         <a href="/politica-de-privacidad/">Política de Privacidad</a>
         <a href="/politica-de-cookies/">Política de Cookies</a>
         <a href="/politica-de-cookies/" data-sl360-cookies-open>Configurar cookies</a>
-        <a href="/faqs/">Preguntas frecuentes</a><a href="/blog/">Blog</a><a href="https://clientes.soylegal360.es">Acceso clientes</a>
+        <a href="/faqs/">Preguntas frecuentes</a><a href="/clientes/">Clientes</a><a href="/blog/">Blog</a><a href="https://clientes.soylegal360.es">Acceso clientes</a>
       </section>
       <section>
         <h2>Nuestra oficina</h2>

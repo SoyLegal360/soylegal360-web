@@ -1,6 +1,6 @@
 // Genera las tarjetas de reseñas del bloque "Clientes" a partir de data/reviews.json
 // y las inyecta entre los marcadores REVIEWS:START / REVIEWS:END en las páginas que
-// muestran el bloque (home y sobre-nosotros). Fuente única de datos: data/reviews.json.
+// muestran el bloque (home, sobre-nosotros y /clientes/). Fuente única de datos: data/reviews.json.
 //
 // Uso:  node scripts/build-reviews.mjs      (reescribe los HTML trackeados)
 //       npm run reviews                      (idem)
@@ -17,7 +17,7 @@ import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-const TARGETS = ["index.html", "sobre-nosotros/index.html"];
+const TARGETS = ["index.html", "sobre-nosotros/index.html", "clientes/index.html"];
 const START = "<!-- REVIEWS:START -->";
 const END = "<!-- REVIEWS:END -->";
 

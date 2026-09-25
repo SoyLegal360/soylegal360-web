@@ -239,6 +239,7 @@ const STATIC_PAGES = {
   'retirar-contenido-redes-sociales': ['Retirada de contenido: vídeos y fotos sin tu permiso', 'PARTICULARES', 'assets/img/despacho/oficina-consulta.webp'],
   'como-funciona': ['Cómo trabajamos contigo, paso a paso', 'MÉTODO', 'assets/video/cf-abogado-poster.webp'],
   'sobre-nosotros': ['Quiénes somos y cómo trabajamos', 'NOSOTROS', 'assets/img/despacho/oficina-principal.webp'],
+  'clientes': ['Clientes y reseñas', 'CLIENTES', 'assets/img/despacho/oficina-sala-reunion.webp'],
   'contacto': ['Habla con SoyLegal360', 'CONTACTO', 'assets/img/torre-nocturna-banner.webp', 'east'],
   'marcas': ['Registro y defensa de marcas', 'MARCAS', 'assets/img/hero-marcas.webp'],
   'derecho-deportivo': ['Derecho deportivo: contratos, imagen y datos', 'DEPORTIVO', 'assets/img/hero-deportivo.webp', 'east'],
