@@ -2007,10 +2007,13 @@ body.sl-page-contact .sl-chat-launcher__icon svg { width: 28px; height: 28px; }
 .sl-cl__dots button[aria-current="true"]{width:28px;background:#C9AA6F}
 .sl-cl__dots button:focus-visible{outline:2px solid #C9AA6F;outline-offset:3px}
 /* Ola animada: cada línea se traslada un periodo (--p) en --d segundos. */
-.sl-cl .sl-cl__wave--ola{fill:none;-webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);
+.sl-cl .sl-cl__wave--ola{height:64px;margin-top:18px;fill:none;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);
   mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
 .sl-cl .sl-cl__wave--ola path{animation:sl-cl-ola var(--d,10s) linear infinite}
+.sl-cl .sl-cl__ola-capa{animation:sl-cl-swell var(--s,6s) ease-in-out infinite alternate}
 @keyframes sl-cl-ola{from{transform:translateX(0)}to{transform:translateX(calc(-1 * var(--p,110px)))}}
+@keyframes sl-cl-swell{from{transform:translateY(-1.5px)}to{transform:translateY(1.5px)}}
 @media (max-width:900px){
   .sl-cl__track{gap:14px}
   .sl-cl__track > .sl-cl{flex-basis:92%}
@@ -2024,7 +2027,7 @@ body.sl-page-contact .sl-chat-launcher__icon svg { width: 28px; height: 28px; }
 }
 @media (prefers-reduced-motion:reduce){
   .sl-cl .sl-cl__mq-track{animation:none}
-  .sl-cl .sl-cl__wave--ola path{animation:none}
+  .sl-cl .sl-cl__wave--ola path,.sl-cl .sl-cl__ola-capa{animation:none}
   .sl-cl__arrow,.sl-cl__dots button{transition:none}
   .sl-cl .sl-cl__mq{overflow-x:auto;-webkit-mask-image:none;mask-image:none}
   .sl-cl .sl-cl__mq-group:last-child{display:none}
@@ -2105,16 +2108,18 @@ body.sl-page-contact .sl-chat-launcher__icon svg { width: 28px; height: 28px; }
 .sl-app-h2, .sl-app-sub { margin-left: auto; margin-right: auto; }
 
 
-/* Escritorio estrecho: se recorta el hueco y el CTA pierde " gratis" antes de apretar. */
-@media (min-width: 981px) and (max-width: 1140px) {
+/* Escritorio estrecho (hasta 1240px): se recorta el hueco y el CTA pierde " gratis" antes de apretar. */
+@media (min-width: 981px) and (max-width: 1240px) {
   .site-nav { gap: 13px; }
   .nav-cta-extra { display: none; }
   .nav-login { padding: 0 11px; }
   .nav-cta { padding-left: 13px; padding-right: 13px; }
 }
 @media (min-width: 981px) and (max-width: 1040px) {
-  .site-nav { gap: 11px; }
-  .brand img { width: 136px; }
+  .site-nav { gap: 9px; font-size: 13.5px; }
+  .brand img { width: 132px; }
+  .nav-login { padding: 0 9px; }
+  .nav-cta { padding-left: 11px; padding-right: 11px; }
 }
 
 /* Submenús compactos (Para particulares, Nosotros), anclados al ítem */
