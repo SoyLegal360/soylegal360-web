@@ -83,8 +83,8 @@ function ola() {
   };
   return (
     '<svg class="sl-cl__wave sl-cl__wave--ola" viewBox="0 0 440 48" preserveAspectRatio="none" aria-hidden="true">' +
-    linea(110, 9, 24, 0.62, 2, 8, "normal") +
-    linea(150, 7, 25, 0.38, 1.6, 11, "reverse") +
+    linea(110, 9, 24, 0.6, 2, 9, "normal") +
+    linea(146, 6, 27, 0.32, 1.5, 14, "reverse") +
     "</svg>"
   );
 }
