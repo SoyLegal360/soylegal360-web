@@ -70,8 +70,10 @@ a { color: inherit; }
   height: auto;
   background: transparent;
 }
-.site-nav { display: flex; align-items: center; gap: 13px; font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: 400; }
+.site-nav { display: flex; align-items: center; gap: 20px; font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: 400; }
 .site-nav a, .site-nav summary { text-decoration: none; cursor: pointer; }
+/* Ningún enlace del menú se parte en dos líneas: si no cabe, antes se recorta el hueco. */
+.site-nav > a, .site-nav > details > summary { white-space: nowrap; }
 
 /* ── Links normales del nav: hover dorado + micro-lift + subrayado animado ── */
 .site-nav > a:not(.nav-cta) {
@@ -101,7 +103,13 @@ a { color: inherit; }
   align-self: center;
   background: linear-gradient(180deg, transparent, var(--line) 22%, var(--line) 78%, transparent);
 }
-.nav-login { display: inline-flex; align-items: center; gap: 7px; font-weight: 700; }
+/* Acceso privado: contorno fino, como botón secundario junto al CTA. Separa la zona
+   de clientes del menú público sin necesidad de separador. */
+.nav-login { display: inline-flex; align-items: center; gap: 7px; font-weight: 700; white-space: nowrap;
+  min-height: 40px; padding: 0 14px; border: 1px solid rgba(6,21,44,.18); border-radius: 999px;
+  transition: border-color .2s ease, color .2s ease, background .2s ease; }
+.site-nav > a.nav-login:hover { border-color: var(--copper); background: rgba(201,169,110,.08); transform: none; }
+.site-nav > a.nav-login::after { display: none; }
 .nav-login::before {
   content: '';
   flex: 0 0 auto;
@@ -1198,6 +1206,8 @@ h3 { font-size: 22px; }
     overscroll-behavior: contain;
   }
   .site-nav.is-open { display: flex; }
+  .site-nav { gap: 13px; }
+  .nav-login { align-self: flex-start; margin-top: 10px; }
   /* En columna el hairline pasa a separador horizontal a todo el ancho */
   .nav-sep { width: 100%; height: 1px; margin: 8px 0; background: linear-gradient(90deg, transparent, var(--line) 15%, var(--line) 85%, transparent); }
   .mega-menu { position: static; grid-template-columns: 1fr; width: 100%; margin-top: 12px; box-shadow: none; transform: none !important; }
@@ -2095,7 +2105,19 @@ body.sl-page-contact .sl-chat-launcher__icon svg { width: 28px; height: 28px; }
 .sl-app-h2, .sl-app-sub { margin-left: auto; margin-right: auto; }
 
 
-/* Submenú Para particulares (compacto, anclado al ítem) */
+/* Escritorio estrecho: se recorta el hueco y el CTA pierde " gratis" antes de apretar. */
+@media (min-width: 981px) and (max-width: 1140px) {
+  .site-nav { gap: 13px; }
+  .nav-cta-extra { display: none; }
+  .nav-login { padding: 0 11px; }
+  .nav-cta { padding-left: 13px; padding-right: 13px; }
+}
+@media (min-width: 981px) and (max-width: 1040px) {
+  .site-nav { gap: 11px; }
+  .brand img { width: 136px; }
+}
+
+/* Submenús compactos (Para particulares, Nosotros), anclados al ítem */
 @media (min-width: 981px) {
   .services-menu--sub { position: relative; }
   .services-menu--sub .mega-menu,
