@@ -33,6 +33,22 @@
         "web": { "texto": "nov25studio.com", "url": "https://nov25studio.com/es/" },
         "linkedin": { "texto": "Nov25Studio", "url": "https://www.linkedin.com/company/nov25studio/" }
       }
+    },
+    {
+      "nombre": "SpotShot",
+      "etiqueta": "Cliente",
+      "meta": "Somo · Cantabria",
+      "logo": { "src": "/assets/img/spotshot-logo.webp", "ancho": 856, "alto": 200 },
+      "motivo": "ola",
+      "lead": "Marketplace de fotografía de surf. **Los fotógrafos publican sus sesiones y cada surfista encuentra y compra sus fotos.**",
+      "socios": [
+        { "nombre": "Stefano Capra", "rol": "Cofundador" },
+        { "nombre": "Camila Montanari", "rol": "Cofundadora" }
+      ],
+      "enlaces": {
+        "web": { "texto": "spotshot.app", "url": "https://www.spotshot.app/" },
+        "instagram": { "texto": "@spotshot.app", "url": "https://www.instagram.com/spotshot.app/" }
+      }
     }
   ]
 }
