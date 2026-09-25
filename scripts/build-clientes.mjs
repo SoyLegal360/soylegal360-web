@@ -61,32 +61,57 @@ function onda() {
   return `<svg class="sl-cl__wave" viewBox="0 0 440 48" preserveAspectRatio="none" aria-hidden="true">${bars}</svg>`;
 }
 
-// Ola de mar: motivo de los clientes del mundo del surf y el mar. Tres líneas de ola
-// periódicas que se desplazan a distinto ritmo (unas hacia un lado, otras hacia el
-// otro), como el mar. Cada línea mide un periodo más que el lienzo y se traslada
-// exactamente un periodo, así el bucle no tiene salto. La animación y el
-// desvanecido de los bordes viven en styles.css (.sl-cl__wave--ola); con
-// "reducir movimiento" se quedan quietas. Determinista, como la onda.
-function ola() {
-  const linea = (periodo, amp, y0, alpha, ancho, dur, sentido) => {
-    let d = "";
-    for (let x = 0; x <= 440 + periodo; x += 4) {
-      const y = y0 + Math.sin((x / periodo) * 2 * Math.PI) * amp +
-        Math.sin((x / periodo) * 6 * Math.PI) * amp * 0.12;
-      d += (x ? "L" : "M") + x + " " + y.toFixed(1);
-    }
-    return (
-      `<path d="${d}" fill="none" stroke="rgba(201,170,111,${alpha})" stroke-width="${ancho}" ` +
-      `stroke-linecap="round" vector-effect="non-scaling-stroke" ` +
-      `style="--p:${periodo}px;--d:${dur}s;animation-direction:${sentido}"/>`
-    );
-  };
+// Ola de mar: motivo de los clientes del mundo del surf y el mar. Tres capas de ola con
+// profundidad (la de atrás más ancha, lenta y tenue; la de delante con un velo de agua
+// dorado debajo), que se desplazan a distinto ritmo y con un leve vaivén vertical.
+//
+// Cada línea es una trocoide, x = Pθ/2π − r·sinθ, y = y0 − r·cosθ: el perfil de una ola
+// real, con la cresta más afilada y el valle más ancho. Es periódica (periodo P) y mide
+// un periodo más que el lienzo, así que trasladarla exactamente P no tiene salto. El
+// lienzo va en unidades de píxel (1200 de ancho) y se recorta en vez de estirarse
+// (slice), para que la ola tenga la misma forma en escritorio y en móvil. La animación
+// y el desvanecido de los bordes viven en styles.css (.sl-cl__wave--ola); con "reducir
+// movimiento" se queda quieta. Determinista, como la onda.
+const OLA_ALTO = 64;
+function trocoide(P, r, y0, ancho = 1200) {
+  let d = "";
+  let x = 0;
+  for (let t = 0; x <= ancho + P + 2; t += 0.06) {
+    x = (P * t) / (2 * Math.PI) - r * Math.sin(t);
+    d += (d ? "L" : "M") + x.toFixed(1) + " " + (y0 - r * Math.cos(t)).toFixed(1);
+  }
+  return { d, xFin: x.toFixed(1) };
+}
+function ola(n = 0) {
+  const capas = [
+    // periodo, radio, altura base, opacidad, grosor, duración, sentido, vaivén (s)
+    { P: 330, r: 6, y0: 41, a: 0.2, w: 1, d: 30, dir: "reverse", s: 7.5 },
+    { P: 240, r: 9, y0: 34, a: 0.38, w: 1.3, d: 20, dir: "reverse", s: 6 },
+    { P: 175, r: 11, y0: 27, a: 0.88, w: 2, d: 13, dir: "normal", s: 5, velo: true },
+  ];
+  const id = "sl-cl-ola-v" + n;
+  const defs =
+    '<defs><linearGradient id="' + id + '" x1="0" y1="0" x2="0" y2="1">' +
+    '<stop offset="0" stop-color="#C9AA6F" stop-opacity=".22"/>' +
+    '<stop offset=".55" stop-color="#C9AA6F" stop-opacity=".06"/>' +
+    '<stop offset="1" stop-color="#C9AA6F" stop-opacity="0"/></linearGradient></defs>';
+  const capasSvg = capas
+    .map((c) => {
+      const { d, xFin } = trocoide(c.P, c.r, c.y0);
+      const anim = `style="--p:${c.P}px;--d:${c.d}s;animation-direction:${c.dir}"`;
+      const velo = c.velo
+        ? `<path d="${d}L${xFin} ${OLA_ALTO}L0 ${OLA_ALTO}Z" fill="url(#${id})" ${anim}/>`
+        : "";
+      return (
+        `<g class="sl-cl__ola-capa" style="--s:${c.s}s">` + velo +
+        `<path d="${d}" fill="none" stroke="rgba(201,170,111,${c.a})" stroke-width="${c.w}" ` +
+        `stroke-linecap="round" stroke-linejoin="round" ${anim}/></g>`
+      );
+    })
+    .join("");
   return (
-    '<svg class="sl-cl__wave sl-cl__wave--ola" viewBox="0 0 440 48" preserveAspectRatio="none" aria-hidden="true">' +
-    linea(110, 9, 24, 0.6, 2, 9, "normal") +
-    linea(146, 6, 27, 0.32, 1.5, 14, "reverse") +
-    linea(80, 3.5, 21, 0.2, 1, 7, "normal") +
-    "</svg>"
+    `<svg class="sl-cl__wave sl-cl__wave--ola" viewBox="0 0 1200 ${OLA_ALTO}" ` +
+    `preserveAspectRatio="xMinYMid slice" aria-hidden="true">` + defs + capasSvg + "</svg>"
   );
 }
 
@@ -191,7 +216,7 @@ function tarjeta(c, i, total) {
     '            <p class="sl-cl__tag">' + esc(c.etiqueta) + "<span>" + esc(c.meta) + "</span></p>",
     "          </header>",
     '          <p class="sl-cl__lead">' + rich(c.lead) + "</p>",
-    "          " + (c.motivo === "onda" ? onda() : c.motivo === "ola" ? ola() : FILETE),
+    "          " + (c.motivo === "onda" ? onda() : c.motivo === "ola" ? ola(i) : FILETE),
     '          <div class="sl-cl__crew">',
     (c.socios || []).map(socio).join("\n"),
     "          </div>",
