@@ -42,8 +42,8 @@
       "motivo": "ola",
       "lead": "Marketplace de fotografía de surf que conecta surfistas y fotógrafos. **Después de la sesión, cada surfista busca sus fotos por playa, fecha o escuela, elige las mejores y las descarga al instante en alta resolución.** Los fotógrafos publican gratis y se quedan el 80 % de cada venta.",
       "socios": [
-        { "nombre": "Stefano Capra", "rol": "Cofundador" },
-        { "nombre": "Camila Montanari", "rol": "Cofundadora" }
+        { "nombre": "Stefano Capra", "rol": "Surf · Fotografía", "bio": "Cofundador. Apasionado del surf y de la fotografía, hoy al frente de su propia plataforma, que une sus dos pasiones." },
+        { "nombre": "Camila Montanari", "rol": "Surf · Fotografía", "bio": "Cofundadora. Apasionada del surf y de la fotografía, hoy al frente de su propia plataforma, que une sus dos pasiones." }
       ],
       "marcas": {
         "etiqueta": "Así funciona",
