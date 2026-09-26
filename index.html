@@ -403,6 +403,15 @@
     .hero-video-bg { display: none; }
   }
 
+  /* En móvil, subir el analizador por encima del pliegue: el tráfico social/de pago
+     entra buscando "analiza tu web" y debe ver el campo sin hacer scroll. Solo <=560px. */
+  @media (max-width: 560px) {
+    .hero.hero-home.published-hero.hero-has-video { padding-top: 22px; }
+    .hero-home .hero-copy .eyebrow { margin-bottom: 12px; }
+    .hero-home .hero-copy h1 { font-size: 28px; line-height: 1.16; }
+    .hero-home .hero-copy .lead { font-size: 15px; line-height: 1.5; margin-top: 12px; margin-bottom: 16px; }
+  }
+
   /* ===== Sección ROI: cumplir cuesta menos que la multa mínima ===== */
   .sl-roi-section { padding: 78px 22px; background: var(--soft, #f5f7fb); }
   .sl-roi-wrap { width: min(1120px, 100%); margin: 0 auto; }
@@ -2609,6 +2618,11 @@
     document.querySelectorAll(".sl360-risk__button").forEach(function (a) {
       a.addEventListener("click", function () { ev("risk_calc_cta", { destino: "app" }); });
     });
+    // Analizador rápido del hero (campo "tuweb.es" -> app.soylegal360.es)
+    var heroAnalyze = document.querySelector("[data-quick-analyze]");
+    if (heroAnalyze) {
+      heroAnalyze.addEventListener("submit", function () { ev("hero_analyze_submit", { destino: "app" }); });
+    }
     // Sección "¿Por qué debería importarte?" (AEPD)
     var aepd = document.querySelector("[data-sl-aepd]");
     if (aepd) {
