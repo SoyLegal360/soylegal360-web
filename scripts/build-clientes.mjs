@@ -129,7 +129,7 @@ function iniciales(nombre) {
     .map((w) => w.charAt(0).toUpperCase())
     .join("");
   return (
-    '<svg viewBox="0 0 66 66" width="66" height="66" style="display:block" aria-hidden="true">' +
+    '<svg viewBox="0 0 66 66" width="100%" height="100%" style="display:block" aria-hidden="true">' +
     '<text x="33" y="33" dy=".35em" text-anchor="middle" fill="#D8BE83" ' +
     'font-family="Georgia,\'Times New Roman\',serif" font-size="23" letter-spacing="1">' +
     esc(ini) + "</text></svg>"
@@ -237,7 +237,8 @@ const FLECHA = (d) =>
   '" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
 // Carrusel: las tarjetas van una al lado de otra en una pista con scroll-snap (el
-// dedo la arrastra sin JS). El script añade las flechas laterales, los puntos y el
+// dedo la arrastra sin JS). En escritorio caben dos a la vista; si caben todas, no
+// hay carrusel que mover y los controles se ocultan (clase is-scroll). El script añade las flechas laterales, los puntos y el
 // avance automático, que se para al pasar el ratón, al enfocar dentro, con la
 // pestaña oculta, fuera de pantalla y con "reducir movimiento". Da la vuelta al
 // llegar al final. Va en línea y una sola vez por página (se marca al montarse).
@@ -268,12 +269,16 @@ const SCRIPT = `<script>
       i = (i + n) % n;
       vp.scrollTo({ left: pos(i), behavior: reduce.matches ? 'auto' : 'smooth' });
     }
+    // Si todas las tarjetas caben a la vista (p. ej. dos en escritorio), no hay nada que
+    // pasar: sin flechas, sin puntos y sin avance automático.
+    function hayScroll(){ return vp.scrollWidth - vp.clientWidth > 4; }
+    function estado(){ root.classList.toggle('is-scroll', hayScroll()); }
     function parar(){ clearInterval(timer); timer = null; }
     function arrancar(){
       parar();
       if(reduce.matches) return;
       timer = setInterval(function(){
-        if(hover || !visible || document.hidden || root.contains(document.activeElement)) return;
+        if(!hayScroll() || hover || !visible || document.hidden || root.contains(document.activeElement)) return;
         ir(actual() + 1);
       }, 7000);
     }
@@ -292,8 +297,9 @@ const SCRIPT = `<script>
       new IntersectionObserver(function(en){ visible = en[0].isIntersecting; }, { threshold: .25 }).observe(root);
     }
     if(reduce.addEventListener) reduce.addEventListener('change', arrancar);
+    var rt; window.addEventListener('resize', function(){ clearTimeout(rt); rt = setTimeout(function(){ estado(); pintar(); }, 150); });
     root.classList.add('is-on');
-    pintar(); arrancar();
+    estado(); pintar(); arrancar();
   });
 })();
 </script>`;
